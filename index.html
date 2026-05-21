@@ -37,20 +37,20 @@
             padding: 2.5rem 2rem;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start; /* จัดให้เริ่มต้นที่ด้านบน */
+            align-items: flex-start;
         }
 
-        /* --- ส่วนที่ปรับให้หย่อนและใหญ่ขึ้น --- */
+        /* --- ปรับโลโก้และใบรับรองให้อยู่คนละบรรทัด (หย่อนลงมา) --- */
         .brand-area {
             display: flex;
-            flex-direction: column; /* ทำให้โลโก้กับใบรับรองอยู่คนละบรรทัด */
+            flex-direction: column; /* เรียงเป็นแนวตั้ง */
             align-items: flex-start;
             gap: 20px; /* ระยะห่างระหว่างโลโก้กับแถบใบรับรอง */
         }
 
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem; /* ขยายขนาดโลโก้ */
+            font-size: 3.5rem; /* ปรับให้ใหญ่ขึ้น */
             font-weight: 700;
             letter-spacing: 3px;
             color: var(--brand-green);
@@ -64,10 +64,10 @@
         }
 
         .cert-box img { 
-            height: 70px; /* ขยายขนาดรูปใบรับรอง */
+            height: 70px; /* ปรับรูปไอคอนให้ใหญ่ขึ้น */
             width: auto; 
+            object-fit: contain;
         }
-        /* ---------------------------------- */
 
         .nav-links a {
             text-decoration: none;
