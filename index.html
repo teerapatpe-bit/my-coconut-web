@@ -3,57 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELI. COCONUT WATER | Premium Design</title>
+    <title>ELI. COCONUT WATER | Premium Experience</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --brand-blue: #2B6CB0;
             --text-dark: #2D3436;
-            --bg-light: #F0F4F8;
+            --bg-glass: rgba(255, 255, 255, 0.75);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            /* ตั้งค่าพื้นหลังเป็น fssc-22007.png */
+            background: linear-gradient(rgba(240, 244, 248, 0.7), rgba(217, 226, 236, 0.7)), 
+                        url('images/fssc-22007.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
-            color: var(--text-dark);
             overflow-x: hidden;
+            color: var(--text-dark);
         }
 
-        /* Navigation */
         nav {
             display: flex;
             justify-content: flex-end;
-            padding: 25px 5%;
-            gap: 25px;
+            padding: 30px 8%;
+            gap: 30px;
         }
-        nav a { 
-            text-decoration: none; 
-            color: #555; 
-            font-weight: 600;
-            font-size: 0.9rem;
-        }
+        nav a { text-decoration: none; color: #444; font-weight: 600; font-size: 0.9rem; }
 
-        .main-wrapper {
-            max-width: 1300px;
+        .container {
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 20px 5%;
+            padding: 0 8%;
             display: grid;
-            grid-template-columns: 1fr 1.2fr;
+            grid-template-columns: 1fr 1.1fr;
             align-items: center;
-            gap: 40px;
+            min-height: 80vh;
+            gap: 50px;
         }
 
-        /* ฝั่งซ้าย: แบรนด์และกล่องข้อมูล */
+        /* ส่วนซ้าย: แบรนด์และใบเซอร์ */
         .brand-section {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
         }
 
-        .brand-title {
+        .brand-logo {
             font-family: 'Montserrat', sans-serif;
             font-size: 5.5rem;
             font-weight: 900;
@@ -61,59 +61,65 @@
             color: var(--brand-blue);
         }
 
-        .brand-slogan {
+        .slogan {
+            font-size: 1.2rem;
             font-weight: 800;
-            color: #95a5a6;
-            letter-spacing: 3px;
-            font-size: 1.1rem;
+            color: #7f8c8d;
+            letter-spacing: 2.5px;
+            margin-bottom: 5px;
+        }
+
+        .cert-logos-left {
+            display: flex;
+            gap: 12px;
             margin-bottom: 20px;
         }
+        .cert-logos-left img { height: 28px; opacity: 0.9; }
 
         .info-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            border-radius: 30px;
+            background: var(--bg-glass);
+            backdrop-filter: blur(15px);
+            border-radius: 35px;
             padding: 35px;
-            width: 320px;
+            width: fit-content;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid white;
         }
 
-        .info-card h2 { font-size: 2.2rem; font-weight: 900; margin-bottom: 15px; }
+        .info-card .size-title { font-size: 2.5rem; font-weight: 900; margin-bottom: 15px; }
 
-        .check-list { list-style: none; margin-bottom: 25px; }
+        .check-list { list-style: none; margin-bottom: 20px; }
         .check-list li {
             display: flex;
             align-items: center;
             gap: 10px;
             font-weight: 700;
-            font-size: 0.95rem;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .check-list li::before { content: '✓'; color: #2ecc71; font-weight: 900; }
 
-        .btn-status {
+        .btn-present {
             width: 100%;
-            padding: 12px;
-            border: 2px solid #333;
+            padding: 10px;
+            border: 2.5px solid #000;
             border-radius: 15px;
-            background: transparent;
-            font-weight: 900;
-            font-size: 1.1rem;
             text-align: center;
+            font-weight: 900;
+            font-size: 1.2rem;
+            text-transform: lowercase;
         }
 
-        /* ฝั่งขวา: การ์ดสินค้ากระจกฝ้า */
-        .product-card {
-            background: rgba(255, 255, 255, 0.4);
+        /* ส่วนขวา: การ์ดกระจกฝ้าแสดงสินค้า */
+        .product-glass-card {
+            background: rgba(255, 255, 255, 0.45);
             backdrop-filter: blur(25px);
             border-radius: 50px;
             padding: 50px;
-            border: 1px solid rgba(255,255,255,0.5);
-            box-shadow: 0 25px 50px rgba(0,0,0,0.08);
-            position: relative;
+            border: 1px solid rgba(255,255,255,0.6);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
         }
 
-        .search-container {
+        .search-strip {
             background: #fff;
             border-radius: 20px;
             padding: 15px 25px;
@@ -121,50 +127,42 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 40px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
         }
-        .search-container span { color: var(--brand-blue); font-weight: 900; font-size: 1.5rem; }
-        .search-btn { background: var(--brand-blue); color: #fff; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
+        .search-strip span { color: var(--brand-blue); font-weight: 900; font-size: 1.5rem; }
+        .search-icon { background: var(--brand-blue); color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
 
-        .product-flex { display: flex; gap: 30px; align-items: flex-start; }
+        .product-content { display: flex; gap: 30px; align-items: flex-start; }
 
-        .product-info { flex: 1; }
-        .seo-link { color: #7f8c8d; font-weight: 700; margin-bottom: 10px; font-size: 0.9rem; }
+        .meta-text { flex: 1; }
+        .seo-url { color: #7f8c8d; font-weight: 700; font-size: 0.95rem; margin-bottom: 10px; }
         
-        .main-headline {
+        .main-promo {
             font-size: 2.8rem;
             font-weight: 900;
             color: var(--brand-blue);
             line-height: 1.1;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
-        .main-headline b { color: #e74c3c; font-size: 1.1rem; display: block; margin-top: 5px; }
+        .main-promo b { color: #e74c3c; font-size: 1.2rem; display: block; }
 
-        .price-tag { margin-bottom: 20px; }
-        .price-old { text-decoration: line-through; color: #bdc3c7; font-size: 1.8rem; margin-right: 15px; }
-        .price-current { font-size: 3rem; font-weight: 900; color: #2d3436; }
-        .price-subtext { color: var(--brand-blue); font-weight: 800; font-size: 1.3rem; margin-top: 5px; }
+        .price-area { margin-bottom: 20px; }
+        .p-old { text-decoration: line-through; color: #bdc3c7; font-size: 1.8rem; margin-right: 15px; }
+        .p-new { font-size: 3.2rem; font-weight: 900; }
+        .p-label { color: var(--brand-blue); font-weight: 900; font-size: 1.4rem; }
 
-        .stars { color: #f1c40f; font-size: 1.5rem; margin-bottom: 35px; }
+        .rating-stars { color: #f1c40f; font-size: 1.6rem; margin-top: 15px; }
 
-        .product-image {
-            width: 250px;
+        .bottle-display {
+            width: 240px;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
             transform: rotate(5deg);
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
         }
-
-        .cert-row {
-            display: flex;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .cert-row img { height: 35px; opacity: 0.8; }
 
         @media (max-width: 1024px) {
-            .main-wrapper { grid-template-columns: 1fr; text-align: center; }
+            .container { grid-template-columns: 1fr; text-align: center; }
+            .cert-logos-left { justify-content: center; }
             .info-card { margin: 0 auto; }
-            .brand-title { font-size: 4rem; }
-            .product-flex { flex-direction: column; align-items: center; }
+            .product-content { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -178,56 +176,55 @@
         <a href="#">Coll.</a>
     </nav>
 
-    <div class="main-wrapper">
+    <div class="container">
         <div class="brand-section">
             <div>
-                <h1 class="brand-title">ELI.<br>COCONUT<br>WATER</h1>
-                <p class="brand-slogan">SIP. SIP. ELEGANCE.</p>
+                <h1 class="brand-logo">ELI.<br>COCONUT<br>WATER</h1>
+                <p class="slogan">SIP. SIP. ELEGANCE.</p>
+                <div class="cert-logos-left">
+                    <img src="images/fssc-22000.png" alt="FSSC">
+                    <img src="images/fssc-22001.png" alt="HALAL">
+                    <img src="images/fssc-22002.png" alt="USDA">
+                    <img src="images/fssc-22003.pngg" alt="KOSHER">
+                    <img src="images/fssc-22004.png" alt="AWARD">
+                </div>
             </div>
 
             <div class="info-card">
-                <h2>330ml</h2>
+                <div class="size-title">330ml</div>
                 <ul class="check-list">
                     <li>100% NATURAL & PURE</li>
                     <li>ZERO ADDED SUGAR</li>
                     <li>NO PRESERVATIVES</li>
                 </ul>
-                <div class="btn-status">present</div>
+                <div class="btn-present">present</div>
             </div>
         </div>
 
-        <div class="product-card">
-            <div class="search-container">
+        <div class="product-glass-card">
+            <div class="search-strip">
                 <span>coconut water</span>
-                <div class="search-btn">🔍</div>
+                <div class="search-icon">🔍</div>
             </div>
 
-            <div class="product-flex">
-                <div class="product-info">
-                    <p class="seo-link">SEO. www.eli.co.th</p>
-                    <h2 class="main-headline">
+            <div class="product-content">
+                <div class="meta-text">
+                    <p class="seo-url">SEO. www.eli.co.th</p>
+                    <h2 class="main-promo">
                         18 months <b>ตัวหนา</b>
                         @ room temp.
                     </h2>
                     
-                    <div class="price-tag">
-                        <span class="price-old">฿5,690</span>
-                        <span class="price-current">฿3,990</span>
-                        <div class="price-subtext">prices ฿3,990</div>
+                    <div class="price-area">
+                        <span class="p-old">฿5,690</span>
+                        <span class="p-new">฿3,990</span>
+                        <div class="p-label">prices ฿3,990</div>
                     </div>
-
-                    <div class="stars">★★★★★</div>
-
-                    <div class="cert-row">
-                        <img src="images/fssc-22000.png" alt="FSSC">
-                        <img src="images/fssc-22001.png" alt="HALAL">
-                        <img src="images/fssc-22002.png" alt="USDA">
-                        <img src="images/fssc-22003.png" alt="KOSHER">
-                        <img src="images/fssc-22004.png" alt="AWARD">
-                    </div>
+                    
+                    <div class="rating-stars">★★★★★</div>
                 </div>
 
-                <img src="images/fssc-22005.png" class="product-image" alt="Eli Coconut Water">
+                <img src="images/fssc-22005.png" class="bottle-display" alt="Eli Coconut Water">
             </div>
         </div>
     </div>
