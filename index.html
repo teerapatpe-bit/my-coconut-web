@@ -9,7 +9,7 @@
     <style>
         /* CSS Variables */
         :root {
-            --bg-color: #F2EFE9;       /* สีครีมละมุนสไตล์มินิมอลพรีเมียมตามดีไซน์เว็บ */
+            --bg-color: #F2EFE9;
             --accent-bg: #F2EFE9;      
             --text-dark: #1C1D1B;      
             --text-light: #5A5A5A;
@@ -47,12 +47,11 @@
             z-index: 10;
         }
 
-        /* กล่องจัดวางแบรนด์และเครื่องหมายการค้า */
         .brand-area {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 16px; /* ระยะห่างระหว่างโลโก้ ELI กับกล่องมาตรฐาน */
+            gap: 16px;
         }
 
         .logo {
@@ -64,21 +63,19 @@
             line-height: 1;
         }
 
-        /* ✨ กล่องตรามาตรฐานสไตล์มืออาชีพ (Professional Premium Look) */
+        /* ✨ แก้ไขจุดที่ขอ: เอากรอบออกและปรับขนาดให้เด่นขึ้น */
         .cert-box {
-            background-color: transparent; /* ลบสีขาวออก เพื่อให้พื้นหลังเนียนกลืนไปกับตัวเว็บ */
-            border: 1.5px solid var(--brand-green); /* เส้นขอบสีเขียวแบรนด์เรียบหรูเด่นชัดตามแบบ */
-            padding: 12px 28px; /* เพิ่มพื้นที่ระยะห่างขอบในกล่องให้ดูโปร่งและสมมาตร */
-            border-radius: 12px; /* ความโค้งมนระดับพรีเมียม */
+            background-color: transparent;
+            border: none;
+            padding: 0;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 24px; /* เว้นระยะห่างระหว่างตราโลโก้แต่ละตัวให้เท่ากันอย่างสมบูรณ์ */
+            justify-content: flex-start;
+            gap: 30px;
         }
 
-        /* ปรับขนาดตรามาตรฐานให้ใหญ่ คมชัด และสวยงาม */
         .cert-box img {
-            height: 48px; /* ขยายขนาดความสูงให้ดูโปรและมองเห็นง่ายชัดเจน */
+            height: 60px;
             width: auto;
             object-fit: contain;
             display: block;
@@ -116,7 +113,7 @@
         .hero-content {
             flex: 1;
             padding-right: 5%;
-            padding-top: 140px; /* เว้นพื้นที่หลบแถวตราด้านบน */
+            padding-top: 140px;
             z-index: 2;
         }
 
@@ -275,43 +272,16 @@
             letter-spacing: 1px;
         }
 
-        /* Responsive UI Design */
         @media (max-width: 991px) {
-            header {
-                flex-direction: column;
-                align-items: center;
-                gap: 20px;
-            }
-            .nav-links {
-                display: none; 
-            }
-            .hero {
-                flex-direction: column;
-                padding-top: 280px;
-                text-align: center;
-            }
-            .hero-content {
-                padding-right: 0;
-                margin-bottom: 3rem;
-            }
-            .hero p {
-                margin: 0 auto 2.5rem auto;
-            }
-            .hero h1 {
-                font-size: 3.2rem;
-            }
-            .benefits-grid {
-                grid-template-columns: 1fr; 
-            }
-            .cert-box {
-                flex-wrap: wrap;
-                justify-content: center;
-                gap: 14px;
-                padding: 10px 16px;
-            }
-            .cert-box img {
-                height: 38px;
-            }
+            header { flex-direction: column; align-items: center; gap: 20px; }
+            .nav-links { display: none; }
+            .hero { flex-direction: column; padding-top: 280px; text-align: center; }
+            .hero-content { padding-right: 0; margin-bottom: 3rem; }
+            .hero p { margin: 0 auto 2.5rem auto; }
+            .hero h1 { font-size: 3.2rem; }
+            .benefits-grid { grid-template-columns: 1fr; }
+            .cert-box { flex-wrap: wrap; justify-content: center; gap: 14px; padding: 10px 16px; }
+            .cert-box img { height: 38px; }
         }
     </style>
 </head>
@@ -320,14 +290,13 @@
     <header>
         <div class="brand-area">
             <div class="logo">ELI.</div>
- <div class="cert-box">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/FSSC_22000_logo.svg/512px-FSSC_22000_logo.svg.png" alt="FSSC 22000">
-    <img src="images/fssc-22001.png" alt="Standard 2">
-    <img src="images/fssc-22002.png" alt="Standard 3">
-    <img src="images/fssc-22003.png" alt="Standard 4">
-    <img src="images/fssc-22004.png" alt="Standard 5">
-</div>
-        
+            <div class="cert-box">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/FSSC_22000_logo.svg/512px-FSSC_22000_logo.svg.png" alt="FSSC 22000">
+                <img src="images/fssc-22001.png" alt="Standard 2">
+                <img src="images/fssc-22002.png" alt="Standard 3">
+                <img src="images/fssc-22003.png" alt="Standard 4">
+                <img src="images/fssc-22004.png" alt="Standard 5">
+            </div>
         </div>
         
         <nav class="nav-links">
