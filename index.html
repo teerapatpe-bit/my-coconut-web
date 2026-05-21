@@ -2,48 +2,48 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ELI | Premium Thai Coconut Water</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
-        /* --- Root Variables --- */
         :root {
             --bg-color: #F2EFE9;
-            --accent-bg: #F2EFE9;      
             --text-dark: #1C1D1B;      
             --text-light: #5A5A5A;
             --brand-green: #2B4C3B;    
         }
 
-        /* --- Global Resets --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-dark);
-            line-height: 1.6;
             overflow-x: hidden;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* ล็อกเนื้อหาให้อยู่กลางจอเสมอ */
         }
 
-        h1, h2, h3 { font-family: 'Montserrat', sans-serif; font-weight: 600; }
+        /* ล็อกทุกส่วนให้มีความกว้างสูงสุดเท่ากัน */
+        header, section, footer {
+            width: 100%;
+            max-width: 1200px; /* ล็อกความกว้างสูงสุดไว้ที่ 1200px */
+            margin: 0 auto;
+        }
 
-        /* --- Header Section --- */
         header {
-            padding: 2.5rem 5% 1.5rem 5%;
+            padding: 2.5rem 2rem 1.5rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            background-color: transparent;
-            position: relative;
-            width: 100%;
-            z-index: 10;
         }
 
         .brand-area {
             display: flex;
-            flex-direction: column; /* แยกโลโก้และใบรับรองคนละบรรทัด */
+            flex-direction: column;
             align-items: flex-start;
             gap: 15px;
         }
@@ -54,117 +54,49 @@
             font-weight: 700;
             letter-spacing: 3px;
             color: var(--brand-green);
-            line-height: 1;
-            white-space: nowrap;
         }
 
         .cert-box {
             display: flex;
             align-items: center;
             gap: 20px;
-            flex-wrap: nowrap;
-            min-width: 300px;
         }
 
-        .cert-box img {
-            height: 50px;
-            width: auto;
-            object-fit: contain;
-            display: block;
-        }
+        .cert-box img { height: 40px; width: auto; }
 
-        /* --- Navigation --- */
         .nav-links a {
             text-decoration: none;
             color: var(--text-dark);
-            margin-left: 2.5rem;
-            font-size: 0.9rem;
+            margin-left: 2rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: color 0.3s ease;
+            font-size: 0.9rem;
         }
 
-        .nav-links a:hover { color: var(--brand-green); }
-
-        /* --- Hero Section --- */
         .hero { 
             display: flex; 
-            min-height: 100vh; 
+            min-height: 80vh; 
             align-items: center; 
-            padding: 0 5%; 
-            background-color: var(--accent-bg); 
-            position: relative; 
+            padding: 2rem; 
         }
 
-        .hero-content { flex: 1; padding-right: 5%; padding-top: 140px; z-index: 2; }
-        
-        .hero-label { 
-            font-size: 0.85rem; 
-            text-transform: uppercase; 
-            letter-spacing: 3px; 
-            color: var(--brand-green); 
-            font-weight: 600; 
-            margin-bottom: 1.5rem; 
-            display: block; 
-        }
+        .hero-content { flex: 1; }
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; text-transform: uppercase; }
+        .hero-image { flex: 1; display: flex; justify-content: flex-end; }
+        .hero-image img { width: 400px; height: 500px; object-fit: cover; border-radius: 16px; }
 
-        .hero h1 { 
-            font-size: 5rem; 
-            line-height: 1.1; 
-            margin-bottom: 1.5rem; 
-            color: var(--text-dark); 
-            text-transform: uppercase; 
-        }
+        .why-eli { padding: 4rem 2rem; text-align: center; }
+        .benefits-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 2rem; }
+        .benefit-card { background: #fff; padding: 2rem; border-radius: 8px; text-align: left; }
 
-        .hero p { font-size: 1.2rem; color: var(--text-light); margin-bottom: 2.5rem; max-width: 550px; }
+        footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: var(--text-light); }
 
-        .btn { 
-            display: inline-block; 
-            padding: 1.1rem 2.8rem; 
-            background-color: var(--brand-green); 
-            color: #fff; 
-            text-decoration: none; 
-            font-family: 'Montserrat', sans-serif; 
-            text-transform: uppercase; 
-            font-size: 0.9rem; 
-            font-weight: 600; 
-            border-radius: 4px; 
-            transition: all 0.3s ease; 
-        }
-
-        .btn:hover { background-color: #1a2f24; transform: translateY(-2px); }
-
-        .hero-image { flex: 1; display: flex; justify-content: center; align-items: center; z-index: 2; padding-top: 80px; }
-        
-        .hero-image img { 
-            max-width: 100%; 
-            height: auto; 
-            border-radius: 16px; 
-            box-shadow: 0 20px 50px rgba(0,0,0,0.06); 
-            transition: transform 0.6s ease; 
-        }
-
-        .hero-image img:hover { transform: scale(1.03); }
-
-        /* --- Benefits Section --- */
-        .why-eli { padding: 8rem 5%; background-color: #FAFAFA; }
-        .section-header { text-align: center; margin-bottom: 4rem; }
-        .section-header h2 { font-size: 2.8rem; color: var(--brand-green); margin-bottom: 0.5rem; }
-        .benefits-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 3rem; max-width: 1100px; margin: 0 auto; }
-        .benefit-card { background-color: #ffffff; padding: 3.5rem 3rem; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.02); position: relative; }
-        .benefit-number { font-size: 4rem; font-weight: 700; color: var(--brand-green); opacity: 0.08; position: absolute; top: 20px; right: 30px; }
-
-        /* --- Footer --- */
-        footer { text-align: center; padding: 3rem 5%; background-color: var(--accent-bg); font-size: 0.85rem; color: var(--text-light); }
-
-        /* --- Mobile Responsive --- */
+        /* ล็อกการแสดงผลในมือถือให้ตายตัว ไม่เปลี่ยน Layout */
         @media (max-width: 991px) {
-            header { flex-direction: column; align-items: center; gap: 20px; }
+            header { flex-direction: column; gap: 20px; }
             .nav-links { display: none; }
-            .hero { flex-direction: column; padding-top: 200px; text-align: center; }
-            .hero-content { padding-right: 0; }
-            .hero h1 { font-size: 3.2rem; }
+            .hero { flex-direction: column; text-align: center; padding-top: 50px; }
+            .hero-image img { width: 100%; height: 300px; }
             .benefits-grid { grid-template-columns: 1fr; }
         }
     </style>
@@ -175,11 +107,11 @@
         <div class="brand-area">
             <div class="logo">ELI.</div>
             <div class="cert-box">
-                <img src="images/fssc-22000.png" alt="fssc-22000">
-                <img src="images/fssc-22001.png" alt="Halal">
-                <img src="images/fssc-22002.png" alt="USDA">
-                <img src="images/fssc-22003.png" alt="Kosher">
-                <img src="images/fssc-22004.png" alt="Taste Award">
+                <img src="images/fssc-22000.png" alt="cert">
+                <img src="images/fssc-22001.png" alt="cert">
+                <img src="images/fssc-22002.png" alt="cert">
+                <img src="images/fssc-22003.png" alt="cert">
+                <img src="images/fssc-22004.png" alt="cert">
             </div>
         </div>
         
@@ -193,34 +125,24 @@
 
     <section class="hero">
         <div class="hero-content">
-            <span class="hero-label">Authentic from Thailand</span>
             <h1>Nature's Purest Hydration.</h1>
-            <p>100% Coconut Water from Thailand’s finest young coconuts. Naturally hydrating and refreshing — exactly the way nature intended.</p>
-            <a href="#" class="btn">Discover Pure</a>
+            <p>100% Coconut Water from Thailand’s finest young coconuts.</p>
         </div>
         <div class="hero-image">
-            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=1000&auto=format&fit=crop" alt="Fresh Thai Coconut">
+            <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?q=80&w=500" alt="Coconut">
         </div>
     </section>
 
     <section class="why-eli">
-        <div class="section-header">
-            <h2>Why ELI?</h2>
-        </div>
+        <h2>Why ELI?</h2>
         <div class="benefits-grid">
-            <div class="benefit-card">
-                <div class="benefit-number">01</div>
-                <h3>Perfect Climate & Soil</h3>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-number">02</div>
-                <h3>Naturally Sweet & Aromatic</h3>
-            </div>
+            <div class="benefit-card"><h3>Perfect Climate & Soil</h3></div>
+            <div class="benefit-card"><h3>Naturally Sweet & Aromatic</h3></div>
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2026 ELI COCONUT WATER. All rights reserved.</p>
+        <p>&copy; 2026 ELI COCONUT WATER.</p>
     </footer>
 
 </body>
