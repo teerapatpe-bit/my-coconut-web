@@ -12,7 +12,6 @@
             --text-dark: #1C1D1B;      
             --text-light: #5A5A5A;
             --brand-green: #2B4C3B;    
-            --brand-gold: #B5935E;
             --white: #FFFFFF;
         }
 
@@ -37,42 +36,42 @@
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 50px 0;
+            padding: 40px 0;
             gap: 20px;
         }
 
         .brand-section {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: var(--brand-green);
-            line-height: 0.8;
-            letter-spacing: -2px;
+            line-height: 1;
+            letter-spacing: -1px;
         }
 
         .cert-icons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
         }
 
         .cert-icons img {
-            height: 45px;
+            height: 40px;
             width: auto;
             object-fit: contain;
         }
 
         nav .nav-links {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             list-style: none;
-            padding-top: 15px;
+            padding-top: 10px;
         }
 
         .nav-links a {
@@ -80,86 +79,65 @@
             color: var(--text-dark);
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             letter-spacing: 1px;
             white-space: nowrap;
-            transition: color 0.3s;
         }
 
-        .nav-links a:hover { color: var(--brand-green); }
-
-        /* --- Hero / Product Showcase --- */
+        /* --- Hero Section --- */
         .hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            min-height: 70vh;
-            padding: 40px 0 100px;
-            gap: 60px;
+            min-height: 75vh;
+            padding: 40px 0 80px;
+            gap: 50px;
         }
 
-        .hero-text {
+        /* --- ส่วนจุดเด่นสินค้า (แทนที่ข้อความเดิม) --- */
+        .product-features {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        .hero-text h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            font-weight: 800;
-            line-height: 0.95;
-            margin-bottom: 30px;
-            text-transform: uppercase;
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.6rem; /* ขนาดตัวอักษรใหญ่ชัดเจน */
+            font-weight: 600;
+            color: #5D5443; /* สีน้ำตาลเข้มตามรูปภาพ */
         }
 
-        .hero-text p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 450px;
-            margin-bottom: 40px;
+        .feature-item img {
+            width: 35px; /* ขนาดไอคอนเครื่องหมายถูก */
+            height: auto;
         }
 
-        /* --- Product Card (ตามรูปภาพ) --- */
+        /* --- Product Card --- */
         .product-card {
             flex: 1;
             background: var(--white);
-            border-radius: 30px;
-            padding: 60px;
+            border-radius: 25px;
+            padding: 50px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
             text-align: center;
-            position: relative;
         }
 
-        .product-card img {
+        .product-card img.main-product {
             width: 100%;
-            max-width: 400px;
+            max-width: 380px;
             height: auto;
-            object-fit: contain;
-            margin-bottom: 30px;
-            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.08));
-        }
-
-        .product-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .product-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            color: var(--brand-green);
+            margin-bottom: 25px;
         }
 
         .price-box {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
+            margin-bottom: 20px;
         }
 
         .currency { font-size: 1.2rem; font-weight: 600; color: var(--brand-green); }
@@ -168,28 +146,26 @@
         .btn-shop {
             background-color: var(--brand-green);
             color: var(--white);
-            padding: 18px 60px;
+            padding: 15px 50px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
         }
 
         .btn-shop:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(43, 76, 59, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(43, 76, 59, 0.2);
         }
 
         /* --- Responsive --- */
-        @media (max-width: 1100px) {
-            header { flex-direction: column; }
-            .nav-links { padding-top: 20px; flex-wrap: wrap; }
-            .hero { flex-direction: column; text-align: center; }
-            .hero-text p { margin: 0 auto 40px; }
-            .product-card { width: 100%; max-width: 600px; margin: 0 auto; }
+        @media (max-width: 1024px) {
+            header { flex-direction: column; align-items: center; text-align: center; }
+            .hero { flex-direction: column; gap: 40px; }
+            .feature-item { font-size: 1.3rem; justify-content: center; }
+            .product-card { width: 100%; }
         }
     </style>
 </head>
@@ -199,7 +175,7 @@
         <header>
             <div class="brand-section">
                 <div class="logo">ELI.</div>
-              <div class="cert-box">
+                 <div class="cert-box">
                 <img src="images/fssc-22000.png" alt="cert">
                 <img src="images/fssc-22001.png" alt="cert">
                 <img src="images/fssc-22002.png" alt="cert">
@@ -211,7 +187,7 @@
             <nav>
                 <ul class="nav-links">
                     <li><a href="#">Product Overview</a></li>
-                    <li><a href="#">Factory Excellence</a></li>
+                    <li><a href="#">Factory</a></li>
                     <li><a href="#">Certification</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
@@ -219,22 +195,36 @@
         </header>
 
         <section class="hero">
-            <div class="hero-text">
-                <h1>NATURE'S<br>PUREST<br>HYDRATION.</h1>
-                <p>100% Coconut Water from Thailand’s finest young coconuts. Sip Eli, Sip Elegance.</p>
+            <div class="product-features">
+                <div class="feature-item">
+                    <img src="images/check-icon.png" alt="check"> <span>100% Natural Coconut water</span>
+                </div>
+                <div class="feature-item">
+                    <img src="images/check-icon.png" alt="check">
+                    <span>No Sugar Added</span>
+                </div>
+                <div class="feature-item">
+                    <img src="images/check-icon.png" alt="check">
+                    <span>No Artificial Flavor</span>
+                </div>
+                <div class="feature-item">
+                    <img src="images/check-icon.png" alt="check">
+                    <span>No Coloring</span>
+                </div>
+                <div class="feature-item">
+                    <img src="images/check-icon.png" alt="check">
+                    <span>No Preservatives</span>
+                </div>
             </div>
 
             <div class="product-card">
-                <img src="images/fssc-22005.png" alt="ELI Premium Coconut Water">
+                <img src="images/fssc-22005.png" alt="ELI Coconut Water" class="main-product">
                 
-                <div class="product-info">
-                    <span class="product-name">Premium Coconut Water (330ml)</span>
-                    <div class="price-box">
-                        <span class="currency">฿</span>
-                        <span class="amount">45.00</span>
-                    </div>
-                    <a href="#" class="btn-shop">Shop Now</a>
+                <div class="price-box">
+                    <span class="currency">฿</span>
+                    <span class="amount">45.00</span>
                 </div>
+                <a href="#" class="btn-shop">Shop Now</a>
             </div>
         </section>
     </div>
