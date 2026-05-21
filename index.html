@@ -1,95 +1,135 @@
 <!DOCTYPE html>
-<html lang="th">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELI | 100% Pure Coconut Water</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>ELI | Premium Thai Coconut Water</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        :root { --green: #2B4C3B; --blue: #4A90E2; --bg: #F8F7F5; }
+        :root {
+            --bg-color: #F2EFE9;
+            --text-dark: #1C1D1B;      
+            --text-light: #5A5A5A;
+            --brand-green: #2B4C3B;    
+        }
+
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--bg); color: #111; overflow-x: hidden; }
-        
-        .container { max-width: 1300px; margin: 0 auto; padding: 0 50px; }
-        header { display: flex; justify-content: space-between; align-items: center; padding: 40px 0; }
-        .logo { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; color: var(--green); letter-spacing: -2px; font-weight: 900; }
-        
-        .main-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 60px; align-items: center; min-height: 80vh; }
-        
-        /* ข้อมูลฝั่งซ้าย */
-        .cert-row { display: flex; gap: 15px; margin-bottom: 35px; }
-        .cert-row img { height: 28px; opacity: 0.7; }
-        .feat { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-size: 1.5rem; font-weight: 800; }
-        .check { color: #7ED321; font-weight: 900; }
 
-        /* ส่วนแสดงผลขวา (Interactive Area) */
-        .product-display { display: flex; flex-direction: column; align-items: center; }
-        .shelf-life { align-self: flex-start; margin-bottom: 20px; }
-        .shelf-life b { font-size: 2.5rem; color: var(--blue); display: block; font-weight: 900; } /* */
-        .shelf-life span { font-size: 1.4rem; color: var(--blue); font-weight: 700; }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            overflow-x: hidden;
+            width: 100vw;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-        /* เอฟเฟกต์ขวดลอย */
-        .bottle-wrap { height: 420px; display: flex; align-items: center; justify-content: center; }
-        .bottle-main { width: 300px; filter: drop-shadow(0 30px 50px rgba(0,0,0,0.1)); transition: 0.5s cubic-bezier(0.17, 0.67, 0.83, 0.67); animation: float 4s infinite ease-in-out; }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        header, section, footer {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-        /* กล่องขนาดแบบ Hover & Expand */
-        .size-selector { display: flex; gap: 20px; width: 100%; max-width: 500px; margin: 30px 0; }
-        .size-card { flex: 1; background: white; border-radius: 30px; padding: 30px 20px; text-align: center; cursor: pointer; border: 2px solid transparent; box-shadow: 0 10px 25px rgba(0,0,0,0.04); transition: 0.4s; }
-        .size-card:hover { transform: scale(1.1); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
-        .size-card.active { border-color: var(--green); }
-        .size-card img { height: 55px; margin-bottom: 10px; }
-        .size-card b { display: block; font-size: 1.2rem; font-weight: 900; }
-        .size-card p { font-size: 0.7rem; font-weight: 800; color: #999; text-transform: uppercase; }
+        header {
+            padding: 2.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
 
-        .btn-shop { background: var(--green); color: white; width: 100%; max-width: 500px; padding: 24px; border-radius: 100px; text-decoration: none; font-weight: 900; text-align: center; text-transform: uppercase; letter-spacing: 2px; transition: 0.3s; }
-        .btn-shop:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(43,76,59,0.3); }
+        /* --- ส่วนที่ปรับให้โลโก้และใบรับรองหย่อนลงมาเป็นแนวตั้ง --- */
+        .brand-area {
+            display: flex;
+            flex-direction: column; /* เปลี่ยนจาก row เป็น column เพื่อให้หย่อนลงมาคนละบรรทัด */
+            align-items: flex-start;
+            gap: 20px; /* ระยะห่างระหว่างโลโก้กับแถบใบรับรอง */
+        }
 
-        @media (max-width: 1000px) { .main-grid { grid-template-columns: 1fr; text-align: center; } .cert-row, .feat { justify-content: center; } .shelf-life { align-self: center; } }
+        .logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem; /* ขนาดใหญ่ขึ้น */
+            font-weight: 700;
+            letter-spacing: 3px; 
+            color: var(--brand-green);
+            line-height: 1;
+        }
+
+        .cert-box {
+            display: flex;
+            align-items: center;
+            gap: 25px; /* ระยะห่างระหว่างไอคอนแต่ละตัว */
+        }
+
+        .cert-box img { 
+            height: 70px; /* ขนาดไอคอนใหญ่ขึ้น */
+            width: auto; 
+            object-fit: contain;
+        }
+        /* ----------------------------------------------------- */
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            margin-left: 2rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        .hero { display: flex; min-height: 70vh; align-items: center; padding: 2rem; }
+        .hero-content { flex: 1; }
+        .hero h1 { font-size: 4rem; line-height: 1.1; margin-bottom: 1.5rem; text-transform: uppercase; }
+        .hero-image { flex: 1; display: flex; justify-content: flex-end; }
+        .hero-image img { width: 400px; height: 500px; object-fit: cover; border-radius: 16px; }
+
+        footer { text-align: center; padding: 2rem; font-size: 0.8rem; color: var(--text-light); }
+
+        @media (max-width: 991px) {
+            header { flex-direction: column; align-items: center; text-align: center; }
+            .nav-links { display: none; }
+            .hero { flex-direction: column; text-align: center; padding-top: 50px; }
+            .cert-box { flex-wrap: wrap; justify-content: center; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
+
+    <header>
+        <div class="brand-area">
             <div class="logo">ELI.</div>
-        </header>
-        <main class="main-grid">
-            <div class="left">
-                <div class="cert-row">
-                    <img src="images/fssc.png" alt="FSSC"> <img src="images/halal.png" alt="Halal"> 
-                    <img src="images/usda.png" alt="USDA"> <img src="images/kosher.png" alt="Kosher"> 
-                    <img src="images/sgs.png" alt="SGS">
-                </div>
-                <div class="feat"><span class="check">✓</span> 100% Natural Coconut water</div>
-                <div class="feat"><span class="check">✓</span> No Sugar Added</div>
-                <div class="feat"><span class="check">✓</span> No Preservatives</div>
-            </div>
-            <div class="product-display">
-                <div class="shelf-life"><b>18 months</b><span>@ room temp.</span></div>
-                <div class="bottle-wrap">
-                    <img src="images/bottle-330.png" id="mainBottle" class="bottle-main">
-                </div>
-                <div class="size-selector">
-                    <div class="size-card active" onmouseover="changeImg('330ml')" onclick="setActive(this)">
-                        <img src="images/bottle-330.png"><b>330ml</b><p>Present</p>
-                    </div>
-                    <div class="size-card" onmouseover="changeImg('1000ml')" onclick="setActive(this)">
-                        <img src="images/bottle-1000.png" style="transform: scale(1.2)"><b>1000ml</b><p>Future</p>
-                    </div>
-                </div>
-                <a href="#" class="btn-shop">Shop Now</a>
-            </div>
-        </main>
-    </div>
-    <script>
-        function changeImg(size) {
-            const img = document.getElementById('mainBottle');
-            img.style.transform = (size === '1000ml') ? 'scale(1.15)' : 'scale(1)';
-        }
-        function setActive(el) {
-            document.querySelectorAll('.size-card').forEach(c => c.classList.remove('active'));
-            el.classList.add('active');
-        }
-    </script>
+            <div class="cert-box">
+                <img src="images/fssc-22000.png" alt="cert">
+                <img src="images/fssc-22001.png" alt="cert">
+                <img src="images/fssc-22002.png" alt="cert">
+                <img src="images/fssc-22003.png" alt="cert">
+                <img src="images/fssc-22004.png" alt="cert">
+             </div>
+        </div>
+        
+        <nav class="nav-links">
+            <a href="#">Our Story</a>
+            <a href="#">Products</a>
+            <a href="#">Sustainability</a>
+            <a href="#">Shop</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Nature's Purest Hydration.</h1>
+            <p>100% Coconut Water from Thailand’s finest young coconuts.</p>
+        </div>
+        <div class="hero-image">
+           
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2026 ELI COCONUT WATER.</p>
+    </footer>
+
 </body>
 </html>
