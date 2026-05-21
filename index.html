@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ever good partne.co ltd | 100% Pure Coconut Water</title>
+    <title>ever good partne.co ltd | Premium Coconut Water</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@900&display=swap" rel="stylesheet">
     <style>
         :root { 
             --brand-green: #2B4C3B; 
             --accent-blue: #4A90E2;
-            --bg-overlay: rgba(255, 255, 255, 0.82); /* ปรับให้สว่างและเนียนขึ้น */
+            --bg-overlay: rgba(255, 255, 255, 0.85); 
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -17,118 +17,92 @@
         body { 
             font-family: 'Inter', sans-serif; 
             color: #111; 
-            line-height: 1.4;
-            /* พื้นหลัง fssc-22007.png แบบจางพรีเมียม */
             background-image: linear-gradient(var(--bg-overlay), var(--bg-overlay)), url('images/fssc-22007.png');
             background-attachment: fixed;
             background-position: center;
-            background-repeat: no-repeat;
             background-size: contain;
         }
 
-        /* ส่วนหัวแบรนด์ตามรูปที่ส่งมา */
         header {
             width: 100%;
-            padding: 70px 100px 20px 100px;
+            padding: 60px 80px 20px 80px;
             max-width: 1600px;
             margin: 0 auto;
         }
 
+        /* ลดขนาดตัวอักษรจากเดิม เพื่อความสมส่วน */
         .brand { 
             font-family: 'Montserrat', sans-serif; 
-            font-size: 5.8rem; /* ขนาดใหญ่พิเศษตามภาพ */
+            font-size: 4.8rem; 
             color: var(--brand-green); 
             font-weight: 900; 
-            letter-spacing: -4px; 
-            line-height: 0.85; 
-            text-transform: lowercase; /* ตัวพิมพ์เล็กทั้งหมดตามดีไซน์ใหม่ */
+            letter-spacing: -2px; 
+            line-height: 1; 
+            text-transform: lowercase;
         }
 
+        /* เพิ่มขนาดกลุ่มโลโก้ใบเซอร์ให้ดูสมดุลกับชื่อบริษัท */
         .cert-icons { 
             display: flex; 
-            gap: 15px; 
-            margin-top: 25px; 
+            gap: 20px; 
+            margin-top: 20px; 
             align-items: center;
         }
-        .cert-icons img { height: 35px; filter: grayscale(20%); opacity: 0.9; }
+        .cert-icons img { 
+            height: 45px; /* เพิ่มขนาดจากเดิมเพื่อให้ดูสมส่วน */
+            opacity: 1;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+        }
 
         .container { 
             max-width: 1400px; 
             margin: 0 auto; 
-            padding: 40px 100px 100px 100px; 
+            padding: 20px 80px 80px 80px; 
             display: grid; 
             grid-template-columns: 1fr 1.2fr; 
-            gap: 80px; 
+            gap: 60px; 
             align-items: center; 
-            min-height: 60vh; 
         }
         
-        /* จุดเด่นสินค้า */
-        .features { display: flex; flex-direction: column; gap: 25px; }
-        .feat-item { display: flex; align-items: center; gap: 20px; font-size: 1.8rem; font-weight: 900; color: #1a1a1a; }
-        .check { color: #7ED321; font-size: 2.2rem; }
+        .feat-item { display: flex; align-items: center; gap: 20px; margin-bottom: 25px; font-size: 1.6rem; font-weight: 900; }
+        .check { color: #7ED321; font-size: 2rem; }
 
-        .display-box { display: flex; flex-direction: column; align-items: center; position: relative; }
-        
-        .info-text { align-self: flex-start; margin-bottom: -15px; z-index: 5; }
-        .info-text b { font-size: 3.8rem; color: var(--accent-blue); display: block; font-weight: 900; line-height: 1; }
-        .info-text span { font-size: 1.9rem; color: var(--accent-blue); font-weight: 700; }
+        .display-box { display: flex; flex-direction: column; align-items: center; }
+        .info-text b { font-size: 3.5rem; color: var(--accent-blue); display: block; font-weight: 900; line-height: 1; }
+        .info-text span { font-size: 1.6rem; color: var(--accent-blue); font-weight: 700; }
 
-        /* รูปขวดน้ำ fssc-22005.png */
-        .bottle-img { 
-            width: 400px; 
-            filter: drop-shadow(0 40px 70px rgba(0,0,0,0.15)); 
-            transition: 0.6s cubic-bezier(0.17, 0.67, 0.83, 0.67);
-            animation: float 5s infinite ease-in-out;
-            margin: 20px 0;
-        }
-        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-20px); } }
+        .bottle-img { width: 350px; animation: float 5s infinite ease-in-out; margin: 20px 0; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
 
-        /* ตัวเลือกขนาดสินค้า */
-        .selector { display: flex; gap: 25px; width: 100%; max-width: 550px; margin-bottom: 40px; }
-        .size-btn { 
-            flex: 1; 
-            background: rgba(255, 255, 255, 0.9); 
-            border-radius: 30px; 
-            padding: 30px 20px; 
-            text-align: center; 
-            cursor: pointer; 
-            border: 3px solid transparent; 
-            box-shadow: 0 15px 35px rgba(0,0,0,0.04); 
-            transition: 0.4s; 
-        }
-        .size-btn:hover { transform: translateY(-5px); box-shadow: 0 20px 45px rgba(0,0,0,0.08); }
-        .size-btn.active { border-color: var(--brand-green); background: #fff; }
-        .size-btn b { display: block; font-size: 1.6rem; font-weight: 900; margin-bottom: 5px; }
-        .size-btn p { font-size: 0.85rem; font-weight: 800; color: #aaa; letter-spacing: 1.5px; }
+        .selector { display: flex; gap: 20px; width: 100%; max-width: 500px; margin-bottom: 30px; }
+        .size-btn { flex: 1; background: #fff; border-radius: 25px; padding: 25px; text-align: center; cursor: pointer; border: 3px solid transparent; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        .size-btn.active { border-color: var(--brand-green); }
+        .size-btn b { display: block; font-size: 1.4rem; font-weight: 900; }
 
-        /* ปุ่มสั่งซื้อ */
         .shop-btn { 
             background: var(--brand-green); 
             color: #fff; 
             width: 100%; 
-            max-width: 550px; 
-            padding: 30px; 
+            max-width: 500px; 
+            padding: 25px; 
             border-radius: 100px; 
             text-decoration: none; 
             font-weight: 900; 
             text-align: center; 
             text-transform: uppercase; 
-            letter-spacing: 4px; 
-            font-size: 1.4rem; 
-            box-shadow: 0 20px 40px rgba(43,76,59,0.3); 
+            letter-spacing: 2px; 
+            font-size: 1.2rem; 
             display: block; 
-            transition: 0.4s;
+            transition: 0.3s;
         }
-        .shop-btn:hover { transform: scale(1.02); background: #1e362a; box-shadow: 0 25px 50px rgba(43,76,59,0.4); }
+        .shop-btn:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(43,76,59,0.3); }
 
-        @media (max-width: 1200px) { 
+        @media (max-width: 1100px) { 
             header { padding: 40px; text-align: center; }
-            .brand { font-size: 3.5rem; letter-spacing: -2px; }
+            .brand { font-size: 3rem; }
             .cert-icons { justify-content: center; }
-            .container { grid-template-columns: 1fr; text-align: center; padding: 20px; }
-            .feat-item, .info-text { justify-content: center; align-self: center; }
-            .bottle-img { width: 320px; }
+            .container { grid-template-columns: 1fr; padding: 20px; }
+            .bottle-img { width: 280px; }
         }
     </style>
 </head>
@@ -145,7 +119,7 @@
     </header>
 
     <div class="container">
-        <div class="features">
+        <div>
             <div class="feat-item"><span class="check">✓</span> 100% Natural Coconut water</div>
             <div class="feat-item"><span class="check">✓</span> No Sugar Added</div>
             <div class="feat-item"><span class="check">✓</span> No Preservatives</div>
@@ -153,18 +127,15 @@
         
         <div class="display-box">
             <div class="info-text"><b>18 months</b><span>@ room temp.</span></div>
-            <img src="images/fssc-22005.png" id="mainBottle" class="bottle-img" alt="Product Bottle">
+            <img src="images/fssc-22005.png" id="mainBottle" class="bottle-img" alt="Product">
             <div class="selector">
-                <div class="size-btn active" onclick="setActive(this)">
-                    <b>330ml</b><p>PRESENT</p>
-                </div>
-                <div class="size-btn" onclick="setActive(this)">
-                    <b>1000ml</b><p>FUTURE</p>
-                </div>
+                <div class="size-btn active" onclick="setActive(this)"><b>330ml</b><p>PRESENT</p></div>
+                <div class="size-btn" onclick="setActive(this)"><b>1000ml</b><p>FUTURE</p></div>
             </div>
             <a href="#" class="shop-btn">Shop Now</a>
         </div>
     </div>
+
     <script>
         function setActive(e) { 
             document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active')); 
