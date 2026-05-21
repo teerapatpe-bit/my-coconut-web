@@ -39,11 +39,12 @@
             z-index: 10;
         }
 
-        .brand-area {
-            display: flex;
-            align-items: center; /* เรียง Logo และ Cert ให้อยู่บรรทัดเดียวกัน */
-            gap: 40px; /* ระยะห่างคงที่ */
-            flex-shrink: 0; /* ป้องกันการบีบตัว */
+     .brand-area {
+    display: flex;
+    flex-direction: column; /* เปลี่ยนให้เรียงตัวกันเป็นแนวตั้ง (บรรทัด) */
+    align-items: flex-start; /* จัดชิดซ้าย */
+    gap: 20px; /* ปรับช่องว่างระหว่างบรรทัด (เพิ่มหรือลดค่านี้ได้ตามต้องการ) */
+
         }
 
         .logo {
@@ -86,9 +87,27 @@
         .nav-links a:hover { color: var(--brand-green); }
 
         /* ส่วน Hero และอื่นๆ คงเดิมตามที่คุณต้องการ */
-        .hero { display: flex; min-height: 100vh; align-items: center; padding: 0 5%; background-color: var(--accent-bg); position: relative; }
-        .hero-content { flex: 1; padding-right: 5%; padding-top: 140px; z-index: 2; }
-        .hero-label { font-size: 0.85rem; text-transform: uppercase; letter-spacing: 3px; color: var(--brand-green); font-weight: 600; margin-bottom: 1.5rem; display: block; }
+        .hero {
+             display: flex; 
+             min-height: 100vh; 
+             align-items: center; 
+             padding: 0 5%; 
+             background-color: 
+             var(--accent-bg); 
+             position: relative; }
+        .hero-content { 
+            flex: 1; 
+            padding-right: 5%; 
+            padding-top: 140px; 
+            z-index: 2; }
+        .hero-label { 
+            font-size: 0.85rem; 
+            text-transform: uppercase;
+             letter-spacing: 3px; 
+             color: var(--brand-green); 
+             font-weight: 600;
+              margin-bottom: 1.5rem; 
+              display: block; }
 .hero h1 {
     font-size: 5rem; /* ปรับจาก 4.2rem เป็น 5rem เพื่อให้ใหญ่ขึ้น */
     line-height: 1.1;
