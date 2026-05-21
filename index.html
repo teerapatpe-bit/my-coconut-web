@@ -41,28 +41,37 @@
             align-items: center;
         }
 
-        .brand-area {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            gap: 15px;
-        }
+      /* ปรับปรุงโครงสร้างส่วน Brand และ Certification ให้ดูใหญ่ขึ้น */
+.brand-area {
+    display: flex;
+    flex-direction: column; /* แยกโลโก้และใบรับรองคนละบรรทัด */
+    align-items: flex-start;
+    gap: 25px; /* เพิ่มช่องว่างระหว่างบรรทัด */
+}
 
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
-            font-weight: 700;
-            letter-spacing: 3px;
-            color: var(--brand-green);
-        }
+.logo {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3.5rem; /* ขยายขนาดโลโก้ให้ใหญ่ขึ้น */
+    font-weight: 700;
+    letter-spacing: 4px;
+    color: var(--brand-green);
+    line-height: 1;
+    white-space: nowrap;
+}
 
-        .cert-box {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
+.cert-box {
+    display: flex;
+    align-items: center;
+    gap: 30px; /* เพิ่มระยะห่างระหว่างแต่ละใบรับรอง */
+    flex-wrap: nowrap;
+}
 
-        .cert-box img { height: 40px; width: auto; }
+.cert-box img {
+    height: 70px; /* ขยายขนาดรูปใบรับรองให้ชัดขึ้น */
+    width: auto;
+    object-fit: contain;
+    display: block;
+}
 
         .nav-links a {
             text-decoration: none;
