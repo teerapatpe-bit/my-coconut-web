@@ -3,151 +3,119 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELI | Pure Thai Coconut Water</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <title>ELI | 100% Pure Coconut Water</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --bg-color: #F7F5F2;
             --brand-green: #2B4C3B;    
+            --text-main: #1C1D1B;
             --white: #FFFFFF;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: #1C1D1B;
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 50px;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); color: var(--text-main); }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 50px; }
 
         /* --- Header Section --- */
-        header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            padding: 40px 0;
-        }
-
-        .brand-logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 800;
-            color: var(--brand-green);
-            line-height: 0.8;
-            margin-bottom: 15px;
-        }
-
-        .cert-icons { display: flex; gap: 12px; }
+        header { display: flex; justify-content: space-between; align-items: flex-start; padding: 40px 0; }
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 800; color: var(--brand-green); line-height: 0.8; margin-bottom: 15px; }
+        .cert-icons { display: flex; gap: 10px; }
         .cert-icons img { height: 26px; }
-
         .nav-links { display: flex; gap: 30px; padding-top: 10px; }
-        .nav-links a {
-            text-decoration: none;
-            color: #000;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
+        .nav-links a { text-decoration: none; color: #000; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- Content Layout --- */
-        .content-wrap {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding-bottom: 80px;
-        }
+        /* --- Main Layout --- */
+        .content-wrap { display: flex; justify-content: space-between; align-items: center; padding-top: 20px; padding-bottom: 80px; }
 
-        /* ส่วนรายการคุณสมบัติที่เพิ่มใหม่ */
-        .feature-list {
-            flex: 1;
-        }
+        /* ฝั่งซ้าย: รายการคุณสมบัติ */
+        .feature-list { flex: 1; }
+        .feature-item { display: flex; align-items: center; gap: 15px; margin-bottom: 18px; font-size: 1.4rem; font-weight: 600; color: #4A4A4A; }
+        .check-icon { width: 26px; height: 26px; flex-shrink: 0; }
 
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 18px;
-            font-size: 1.4rem;
-            font-weight: 600;
-            color: #4A4A4A;
-        }
-
-        .check-icon {
-            width: 26px;
-            height: 26px;
-            flex-shrink: 0;
-        }
-
-        /* --- Product Card Section --- */
+        /* ฝั่งขวา: การ์ดสินค้าสไตล์ Sneaker Hypebeast */
         .product-card {
             flex: 1;
-            max-width: 480px;
+            max-width: 520px;
             background: var(--white);
             border-radius: 40px;
-            padding: 50px 40px;
-            text-align: center;
-            box-shadow: 0 20px 45px rgba(0,0,0,0.06);
+            padding: 50px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
+            position: relative;
         }
 
-        .product-image {
-            width: 100%;
-            max-width: 260px;
-            margin-bottom: 35px;
-            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1));
-        }
-
-        .size-selector {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            margin-bottom: 35px;
-        }
-
-        .size-btn {
-            border: 2px solid #EAEAEA;
-            padding: 12px 28px;
-            border-radius: 12px;
-            cursor: pointer;
+        .shelf-life {
+            font-size: 1.5rem;
             font-weight: 700;
-            font-size: 1rem;
+            color: #4A90E2; /* สีน้ำเงินตามตัวอย่าง */
+            margin-bottom: 5px;
+        }
+
+        .storage-info {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #4A90E2;
+            margin-bottom: 30px;
+        }
+
+        .main-product-img {
+            width: 100%;
+            max-width: 240px;
+            margin: 0 auto 40px;
+            display: block;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.15));
+        }
+
+        /* ส่วนเลือกขนาดแบบ Thumbnail */
+        .size-selection-area {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .size-thumb {
+            flex: 1;
+            background: #F9F9F9;
+            border: 2px solid transparent;
+            border-radius: 20px;
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
             transition: 0.3s;
-            color: #999;
         }
 
-        .size-btn.active {
+        .size-thumb img { width: 40px; margin-bottom: 10px; }
+        .size-thumb span { display: block; font-weight: 800; font-size: 0.9rem; color: #333; }
+        .size-thumb p { font-size: 0.7rem; color: #999; text-transform: uppercase; margin-top: 4px; }
+
+        .size-thumb.active {
             border-color: var(--brand-green);
-            color: var(--brand-green);
-            background-color: rgba(43, 76, 59, 0.05);
+            background-color: var(--white);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
 
-        .shop-now-btn {
+        .shop-btn {
             background-color: var(--brand-green);
             color: var(--white);
-            padding: 20px 90px;
-            border-radius: 60px;
+            width: 100%;
+            padding: 22px;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
+            font-weight: 800;
             text-transform: uppercase;
-            display: inline-block;
+            display: block;
+            text-align: center;
+            letter-spacing: 2px;
             transition: 0.3s;
-            letter-spacing: 1px;
         }
 
-        .shop-now-btn:hover { transform: translateY(-2px); box-shadow: 0 10px 20px rgba(43,76,59,0.2); }
+        .shop-btn:hover { background-color: #1a3025; transform: translateY(-2px); }
 
         @media (max-width: 1100px) {
-            .content-wrap { flex-direction: column; text-align: center; }
-            header { flex-direction: column; align-items: center; gap: 30px; }
+            .content-wrap { flex-direction: column; gap: 50px; }
+            header { flex-direction: column; align-items: center; text-align: center; }
             .feature-item { justify-content: center; }
-            .product-card { margin-top: 50px; width: 100%; }
         }
     </style>
 </head>
@@ -155,19 +123,19 @@
 
     <div class="container">
         <header>
-            <div class="brand-section">
-                <div class="brand-logo">ELI.</div>
+            <div class="brand">
+                <div class="logo">ELI.</div>
                 <div class="cert-icons">
                     <img src="images/fssc-22000.png" alt="FSSC">
-                    <img src="images/fssc-22001.png" alt="Halal">
-                    <img src="images/fssc-22002.png" alt="USDA">
-                    <img src="images/fssc-22003.png" alt="Kosher">
-                    <img src="images/fssc-22004.png" alt="SGS">
+                    <img src="images/fssc- hal.png" alt="Halal">
+                    <img src="images/fssc-usda.png" alt="USDA">
+                    <img src="images/fssc-kosher.png" alt="Kosher">
+                    <img src="images/fssc-sgs.png" alt="SGS">
                 </div>
             </div>
             <nav class="nav-links">
                 <a href="#">Product Overview</a>
-                <a href="#">Factory & Production</a>
+                <a href="#">Factory & Excellence</a>
                 <a href="#">Quality & Certs</a>
                 <a href="#">Contact</a>
             </nav>
@@ -198,22 +166,37 @@
             </div>
 
             <div class="product-card">
-                <img src="images/fssc-22005.png" alt="ELI Product" class="product-image">
+                <div class="shelf-life">18 months</div>
+                <div class="storage-info">@ room temp.</div>
+
+                <img src="images/fssc-22005.png" alt="ELI Product" class="main-product-img" id="main-img">
                 
-                <div class="size-selector">
-                    <div class="size-btn active" onclick="selectSize(this)">330ml</div>
-                    <div class="size-btn" onclick="selectSize(this)">1000ml</div>
+                <div class="size-selection-area">
+                    <div class="size-thumb active" onclick="changeSize('330ml', this)">
+                        <img src="images/fssc-22005.png" alt="330ml">
+                        <span>330ml</span>
+                        <p>Present</p>
+                    </div>
+                    <div class="size-thumb" onclick="changeSize('1000ml', this)">
+                        <img src="images/fssc-22005.png" alt="1000ml" style="transform: scale(1.2);">
+                        <span>1000ml</span>
+                        <p>Future</p>
+                    </div>
                 </div>
 
-                <a href="#" class="shop-now-btn">Shop Now</a>
+                <a href="#" class="shop-btn">Shop Now</a>
             </div>
         </main>
     </div>
 
     <script>
-        function selectSize(element) {
-            document.querySelectorAll('.size-btn').forEach(btn => btn.classList.remove('active'));
-            element.classList.add('active');
+        function changeSize(size, el) {
+            // อัปเดตสถานะการเลือก
+            document.querySelectorAll('.size-thumb').forEach(t => t.classList.remove('active'));
+            el.classList.add('active');
+            
+            // ใส่ Logic เปลี่ยนรูปภาพสินค้าตรงนี้หากมีไฟล์แยกขนาด
+            console.log("Selected size: " + size);
         }
     </script>
 
