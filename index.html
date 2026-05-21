@@ -2,16 +2,15 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ELI | Premium Thai Coconut Water</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ELI | Premium Coconut Water</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --bg-color: #F2EFE9;
-            --text-dark: #1C1D1B;      
-            --text-brown: #5D5443;
             --brand-green: #2B4C3B;    
+            --text-brown: #5D5443;
             --white: #FFFFFF;
         }
 
@@ -20,44 +19,64 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-dark);
-            line-height: 1.6;
+            color: #1C1D1B;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 0 40px;
+            padding: 0 5%;
         }
 
-        /* --- Navigation --- */
+        /* --- Header: ย้ายใบรับรองไปไว้ใต้ ELI --- */
         header {
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            padding: 40px 0;
+            align-items: flex-start;
+            padding: 50px 0;
+            gap: 30px;
+        }
+
+        .brand-section {
+            display: flex;
+            flex-direction: column; /* จัดให้ ELI อยู่บน ใบรับรองอยู่ล่าง */
+            gap: 20px;
         }
 
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: var(--brand-green);
-            letter-spacing: -1px;
+            line-height: 1;
+        }
+
+        .cert-bar {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .cert-bar img {
+            height: 40px; /* ขนาดพอเหมาะสำหรับ PC/iPad */
+            width: auto;
+            object-fit: contain;
         }
 
         .nav-links {
             display: flex;
             gap: 25px;
+            list-style: none;
+            padding-top: 15px;
         }
 
         .nav-links a {
             text-decoration: none;
-            color: var(--text-dark);
-            font-weight: 600;
+            color: #1C1D1B;
+            font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             letter-spacing: 1px;
         }
 
@@ -66,28 +85,23 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            min-height: 65vh;
+            min-height: 60vh;
             gap: 60px;
-            padding: 40px 0;
+            padding-bottom: 80px;
         }
 
-        .hero-content {
+        .features {
             flex: 1;
-        }
-
-        .feature-list {
-            list-style: none;
-            margin-bottom: 35px;
         }
 
         .feature-item {
             display: flex;
             align-items: center;
             gap: 15px;
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 600;
             color: var(--text-brown);
-            margin-bottom: 15px;
+            margin-bottom: 20px;
         }
 
         .check-icon {
@@ -97,67 +111,46 @@
             background-size: contain;
         }
 
-        /* --- Certifications Bar --- */
-        .cert-bar {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-            opacity: 0.8;
-        }
-
-        .cert-bar img {
-            height: 45px;
-            width: auto;
-            object-fit: contain;
-        }
-
-        /* --- Product Card --- */
+        /* --- Product Display --- */
         .product-card {
             flex: 1;
             background: var(--white);
-            border-radius: 20px;
-            padding: 60px;
+            border-radius: 30px;
+            padding: 50px;
             text-align: center;
             box-shadow: 0 20px 40px rgba(0,0,0,0.03);
         }
 
         .product-card img {
             width: 100%;
-            max-width: 350px;
-            height: auto;
+            max-width: 400px;
             margin-bottom: 30px;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
         }
 
-        .price-text {
+        .price {
             font-size: 3rem;
             font-weight: 800;
             color: var(--brand-green);
-            margin-bottom: 20px;
             display: block;
+            margin-bottom: 25px;
         }
 
-        .btn-buy {
-            background-color: var(--brand-green);
-            color: var(--white);
-            padding: 16px 50px;
+        .btn-shop {
+            background: var(--brand-green);
+            color: white;
+            padding: 18px 60px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
-            display: inline-block;
             transition: 0.3s;
         }
 
-        .btn-buy:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-        /* --- Responsive --- */
+        /* --- iPad Optimization --- */
         @media (max-width: 1024px) {
-            header { flex-direction: column; gap: 20px; }
+            header { flex-direction: column; align-items: flex-start; }
             .hero { flex-direction: column; text-align: center; }
-            .feature-item { justify-content: center; font-size: 1.2rem; }
-            .cert-bar { justify-content: center; flex-wrap: wrap; }
+            .feature-item { justify-content: center; }
             .product-card { width: 100%; }
         }
     </style>
@@ -166,37 +159,40 @@
 
     <div class="container">
         <header>
-            <div class="logo">ELI.</div>
-            <nav class="nav-links">
-                <a href="#">Product Overview</a>
-                <a href="#">Factory</a>
-                <a href="#">Certification</a>
-                <a href="#">Contact</a>
+            <div class="brand-section">
+                <div class="logo">ELI.</div>
+                <div class="cert-bar">
+                    <img src="images/fssc-22000.png" alt="FSSC">
+                    <img src="images/halal.png" alt="Halal">
+                    <img src="images/usda.png" alt="USDA">
+                    <img src="images/kosher.png" alt="Kosher">
+                    <img src="images/taste-award.png" alt="Taste Award">
+                </div>
+            </div>
+            
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="#">Product</a></li>
+                    <li><a href="#">Factory</a></li>
+                    <li><a href="#">Certifications</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
             </nav>
         </header>
 
         <section class="hero">
-            <div class="hero-content">
-                <div class="feature-list">
-                    <div class="feature-item"><div class="check-icon"></div>100% Natural Coconut water</div>
-                    <div class="feature-item"><div class="check-icon"></div>No Sugar Added</div>
-                    <div class="feature-item"><div class="check-icon"></div>No Artificial Flavor</div>
-                    <div class="feature-item"><div class="check-icon"></div>No Coloring</div>
-                    <div class="feature-item"><div class="check-icon"></div>No Preservatives</div>
-                </div>
-             <div class="cert-box">
-                <img src="images/fssc-22000.png" alt="cert">
-                <img src="images/fssc-22001.png" alt="cert">
-                <img src="images/fssc-22002.png" alt="cert">
-                <img src="images/fssc-22003.png" alt="cert">
-                <img src="images/fssc-22004.png" alt="cert">
-             </div>
+            <div class="features">
+                <div class="feature-item"><div class="check-icon"></div>100% Natural Coconut water</div>
+                <div class="feature-item"><div class="check-icon"></div>No Sugar Added</div>
+                <div class="feature-item"><div class="check-icon"></div>No Artificial Flavor</div>
+                <div class="feature-item"><div class="check-icon"></div>No Coloring</div>
+                <div class="feature-item"><div class="check-icon"></div>No Preservatives</div>
             </div>
 
             <div class="product-card">
-                <img src="images/fssc-22005.png" alt="ELI Coconut Water">
-                <span class="price-text">฿45.00</span>
-                <a href="#" class="btn-buy">Shop Now</a>
+                <img src="images/fssc-22005.png" alt="ELI Product">
+                <span class="price">฿45.00</span>
+                <a href="#" class="btn-shop">Shop Now</a>
             </div>
         </section>
     </div>
