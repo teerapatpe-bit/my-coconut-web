@@ -3,102 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELI | Interactive Selection</title>
+    <title>ELI | The Premium Coconut Water</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@900&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #2B4C3B;
-            --accent: #7ED321;
-            --blue: #4A90E2;
-            --bg: #F7F5F2;
+            --primary-dark: #2B4C3B;
+            --accent-green: #7ED321;
+            --info-blue: #4A90E2;
+            --bg-soft: #F8F9FA;
+            --white: #FFFFFF;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: #333; overflow-x: hidden; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg-soft); color: #333; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 50px; }
 
-        /* --- Header --- */
-        header { display: flex; justify-content: space-between; align-items: flex-start; padding: 40px 0; }
-        .logo { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; color: var(--primary); letter-spacing: -2px; }
-        .cert-icons { display: flex; gap: 10px; margin-top: 10px; }
-        .cert-icons img { height: 26px; }
+        /* --- Modern Header --- */
+        header { display: flex; justify-content: space-between; align-items: center; padding: 40px 0; }
+        .brand-logo { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; color: var(--primary-dark); letter-spacing: -2px; }
+        
+        .nav-menu { display: flex; gap: 30px; }
+        .nav-menu a { text-decoration: none; color: #111; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; transition: 0.3s; }
+        .nav-menu a:hover { color: var(--accent-green); }
 
-        /* --- Main Layout --- */
-        .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 60px 0; }
+        /* --- Main Content Grid --- */
+        .hero-section { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: center; min-height: 75vh; }
 
-        /* Features List */
-        .feature-item { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; font-size: 1.4rem; font-weight: 700; color: #444; }
+        /* Left Side: Certificates & Features */
+        .cert-row { display: flex; gap: 12px; margin-bottom: 40px; }
+        .cert-row img { height: 28px; filter: grayscale(100%); opacity: 0.7; transition: 0.3s; }
+        .cert-row img:hover { filter: grayscale(0%); opacity: 1; }
 
-        /* Product Presentation Area */
-        .presentation { display: flex; flex-direction: column; align-items: center; }
+        .feature-list { list-style: none; }
+        .feature-item { display: flex; align-items: center; gap: 15px; margin-bottom: 22px; font-size: 1.4rem; font-weight: 700; color: #444; }
+        .check-svg { width: 28px; height: 28px; color: var(--accent-green); }
 
-        .shelf-life-info { align-self: flex-start; margin-bottom: 30px; line-height: 1.2; }
-        .shelf-life-info b { font-size: 2rem; color: var(--blue); display: block; }
-        .shelf-life-info span { font-size: 1.3rem; color: var(--blue); font-weight: 600; }
+        /* Right Side: Product Interactive Area */
+        .product-display { display: flex; flex-direction: column; align-items: center; position: relative; }
 
-        /* รูปขวดหลักพร้อม Animation ลอยตัว */
-        .main-bottle-wrap { margin-bottom: 50px; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
-        .main-bottle {
-            width: 280px;
-            filter: drop-shadow(0 30px 40px rgba(0,0,0,0.12));
-            animation: float 4s ease-in-out infinite;
+        .shelf-life-badge { align-self: flex-start; margin-bottom: 20px; line-height: 1.2; padding-left: 20px; }
+        .shelf-life-badge b { font-size: 2.2rem; color: var(--info-blue); display: block; }
+        .shelf-life-badge span { font-size: 1.4rem; color: var(--info-blue); font-weight: 600; }
+
+        /* Main Floating Image */
+        .main-image-wrap { height: 400px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; }
+        .img-main { 
+            max-height: 380px; 
+            filter: drop-shadow(0 30px 50px rgba(0,0,0,0.15)); 
+            animation: floatAnim 4s ease-in-out infinite;
+            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        @keyframes float {
+        @keyframes floatAnim {
             0%, 100% { transform: translateY(0); }
             50% { transform: translateY(-20px); }
         }
 
-        /* --- กล่องเลือกขนาดแบบเรียงกันและขยายเมื่อ Hover --- */
-        .size-container {
-            display: flex;
-            gap: 25px;
-            width: 100%;
-            max-width: 550px;
-            margin-bottom: 40px;
-        }
+        /* --- Size Grid with Hover Expansion --- */
+        .size-grid { display: flex; gap: 20px; width: 100%; max-width: 550px; margin-bottom: 35px; }
 
-        .size-box {
+        .size-card {
             flex: 1;
-            background: #FFFFFF;
+            background: var(--white);
             border-radius: 30px;
             padding: 30px 20px;
             text-align: center;
             cursor: pointer;
-            border: 2px solid transparent;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* เอฟเฟกต์การขยายที่นุ่มนวล */
-            position: relative;
+            border: 2.5px solid transparent;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
         }
 
-        .size-box img { height: 60px; margin-bottom: 15px; transition: 0.4s; }
-        .size-box b { display: block; font-size: 1.2rem; color: #222; }
-        .size-box small { color: #999; text-transform: uppercase; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; }
+        .size-card img { height: 60px; margin-bottom: 12px; transition: 0.4s; }
+        .size-card b { display: block; font-size: 1.2rem; color: #222; }
+        .size-card p { font-size: 0.75rem; color: #999; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-top: 4px; }
 
-        /* ลูกเล่นเมื่อเอาเมาส์ไปจ่อ (Hover & Expand) */
-        .size-box:hover {
-            transform: scale(1.1); /* ขยายขนาดกล่อง */
-            box-shadow: 0 20px 45px rgba(0,0,0,0.1);
-            z-index: 10;
+        /* Hover & Active States */
+        .size-card:hover {
+            transform: scale(1.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            border-color: #EEE;
         }
 
-        .size-box:hover img {
-            transform: scale(1.2) translateY(-5px); /* ขยายรูปขวดจิ๋ว */
+        .size-card.active {
+            border-color: var(--primary-dark);
+            background: var(--white);
         }
 
-        /* สไตล์เมื่อถูกเลือก (Active) */
-        .size-box.active {
-            border-color: var(--primary);
-            background: #fff;
-        }
-
-        .btn-shop {
-            background: var(--primary);
-            color: white;
+        .btn-cta {
+            background: var(--primary-dark);
+            color: var(--white);
             width: 100%;
             max-width: 550px;
-            padding: 25px;
+            padding: 24px;
             border-radius: 100px;
             text-decoration: none;
             font-weight: 800;
@@ -106,15 +104,15 @@
             text-align: center;
             letter-spacing: 3px;
             transition: 0.3s;
-            box-shadow: 0 15px 30px rgba(43, 76, 59, 0.2);
+            box-shadow: 0 15px 35px rgba(43, 76, 59, 0.25);
         }
 
-        .btn-shop:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(43, 76, 59, 0.3); }
+        .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 20px 45px rgba(43, 76, 59, 0.35); }
 
         @media (max-width: 1100px) {
-            .layout { grid-template-columns: 1fr; }
-            .feature-item { justify-content: center; }
-            .shelf-life-info { align-self: center; text-align: center; }
+            .hero-section { grid-template-columns: 1fr; text-align: center; }
+            .feature-item, .cert-row { justify-content: center; }
+            .shelf-life-badge { align-self: center; padding-left: 0; }
         }
     </style>
 </head>
@@ -122,87 +120,90 @@
 
     <div class="container">
         <header>
-            <div class="brand">
-                <div class="logo">ELI.</div>
-                <div class="cert-icons">
-                    <img src="images/fssc.png" alt="FSSC">
+            <div class="brand-logo">ELI.</div>
+            <nav class="nav-menu">
+                <a href="#">Product Overview</a>
+                <a href="#">Factory & Excellence</a>
+                <a href="#">Quality & Certs</a>
+                <a href="#">Contact</a>
+            </nav>
+        </header>
+
+        <main class="hero-section">
+            <div class="content-left">
+                <div class="cert-row">
+                    <img src="images/fssc.png" alt="FSSC 22000">
                     <img src="images/halal.png" alt="Halal">
                     <img src="images/usda.png" alt="USDA">
                     <img src="images/kosher.png" alt="Kosher">
-                    <img src="images/taste.png" alt="Taste Award">
+                    <img src="images/sgs.png" alt="SGS">
                 </div>
-            </div>
-        </header>
 
-        <main class="layout">
-            <div class="features">
-                <div class="feature-item">
-                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>100% Natural Coconut water</span>
-                </div>
-                <div class="feature-item">
-                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>No Sugar Added</span>
-                </div>
-                <div class="feature-item">
-                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>No Artificial Flavor</span>
-                </div>
-                <div class="feature-item">
-                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>No Coloring</span>
-                </div>
-                <div class="feature-item">
-                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span>No Preservatives</span>
-                </div>
+                <ul class="feature-list">
+                    <li class="feature-item">
+                        <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        <span>100% Natural Coconut water</span>
+                    </li>
+                    <li class="feature-item">
+                        <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        <span>No Sugar Added</span>
+                    </li>
+                    <li class="feature-item">
+                        <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        <span>No Artificial Flavor</span>
+                    </li>
+                    <li class="feature-item">
+                        <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        <span>No Coloring</span>
+                    </li>
+                    <li class="feature-item">
+                        <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
+                        <span>No Preservatives</span>
+                    </li>
+                </ul>
             </div>
 
-            <div class="presentation">
-                <div class="shelf-life-info">
+            <div class="product-display">
+                <div class="shelf-life-badge">
                     <b>18 months</b>
                     <span>@ room temp.</span>
                 </div>
 
-                <div class="main-bottle-wrap" id="bottle-container">
-                    <img src="images/bottle-330.png" alt="ELI Product" class="main-bottle" id="main-product-img">
+                <div class="main-image-wrap">
+                    <img src="images/bottle-330.png" alt="ELI Product" class="img-main" id="product-hero">
                 </div>
 
-                <div class="size-container">
-                    <div class="size-box active" onmouseover="expandProduct('330ml')" onclick="setActive(this)">
-                        <img src="images/bottle-330.png" alt="330">
+                <div class="size-grid">
+                    <div class="size-card active" onmouseover="previewSize('330ml')" onclick="selectSize(this)">
+                        <img src="images/bottle-330.png" alt="330ml">
                         <b>330ml</b>
-                        <small>Present</small>
+                        <p>Present</p>
                     </div>
-                    <div class="size-box" onmouseover="expandProduct('1000ml')" onclick="setActive(this)">
-                        <img src="images/bottle-1000.png" alt="1000" style="transform: scale(1.2)">
+                    <div class="size-card" onmouseover="previewSize('1000ml')" onclick="selectSize(this)">
+                        <img src="images/bottle-1000.png" alt="1000ml" style="transform: scale(1.2)">
                         <b>1000ml</b>
-                        <small>Future</small>
+                        <p>Future</p>
                     </div>
                 </div>
 
-                <a href="#" class="btn-shop">Shop Now</a>
+                <a href="#" class="btn-cta">Shop Now</a>
             </div>
         </main>
     </div>
 
     <script>
-        function expandProduct(size) {
-            const img = document.getElementById('main-product-img');
-            const wrap = document.getElementById('bottle-container');
-            
+        function previewSize(size) {
+            const hero = document.getElementById('product-hero');
             if(size === '1000ml') {
-                img.style.transform = 'scale(1.15)'; // ขยายขวดหลักเมื่อชี้ที่ 1000ml
-                wrap.style.transform = 'translateY(-10px)';
+                hero.style.transform = 'scale(1.15)';
             } else {
-                img.style.transform = 'scale(1)';
-                wrap.style.transform = 'translateY(0)';
+                hero.style.transform = 'scale(1)';
             }
         }
 
-        function setActive(el) {
-            document.querySelectorAll('.size-box').forEach(box => box.classList.remove('active'));
-            el.classList.add('active');
+        function selectSize(element) {
+            document.querySelectorAll('.size-card').forEach(card => card.classList.remove('active'));
+            element.classList.add('active');
         }
     </script>
 
