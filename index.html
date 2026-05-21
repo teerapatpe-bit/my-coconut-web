@@ -4,12 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ELI | Premium Thai Coconut Water</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
     
     <style>
         /* CSS Variables */
         :root {
-            --bg-color: #FAFAFA;       
+            --bg-color: #F2EFE9;       /* ปรับสีพื้นหลังหลักให้เป็นสีครีมละมุนสไตล์มินิมอล */
             --accent-bg: #F2EFE9;      
             --text-dark: #1C1D1B;      
             --text-light: #5A5A5A;
@@ -37,7 +37,7 @@
 
         /* Navbar & Logo Area */
         header {
-            padding: 2rem 5%;
+            padding: 2.5rem 5% 1.5rem 5%;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -47,46 +47,46 @@
             z-index: 10;
         }
 
-        /* กล่องโลโก้และตรามาตรฐาน */
+        /* กล่องจัดวางแบรนด์และเครื่องหมายการค้า */
         .brand-area {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
-            gap: 12px; 
+            gap: 16px; /* ระยะห่างระหว่างโลโก้ ELI กับกล่องมาตรฐาน */
         }
 
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem;
+            font-size: 2.2rem;
             font-weight: 700;
             letter-spacing: 3px;
             color: var(--brand-green);
             line-height: 1;
         }
 
-        /* ปรับแต่งกล่องตรามาตรฐานตามที่คุณบรีฟ */
+        /* โค้ดปรับปรุงกล่องตรามาตรฐานสไตล์มืออาชีพ (Professional Clean Look) */
         .cert-box {
-            background-color: #ffffff; /* ปรับพื้นหลังเป็นสีขาวล้วนให้เหมือนกัน */
-            border: 1px solid rgba(43, 76, 59, 0.12); /* ขอบจางๆ สไตล์มินิมอล */
-            padding: 10px 18px; /* เพิ่มพื้นที่ด้านในกล่อง */
-            border-radius: 8px; /* ปรับความโค้งมนของมุมกล่อง */
-            box-shadow: 0 4px 14px rgba(0,0,0,0.04); /* เพิ่มเงาฟุ้งๆ ให้ดูมีมิติขึ้น */
+            background-color: transparent; /* ลบพื้นหลังสีขาวออก เพื่อให้กลืนไปกับพื้นหลังเว็บ */
+            border: 1px solid rgba(43, 76, 59, 0.25); /* ขอบสีเขียวแบรนด์บางๆ เรียบหรูตาม Reference */
+            padding: 12px 24px; /* เพิ่มพื้นที่ระยะห่างรอบๆ ให้ดูโปร่ง ไม่อึดอัด */
+            border-radius: 12px; /* ความโค้งมนระดับพรีเมียม */
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 16px; /* เว้นระยะห่างระหว่างโลโก้ให้ไม่อึดอัด */
+            gap: 20px; /* ระยะห่างระหว่างโลโก้แต่ละตัวให้สมดุลเท่ากัน */
         }
 
-        /* เพิ่มขนาดและปรับแต่งรูปภาพตรามาตรฐานให้สวยงาม */
+        /* ปรับขนาดและจัดระเบียบรูปตรามาตรฐานให้ชัดและสวยงามยิ่งขึ้น */
         .cert-box img {
-            height: 42px; /* เพิ่มขนาดความสูงของโลโก้ให้ใหญ่และเด่นชัดขึ้น */
+            height: 46px; /* ขยายขนาดความสูงเพิ่มขึ้นเพื่อให้มองเห็นตราได้ชัดเจนและดูโปรขึ้น */
             width: auto;
             object-fit: contain;
-            filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.05)); /* เพิ่มมิติมินิมอลให้ตัวรูป */
+            /* ปรับแต่งรายละเอียดสีสันของตราเล็กน้อยเพื่อให้โทนภาพดูกลืนเข้ากันอย่างมืออาชีพ */
+            filter: multiply(1.1); 
         }
 
         .nav-links {
-            margin-top: 5px; 
+            margin-top: 10px; 
         }
 
         .nav-links a {
@@ -94,9 +94,9 @@
             color: var(--text-dark);
             margin-left: 2.5rem;
             font-size: 0.9rem;
-            font-weight: 500;
+            font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             transition: color 0.3s ease;
         }
 
@@ -117,6 +117,7 @@
         .hero-content {
             flex: 1;
             padding-right: 5%;
+            padding-top: 120px; /* เว้นพื้นที่หลบแถวตราด้านบน */
             z-index: 2;
         }
 
@@ -131,67 +132,69 @@
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 4.2rem;
             line-height: 1.1;
             margin-bottom: 1.5rem;
             color: var(--text-dark);
+            text-transform: uppercase;
         }
 
         .hero p {
             font-size: 1.2rem;
             color: var(--text-light);
             margin-bottom: 2.5rem;
-            font-weight: 300;
-            max-width: 500px;
+            font-weight: 400;
+            max-width: 550px;
         }
 
         .btn {
             display: inline-block;
-            padding: 1rem 2.5rem;
+            padding: 1.1rem 2.8rem;
             background-color: var(--brand-green);
             color: #fff;
             text-decoration: none;
             font-family: 'Montserrat', sans-serif;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             font-size: 0.9rem;
             font-weight: 600;
             border-radius: 4px;
-            transition: background-color 0.3s ease, transform 0.2s ease;
+            transition: all 0.3s ease;
         }
 
         .btn:hover {
             background-color: #1a2f24;
             transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(43,76,59,0.15);
         }
 
-        /* Image Hover Effect */
         .hero-image {
             flex: 1;
             display: flex;
             justify-content: center;
             align-items: center;
             z-index: 2;
+            padding-top: 80px;
         }
 
         .hero-image img {
             max-width: 100%;
             height: auto;
-            border-radius: 8px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            border-radius: 16px;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.06);
             transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.6s ease;
             cursor: pointer;
         }
 
         .hero-image img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.12);
+            transform: scale(1.03);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.1);
         }
 
         /* Why ELI Section */
         .why-eli {
             padding: 8rem 5%;
-            background-color: var(--bg-color);
+            background-color: #FAFAFA;
         }
 
         .section-header {
@@ -224,7 +227,7 @@
             background-color: #ffffff;
             padding: 3.5rem 3rem;
             border-radius: 12px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
             transition: transform 0.4s ease, box-shadow 0.4s ease;
             position: relative;
             overflow: hidden;
@@ -232,7 +235,7 @@
 
         .benefit-card:hover {
             transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.06);
         }
 
         .benefit-number {
@@ -240,7 +243,7 @@
             font-size: 4rem;
             font-weight: 700;
             color: var(--brand-green);
-            opacity: 0.1;
+            opacity: 0.08;
             position: absolute;
             top: 20px;
             right: 30px;
@@ -258,13 +261,12 @@
         .benefit-card p {
             color: var(--text-light);
             font-size: 1rem;
-            font-weight: 300;
+            font-weight: 400;
             line-height: 1.7;
             position: relative;
             z-index: 1;
         }
 
-        /* Footer */
         footer {
             text-align: center;
             padding: 3rem 5%;
@@ -274,17 +276,19 @@
             letter-spacing: 1px;
         }
 
-        /* Responsive Design */
-        @media (max-width: 900px) {
+        /* Responsive UI Design */
+        @media (max-width: 991px) {
             header {
+                flex-direction: column;
                 align-items: center;
+                gap: 20px;
             }
             .nav-links {
                 display: none; 
             }
             .hero {
                 flex-direction: column;
-                padding-top: 240px; /* เพิ่มพื้นที่ด้านบนสำหรับสมาร์ทโฟน */
+                padding-top: 260px;
                 text-align: center;
             }
             .hero-content {
@@ -295,18 +299,19 @@
                 margin: 0 auto 2.5rem auto;
             }
             .hero h1 {
-                font-size: 3rem;
+                font-size: 3.2rem;
             }
             .benefits-grid {
                 grid-template-columns: 1fr; 
             }
             .cert-box {
-                flex-wrap: wrap; /* รองรับการตัดบรรทัดเมื่อเปิดบนหน้าจอมือถือ */
+                flex-wrap: wrap;
                 justify-content: center;
-                gap: 12px;
+                gap: 14px;
+                padding: 10px 16px;
             }
             .cert-box img {
-                height: 35px; /* ปรับขนาดลงเล็กน้อยบนมือถือเพื่อความลงตัว */
+                height: 38px;
             }
         }
     </style>
@@ -318,8 +323,8 @@
             <div class="logo">ELI.</div>
             <div class="cert-box">
                 <img src="fssc-22000.png" alt="FSSC 22000">
-                <img src="fssc-22001.png" alt="FSSC 22000 v5.1">
-                <img src="fssc-22002.png" alt="SGS Certified">
+                <img src="fssc-22001.png" alt="Halal Certified">
+                <img src="fssc-22002.png" alt="USDA Organic">
                 <img src="fssc-22003.png" alt="Kosher Certified">
                 <img src="fssc-22004.png" alt="Superior Taste Award">
             </div>
