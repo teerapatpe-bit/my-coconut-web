@@ -20,7 +20,7 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: #1C1D1B;
-            line-height: 1.4; /* ปรับให้กระชับขึ้น */
+            line-height: 1.2; /* กระชับที่สุด */
         }
 
         .container {
@@ -29,18 +29,18 @@
             padding: 0 40px;
         }
 
-        /* --- Header Section --- */
+        /* --- Header Section: ปรับให้บางลงมาก --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 30px 0 10px 0; /* ลด padding ด้านล่างเพื่อให้ส่วนถัดไปขยับขึ้น */
+            padding: 20px 0 0 0; /* ลดเหลือเพียงเล็กน้อย */
         }
 
         .brand-block {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 8px;
         }
 
         .logo {
@@ -53,98 +53,99 @@
 
         .cert-row {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
         }
 
         .cert-row img {
-            height: 32px;
+            height: 30px;
             width: auto;
-            object-fit: contain;
         }
 
-        /* --- Main Layout: ขยับส่วนนี้ขึ้น --- */
+        /* --- Main Layout: ดึงขึ้นสูงด้วย Negative Margin --- */
         .main-content {
             display: flex;
-            align-items: flex-start; /* เปลี่ยนจาก center เป็น flex-start เพื่อให้เนื้อหาอยู่ด้านบน */
+            align-items: flex-start;
             justify-content: space-between;
-            padding-top: 20px; /* ลดระยะห่างด้านบน */
+            margin-top: -15px; /* ดึงส่วนรายการขึ้นไปหาโลโก้ */
             gap: 40px;
+            padding-bottom: 40px;
         }
 
-        /* รายการเครื่องหมายถูก */
+        /* รายการเครื่องหมายถูก: ขยับชิดบนสุด */
         .feature-list {
             flex: 1;
-            margin-top: 10px; /* ปรับตำแหน่งละเอียด */
+            padding-top: 10px;
         }
 
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            font-size: 1.25rem;
+            gap: 12px;
+            font-size: 1.2rem;
             font-weight: 600;
             color: var(--text-brown);
-            margin-bottom: 15px; /* ลดระยะห่างระหว่างบรรทัด */
+            margin-bottom: 12px; /* ลดระยะห่างระหว่างจุดเด่น */
         }
 
         .icon-check {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             flex-shrink: 0;
         }
 
-        /* การ์ดสินค้า */
+        /* การ์ดสินค้าพรีเมียม */
         .product-display {
             flex: 1;
             background: var(--white);
             border-radius: 20px;
-            padding: 40px;
+            padding: 30px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            max-width: 420px;
+            max-width: 400px;
+            margin-top: 20px; /* ให้รูปขวดน้ำมะพร้าวอยู่ต่ำกว่าตัวหนังสือเล็กน้อย */
         }
 
         .product-display img {
             width: 100%;
-            max-width: 300px;
-            margin-bottom: 20px;
+            max-width: 280px;
+            margin-bottom: 15px;
         }
 
         .price-tag {
-            font-size: 2.8rem;
+            font-size: 2.5rem;
             font-weight: 800;
             color: var(--brand-green);
             display: block;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .btn-buy {
             background-color: var(--brand-green);
             color: white;
-            padding: 14px 50px;
+            padding: 12px 45px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             transition: 0.3s;
             display: inline-block;
         }
 
         /* รางวัลด้านล่าง */
         .footer-award {
-            padding: 30px 0;
+            padding: 20px 0;
         }
 
         .footer-award img {
-            height: 55px;
+            height: 50px;
         }
 
         @media (max-width: 1024px) {
             header { flex-direction: column; align-items: center; text-align: center; }
             .cert-row { justify-content: center; }
-            .main-content { flex-direction: column; align-items: center; text-align: center; }
+            .main-content { flex-direction: column; align-items: center; text-align: center; margin-top: 20px; }
             .feature-item { justify-content: center; }
         }
     </style>
