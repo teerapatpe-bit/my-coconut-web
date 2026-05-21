@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>ELI | Premium Thai Coconut Water</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
@@ -12,6 +12,7 @@
             --text-dark: #1C1D1B;      
             --text-light: #5A5A5A;
             --brand-green: #2B4C3B;    
+            --brand-gold: #C5A059; /* สีทองสำหรับราคา */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,11 +22,10 @@
             background-color: var(--bg-color);
             color: var(--text-dark);
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
         }
 
         .wrapper {
-            max-width: 1400px; /* ขยายให้เหมาะกับจอ PC Wide */
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 40px;
         }
@@ -36,7 +36,6 @@
             justify-content: space-between;
             align-items: flex-start;
             padding: 40px 0;
-            flex-wrap: wrap; /* รองรับ iPad เวลาเมนูยาว */
             gap: 20px;
         }
 
@@ -58,11 +57,11 @@
         .cert-box {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
         }
 
         .cert-box img { 
-            height: 45px; 
+            height: 40px; 
             width: auto; 
             object-fit: contain;
         }
@@ -80,32 +79,29 @@
             text-transform: uppercase;
             font-size: 0.8rem;
             letter-spacing: 0.5px;
-            white-space: nowrap; /* ป้องกันเมนูแตกบรรทัด */
-            transition: color 0.3s;
+            white-space: nowrap;
         }
-
-        .nav-links a:hover { color: var(--brand-green); }
 
         /* --- Hero Section --- */
         .hero { 
             display: flex; 
-            min-height: 70vh; 
+            min-height: 75vh; 
             align-items: center; 
             justify-content: space-between;
-            padding-bottom: 60px;
-            gap: 40px;
+            padding-bottom: 80px;
+            gap: 50px;
         }
 
         .hero-content { 
-            flex: 1; 
-            max-width: 600px;
+            flex: 1.2; 
+            max-width: 650px;
         }
 
         .hero h1 { 
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(2.5rem, 5vw, 4.5rem); /* ปรับขนาดตามหน้าจออัตโนมัติ */
-            line-height: 1.05; 
-            margin-bottom: 20px; 
+            font-size: clamp(2.5rem, 6vw, 4.8rem);
+            line-height: 1; 
+            margin-bottom: 15px; 
             text-transform: uppercase; 
             font-weight: 800;
         }
@@ -113,53 +109,97 @@
         .hero p {
             font-size: 1.1rem;
             color: var(--text-light);
-            max-width: 400px;
+            margin-bottom: 30px;
+            max-width: 450px;
         }
 
+        /* --- Pricing & CTA --- */
+        .product-info {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .price-container {
+            display: flex;
+            align-items: baseline;
+            gap: 10px;
+        }
+
+        .price-label {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        .price-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--brand-green);
+        }
+
+        .buy-button {
+            display: inline-block;
+            background-color: var(--brand-green);
+            color: white;
+            padding: 18px 45px;
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            width: fit-content;
+            box-shadow: 0 10px 20px rgba(43, 76, 59, 0.2);
+        }
+
+        .buy-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(43, 76, 59, 0.3);
+            background-color: #1e3529;
+        }
+
+        /* --- Hero Image --- */
         .hero-image { 
             flex: 1; 
             display: flex; 
-            justify-content: flex-end; 
-            align-items: center;
+            justify-content: center; 
+            position: relative;
         }
 
         .hero-image img { 
             width: 100%;
-            max-width: 480px; /* ขนาดที่สวยพอดีบนจอ PC */
+            max-width: 500px;
             height: auto; 
-            object-fit: contain;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
         }
 
-        footer { 
-            text-align: center; 
-            padding: 40px; 
-            font-size: 0.75rem; 
-            color: var(--text-light); 
-            letter-spacing: 1px;
+        /* ตราประทับสินค้าขายดี (Optional Badge) */
+        .badge {
+            position: absolute;
+            top: 20%;
+            right: 0;
+            background-color: var(--brand-gold);
+            color: white;
+            padding: 10px 15px;
+            font-size: 0.7rem;
+            font-weight: 700;
+            border-radius: 5px;
+            transform: rotate(10deg);
+            text-transform: uppercase;
         }
 
-        /* --- Tablet / iPad Optimization --- */
+        footer { text-align: center; padding: 50px; font-size: 0.75rem; color: var(--text-light); }
+
+        /* --- Responsive iPad/Mobile --- */
         @media (max-width: 1024px) {
-            .wrapper { padding: 0 30px; }
-            header { flex-direction: column; align-items: flex-start; }
-            .nav-links { 
-                width: 100%; 
-                overflow-x: auto; /* ถ้าเมนูยาวไปใน iPad จะเลื่อนซ้ายขวาได้ */
-                padding-bottom: 10px;
-            }
-            .hero { gap: 20px; }
-        }
-
-        /* --- Mobile Optimization --- */
-        @media (max-width: 768px) {
-            .hero { flex-direction: column; text-align: center; padding-top: 20px; }
-            .hero-image { justify-content: center; width: 100%; }
-            .hero-image img { max-width: 300px; }
-            .hero p { margin: 0 auto; }
-            .cert-box { flex-wrap: wrap; justify-content: center; }
-            header { align-items: center; text-align: center; }
-            .nav-links { justify-content: center; flex-wrap: wrap; }
+            header { flex-direction: column; }
+            .hero { flex-direction: column; text-align: center; padding-top: 40px; }
+            .hero-content { display: flex; flex-direction: column; align-items: center; }
+            .hero-image { order: -1; } /* เอารูปขึ้นก่อนในมือถือ */
+            .hero-image img { max-width: 350px; }
+            .buy-button { width: 100%; }
         }
     </style>
 </head>
@@ -169,7 +209,7 @@
         <header>
             <div class="brand-area">
                 <div class="logo">ELI.</div>
-                  <div class="cert-box">
+             <div class="cert-box">
                 <img src="images/fssc-22000.png" alt="cert">
                 <img src="images/fssc-22001.png" alt="cert">
                 <img src="images/fssc-22002.png" alt="cert">
@@ -179,9 +219,9 @@
             </div>
             
             <nav class="nav-links">
-                <a href="#">Product Overview</a>
-                <a href="#">Factory & Production Excellence</a>
-                <a href="#">Quality & Certification</a>
+                <a href="#">Overview</a>
+                <a href="#">Production</a>
+                <a href="#">Certification</a>
                 <a href="#">Contact</a>
             </nav>
         </header>
@@ -189,10 +229,20 @@
         <section class="hero">
             <div class="hero-content">
                 <h1>NATURE'S<br>PUREST<br>HYDRATION.</h1>
-                <p>100% Coconut Water from Thailand’s finest young coconuts. Sip Eli, Sip Elegance.</p>
+                <p>Experience the authentic taste of 100% Thai young coconut water. Sustainably sourced, premium quality.</p>
+                
+                <div class="product-info">
+                    <div class="price-container">
+                        <span class="price-label">Price per pack</span>
+                        <span class="price-value">฿150.00</span>
+                    </div>
+                    <a href="#" class="buy-button">Shop Now</a>
+                </div>
             </div>
+
             <div class="hero-image">
-                <img src="images/fssc-22005.png" alt="ELI Coconut Water Premium">
+                <div class="badge">Best Seller</div>
+                <img src="images/fssc-22005.png" alt="ELI Coconut Water Pack">
             </div>
         </section>
     </div>
