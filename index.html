@@ -3,16 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>ELI | 100% Pure Thai Coconut Water</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <title>ELI | Premium 100% Natural Coconut Water</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --bg-color: #F2EFE9;
             --text-dark: #1C1D1B;      
-            --text-light: #5A5A5A;
+            --text-brown: #5D5443;
             --brand-green: #2B4C3B;    
-            --brand-gold: #B5935E;
             --white: #FFFFFF;
         }
 
@@ -22,174 +21,187 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
+            line-height: 1.5;
+            -webkit-font-smoothing: antialiased;
         }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 5%;
+            padding: 0 40px;
         }
 
-        /* --- Header & Navigation --- */
+        /* --- Header --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 50px 0;
+            padding: 40px 0;
             gap: 20px;
         }
 
-        .brand-section {
+        .brand-block {
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: var(--brand-green);
-            line-height: 0.8;
+            line-height: 1;
             letter-spacing: -2px;
         }
 
-        .cert-icons {
+        .cert-row {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
         }
 
-        .cert-icons img {
-            height: 45px;
+        .cert-row img {
+            height: 40px;
             width: auto;
             object-fit: contain;
         }
 
-        nav .nav-links {
+        .nav-menu {
             display: flex;
-            gap: 30px;
+            gap: 25px;
             list-style: none;
-            padding-top: 15px;
+            padding-top: 12px;
         }
 
-        .nav-links a {
+        .nav-menu a {
             text-decoration: none;
             color: var(--text-dark);
             font-weight: 700;
             text-transform: uppercase;
             font-size: 0.8rem;
-            letter-spacing: 1px;
+            letter-spacing: 0.5px;
             white-space: nowrap;
-            transition: color 0.3s;
+            transition: color 0.3s ease;
         }
 
-        .nav-links a:hover { color: var(--brand-green); }
+        .nav-menu a:hover { color: var(--brand-green); }
 
-        /* --- Hero / Product Showcase --- */
-        .hero {
+        /* --- Hero Section --- */
+        .hero-section {
             display: flex;
             align-items: center;
             justify-content: space-between;
             min-height: 70vh;
-            padding: 40px 0 100px;
+            padding: 20px 0 80px;
             gap: 60px;
         }
 
-        .hero-text {
+        /* --- Features (แทนที่ข้อความเดิม) --- */
+        .feature-list {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 18px;
         }
 
-        .hero-text h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: clamp(3rem, 7vw, 5.5rem);
-            font-weight: 800;
-            line-height: 0.95;
-            margin-bottom: 30px;
-            text-transform: uppercase;
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            font-weight: 600;
+            color: var(--text-brown);
         }
 
-        .hero-text p {
-            font-size: 1.2rem;
-            color: var(--text-light);
-            max-width: 450px;
-            margin-bottom: 40px;
+        /* เครื่องหมายถูกสีเขียว (SVG เพื่อให้โค้ดรันได้เลยไม่ต้องรอไฟล์ภาพ) */
+        .check-icon {
+            width: 32px;
+            height: 32px;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237ED321'%3E%3Cpath d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z'/%3E%3C/svg%3E") no-repeat center;
+            background-size: contain;
+            flex-shrink: 0;
         }
 
-        /* --- Product Card (ตามรูปภาพ) --- */
-        .product-card {
+        /* --- Product Card (โชว์สินค้าและราคา) --- */
+        .product-display {
             flex: 1;
             background: var(--white);
             border-radius: 30px;
-            padding: 60px;
+            padding: 50px;
             display: flex;
             flex-direction: column;
             align-items: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.04);
             text-align: center;
-            position: relative;
         }
 
-        .product-card img {
+        .product-image {
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
             height: auto;
-            object-fit: contain;
             margin-bottom: 30px;
             filter: drop-shadow(0 15px 30px rgba(0,0,0,0.08));
+            transition: transform 0.4s ease;
         }
 
-        .product-info {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 15px;
+        .product-image:hover {
+            transform: scale(1.03);
         }
 
-        .product-name {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
-            font-weight: 700;
+        .price-tag {
+            margin-bottom: 25px;
+        }
+
+        .price-label {
+            font-size: 0.9rem;
             text-transform: uppercase;
+            font-weight: 600;
+            color: #A0A0A0;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .price-value {
+            font-size: 3.5rem;
+            font-weight: 800;
             color: var(--brand-green);
+            line-height: 1;
         }
 
-        .price-box {
-            display: flex;
-            align-items: baseline;
-            gap: 8px;
-        }
-
-        .currency { font-size: 1.2rem; font-weight: 600; color: var(--brand-green); }
-        .amount { font-size: 3rem; font-weight: 800; color: var(--brand-green); }
-
-        .btn-shop {
+        .btn-buy {
             background-color: var(--brand-green);
             color: var(--white);
             padding: 18px 60px;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 100px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
-            margin-top: 20px;
-            transition: transform 0.3s, box-shadow 0.3s;
+            letter-spacing: 1.5px;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 20px rgba(43, 76, 59, 0.15);
         }
 
-        .btn-shop:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(43, 76, 59, 0.2);
+        .btn-buy:hover {
+            transform: translateY(-3px);
+            background-color: #1e3529;
+            box-shadow: 0 15px 30px rgba(43, 76, 59, 0.25);
         }
 
-        /* --- Responsive --- */
+        /* --- Tablet & Mobile Optimization --- */
         @media (max-width: 1100px) {
-            header { flex-direction: column; }
-            .nav-links { padding-top: 20px; flex-wrap: wrap; }
-            .hero { flex-direction: column; text-align: center; }
-            .hero-text p { margin: 0 auto 40px; }
-            .product-card { width: 100%; max-width: 600px; margin: 0 auto; }
+            header { flex-direction: column; align-items: center; text-align: center; }
+            .nav-menu { justify-content: center; flex-wrap: wrap; }
+            .hero-section { flex-direction: column; gap: 50px; }
+            .feature-list { align-items: center; }
+            .product-display { width: 100%; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 20px; }
+            .logo { font-size: 2.8rem; }
+            .price-value { font-size: 2.8rem; }
+            .feature-item { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -197,44 +209,60 @@
 
     <div class="container">
         <header>
-            <div class="brand-section">
+            <div class="brand-block">
                 <div class="logo">ELI.</div>
-      <div class="cert-box">
-                <img src="images/fssc-22000.png" alt="cert">
-                <img src="images/fssc-22001.png" alt="cert">
-                <img src="images/fssc-22002.png" alt="cert">
-                <img src="images/fssc-22003.png" alt="cert">
-                <img src="images/fssc-22004.png" alt="cert">
-             </div>
+                <div class="cert-row">
+                    <img src="images/fssc-22000.png" alt="Cert">
+                    <img src="images/halal.png" alt="Halal">
+                    <img src="images/usda.png" alt="USDA">
+                    <img src="images/kosher.png" alt="Kosher">
+                    <img src="images/taste-award.png" alt="Award">
+                </div>
             </div>
             
             <nav>
-                <ul class="nav-links">
+                <ul class="nav-menu">
                     <li><a href="#">Product Overview</a></li>
-                    <li><a href="#">Factory Excellence</a></li>
+                    <li><a href="#">Factory</a></li>
                     <li><a href="#">Certification</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
         </header>
 
-        <section class="hero">
-            <div class="hero-text">
-                <h1>NATURE'S<br>PUREST<br>HYDRATION.</h1>
-                <p>100% Coconut Water from Thailand’s finest young coconuts. Sip Eli, Sip Elegance.</p>
+        <section class="hero-section">
+            <div class="feature-list">
+                <div class="feature-item">
+                    <div class="check-icon"></div>
+                    <span>100% Natural Coconut water</span>
+                </div>
+                <div class="feature-item">
+                    <div class="check-icon"></div>
+                    <span>No Sugar Added</span>
+                </div>
+                <div class="feature-item">
+                    <div class="check-icon"></div>
+                    <span>No Artificial Flavor</span>
+                </div>
+                <div class="feature-item">
+                    <div class="check-icon"></div>
+                    <span>No Coloring</span>
+                </div>
+                <div class="feature-item">
+                    <div class="check-icon"></div>
+                    <span>No Preservatives</span>
+                </div>
             </div>
 
-            <div class="product-card">
-                <img src="images/fssc-22005.png" alt="ELI Premium Coconut Water">
+            <div class="product-display">
+                <img src="images/fssc-22005.png" alt="ELI Coconut Water" class="product-image">
                 
-                <div class="product-info">
-                    <span class="product-name">Premium Coconut Water (330ml)</span>
-                    <div class="price-box">
-                        <span class="currency">฿</span>
-                        <span class="amount">45.00</span>
-                    </div>
-                    <a href="#" class="btn-shop">Shop Now</a>
+                <div class="price-tag">
+                    <span class="price-label">Price per pack</span>
+                    <span class="price-value">฿45.00</span>
                 </div>
+                
+                <a href="#" class="btn-buy">Shop Now</a>
             </div>
         </section>
     </div>
