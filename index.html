@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELI | Premium Thai Coconut Water</title>
+    <title>ELI | 100% Pure Thai Coconut Water</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     
     <style>
@@ -20,8 +20,7 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: #1C1D1B;
-            line-height: 1.5;
-            overflow-x: hidden;
+            line-height: 1.6;
         }
 
         .container {
@@ -30,7 +29,7 @@
             padding: 0 40px;
         }
 
-        /* --- Header Section --- */
+        /* --- Header & Certs --- */
         header {
             display: flex;
             justify-content: space-between;
@@ -38,7 +37,7 @@
             padding: 40px 0;
         }
 
-        .brand-block {
+        .brand-section {
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -46,138 +45,112 @@
 
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem; /* ปรับขนาดให้พอเหมาะ ไม่ใหญ่เกินไป */
+            font-size: 3rem;
             font-weight: 800;
             color: var(--brand-green);
             line-height: 1;
-            letter-spacing: -1px;
         }
 
-        /* ปรับขนาดใบรับรองให้ดูเรียบร้อย */
-        .cert-row {
+        .cert-group {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
         }
 
-        .cert-row img {
-            height: 32px; /* ปรับขนาดเล็กลงเพื่อให้ดูแพงและเป็นระเบียบ */
+        .cert-group img {
+            height: 35px; /* ขนาดใบรับรองที่ดูเรียบร้อย */
             width: auto;
             object-fit: contain;
-            opacity: 0.9;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 20px;
-            list-style: none;
-            padding-top: 10px;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #1C1D1B;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.7rem;
-            letter-spacing: 0.8px;
-        }
-
-        /* --- Hero Section --- */
-        .hero {
+        /* --- Main Layout --- */
+        .main-hero {
             display: flex;
             align-items: center;
             justify-content: space-between;
             min-height: 60vh;
-            gap: 50px;
-            padding-bottom: 60px;
+            gap: 40px;
+            padding-bottom: 50px;
         }
 
-        .content-area {
+        /* Features List */
+        .feature-box {
             flex: 1;
         }
 
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 12px;
-            font-size: 1.25rem; /* ปรับขนาดตัวอักษรให้อ่านง่ายแต่ไม่ใหญ่เทอะทะ */
+            gap: 15px;
+            font-size: 1.3rem;
             font-weight: 600;
             color: var(--text-brown);
-            margin-bottom: 16px;
+            margin-bottom: 18px;
         }
 
-        .check-icon {
-            width: 24px;
-            height: 24px;
-            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237ED321'%3E%3Cpath d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z'/%3E%3C/svg%3E") no-repeat center;
-            background-size: contain;
+        .check-svg {
+            width: 28px;
+            height: 28px;
+            flex-shrink: 0;
         }
 
-        /* --- Product Card Display --- */
+        /* Product Card */
         .product-card {
             flex: 1;
             background: var(--white);
             border-radius: 24px;
-            padding: 40px;
+            padding: 50px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
-            max-width: 480px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
         }
 
-        .product-card img {
+        .product-main-img {
             width: 100%;
-            max-width: 320px; /* ปรับขนาดรูปสินค้าให้พอดีกับกรอบ */
+            max-width: 350px;
             height: auto;
             margin-bottom: 25px;
-            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05));
         }
 
-        .price-label {
-            font-size: 0.8rem;
-            text-transform: uppercase;
-            font-weight: 600;
-            color: #A0A0A0;
-            letter-spacing: 1px;
-            display: block;
-            margin-bottom: 5px;
-        }
-
-        .price-value {
-            font-size: 2.8rem;
+        .price-tag {
+            font-size: 3rem;
             font-weight: 800;
             color: var(--brand-green);
-            line-height: 1;
-            margin-bottom: 25px;
             display: block;
+            margin-bottom: 20px;
         }
 
-        .btn-shop {
+        .btn-order {
             background-color: var(--brand-green);
             color: white;
-            padding: 16px 50px;
+            padding: 16px 60px;
             text-decoration: none;
-            border-radius: 100px;
+            border-radius: 50px;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
             font-size: 0.9rem;
-            transition: all 0.3s ease;
-            display: inline-block;
+            transition: 0.3s;
         }
 
-        .btn-shop:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(43, 76, 59, 0.15);
+        .btn-order:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
+
+        /* Award Logo at bottom */
+        .award-footer {
+            padding-bottom: 40px;
+            display: flex;
+            justify-content: flex-start;
         }
 
-        /* --- Tablet & iPad Pro --- */
+        .award-img {
+            height: 60px;
+            width: auto;
+        }
+
         @media (max-width: 1024px) {
             header { flex-direction: column; align-items: center; text-align: center; }
-            .cert-row { justify-content: center; }
-            .hero { flex-direction: column; text-align: center; }
+            .cert-group { justify-content: center; }
+            .main-hero { flex-direction: column; text-align: center; }
             .feature-item { justify-content: center; }
-            .product-card { margin: 0 auto; width: 100%; }
+            .award-footer { justify-content: center; }
         }
     </style>
 </head>
@@ -185,46 +158,52 @@
 
     <div class="container">
         <header>
-            <div class="brand-block">
+            <div class="brand-section">
                 <div class="logo">ELI.</div>
-                <div class="cert-row">
+                <div class="cert-group">
                     <img src="images/fssc-22000.png" alt="FSSC">
-                    <img src="images/halal.png" alt="Halal">
-                    <img src="images/usda.png" alt="USDA">
-                    <img src="images/kosher.png" alt="Kosher">
-                    <img src="images/taste-award.png" alt="Taste Award">
+                    <img src="images/fssc-22001.png" alt="Halal">
+                    <img src="images/fssc-22002.png" alt="USDA">
+                    <img src="images/fssc-22003.png" alt="Kosher">
+                    <img src="images/fssc-22004.png" alt="SGS">
                 </div>
             </div>
-            
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="#">Product</a></li>
-                    <li><a href="#">Factory</a></li>
-                    <li><a href="#">Contact</a></li>
-                </ul>
-            </nav>
         </header>
 
-        <section class="hero">
-            <div class="content-area">
-                <div class="feature-item"><div class="check-icon"></div>100% Natural Coconut water</div>
-                <div class="feature-item"><div class="check-icon"></div>No Sugar Added</div>
-                <div class="feature-item"><div class="check-icon"></div>No Artificial Flavor</div>
-                <div class="feature-item"><div class="check-icon"></div>No Coloring</div>
-                <div class="feature-item"><div class="check-icon"></div>No Preservatives</div>
+        <section class="main-hero">
+            <div class="feature-box">
+                <div class="feature-item">
+                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>100% Natural Coconut water</span>
+                </div>
+                <div class="feature-item">
+                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No Sugar Added</span>
+                </div>
+                <div class="feature-item">
+                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No Artificial Flavor</span>
+                </div>
+                <div class="feature-item">
+                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No Coloring</span>
+                </div>
+                <div class="feature-item">
+                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No Preservatives</span>
+                </div>
             </div>
 
             <div class="product-card">
-                <img src="images/fssc-22005.png" alt="ELI Product" class="product-img">
-                
-                <div class="price-section">
-                    <span class="price-label">Price per pack</span>
-                    <span class="price-value">฿45.00</span>
-                </div>
-                
-                <a href="#" class="btn-shop">Shop Now</a>
+                <img src="images/fssc-22005.png" alt="ELI Product" class="product-main-img">
+                <span class="price-tag">฿45.00</span>
+                <a href="#" class="btn-order">Shop Now</a>
             </div>
         </section>
+
+        <footer class="award-footer">
+            <img src="images/fssc-22006.png" alt="Taste Award" class="award-img">
+        </footer>
     </div>
 
 </body>
