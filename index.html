@@ -64,24 +64,25 @@
             line-height: 1;
         }
 
-        /* ปรับปรุงกล่องตรามาตรฐานให้รองรับรูปภาพหลายรูปเรียงกัน */
+        /* ปรับแต่งกล่องตรามาตรฐานตามที่คุณบรีฟ */
         .cert-box {
-            background-color: #ffffff; 
-            border: 1px solid rgba(43, 76, 59, 0.12); 
-            padding: 8px 14px; 
-            border-radius: 6px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+            background-color: #ffffff; /* ปรับพื้นหลังเป็นสีขาวล้วนให้เหมือนกัน */
+            border: 1px solid rgba(43, 76, 59, 0.12); /* ขอบจางๆ สไตล์มินิมอล */
+            padding: 10px 18px; /* เพิ่มพื้นที่ด้านในกล่อง */
+            border-radius: 8px; /* ปรับความโค้งมนของมุมกล่อง */
+            box-shadow: 0 4px 14px rgba(0,0,0,0.04); /* เพิ่มเงาฟุ้งๆ ให้ดูมีมิติขึ้น */
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px; /* เว้นระยะห่างระหว่างแต่ละโลโก้ */
+            gap: 16px; /* เว้นระยะห่างระหว่างโลโก้ให้ไม่อึดอัด */
         }
 
-        /* ควบคุมขนาดของทุกโลโก้ให้เท่ากันอย่างสวยงาม */
+        /* เพิ่มขนาดและปรับแต่งรูปภาพตรามาตรฐานให้สวยงาม */
         .cert-box img {
-            height: 35px; /* ปรับความสูงให้พอดีเมื่อแสดงผลร่วมกันหลายโลโก้ */
+            height: 42px; /* เพิ่มขนาดความสูงของโลโก้ให้ใหญ่และเด่นชัดขึ้น */
             width: auto;
             object-fit: contain;
+            filter: drop-shadow(0px 1px 2px rgba(0,0,0,0.05)); /* เพิ่มมิติมินิมอลให้ตัวรูป */
         }
 
         .nav-links {
@@ -283,7 +284,7 @@
             }
             .hero {
                 flex-direction: column;
-                padding-top: 200px; /* เพิ่มพื้นที่ด้านบนสำหรับรองรับแถวตรามาตรฐานในมือถือ */
+                padding-top: 240px; /* เพิ่มพื้นที่ด้านบนสำหรับสมาร์ทโฟน */
                 text-align: center;
             }
             .hero-content {
@@ -300,8 +301,12 @@
                 grid-template-columns: 1fr; 
             }
             .cert-box {
-                flex-wrap: wrap; /* ให้รูปภาพตัดลงบรรทัดใหม่ได้เมื่อเปิดในจอมือถือ */
+                flex-wrap: wrap; /* รองรับการตัดบรรทัดเมื่อเปิดบนหน้าจอมือถือ */
                 justify-content: center;
+                gap: 12px;
+            }
+            .cert-box img {
+                height: 35px; /* ปรับขนาดลงเล็กน้อยบนมือถือเพื่อความลงตัว */
             }
         }
     </style>
@@ -311,13 +316,13 @@
     <header>
         <div class="brand-area">
             <div class="logo">ELI.</div>
- <div class="cert-box">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/FSSC_22000_logo.svg/512px-FSSC_22000_logo.svg.png" alt="FSSC 22000">
-    <img src="images/fssc-22001.png" alt="Standard 2">
-    <img src="images/fssc-22002.png" alt="Standard 3">
-    <img src="images/fssc-22003.png" alt="Standard 4">
-    <img src="images/fssc-22004.png" alt="Standard 5">
-</div>
+            <div class="cert-box">
+                <img src="fssc-22000.png" alt="FSSC 22000">
+                <img src="fssc-22001.png" alt="FSSC 22000 v5.1">
+                <img src="fssc-22002.png" alt="SGS Certified">
+                <img src="fssc-22003.png" alt="Kosher Certified">
+                <img src="fssc-22004.png" alt="Superior Taste Award">
+            </div>
         </div>
         
         <nav class="nav-links">
