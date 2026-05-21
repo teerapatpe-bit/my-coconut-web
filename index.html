@@ -40,17 +40,17 @@
             align-items: flex-start;
         }
 
-        /* --- ปรับโลโก้และใบรับรองให้อยู่คนละบรรทัด (หย่อนลงมา) --- */
+        /* --- ส่วนที่ปรับให้โลโก้และใบรับรองหย่อนลงมาเป็นแนวตั้ง --- */
         .brand-area {
             display: flex;
-            flex-direction: column; /* เรียงเป็นแนวตั้ง */
+            flex-direction: column; /* เปลี่ยนจาก row เป็น column เพื่อให้หย่อนลงมาคนละบรรทัด */
             align-items: flex-start;
             gap: 20px; /* ระยะห่างระหว่างโลโก้กับแถบใบรับรอง */
         }
 
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem; /* ปรับให้ใหญ่ขึ้น */
+            font-size: 3.5rem; /* ขนาดใหญ่ขึ้น */
             font-weight: 700;
             letter-spacing: 3px;
             color: var(--brand-green);
@@ -64,10 +64,11 @@
         }
 
         .cert-box img { 
-            height: 70px; /* ปรับรูปไอคอนให้ใหญ่ขึ้น */
+            height: 70px; /* ขนาดไอคอนใหญ่ขึ้น */
             width: auto; 
             object-fit: contain;
         }
+        /* ----------------------------------------------------- */
 
         .nav-links a {
             text-decoration: none;
@@ -104,9 +105,7 @@
                 <img src="images/fssc-22001.png" alt="cert">
                 <img src="images/fssc-22002.png" alt="cert">
                 <img src="images/fssc-22003.png" alt="cert">
-                <img src="images/fssc-22004.png" alt="cert">
-                
-            </div>
+                <img src="images/fssc-22005.png" alt="cert"> </div>
         </div>
         
         <nav class="nav-links">
