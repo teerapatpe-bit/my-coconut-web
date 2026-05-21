@@ -20,7 +20,7 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: #1C1D1B;
-            line-height: 1.6;
+            line-height: 1.4; /* ปรับให้กระชับขึ้น */
         }
 
         .container {
@@ -29,18 +29,18 @@
             padding: 0 40px;
         }
 
-        /* --- Header: Logo & Certifications --- */
+        /* --- Header Section --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 50px 0;
+            padding: 30px 0 10px 0; /* ลด padding ด้านล่างเพื่อให้ส่วนถัดไปขยับขึ้น */
         }
 
-        .brand-section {
+        .brand-block {
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            gap: 10px;
         }
 
         .logo {
@@ -58,97 +58,94 @@
         }
 
         .cert-row img {
-            height: 35px;
+            height: 32px;
             width: auto;
             object-fit: contain;
         }
 
-        /* --- Hero Section --- */
-        .hero {
+        /* --- Main Layout: ขยับส่วนนี้ขึ้น --- */
+        .main-content {
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* เปลี่ยนจาก center เป็น flex-start เพื่อให้เนื้อหาอยู่ด้านบน */
             justify-content: space-between;
-            min-height: 60vh;
+            padding-top: 20px; /* ลดระยะห่างด้านบน */
             gap: 40px;
-            padding-bottom: 50px;
         }
 
-        .features {
+        /* รายการเครื่องหมายถูก */
+        .feature-list {
             flex: 1;
+            margin-top: 10px; /* ปรับตำแหน่งละเอียด */
         }
 
         .feature-item {
             display: flex;
             align-items: center;
             gap: 15px;
-            font-size: 1.3rem;
+            font-size: 1.25rem;
             font-weight: 600;
             color: var(--text-brown);
-            margin-bottom: 20px;
+            margin-bottom: 15px; /* ลดระยะห่างระหว่างบรรทัด */
         }
 
-        .check-icon {
-            width: 26px;
-            height: 26px;
+        .icon-check {
+            width: 24px;
+            height: 24px;
             flex-shrink: 0;
         }
 
-        /* --- Product Card --- */
-        .product-card {
+        /* การ์ดสินค้า */
+        .product-display {
             flex: 1;
             background: var(--white);
-            border-radius: 25px;
-            padding: 50px;
+            border-radius: 20px;
+            padding: 40px;
             text-align: center;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
-            max-width: 450px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            max-width: 420px;
         }
 
-        .product-card img {
+        .product-display img {
             width: 100%;
-            max-width: 320px;
-            margin-bottom: 30px;
+            max-width: 300px;
+            margin-bottom: 20px;
         }
 
-        .price {
-            font-size: 3rem;
+        .price-tag {
+            font-size: 2.8rem;
             font-weight: 800;
             color: var(--brand-green);
             display: block;
             margin-bottom: 20px;
         }
 
-        .btn-order {
+        .btn-buy {
             background-color: var(--brand-green);
             color: white;
-            padding: 16px 60px;
+            padding: 14px 50px;
             text-decoration: none;
             border-radius: 50px;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             transition: 0.3s;
             display: inline-block;
         }
 
-        .btn-order:hover { transform: translateY(-3px); box-shadow: 0 10px 20px rgba(0,0,0,0.1); }
-
-        /* --- Award Footer --- */
+        /* รางวัลด้านล่าง */
         .footer-award {
-            padding: 40px 0;
+            padding: 30px 0;
         }
 
         .footer-award img {
-            height: 60px;
-            width: auto;
+            height: 55px;
         }
 
         @media (max-width: 1024px) {
             header { flex-direction: column; align-items: center; text-align: center; }
-            .cert-row { justify-content: center; flex-wrap: wrap; }
-            .hero { flex-direction: column; text-align: center; }
+            .cert-row { justify-content: center; }
+            .main-content { flex-direction: column; align-items: center; text-align: center; }
             .feature-item { justify-content: center; }
-            .product-card { margin: 0 auto; width: 100%; }
         }
     </style>
 </head>
@@ -156,7 +153,7 @@
 
     <div class="container">
         <header>
-            <div class="brand-section">
+            <div class="brand-block">
                 <div class="logo">ELI.</div>
                 <div class="cert-row">
                     <img src="images/fssc-22000.png" alt="FSSC">
@@ -168,34 +165,34 @@
             </div>
         </header>
 
-        <section class="hero">
-            <div class="features">
+        <section class="main-content">
+            <div class="feature-list">
                 <div class="feature-item">
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="icon-check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     <span>100% Natural Coconut water</span>
                 </div>
                 <div class="feature-item">
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="icon-check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     <span>No Sugar Added</span>
                 </div>
                 <div class="feature-item">
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="icon-check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     <span>No Artificial Flavor</span>
                 </div>
                 <div class="feature-item">
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="icon-check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     <span>No Coloring</span>
                 </div>
                 <div class="feature-item">
-                    <svg class="check-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg class="icon-check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     <span>No Preservatives</span>
                 </div>
             </div>
 
-            <div class="product-card">
+            <div class="product-display">
                 <img src="images/fssc-22005.png" alt="ELI Product">
-                <span class="price">฿45.00</span>
-                <a href="#" class="btn-order">Shop Now</a>
+                <span class="price-tag">฿45.00</span>
+                <a href="#" class="btn-buy">Shop Now</a>
             </div>
         </section>
 
