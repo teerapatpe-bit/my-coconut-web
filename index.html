@@ -3,30 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVER GOOD PARTNERS | Premium Showcase</title>
+    <title>EVER GOOD PARTNERS | Premium Coconut Water</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <style>
         :root { 
             --brand-gold: #D4AF37; 
             --brand-green: #2B4C3B; 
             --accent-blue: #4A90E2;
-            --soft-white: #F9F9F9;
         }
         
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         body { 
             font-family: 'Inter', sans-serif; 
-            background: var(--soft-white);
-            overflow-x: hidden;
-            /* พื้นหลัง fssc-22007.png แบบจางพิเศษเพื่อส่งเสริมตัวสินค้า */
-            background-image: radial-gradient(circle, rgba(255,255,255,0.7) 0%, rgba(240,240,240,0.9) 100%), url('images/fssc-22007.png');
+            background-color: #F8F9FA;
+            /* พื้นหลังจางๆ เพื่อส่งเสริมสินค้า */
+            background-image: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.8)), url('images/fssc-22007.png');
             background-size: cover;
             background-attachment: fixed;
+            color: #333;
         }
 
+        /* ส่วนหัว: ชื่อบริษัทและโลโก้ใบเซอร์อยู่ด้านล่าง */
         header {
-            padding: 50px 80px 0 80px;
+            padding: 60px 100px 20px 100px;
             max-width: 1600px;
             margin: 0 auto;
         }
@@ -36,136 +36,117 @@
             font-size: 3.5rem; 
             color: var(--brand-gold); 
             font-weight: 800; 
-            letter-spacing: -1px; 
             text-transform: uppercase;
-            text-shadow: 0 10px 20px rgba(212, 175, 55, 0.1); /* เพิ่มเงาจางๆ ให้ดูแพง */
+            letter-spacing: -1px;
+            margin-bottom: 15px;
         }
 
-        /* ส่วนแสดงสินค้าที่ดูสง่า (Showcase Section) */
-        .showcase {
-            display: grid;
-            grid-template-columns: 1.2fr 1fr;
-            gap: 40px;
+        .cert-row-top {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+        .cert-row-top img { height: 35px; opacity: 0.9; }
+
+        /* ส่วนจัดวางเนื้อหาหลัก: สลับซ้ายขวาตามโจทย์ */
+        .main-container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 60px 80px;
+            padding: 40px 100px;
+            display: grid;
+            grid-template-columns: 1.1fr 1fr; /* กล่องข้อมูลซ้าย สินค้าขวา */
+            gap: 60px;
             align-items: center;
-            min-height: 80vh;
+            min-height: 70vh;
         }
 
-        /* การตกแต่งขวดน้ำให้ดูเด่นทันที */
-        .product-visual {
-            position: relative;
+        /* กล่องข้อมูลด้านซ้าย */
+        .info-panel {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 50px;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.6);
+        }
+
+        .info-panel h1 {
+            font-size: 4rem;
+            color: var(--accent-blue);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 25px;
+        }
+
+        .feature-list { list-style: none; }
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: #444;
+        }
+        .feature-item span { color: #7ED321; font-size: 1.8rem; }
+
+        /* สินค้าด้านขวาให้ดูสง่า */
+        .product-display {
             display: flex;
             justify-content: center;
-            align-items: center;
+            position: relative;
         }
 
-        /* รัศมีแสงด้านหลังขวดช่วยให้สินค้าดูสง่า */
-        .product-visual::before {
+        .product-display::after {
             content: '';
             position: absolute;
-            width: 500px;
-            height: 500px;
-            background: radial-gradient(circle, rgba(74, 144, 226, 0.15) 0%, transparent 70%);
-            z-index: 1;
-            animation: pulse 4s infinite alternate;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); opacity: 0.5; }
-            100% { transform: scale(1.2); opacity: 0.8; }
+            width: 80%;
+            height: 20px;
+            background: rgba(0,0,0,0.1);
+            bottom: -30px;
+            filter: blur(15px);
+            border-radius: 50%;
         }
 
         .main-bottle {
-            width: 480px; /* ขนาดใหญ่ขึ้นเพื่อความเด่น */
-            z-index: 5;
-            filter: drop-shadow(0 30px 60px rgba(0,0,0,0.15));
-            transition: 0.5s transform cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            width: 420px;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.1));
+            animation: elegantFloat 6s infinite ease-in-out;
         }
 
-        .main-bottle:hover {
-            transform: translateY(-20px) scale(1.05);
+        @keyframes elegantFloat {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-25px); }
         }
 
-        /* รายละเอียดเนื้อหา */
-        .content-box { z-index: 10; }
-
-        .tagline {
-            font-size: 1.2rem;
-            color: var(--brand-green);
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: 5px;
-            margin-bottom: 20px;
-            display: block;
-        }
-
-        .info-card {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 40px;
-            border-radius: 40px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.05);
-            border: 1px solid rgba(255,255,255,0.5);
-        }
-
-        .info-card h2 {
-            font-size: 4.5rem;
-            color: var(--accent-blue);
-            line-height: 1;
-            margin-bottom: 10px;
-            font-weight: 900;
-        }
-
-        .info-card p {
-            font-size: 1.8rem;
-            color: var(--brand-green);
-            font-weight: 700;
-            margin-bottom: 30px;
-        }
-
-        .cert-row {
-            display: flex;
-            gap: 15px;
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-        .cert-row img { height: 35px; }
-
-        .action-area {
-            display: flex;
-            gap: 20px;
+        .order-btn {
+            display: inline-block;
             margin-top: 40px;
-        }
-
-        .btn-premium {
             background: var(--brand-green);
             color: white;
-            padding: 25px 60px;
+            padding: 22px 50px;
             border-radius: 100px;
             text-decoration: none;
             font-weight: 900;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             text-transform: uppercase;
             letter-spacing: 2px;
-            box-shadow: 0 15px 35px rgba(43,76,59,0.3);
-            transition: 0.3s;
+            transition: 0.4s;
+            box-shadow: 0 15px 30px rgba(43,76,59,0.2);
         }
 
-        .btn-premium:hover {
+        .order-btn:hover {
             transform: translateY(-5px);
             background: #1e362a;
-            box-shadow: 0 20px 45px rgba(43,76,59,0.4);
+            box-shadow: 0 20px 40px rgba(43,76,59,0.3);
         }
 
         @media (max-width: 1100px) {
-            .showcase { grid-template-columns: 1fr; text-align: center; }
-            .main-bottle { width: 320px; }
-            .info-card h2 { font-size: 3rem; }
-            .cert-row { justify-content: center; }
-            .action-area { justify-content: center; }
+            header { padding: 40px; text-align: center; }
+            .cert-row-top { justify-content: center; }
+            .main-container { grid-template-columns: 1fr; text-align: center; }
+            .feature-item { justify-content: center; }
+            .product-display { order: -1; } /* มือถือเอาขวดขึ้นก่อน */
+            .main-bottle { width: 300px; }
         }
     </style>
 </head>
@@ -173,49 +154,32 @@
 
     <header>
         <div class="brand">EVER GOOD PARTNERS</div>
+        <div class="cert-row-top">
+            <img src="images/fssc-22000.png" alt="FSSC">
+            <img src="images/fssc-22001.png" alt="Halal">
+            <img src="images/fssc-22002.png" alt="USDA">
+            <img src="images/fssc-22003.png" alt="Kosher">
+            <img src="images/fssc-22004.png" alt="SGS">
+        </div>
     </header>
 
-    <section class="showcase">
-        <div class="product-visual">
-            <img src="images/fssc-22005.png" class="main-bottle" alt="Premium Coconut Water">
+    <main class="main-container">
+        <div class="info-panel">
+            <h1>Coconut<br>Water</h1>
+            <ul class="feature-list">
+                <li class="feature-item"><span>✓</span> 100% NATURAL & PURE</li>
+                <li class="feature-item"><span>✓</span> ZERO ADDED SUGAR</li>
+                <li class="feature-item"><span>✓</span> NO ARTIFICIAL FLAVOR</li>
+                <li class="feature-item"><span>✓</span> NO COLORING</li>
+                <li class="feature-item"><span>✓</span> NO PRESERVATIVES</li>
+            </ul>
+            <a href="#" class="order-btn">Order Now</a>
         </div>
 
-        <div class="content-box">
-            <span class="tagline">The True Taste of Nature</span>
-            <div class="info-card">
-                <h2>Coconut Water</h2>
-                
-                <div class="feat-list">
-                    <div style="font-size: 1.2rem; font-weight: 800; color: #555; margin-bottom: 10px;">
-                        ✓ 100% NATURAL & PURE
-                    </div>
-                    <div style="font-size: 1.2rem; font-weight: 800; color: #555;">
-                        ✓ ZERO ADDED SUGAR
-                    </div>
-                    <div style="font-size: 1.2rem; font-weight: 800; color: #555; margin-bottom: 10px;">
-                        ✓ No Artificial Flavor
-                    </div>
-                           <div style="font-size: 1.2rem; font-weight: 800; color: #555; margin-bottom: 10px;">
-                        ✓ No Coloring
-                    </div>
-                    <div style="font-size: 1.2rem; font-weight: 800; color: #555; margin-bottom: 10px;">
-                        ✓ No Preservatives
-                    </div>
-                </div>
-
-                <div class="cert-row">
-                    <img src="images/fssc-22000.png" alt="FSSC">
-                    <img src="images/fssc-22001.png" alt="Halal">
-                    <img src="images/fssc-22002.png" alt="USDA">
-                    <img src="images/fssc-22004.png" alt="SGS">
-                </div>
-            </div>
-
-            <div class="action-area">
-                <a href="#" class="btn-premium">Order Now</a>
-            </div>
+        <div class="product-display">
+            <img src="images/fssc-22005.png" class="main-bottle" alt="Premium Coconut Water Bottle">
         </div>
-    </section>
+    </main>
 
 </body>
 </html>
