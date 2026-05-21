@@ -3,209 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELI | The Premium Coconut Water</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@900&display=swap" rel="stylesheet">
-    
+    <title>ELI | Pure Coconut Water Experience</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Montserrat:wght@900&display=swap" rel="stylesheet">
     <style>
-        :root {
-            --primary-dark: #2B4C3B;
-            --accent-green: #7ED321;
-            --info-blue: #4A90E2;
-            --bg-soft: #F8F9FA;
-            --white: #FFFFFF;
+        :root { --green: #2B4C3B; --blue: #4A90E2; --light: #F8F9FA; }
+        body { font-family: 'Inter', sans-serif; background: var(--light); margin: 0; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 40px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+
+        /* ส่วนข้อมูลซ้าย */
+        .logo { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; color: var(--green); margin-bottom: 10px; }
+        .certs { display: flex; gap: 10px; margin-bottom: 30px; }
+        .certs img { height: 25px; opacity: 0.6; }
+        .feature { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-size: 1.3rem; font-weight: 700; }
+
+        /* ส่วนแสดงผลขวา (Interactive Area) */
+        .product-area { display: flex; flex-direction: column; align-items: center; }
+        .info { align-self: flex-start; color: var(--blue); margin-bottom: 20px; }
+        .info b { font-size: 2rem; display: block; }
+
+        .main-bottle { width: 260px; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.1)); transition: 0.4s ease; animation: float 4s infinite ease-in-out; }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+
+        /* กล่องเลือกขนาดที่ขยายได้ (Hover & Expand) */
+        .size-row { display: flex; gap: 20px; margin: 40px 0; width: 100%; }
+        .size-card { 
+            flex: 1; background: white; border-radius: 25px; padding: 25px; text-align: center; 
+            cursor: pointer; transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); border: 2px solid transparent;
         }
+        .size-card:hover { transform: scale(1.1); box-shadow: 0 20px 40px rgba(0,0,0,0.1); }
+        .size-card.active { border-color: var(--green); }
+        .size-card img { height: 50px; margin-bottom: 10px; }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-soft); color: #333; }
-        .container { max-width: 1400px; margin: 0 auto; padding: 0 50px; }
-
-        /* --- Modern Header --- */
-        header { display: flex; justify-content: space-between; align-items: center; padding: 40px 0; }
-        .brand-logo { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; color: var(--primary-dark); letter-spacing: -2px; }
-        
-        .nav-menu { display: flex; gap: 30px; }
-        .nav-menu a { text-decoration: none; color: #111; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1.2px; transition: 0.3s; }
-        .nav-menu a:hover { color: var(--accent-green); }
-
-        /* --- Main Content Grid --- */
-        .hero-section { display: grid; grid-template-columns: 1fr 1.1fr; gap: 60px; align-items: center; min-height: 75vh; }
-
-        /* Left Side: Certificates & Features */
-        .cert-row { display: flex; gap: 12px; margin-bottom: 40px; }
-        .cert-row img { height: 28px; filter: grayscale(100%); opacity: 0.7; transition: 0.3s; }
-        .cert-row img:hover { filter: grayscale(0%); opacity: 1; }
-
-        .feature-list { list-style: none; }
-        .feature-item { display: flex; align-items: center; gap: 15px; margin-bottom: 22px; font-size: 1.4rem; font-weight: 700; color: #444; }
-        .check-svg { width: 28px; height: 28px; color: var(--accent-green); }
-
-        /* Right Side: Product Interactive Area */
-        .product-display { display: flex; flex-direction: column; align-items: center; position: relative; }
-
-        .shelf-life-badge { align-self: flex-start; margin-bottom: 20px; line-height: 1.2; padding-left: 20px; }
-        .shelf-life-badge b { font-size: 2.2rem; color: var(--info-blue); display: block; }
-        .shelf-life-badge span { font-size: 1.4rem; color: var(--info-blue); font-weight: 600; }
-
-        /* Main Floating Image */
-        .main-image-wrap { height: 400px; display: flex; align-items: center; justify-content: center; margin-bottom: 30px; }
-        .img-main { 
-            max-height: 380px; 
-            filter: drop-shadow(0 30px 50px rgba(0,0,0,0.15)); 
-            animation: floatAnim 4s ease-in-out infinite;
-            transition: transform 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
-
-        @keyframes floatAnim {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
-        }
-
-        /* --- Size Grid with Hover Expansion --- */
-        .size-grid { display: flex; gap: 20px; width: 100%; max-width: 550px; margin-bottom: 35px; }
-
-        .size-card {
-            flex: 1;
-            background: var(--white);
-            border-radius: 30px;
-            padding: 30px 20px;
-            text-align: center;
-            cursor: pointer;
-            border: 2.5px solid transparent;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.03);
-            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
-        }
-
-        .size-card img { height: 60px; margin-bottom: 12px; transition: 0.4s; }
-        .size-card b { display: block; font-size: 1.2rem; color: #222; }
-        .size-card p { font-size: 0.75rem; color: #999; text-transform: uppercase; font-weight: 800; letter-spacing: 1px; margin-top: 4px; }
-
-        /* Hover & Active States */
-        .size-card:hover {
-            transform: scale(1.08);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.08);
-            border-color: #EEE;
-        }
-
-        .size-card.active {
-            border-color: var(--primary-dark);
-            background: var(--white);
-        }
-
-        .btn-cta {
-            background: var(--primary-dark);
-            color: var(--white);
-            width: 100%;
-            max-width: 550px;
-            padding: 24px;
-            border-radius: 100px;
-            text-decoration: none;
-            font-weight: 800;
-            text-transform: uppercase;
-            text-align: center;
-            letter-spacing: 3px;
-            transition: 0.3s;
-            box-shadow: 0 15px 35px rgba(43, 76, 59, 0.25);
-        }
-
-        .btn-cta:hover { transform: translateY(-3px); box-shadow: 0 20px 45px rgba(43, 76, 59, 0.35); }
-
-        @media (max-width: 1100px) {
-            .hero-section { grid-template-columns: 1fr; text-align: center; }
-            .feature-item, .cert-row { justify-content: center; }
-            .shelf-life-badge { align-self: center; padding-left: 0; }
+        .btn-shop { 
+            background: var(--green); color: white; width: 100%; padding: 22px; 
+            border-radius: 50px; text-align: center; text-decoration: none; 
+            font-weight: 800; text-transform: uppercase; letter-spacing: 2px;
         }
     </style>
 </head>
 <body>
-
     <div class="container">
-        <header>
-            <div class="brand-logo">ELI.</div>
-            <nav class="nav-menu">
-                <a href="#">Product Overview</a>
-                <a href="#">Factory & Excellence</a>
-                <a href="#">Quality & Certs</a>
-                <a href="#">Contact</a>
-            </nav>
-        </header>
-
-        <main class="hero-section">
-            <div class="content-left">
-                <div class="cert-row">
-                    <img src="images/fssc.png" alt="FSSC 22000">
-                    <img src="images/halal.png" alt="Halal">
-                    <img src="images/usda.png" alt="USDA">
-                    <img src="images/kosher.png" alt="Kosher">
-                    <img src="images/sgs.png" alt="SGS">
-                </div>
-
-                <ul class="feature-list">
-                    <li class="feature-item">
-                        <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        <span>100% Natural Coconut water</span>
-                    </li>
-                    <li class="feature-item">
-                        <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        <span>No Sugar Added</span>
-                    </li>
-                    <li class="feature-item">
-                        <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        <span>No Artificial Flavor</span>
-                    </li>
-                    <li class="feature-item">
-                        <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        <span>No Coloring</span>
-                    </li>
-                    <li class="feature-item">
-                        <svg class="check-svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="4"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" /></svg>
-                        <span>No Preservatives</span>
-                    </li>
-                </ul>
+        <div>
+            <div class="logo">ELI.</div>
+            <div class="certs">
+                <img src="cert1.png" alt="FSSC"> <img src="cert2.png" alt="Halal"> <img src="cert3.png" alt="USDA">
             </div>
+            <div class="feature">✅ 100% Natural Coconut water</div>
+            <div class="feature">✅ No Sugar Added</div>
+            <div class="feature">✅ No Preservatives</div>
+        </div>
 
-            <div class="product-display">
-                <div class="shelf-life-badge">
-                    <b>18 months</b>
-                    <span>@ room temp.</span>
+        <div class="product-area">
+            <div class="info"><b>18 months</b> <span>@ room temp.</span></div>
+            <img src="bottle.png" id="mainImg" class="main-bottle">
+            
+            <div class="size-row">
+                <div class="size-card active" onmouseover="updateImg('small')" onclick="select(this)">
+                    <img src="small.png"><b>330ml</b><p>PRESENT</p>
                 </div>
-
-                <div class="main-image-wrap">
-                    <img src="images/bottle-330.png" alt="ELI Product" class="img-main" id="product-hero">
+                <div class="size-card" onmouseover="updateImg('large')" onclick="select(this)">
+                    <img src="large.png" style="transform:scale(1.2)"><b>1000ml</b><p>FUTURE</p>
                 </div>
-
-                <div class="size-grid">
-                    <div class="size-card active" onmouseover="previewSize('330ml')" onclick="selectSize(this)">
-                        <img src="images/bottle-330.png" alt="330ml">
-                        <b>330ml</b>
-                        <p>Present</p>
-                    </div>
-                    <div class="size-card" onmouseover="previewSize('1000ml')" onclick="selectSize(this)">
-                        <img src="images/bottle-1000.png" alt="1000ml" style="transform: scale(1.2)">
-                        <b>1000ml</b>
-                        <p>Future</p>
-                    </div>
-                </div>
-
-                <a href="#" class="btn-cta">Shop Now</a>
             </div>
-        </main>
+            <a href="#" class="btn-shop">Shop Now</a>
+        </div>
     </div>
-
     <script>
-        function previewSize(size) {
-            const hero = document.getElementById('product-hero');
-            if(size === '1000ml') {
-                hero.style.transform = 'scale(1.15)';
-            } else {
-                hero.style.transform = 'scale(1)';
-            }
+        function updateImg(s) {
+            document.getElementById('mainImg').style.transform = (s === 'large') ? 'scale(1.15)' : 'scale(1)';
         }
-
-        function selectSize(element) {
-            document.querySelectorAll('.size-card').forEach(card => card.classList.remove('active'));
-            element.classList.add('active');
+        function select(e) {
+            document.querySelectorAll('.size-card').forEach(c => c.classList.remove('active'));
+            e.classList.add('active');
         }
     </script>
-
 </body>
 </html>
