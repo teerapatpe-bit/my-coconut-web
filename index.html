@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELI | Sip Elegance</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700;800&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <title>ELI | 100% Pure Thai Coconut Water</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --bg-color: #F6F4F0;
-            --brand-green: #2B4C3B;    
-            --accent-green: #7ED321;
-            --text-main: #333333;
+            --bg-color: #F7F5F2; /* สีพื้นหลังครีมอ่อนดูพรีเมียม */
+            --brand-green: #2B4C3B; /* สีเขียวเอกลักษณ์ของ ELI */
+            --text-brown: #4A4439;
             --white: #FFFFFF;
+            --accent-green: #7ED321;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -20,25 +20,25 @@
         body {
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
-            color: var(--text-main);
-            overflow-x: hidden;
+            color: var(--text-brown);
+            line-height: 1.4;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 0 60px;
+            padding: 0 40px;
         }
 
-        /* --- Header Section --- */
+        /* --- Header & Navigation --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 40px 0 20px 0;
+            padding: 40px 0;
         }
 
-        .brand-box {
+        .logo-area {
             display: flex;
             flex-direction: column;
             gap: 15px;
@@ -46,174 +46,135 @@
 
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
+            font-size: 3.8rem;
             font-weight: 800;
             color: var(--brand-green);
-            letter-spacing: -2px;
+            letter-spacing: -3px;
             line-height: 0.8;
         }
 
-        /* แถวใบรับรองคุณภาพ */
-        .cert-group {
+        /* กลุ่มใบรับรองคุณภาพ */
+        .cert-icons {
             display: flex;
-            gap: 12px;
+            gap: 10px;
             align-items: center;
         }
 
-        .cert-group img {
-            height: 32px;
-            filter: grayscale(0.2) contrast(1.1);
-            transition: 0.3s;
+        .cert-icons img {
+            height: 28px;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
         }
 
-        .cert-group img:hover { filter: grayscale(0); transform: scale(1.1); }
-
-        /* เมนูมุมขวาบน */
-        .nav-links {
+        /* เมนูนำทางมุมขวาบน */
+        .nav-menu {
             display: flex;
-            gap: 35px;
-            margin-top: 10px;
+            gap: 30px;
+            padding-top: 10px;
         }
 
-        .nav-links a {
+        .nav-link {
             text-decoration: none;
-            color: var(--text-main);
+            color: #000;
             font-size: 0.75rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            position: relative;
+            letter-spacing: 1.2px;
             transition: 0.3s;
         }
 
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0; height: 2px;
-            bottom: -5px; left: 0;
-            background-color: var(--brand-green);
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover::after { width: 100%; }
+        .nav-link:hover { color: var(--brand-green); }
 
         /* --- Main Content Section --- */
-        .hero-layout {
+        .hero-section {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            margin-top: 10px;
-            padding-bottom: 60px;
+            align-items: center;
+            margin-top: 20px;
+            padding-bottom: 80px;
         }
 
         /* รายการจุดเด่นสินค้า */
-        .feature-box {
+        .features-list {
             flex: 1;
-            padding-top: 30px;
         }
 
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 18px;
-            margin-bottom: 20px;
-            opacity: 0;
-            transform: translateX(-20px);
-            animation: fadeIn 0.6s forwards;
+            gap: 15px;
+            margin-bottom: 22px;
         }
 
-        .feature-item:nth-child(1) { animation-delay: 0.1s; }
-        .feature-item:nth-child(2) { animation-delay: 0.2s; }
-        .feature-item:nth-child(3) { animation-delay: 0.3s; }
-        .feature-item:nth-child(4) { animation-delay: 0.4s; }
-        .feature-item:nth-child(5) { animation-delay: 0.5s; }
-
-        @keyframes fadeIn {
-            to { opacity: 1; transform: translateX(0); }
-        }
-
-        .feature-text {
+        .feature-item span {
             font-size: 1.4rem;
-            font-weight: 500;
-            color: #4A4A4A;
+            font-weight: 600;
+            color: var(--text-brown);
         }
 
-        .check-svg {
-            width: 26px; height: 26px;
-            filter: drop-shadow(0 2px 4px rgba(126, 211, 33, 0.3));
+        .icon-check {
+            width: 24px;
+            height: 24px;
+            flex-shrink: 0;
         }
 
         /* การ์ดสินค้าพรีเมียม */
-        .product-showcase {
+        .product-card {
             flex: 1;
-            max-width: 480px;
+            max-width: 460px;
             background: var(--white);
             border-radius: 40px;
             padding: 60px 40px;
             text-align: center;
-            box-shadow: 0 30px 60px rgba(0,0,0,0.05);
-            transition: transform 0.4s ease;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.06);
+            transition: transform 0.3s ease;
         }
 
-        .product-showcase:hover {
-            transform: translateY(-10px);
-        }
+        .product-card:hover { transform: translateY(-10px); }
 
-        .product-image {
+        .product-card img {
             width: 100%;
-            max-width: 280px;
-            margin-bottom: 40px;
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
+            max-width: 260px;
+            margin-bottom: 30px;
+            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1));
         }
 
-        .price-display {
-            font-size: 4rem;
+        /* เปลี่ยนเป็นขนาด 330 ml ตามที่ระบุบนขวด */
+        .size-display {
+            font-size: 3.5rem;
             font-weight: 800;
             color: var(--brand-green);
-            margin-bottom: 30px;
+            margin-bottom: 25px;
             display: block;
             letter-spacing: -1px;
         }
 
-        .shop-button {
+        .btn-action {
             background-color: var(--brand-green);
             color: var(--white);
-            padding: 18px 70px;
-            border-radius: 100px;
+            padding: 18px 60px;
             text-decoration: none;
+            border-radius: 50px;
             font-weight: 700;
-            font-size: 1rem;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
             display: inline-block;
-            box-shadow: 0 10px 20px rgba(43, 76, 59, 0.2);
             transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(43, 76, 59, 0.2);
         }
 
-        .shop-button:hover {
-            background-color: #1a2f24;
+        .btn-action:hover {
+            background-color: #1a3025;
             box-shadow: 0 15px 30px rgba(43, 76, 59, 0.3);
         }
 
-        /* --- Footer Section --- */
-        .award-footer {
-            padding: 40px 0;
-            border-top: 1px solid rgba(0,0,0,0.05);
-        }
-
-        .award-footer img {
-            height: 60px;
-            opacity: 0.8;
-        }
-
-        /* Responsive Design */
+        /* Responsive สำหรับมือถือ */
         @media (max-width: 1100px) {
-            .container { padding: 0 30px; }
-            header { flex-direction: column; align-items: center; gap: 30px; }
-            .nav-links { gap: 15px; flex-wrap: wrap; justify-content: center; }
-            .hero-layout { flex-direction: column; align-items: center; text-align: center; }
+            header { flex-direction: column; align-items: center; text-align: center; gap: 30px; }
+            .nav-menu { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .hero-section { flex-direction: column; text-align: center; }
             .feature-item { justify-content: center; }
-            .product-showcase { margin-top: 40px; width: 100%; }
+            .product-card { margin-top: 50px; width: 100%; }
         }
     </style>
 </head>
@@ -221,59 +182,55 @@
 
     <div class="container">
         <header>
-            <div class="brand-box">
-                <h1 class="logo">ELI.</h1>
-                <div class="cert-group">
-                    <img src="images/fssc-22000.png" alt="FSSC 22000">
+            <div class="logo-area">
+                <div class="logo">ELI.</div>
+                <div class="cert-icons">
+                    <img src="images/fssc-22000.png" alt="FSSC">
                     <img src="images/fssc-22001.png" alt="Halal">
-                    <img src="images/fssc-22002.png" alt="USDA Organic">
+                    <img src="images/fssc-22002.png" alt="USDA">
                     <img src="images/fssc-22003.png" alt="Kosher">
                     <img src="images/fssc-22004.png" alt="SGS">
                 </div>
             </div>
 
-            <nav class="nav-links">
-                <a href="#">Product </a>
-                <a href="#">Factory </a>
-                <a href="#">Quality </a>
-                <a href="#">Contact </a>
+            <nav class="nav-menu">
+                <a href="#" class="nav-link">Product Overview</a>
+                <a href="#" class="nav-link">Factory & Excellence</a>
+                <a href="#" class="nav-link">Quality & Certification</a>
+                <a href="#" class="nav-link">Contact</a>
             </nav>
         </header>
 
-        <section class="hero-layout">
-            <div class="feature-box">
+        <main class="hero-section">
+            <div class="features-list">
                 <div class="feature-item">
-                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span class="feature-text">100% Natural Coconut water</span>
+                    <svg class="icon-check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>100% Natural Coconut water</span>
                 </div>
                 <div class="feature-item">
-                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span class="feature-text">No Sugar Added</span>
+                    <svg class="icon-check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No Sugar Added</span>
                 </div>
                 <div class="feature-item">
-                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span class="feature-text">No Artificial Flavor</span>
+                    <svg class="icon-check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No Artificial Flavor</span>
                 </div>
                 <div class="feature-item">
-                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span class="feature-text">No Coloring</span>
+                    <svg class="icon-check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No Coloring</span>
                 </div>
                 <div class="feature-item">
-                    <svg class="check-svg" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                    <span class="feature-text">No Preservatives</span>
+                    <svg class="icon-check" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No Preservatives</span>
                 </div>
             </div>
 
-            <div class="product-showcase">
-                <img src="images/fssc-22005.png" alt="ELI Coconut Water" class="product-image">
-                <span class="price-display"></span>
-                <a href="#" class="shop-button">Shop Now</a>
+            <div class="product-card">
+                <img src="images/fssc-22005.png" alt="ELI Coconut Water 330ml">
+                <span class="size-display">330 ml</span>
+                <a href="#" class="btn-action">Shop Now</a>
             </div>
-        </section>
-
-        <footer class="award-footer">
-            <img src="" alt="">
-        </footer>
+        </main>
     </div>
 
 </body>
