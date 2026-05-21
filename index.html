@@ -3,251 +3,265 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVER GOOD PARTNERS | Premium Coconut Water</title>
+    <title>ELI. COCONUT WATER | Premium Experience</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <style>
         :root {
+            --brand-blue: #2B6CB0;
             --brand-gold: #D4AF37;
-            --brand-blue: #0056b3;
-            --brand-green: #2B4C3B;
+            --accent-orange: #E67E22;
             --text-dark: #2D3436;
-            --text-light: #636E72;
+            --bg-glass: rgba(255, 255, 255, 0.7);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #ffffff;
-            /* พื้นหลัง fssc-22007.png กลับมาแล้ว พร้อม overlay เพื่อความอ่านง่าย */
-            background-image: linear-gradient(rgba(255, 255, 255, 0.92), rgba(255, 255, 255, 0.92)), url('images/fssc-22007.png');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            background: radial-gradient(circle at top left, #f0f4f8, #d9e2ec);
             min-height: 100vh;
+            overflow-x: hidden;
             color: var(--text-dark);
         }
 
-        header {
-            padding: 60px 8% 20px 8%;
-            max-width: 1600px;
-            margin: 0 auto;
+        /* ตกแต่งพื้นหลังด้วยวงกลมสีส้มตามแบบ */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: var(--accent-orange);
+            border-radius: 50%;
+            top: 15%;
+            right: -100px;
+            z-index: -1;
+            opacity: 0.8;
         }
 
-        /* EVER GOOD PARTNERS ขนาดใหญ่ขึ้น ดูภูมิฐาน */
-        .brand-title {
-            font-family: 'Montserrat', sans-serif;
-            color: var(--brand-gold);
-            font-size: 4.2rem;
-            font-weight: 900;
-            text-transform: uppercase;
-            line-height: 1;
-            letter-spacing: -1.5px;
-            margin-bottom: 20px;
-        }
-
-        /* โลโก้ใบเซอร์ขนาดพอดี เห็นชัดเจน */
-        .cert-group {
+        nav {
             display: flex;
-            gap: 25px;
-            align-items: center;
-            margin-top: 10px;
+            justify-content: flex-end;
+            padding: 30px 8%;
+            gap: 30px;
+            font-weight: 600;
         }
-        .cert-group img {
-            height: 45px;
-            opacity: 0.95;
-            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
-        }
+        nav a { text-decoration: none; color: #444; font-size: 1rem; }
 
-        main {
+        .container {
             max-width: 1400px;
-            margin: 30px auto 100px auto;
-            display: grid;
-            grid-template-columns: 1fr 1.1fr;
-            gap: 100px;
+            margin: 0 auto;
             padding: 0 8%;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
             align-items: center;
+            min-height: 80vh;
         }
 
-        .info-section {
+        /* ส่วนซ้าย: หัวข้อและข้อมูลเสริม */
+        .content-left {
             display: flex;
             flex-direction: column;
-            gap: 35px;
+            gap: 20px;
         }
 
-        /* ตัวอักษรข้อมูลทั้งหมดขนาดเท่ากัน (ยกเว้นหัวข้อ) */
-        .standard-text {
-            font-size: 1.55rem;
-            font-weight: 700;
-            color: #444;
-            line-height: 1.5;
-        }
-
-        .standard-text b {
-            color: #d63031;
+        .brand-logo {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 5rem;
             font-weight: 900;
+            line-height: 0.9;
+            color: var(--brand-blue);
+            margin-bottom: 5px;
         }
 
-        .feature-list {
+        .slogan {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #bdc3c7;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        /* กล่องข้อมูลแบบกรอบโค้งมนตามแบบ */
+        .info-card {
+            background: var(--bg-glass);
+            backdrop-filter: blur(10px);
+            border: 1px solid white;
+            padding: 30px;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            width: fit-content;
+        }
+
+        .info-card .size-text {
+            font-size: 2rem;
+            font-weight: 900;
+            margin-bottom: 10px;
+        }
+
+        .check-list {
             list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
+            margin: 20px 0;
         }
-
-        .feature-item {
+        .check-item {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 8px;
         }
-
-        .feature-item::before {
+        .check-item::before {
             content: '✓';
             color: #2ecc71;
             font-weight: 900;
-            font-size: 1.8rem;
         }
 
-        .price-container {
-            margin-top: 5px;
-        }
-        .old-price {
-            font-size: 1.8rem;
-            color: #b2bec3;
-            text-decoration: line-through;
-            margin-right: 15px;
-        }
-        .current-price {
-            font-size: 4.2rem;
-            font-weight: 900;
-            color: var(--text-dark);
-        }
-
-        .btn-action {
-            background-color: var(--brand-blue);
-            color: white;
-            padding: 22px 60px;
-            border-radius: 14px;
-            text-decoration: none;
-            font-weight: 900;
-            font-size: 1.4rem;
-            width: fit-content;
-            transition: all 0.3s ease;
-            box-shadow: 0 12px 24px rgba(0,86,179,0.15);
-            text-align: center;
-            text-transform: uppercase;
-        }
-        .btn-action:hover {
-            transform: translateY(-5px);
-            background-color: #004494;
-            box-shadow: 0 15px 30px rgba(0,86,179,0.25);
-        }
-
-        .visual-section {
+        /* ส่วนขวา: หน้าต่าง Search / ขวดสินค้า */
+        .content-right {
+            position: relative;
             display: flex;
-            flex-direction: column;
+            justify-content: center;
+        }
+
+        .search-glass-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            border-radius: 40px;
+            padding: 40px;
+            width: 90%;
+            max-width: 550px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .search-bar {
+            background: white;
+            padding: 15px 25px;
+            border-radius: 15px;
+            display: flex;
+            justify-content: space-between;
             align-items: center;
-            text-align: center;
+            margin-bottom: 30px;
+        }
+        .search-bar span { color: var(--brand-blue); font-weight: 900; font-size: 1.4rem; }
+        .search-icon { background: var(--brand-blue); color: white; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
+
+        .main-product-area {
+            display: flex;
+            gap: 30px;
+            align-items: flex-start;
         }
 
-        /* Coconut Water ขนาดลดลงให้สมส่วนกับขวด */
-        .product-heading {
-            font-size: 4.5rem;
-            color: var(--brand-blue);
+        .product-meta {
+            flex: 1;
+        }
+        .temp-text {
+            font-size: 2.2rem;
             font-weight: 900;
-            line-height: 1;
-            margin-bottom: 35px;
-            letter-spacing: -2px;
-            text-transform: uppercase;
+            color: var(--brand-blue);
+            line-height: 1.1;
+            margin-bottom: 20px;
+        }
+        .temp-text b { color: #e74c3c; font-size: 1.2rem; display: block; }
+
+        .price-box {
+            margin-top: 20px;
+        }
+        .price-old { text-decoration: line-through; color: #95a5a6; font-size: 1.5rem; margin-right: 10px; }
+        .price-new { font-size: 2.5rem; font-weight: 900; }
+
+        .bottle-img {
+            width: 220px;
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+            transform: rotate(5deg);
         }
 
-        .bottle-hero {
-            width: 100%;
-            max-width: 480px;
-            filter: drop-shadow(0 40px 60px rgba(0,0,0,0.12));
-            animation: softFloat 6s infinite ease-in-out;
-        }
-
-        @keyframes softFloat {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-25px); }
-        }
-
-        .size-options {
+        .cert-logos {
             display: flex;
             gap: 15px;
-            margin-top: 35px;
+            margin-top: 30px;
         }
-        .size-box {
-            padding: 15px 35px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            background: white;
-            font-weight: 800;
-            font-size: 1.1rem;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-        .size-box.active {
-            background: var(--brand-blue);
-            color: white;
-            border-color: var(--brand-blue);
-        }
+        .cert-logos img { height: 30px; opacity: 0.7; }
 
-        @media (max-width: 1100px) {
-            main { grid-template-columns: 1fr; text-align: center; gap: 80px; }
-            .info-section { align-items: center; }
-            .brand-title { font-size: 3rem; }
-            .cert-group { justify-content: center; flex-wrap: wrap; }
-            .product-heading { font-size: 3.5rem; }
+        @media (max-width: 1024px) {
+            .container { grid-template-columns: 1fr; text-align: center; }
+            .info-card { margin: 0 auto; }
+            .brand-logo { font-size: 3.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="brand-title">EVER GOOD PARTNERS</div>
-        <div class="cert-group">
-            <img src="images/fssc-22000.png" alt="FSSC 22000">
-            <img src="images/fssc-22001.png" alt="Halal">
-            <img src="images/fssc-22002.png" alt="USDA Organic">
-             <img src="images/fssc-2203.png" alt="KOSHER">
-            <img src="images/fssc-22004.png" alt="SGS">
-        </div>
-    </header>
+    <nav>
+        <a href="#">Man</a>
+        <a href="#">Woman</a>
+        <a href="#">Kids</a>
+        <a href="#">Cust.</a>
+        <a href="#">Coll.</a>
+    </nav>
 
-    <main>
-        <div class="info-section">
-            <div class="standard-text">
-                18 months <b>→ ตัวหนา</b> @ room temp.
+    <div class="container">
+        <!-- ฝั่งซ้าย: โลโก้และรายการติ๊กถูก -->
+        <div class="content-left">
+            <h1 class="brand-logo">ELI.<br>COCONUT<br>WATER</h1>
+            <p class="slogan">SIP. SIP. ELEGANCE.</p>
+
+            <div class="info-card">
+                <div class="size-text">330ml</div>
+                <ul class="check-list">
+                    <li class="check-item">100% NATURAL & PURE</li>
+                    <li class="check-item">ZERO ADDED SUGAR</li>
+                    <li class="check-item">NO PRESERVATIVES</li>
+                </ul>
+                <div style="font-weight: 900; font-size: 1.2rem; text-align: center; border: 2px solid #333; border-radius: 10px; padding: 5px;">present</div>
             </div>
 
-            <ul class="feature-list">
-                <li class="feature-item standard-text">100% NATURAL & PURE</li>
-                <li class="feature-item standard-text">ZERO ADDED SUGAR</li>
-                <li class="feature-item standard-text">NO ARTIFICIAL FLAVOR</li>
-                <li class="feature-item standard-text">NO COLORING</li>
-                <li class="feature-item standard-text">NO PRESERVATIVES</li>
-            </ul>
-
-            <div class="price-container">
-                <span class="old-price">฿5,690</span>
-                <div class="current-price">฿3,990</div>
-            </div>
-
-            <a href="#" class="btn-action">Shop Now</a>
-        </div>
-
-        <div class="visual-section">
-            <h2 class="product-heading">Coconut<br>Water</h2>
-            <img src="images/fssc-22005.png" class="bottle-hero" alt="Eli Premium Coconut Water">
-            
-            <div class="size-options">
-                <button class="size-box active">330ml</button>
-                <button class="size-box">1000ml</button>
+            <div class="info-card" style="margin-top: 20px; opacity: 0.6;">
+                <div class="size-text">1000ml</div>
+                <div style="font-weight: 900; font-size: 1.2rem; text-align: center; border: 2px solid #333; border-radius: 10px; padding: 5px;">future</div>
             </div>
         </div>
-    </main>
+
+        <!-- ฝั่งขวา: การ์ดสินค้าแบบกระจกฝ้า -->
+        <div class="content-right">
+            <div class="search-glass-card">
+                <div class="search-bar">
+                    <span>coconut water</span>
+                    <div class="search-icon">🔍</div>
+                </div>
+
+                <div class="main-product-area">
+                    <div class="product-meta">
+                        <div style="color: #7f8c8d; font-weight: 700;">SEO. www.eli.co.th</div>
+                        <div class="temp-text">
+                            18 months <b>ตัวหนา</b>
+                            @ room temp.
+                        </div>
+                        <div class="price-box">
+                            <span class="price-old">฿5,690</span>
+                            <span class="price-new">฿3,990</span>
+                            <div style="font-weight: 900; color: var(--brand-blue); margin-top: 5px;">prices ฿3,990</div>
+                        </div>
+                        
+                        <!-- ดาวเรตติ้ง -->
+                        <div style="margin-top: 15px; font-size: 1.5rem;">★★★★★</div>
+
+                        <!-- ใบเซอร์ด้านล่าง -->
+                        <div class="cert-logos">
+                            <img src="images/fssc-22000.png" alt="cert">
+                            <img src="images/fssc-22001.png" alt="cert">
+                            <img src="images/fssc-22002.png" alt="cert">
+                            <img src="images/fssc-22003.png" alt="cert">
+                            <img src="images/fssc-22004.png" alt="cert">
+                        </div>
+                    </div>
+
+                    <!-- รูปขวดสินค้า -->
+                    <img src="images/fssc-22005.png" class="bottle-img" alt="Eli Coconut Water">
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>
