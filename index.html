@@ -9,7 +9,7 @@
     <style>
         /* CSS Variables */
         :root {
-            --bg-color: #F2EFE9;       /* ปรับสีพื้นหลังหลักให้เป็นสีครีมละมุนสไตล์มินิมอล */
+            --bg-color: #F2EFE9;       /* สีครีมละมุนสไตล์มินิมอลพรีเมียมตามตัวเว็บ */
             --accent-bg: #F2EFE9;      
             --text-dark: #1C1D1B;      
             --text-light: #5A5A5A;
@@ -64,25 +64,24 @@
             line-height: 1;
         }
 
-        /* โค้ดปรับปรุงกล่องตรามาตรฐานสไตล์มืออาชีพ (Professional Clean Look) */
+        /* 👑 ปรับปรุงกล่องตรามาตรฐานสไตล์มืออาชีพ (Professional Premium Look) */
         .cert-box {
-            background-color: transparent; /* ลบพื้นหลังสีขาวออก เพื่อให้กลืนไปกับพื้นหลังเว็บ */
-            border: 1px solid rgba(43, 76, 59, 0.25); /* ขอบสีเขียวแบรนด์บางๆ เรียบหรูตาม Reference */
-            padding: 12px 24px; /* เพิ่มพื้นที่ระยะห่างรอบๆ ให้ดูโปร่ง ไม่อึดอัด */
+            background-color: transparent; /* ลบสีขาวออก เพื่อให้พื้นหลังเนียนกลืนไปกับตัวเว็บ */
+            border: 1.5px solid var(--brand-green); /* เพิ่มเส้นขอบสีเขียวแบรนด์เรียบหรูเด่นชัดตามดีไซน์ */
+            padding: 12px 28px; /* เพิ่มพื้นที่ระยะห่างขอบในกล่องให้ดูโปร่งและสมมาตร */
             border-radius: 12px; /* ความโค้งมนระดับพรีเมียม */
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 20px; /* ระยะห่างระหว่างโลโก้แต่ละตัวให้สมดุลเท่ากัน */
+            gap: 22px; /* เว้นระยะห่างระหว่างตราโลโก้แต่ละตัวให้เท่ากันอย่างสมบูรณ์ */
         }
 
-        /* ปรับขนาดและจัดระเบียบรูปตรามาตรฐานให้ชัดและสวยงามยิ่งขึ้น */
+        /* ปรับขนาดตรามาตรฐานให้ใหญ่ คมชัด และสวยงาม */
         .cert-box img {
-            height: 46px; /* ขยายขนาดความสูงเพิ่มขึ้นเพื่อให้มองเห็นตราได้ชัดเจนและดูโปรขึ้น */
+            height: 48px; /* ขยายขนาดความสูงให้ดูโปรและมองเห็นง่ายขึ้น */
             width: auto;
             object-fit: contain;
-            /* ปรับแต่งรายละเอียดสีสันของตราเล็กน้อยเพื่อให้โทนภาพดูกลืนเข้ากันอย่างมืออาชีพ */
-            filter: multiply(1.1); 
+            display: block;
         }
 
         .nav-links {
@@ -117,7 +116,7 @@
         .hero-content {
             flex: 1;
             padding-right: 5%;
-            padding-top: 120px; /* เว้นพื้นที่หลบแถวตราด้านบน */
+            padding-top: 140px; /* เว้นพื้นที่หลบแถวตราด้านบน */
             z-index: 2;
         }
 
@@ -288,7 +287,7 @@
             }
             .hero {
                 flex-direction: column;
-                padding-top: 260px;
+                padding-top: 280px;
                 text-align: center;
             }
             .hero-content {
@@ -322,7 +321,7 @@
         <div class="brand-area">
             <div class="logo">ELI.</div>
             <div class="cert-box">
-                <img src="fssc-22000.png" alt="FSSC 22000">
+                <img src="fssc-22000.png" alt="FSSC 22000 Certification">
                 <img src="fssc-22001.png" alt="Halal Certified">
                 <img src="fssc-22002.png" alt="USDA Organic">
                 <img src="fssc-22003.png" alt="Kosher Certified">
