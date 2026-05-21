@@ -8,11 +8,10 @@
     
     <style>
         :root {
-            --bg-color: #F4F1EC; /* ปรับให้ดูนวลตาขึ้นแบบ Premium */
+            --bg-color: #F2EFE9;
             --text-dark: #1C1D1B;      
             --text-light: #5A5A5A;
             --brand-green: #2B4C3B;    
-            --transition: all 0.3s ease;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -21,61 +20,57 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: var(--text-dark);
-            line-height: 1.6;
             overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .container {
-            max-width: 1300px;
+        .wrapper {
+            max-width: 1400px; /* ขยายให้เหมาะกับจอ PC Wide */
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 40px;
         }
 
-        /* --- Header & Nav --- */
+        /* --- Header Section --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 3rem 0;
+            padding: 40px 0;
+            flex-wrap: wrap; /* รองรับ iPad เวลาเมนูยาว */
+            gap: 20px;
         }
 
         .brand-area {
             display: flex;
             flex-direction: column;
-            gap: 1.5rem;
+            gap: 15px;
         }
 
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 800;
             color: var(--brand-green);
-            line-height: 0.8;
-            letter-spacing: -2px;
+            line-height: 1;
+            letter-spacing: -1px;
         }
 
         .cert-box {
             display: flex;
-            gap: 15px;
             align-items: center;
+            gap: 15px;
         }
 
         .cert-box img { 
-            height: 50px; 
+            height: 45px; 
             width: auto; 
-            opacity: 0.9;
-            filter: grayscale(20%);
-            transition: var(--transition);
+            object-fit: contain;
         }
-        
-        .cert-box img:hover { opacity: 1; filter: grayscale(0%); }
 
         .nav-links {
             display: flex;
-            gap: 2rem;
-            flex-wrap: wrap;
-            justify-content: flex-end;
-            max-width: 600px;
+            gap: 25px;
+            padding-top: 15px;
         }
 
         .nav-links a {
@@ -83,84 +78,101 @@
             color: var(--text-dark);
             font-weight: 600;
             text-transform: uppercase;
-            font-size: 0.75rem;
-            letter-spacing: 1px;
-            transition: var(--transition);
+            font-size: 0.8rem;
+            letter-spacing: 0.5px;
+            white-space: nowrap; /* ป้องกันเมนูแตกบรรทัด */
+            transition: color 0.3s;
         }
 
         .nav-links a:hover { color: var(--brand-green); }
 
         /* --- Hero Section --- */
-        .hero {
-            display: flex;
-            align-items: center;
-            min-height: 70vh;
-            padding: 4rem 0;
-            gap: 2rem;
+        .hero { 
+            display: flex; 
+            min-height: 70vh; 
+            align-items: center; 
+            justify-content: space-between;
+            padding-bottom: 60px;
+            gap: 40px;
         }
 
-        .hero-content { flex: 1.2; }
+        .hero-content { 
+            flex: 1; 
+            max-width: 600px;
+        }
 
         .hero h1 { 
             font-family: 'Montserrat', sans-serif;
-            font-size: clamp(3rem, 8vw, 5.5rem); /* ปรับขนาดอัตโนมัติตามจอ */
+            font-size: clamp(2.5rem, 5vw, 4.5rem); /* ปรับขนาดตามหน้าจออัตโนมัติ */
+            line-height: 1.05; 
+            margin-bottom: 20px; 
+            text-transform: uppercase; 
             font-weight: 800;
-            line-height: 0.95;
-            margin-bottom: 2rem;
-            text-transform: uppercase;
-            letter-spacing: -1px;
         }
 
         .hero p {
             font-size: 1.1rem;
             color: var(--text-light);
-            max-width: 450px;
+            max-width: 400px;
         }
 
         .hero-image { 
             flex: 1; 
             display: flex; 
-            justify-content: center;
+            justify-content: flex-end; 
             align-items: center;
         }
 
         .hero-image img { 
             width: 100%;
-            max-width: 450px;
-            height: auto;
+            max-width: 480px; /* ขนาดที่สวยพอดีบนจอ PC */
+            height: auto; 
             object-fit: contain;
-            /* เพิ่มเงาจางๆ ให้สินค้าดูโดดเด่น */
-            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.05));
         }
 
         footer { 
             text-align: center; 
-            padding: 3rem; 
+            padding: 40px; 
             font-size: 0.75rem; 
-            color: var(--text-light);
-            letter-spacing: 2px;
+            color: var(--text-light); 
+            letter-spacing: 1px;
         }
 
-        /* --- Responsive --- */
+        /* --- Tablet / iPad Optimization --- */
         @media (max-width: 1024px) {
-            header { flex-direction: column; gap: 2rem; }
-            .nav-links { justify-content: flex-start; }
-            .hero { flex-direction: column; text-align: center; }
+            .wrapper { padding: 0 30px; }
+            header { flex-direction: column; align-items: flex-start; }
+            .nav-links { 
+                width: 100%; 
+                overflow-x: auto; /* ถ้าเมนูยาวไปใน iPad จะเลื่อนซ้ายขวาได้ */
+                padding-bottom: 10px;
+            }
+            .hero { gap: 20px; }
+        }
+
+        /* --- Mobile Optimization --- */
+        @media (max-width: 768px) {
+            .hero { flex-direction: column; text-align: center; padding-top: 20px; }
+            .hero-image { justify-content: center; width: 100%; }
+            .hero-image img { max-width: 300px; }
             .hero p { margin: 0 auto; }
-            .logo { font-size: 3.5rem; }
+            .cert-box { flex-wrap: wrap; justify-content: center; }
+            header { align-items: center; text-align: center; }
+            .nav-links { justify-content: center; flex-wrap: wrap; }
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
+    <div class="wrapper">
         <header>
             <div class="brand-area">
                 <div class="logo">ELI.</div>
                 <div class="cert-box">
                     <img src="images/fssc-22000.png" alt="FSSC 22000">
                     <img src="images/halal.png" alt="Halal">
-                    <img src="images/usda.png" alt="USDA Organic">
+                    <img src="images/usda.png" alt="USDA">
                     <img src="images/kosher.png" alt="Kosher">
                     <img src="images/taste-award.png" alt="Taste Award">
                 </div>
@@ -180,7 +192,7 @@
                 <p>100% Coconut Water from Thailand’s finest young coconuts. Sip Eli, Sip Elegance.</p>
             </div>
             <div class="hero-image">
-                <img src="images/fssc-22005.png" alt="ELI Premium Coconut Water">
+                <img src="images/fssc-22005.png" alt="ELI Coconut Water Premium">
             </div>
         </section>
     </div>
