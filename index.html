@@ -64,6 +64,7 @@
             line-height: 1;
         }
 
+        /* ปรับปรุงกล่องตรามาตรฐานให้รองรับรูปภาพหลายรูปเรียงกัน */
         .cert-box {
             background-color: #ffffff; 
             border: 1px solid rgba(43, 76, 59, 0.12); 
@@ -73,11 +74,12 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            gap: 10px; /* เว้นระยะห่างระหว่างแต่ละโลโก้ */
         }
 
-        /* ปรับขนาดความสูงของรูปตามที่คุณต้องการ */
+        /* ควบคุมขนาดของทุกโลโก้ให้เท่ากันอย่างสวยงาม */
         .cert-box img {
-            height: 48px; 
+            height: 35px; /* ปรับความสูงให้พอดีเมื่อแสดงผลร่วมกันหลายโลโก้ */
             width: auto;
             object-fit: contain;
         }
@@ -281,7 +283,7 @@
             }
             .hero {
                 flex-direction: column;
-                padding-top: 180px; 
+                padding-top: 200px; /* เพิ่มพื้นที่ด้านบนสำหรับรองรับแถวตรามาตรฐานในมือถือ */
                 text-align: center;
             }
             .hero-content {
@@ -297,6 +299,10 @@
             .benefits-grid {
                 grid-template-columns: 1fr; 
             }
+            .cert-box {
+                flex-wrap: wrap; /* ให้รูปภาพตัดลงบรรทัดใหม่ได้เมื่อเปิดในจอมือถือ */
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -306,7 +312,11 @@
         <div class="brand-area">
             <div class="logo">ELI.</div>
             <div class="cert-box">
-                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e9/FSSC_22000_logo.svg/512px-FSSC_22000_logo.svg.png" alt="FSSC 22000 Certified">
+                <img src="fssc-22000.png" alt="FSSC 22000">
+                <img src="fssc-22001.png" alt="Standard 2">
+                <img src="fssc-22002.png" alt="Standard 3">
+                <img src="fssc-22003.png" alt="Standard 4">
+                <img src="fssc-22004.png" alt="Standard 5">
             </div>
         </div>
         
