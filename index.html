@@ -3,19 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELI | Premium Experience</title>
+    <title>ELI | Interactive Selection</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&family=Montserrat:wght@900&display=swap" rel="stylesheet">
     
     <style>
         :root {
             --primary: #2B4C3B;
             --accent: #7ED321;
-            --blue-text: #4A90E2;
+            --blue: #4A90E2;
             --bg: #F7F5F2;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: #333; }
+        body { font-family: 'Inter', sans-serif; background-color: var(--bg); color: #333; overflow-x: hidden; }
         .container { max-width: 1400px; margin: 0 auto; padding: 0 60px; }
 
         /* --- Header --- */
@@ -23,79 +23,98 @@
         .logo { font-family: 'Montserrat', sans-serif; font-size: 3.5rem; color: var(--primary); letter-spacing: -2px; }
         .cert-icons { display: flex; gap: 10px; margin-top: 10px; }
         .cert-icons img { height: 26px; }
-        .nav-links { display: flex; gap: 30px; padding-top: 10px; }
-        .nav-links a { text-decoration: none; color: #000; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; }
 
-        /* --- Main Content Layout --- */
-        .main-wrapper { display: grid; grid-template-columns: 1fr 1.2fr; gap: 40px; align-items: center; padding: 40px 0; }
+        /* --- Main Layout --- */
+        .layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; padding: 60px 0; }
 
-        /* ฝั่งซ้าย: Features */
-        .feature-item { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; font-size: 1.4rem; font-weight: 700; }
+        /* Features List */
+        .feature-item { display: flex; align-items: center; gap: 15px; margin-bottom: 25px; font-size: 1.4rem; font-weight: 700; color: #444; }
 
-        /* ฝั่งขวา: Product Presentation */
-        .presentation-area { display: flex; flex-direction: column; align-items: center; }
+        /* Product Presentation Area */
+        .presentation { display: flex; flex-direction: column; align-items: center; }
 
-        .info-header { align-self: flex-start; margin-bottom: 20px; }
-        .info-header b { font-size: 1.8rem; color: var(--blue-text); display: block; }
-        .info-header span { font-size: 1.2rem; color: var(--blue-text); font-weight: 600; }
+        .shelf-life-info { align-self: flex-start; margin-bottom: 30px; line-height: 1.2; }
+        .shelf-life-info b { font-size: 2rem; color: var(--blue); display: block; }
+        .shelf-life-info span { font-size: 1.3rem; color: var(--blue); font-weight: 600; }
 
-        /* รูปภาพหลักวางด้านนอกการ์ด */
-        .product-main-view {
-            width: 100%;
-            max-width: 320px;
-            margin-bottom: 40px;
-            filter: drop-shadow(0 25px 35px rgba(0,0,0,0.12));
+        /* รูปขวดหลักพร้อม Animation ลอยตัว */
+        .main-bottle-wrap { margin-bottom: 50px; transition: 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); }
+        .main-bottle {
+            width: 280px;
+            filter: drop-shadow(0 30px 40px rgba(0,0,0,0.12));
             animation: float 4s ease-in-out infinite;
         }
 
         @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            50% { transform: translateY(-20px); }
         }
 
-        /* กล่องเลือกขนาดวางด้านนอก */
-        .size-row { display: flex; gap: 20px; width: 100%; max-width: 500px; margin-bottom: 35px; }
+        /* --- กล่องเลือกขนาดแบบเรียงกันและขยายเมื่อ Hover --- */
+        .size-container {
+            display: flex;
+            gap: 25px;
+            width: 100%;
+            max-width: 550px;
+            margin-bottom: 40px;
+        }
 
-        .size-card {
+        .size-box {
             flex: 1;
             background: #FFFFFF;
-            border: 2px solid transparent;
-            border-radius: 25px;
-            padding: 25px;
+            border-radius: 30px;
+            padding: 30px 20px;
             text-align: center;
             cursor: pointer;
-            transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 2px solid transparent;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1); /* เอฟเฟกต์การขยายที่นุ่มนวล */
+            position: relative;
         }
 
-        .size-card img { height: 50px; margin-bottom: 12px; }
-        .size-card b { display: block; font-size: 1.1rem; margin-bottom: 4px; }
-        .size-card small { color: #999; text-transform: uppercase; font-weight: 700; letter-spacing: 0.5px; }
+        .size-box img { height: 60px; margin-bottom: 15px; transition: 0.4s; }
+        .size-box b { display: block; font-size: 1.2rem; color: #222; }
+        .size-box small { color: #999; text-transform: uppercase; font-weight: 800; font-size: 0.75rem; letter-spacing: 1px; }
 
-        /* สไตล์เมื่อเลือก (Active) */
-        .size-card.active { border-color: var(--primary); transform: translateY(-5px); box-shadow: 0 15px 35px rgba(43, 76, 59, 0.1); }
+        /* ลูกเล่นเมื่อเอาเมาส์ไปจ่อ (Hover & Expand) */
+        .size-box:hover {
+            transform: scale(1.1); /* ขยายขนาดกล่อง */
+            box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        .size-box:hover img {
+            transform: scale(1.2) translateY(-5px); /* ขยายรูปขวดจิ๋ว */
+        }
+
+        /* สไตล์เมื่อถูกเลือก (Active) */
+        .size-box.active {
+            border-color: var(--primary);
+            background: #fff;
+        }
 
         .btn-shop {
             background: var(--primary);
             color: white;
             width: 100%;
-            max-width: 500px;
-            padding: 22px;
+            max-width: 550px;
+            padding: 25px;
             border-radius: 100px;
             text-decoration: none;
             font-weight: 800;
             text-transform: uppercase;
             text-align: center;
-            letter-spacing: 2px;
+            letter-spacing: 3px;
             transition: 0.3s;
+            box-shadow: 0 15px 30px rgba(43, 76, 59, 0.2);
         }
 
-        .btn-shop:hover { background: #1a3025; transform: scale(1.02); }
+        .btn-shop:hover { transform: translateY(-3px); box-shadow: 0 20px 40px rgba(43, 76, 59, 0.3); }
 
         @media (max-width: 1100px) {
-            .main-wrapper { grid-template-columns: 1fr; text-align: center; }
+            .layout { grid-template-columns: 1fr; }
             .feature-item { justify-content: center; }
-            .info-header { align-self: center; }
+            .shelf-life-info { align-self: center; text-align: center; }
         }
     </style>
 </head>
@@ -110,49 +129,53 @@
                     <img src="images/halal.png" alt="Halal">
                     <img src="images/usda.png" alt="USDA">
                     <img src="images/kosher.png" alt="Kosher">
-                    <img src="images/sgs.png" alt="SGS">
+                    <img src="images/taste.png" alt="Taste Award">
                 </div>
             </div>
-            <nav class="nav-links">
-                <a href="#">Product Overview</a>
-                <a href="#">Factory & Excellence</a>
-                <a href="#">Quality & Certs</a>
-                <a href="#">Contact</a>
-            </nav>
         </header>
 
-        <main class="main-wrapper">
-            <div class="feature-list">
+        <main class="layout">
+            <div class="features">
                 <div class="feature-item">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     <span>100% Natural Coconut water</span>
                 </div>
                 <div class="feature-item">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     <span>No Sugar Added</span>
                 </div>
                 <div class="feature-item">
-                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No Artificial Flavor</span>
+                </div>
+                <div class="feature-item">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                    <span>No Coloring</span>
+                </div>
+                <div class="feature-item">
+                    <svg width="30" height="30" viewBox="0 0 24 24" fill="none"><path d="M20 6L9 17L4 12" stroke="#7ED321" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/></svg>
                     <span>No Preservatives</span>
                 </div>
             </div>
 
-            <div class="presentation-area">
-                <div class="info-header">
+            <div class="presentation">
+                <div class="shelf-life-info">
                     <b>18 months</b>
                     <span>@ room temp.</span>
                 </div>
 
-                <img src="images/bottle-main.png" alt="ELI Main" class="product-main-view" id="main-display">
+                <div class="main-bottle-wrap" id="bottle-container">
+                    <img src="images/bottle-330.png" alt="ELI Product" class="main-bottle" id="main-product-img">
+                </div>
 
-                <div class="size-row">
-                    <div class="size-card active" onclick="selectSize('330ml', this)">
-                        <img src="images/bottle-small.png" alt="330ml">
+                <div class="size-container">
+                    <div class="size-box active" onmouseover="expandProduct('330ml')" onclick="setActive(this)">
+                        <img src="images/bottle-330.png" alt="330">
                         <b>330ml</b>
                         <small>Present</small>
                     </div>
-                    <div class="size-card" onclick="selectSize('1000ml', this)">
-                        <img src="images/bottle-large.png" alt="1000ml" style="transform: scale(1.15)">
+                    <div class="size-box" onmouseover="expandProduct('1000ml')" onclick="setActive(this)">
+                        <img src="images/bottle-1000.png" alt="1000" style="transform: scale(1.2)">
                         <b>1000ml</b>
                         <small>Future</small>
                     </div>
@@ -164,17 +187,22 @@
     </div>
 
     <script>
-        function selectSize(size, el) {
-            document.querySelectorAll('.size-card').forEach(c => c.classList.remove('active'));
-            el.classList.add('active');
+        function expandProduct(size) {
+            const img = document.getElementById('main-product-img');
+            const wrap = document.getElementById('bottle-container');
             
-            // เอฟเฟกต์ตอบสนองเมื่อเปลี่ยนขนาด
-            const mainImg = document.getElementById('main-display');
             if(size === '1000ml') {
-                mainImg.style.transform = 'scale(1.1)';
+                img.style.transform = 'scale(1.15)'; // ขยายขวดหลักเมื่อชี้ที่ 1000ml
+                wrap.style.transform = 'translateY(-10px)';
             } else {
-                mainImg.style.transform = 'scale(1)';
+                img.style.transform = 'scale(1)';
+                wrap.style.transform = 'translateY(0)';
             }
+        }
+
+        function setActive(el) {
+            document.querySelectorAll('.size-box').forEach(box => box.classList.remove('active'));
+            el.classList.add('active');
         }
     </script>
 
