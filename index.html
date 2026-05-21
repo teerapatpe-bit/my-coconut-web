@@ -20,23 +20,24 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: #1C1D1B;
-            line-height: 1.2; /* กระชับที่สุด */
+            line-height: 1.2;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1300px; /* ขยายกว้างขึ้นเพื่อให้เมนูมีพื้นที่ */
             margin: 0 auto;
             padding: 0 40px;
         }
 
-        /* --- Header Section: ปรับให้บางลงมาก --- */
+        /* --- Header: Brand & Navigation --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 20px 0 0 0; /* ลดเหลือเพียงเล็กน้อย */
+            padding: 25px 0 0 0;
         }
 
+        /* ฝั่งซ้าย: Logo & Certs */
         .brand-block {
             display: flex;
             flex-direction: column;
@@ -58,24 +59,47 @@
         }
 
         .cert-row img {
-            height: 30px;
+            height: 28px;
             width: auto;
         }
 
-        /* --- Main Layout: ดึงขึ้นสูงด้วย Negative Margin --- */
+        /* ฝั่งขวา: เมนูตามรูป 8f3129 */
+        nav {
+            display: flex;
+            gap: 25px;
+            padding-top: 10px;
+        }
+
+        .nav-item {
+            text-decoration: none;
+            color: #000;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            max-width: 200px;
+            text-align: center;
+            transition: color 0.3s;
+        }
+
+        .nav-item:hover {
+            color: var(--brand-green);
+        }
+
+        /* --- Main Layout --- */
         .main-content {
             display: flex;
             align-items: flex-start;
             justify-content: space-between;
-            margin-top: -15px; /* ดึงส่วนรายการขึ้นไปหาโลโก้ */
-            gap: 40px;
+            margin-top: -10px; /* ดึงเนื้อหาขึ้นชิดบนตามรูป 99c3f4 */
+            gap: 50px;
             padding-bottom: 40px;
         }
 
-        /* รายการเครื่องหมายถูก: ขยับชิดบนสุด */
+        /* รายการเครื่องหมายถูก */
         .feature-list {
             flex: 1;
-            padding-top: 10px;
+            padding-top: 15px;
         }
 
         .feature-item {
@@ -85,7 +109,7 @@
             font-size: 1.2rem;
             font-weight: 600;
             color: var(--text-brown);
-            margin-bottom: 12px; /* ลดระยะห่างระหว่างจุดเด่น */
+            margin-bottom: 12px;
         }
 
         .icon-check {
@@ -94,46 +118,32 @@
             flex-shrink: 0;
         }
 
-        /* การ์ดสินค้าพรีเมียม */
+        /* การ์ดสินค้าพรีเมียมตามรูป 9a19ee */
         .product-display {
             flex: 1;
             background: var(--white);
             border-radius: 20px;
-            padding: 30px;
+            padding: 40px 30px;
             text-align: center;
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            max-width: 400px;
-            margin-top: 20px; /* ให้รูปขวดน้ำมะพร้าวอยู่ต่ำกว่าตัวหนังสือเล็กน้อย */
+            max-width: 420px;
+            margin-top: 10px;
         }
 
         .product-display img {
             width: 100%;
-            max-width: 280px;
-            margin-bottom: 15px;
+            max-width: 260px;
+            margin-bottom: 25px;
         }
 
         .price-tag {
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 800;
             color: var(--brand-green);
             display: block;
-            margin-bottom: 15px;
         }
 
-        .btn-buy {
-            background-color: var(--brand-green);
-            color: white;
-            padding: 12px 45px;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: 700;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            transition: 0.3s;
-            display: inline-block;
-        }
-
-        /* รางวัลด้านล่าง */
+        /* รางวัลด้านล่างสุด */
         .footer-award {
             padding: 20px 0;
         }
@@ -142,10 +152,11 @@
             height: 50px;
         }
 
-        @media (max-width: 1024px) {
+        /* สำหรับ Mobile/Tablet */
+        @media (max-width: 1100px) {
             header { flex-direction: column; align-items: center; text-align: center; }
-            .cert-row { justify-content: center; }
-            .main-content { flex-direction: column; align-items: center; text-align: center; margin-top: 20px; }
+            nav { flex-wrap: wrap; justify-content: center; margin-top: 20px; }
+            .main-content { flex-direction: column; align-items: center; text-align: center; margin-top: 30px; }
             .feature-item { justify-content: center; }
         }
     </style>
@@ -164,6 +175,13 @@
                     <img src="images/fssc-22004.png" alt="SGS">
                 </div>
             </div>
+
+            <nav>
+                <a href="#" class="nav-item">Product Overview</a>
+                <a href="#" class="nav-item">Factory & Production Excellence</a>
+                <a href="#" class="nav-item">Quality & Certification</a>
+                <a href="#" class="nav-item">Contact</a>
+            </nav>
         </header>
 
         <section class="main-content">
@@ -193,7 +211,6 @@
             <div class="product-display">
                 <img src="images/fssc-22005.png" alt="ELI Product">
                 <span class="price-tag">฿45.00</span>
-                <a href="#" class="btn-buy">Shop Now</a>
             </div>
         </section>
 
