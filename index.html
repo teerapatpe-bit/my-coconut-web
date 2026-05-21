@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ELI | Premium Coconut Water</title>
+    <title>ELI | Premium Thai Coconut Water</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     
     <style>
@@ -20,55 +20,58 @@
             font-family: 'Inter', sans-serif;
             background-color: var(--bg-color);
             color: #1C1D1B;
+            line-height: 1.5;
             overflow-x: hidden;
         }
 
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 5%;
+            padding: 0 40px;
         }
 
-        /* --- Header: ย้ายใบรับรองไปไว้ใต้ ELI --- */
+        /* --- Header Section --- */
         header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            padding: 50px 0;
-            gap: 30px;
+            padding: 40px 0;
         }
 
-        .brand-section {
+        .brand-block {
             display: flex;
-            flex-direction: column; /* จัดให้ ELI อยู่บน ใบรับรองอยู่ล่าง */
-            gap: 20px;
+            flex-direction: column;
+            gap: 15px;
         }
 
         .logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
+            font-size: 2.8rem; /* ปรับขนาดให้พอเหมาะ ไม่ใหญ่เกินไป */
             font-weight: 800;
             color: var(--brand-green);
             line-height: 1;
+            letter-spacing: -1px;
         }
 
-        .cert-bar {
+        /* ปรับขนาดใบรับรองให้ดูเรียบร้อย */
+        .cert-row {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             align-items: center;
         }
 
-        .cert-bar img {
-            height: 40px; /* ขนาดพอเหมาะสำหรับ PC/iPad */
+        .cert-row img {
+            height: 32px; /* ปรับขนาดเล็กลงเพื่อให้ดูแพงและเป็นระเบียบ */
             width: auto;
             object-fit: contain;
+            opacity: 0.9;
         }
 
         .nav-links {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             list-style: none;
-            padding-top: 15px;
+            padding-top: 10px;
         }
 
         .nav-links a {
@@ -76,8 +79,8 @@
             color: #1C1D1B;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 1px;
+            font-size: 0.7rem;
+            letter-spacing: 0.8px;
         }
 
         /* --- Hero Section --- */
@@ -86,72 +89,95 @@
             align-items: center;
             justify-content: space-between;
             min-height: 60vh;
-            gap: 60px;
-            padding-bottom: 80px;
+            gap: 50px;
+            padding-bottom: 60px;
         }
 
-        .features {
+        .content-area {
             flex: 1;
         }
 
         .feature-item {
             display: flex;
             align-items: center;
-            gap: 15px;
-            font-size: 1.5rem;
+            gap: 12px;
+            font-size: 1.25rem; /* ปรับขนาดตัวอักษรให้อ่านง่ายแต่ไม่ใหญ่เทอะทะ */
             font-weight: 600;
             color: var(--text-brown);
-            margin-bottom: 20px;
+            margin-bottom: 16px;
         }
 
         .check-icon {
-            width: 28px;
-            height: 28px;
+            width: 24px;
+            height: 24px;
             background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%237ED321'%3E%3Cpath d='M9 16.2L4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4L9 16.2z'/%3E%3C/svg%3E") no-repeat center;
             background-size: contain;
         }
 
-        /* --- Product Display --- */
+        /* --- Product Card Display --- */
         .product-card {
             flex: 1;
             background: var(--white);
-            border-radius: 30px;
-            padding: 50px;
+            border-radius: 24px;
+            padding: 40px;
             text-align: center;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.03);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.03);
+            max-width: 480px;
         }
 
         .product-card img {
             width: 100%;
-            max-width: 400px;
-            margin-bottom: 30px;
+            max-width: 320px; /* ปรับขนาดรูปสินค้าให้พอดีกับกรอบ */
+            height: auto;
+            margin-bottom: 25px;
+            filter: drop-shadow(0 10px 15px rgba(0,0,0,0.05));
         }
 
-        .price {
-            font-size: 3rem;
+        .price-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #A0A0A0;
+            letter-spacing: 1px;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .price-value {
+            font-size: 2.8rem;
             font-weight: 800;
             color: var(--brand-green);
-            display: block;
+            line-height: 1;
             margin-bottom: 25px;
+            display: block;
         }
 
         .btn-shop {
-            background: var(--brand-green);
+            background-color: var(--brand-green);
             color: white;
-            padding: 18px 60px;
+            padding: 16px 50px;
             text-decoration: none;
-            border-radius: 50px;
+            border-radius: 100px;
             font-weight: 700;
             text-transform: uppercase;
-            transition: 0.3s;
+            letter-spacing: 1px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: inline-block;
         }
 
-        /* --- iPad Optimization --- */
+        .btn-shop:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(43, 76, 59, 0.15);
+        }
+
+        /* --- Tablet & iPad Pro --- */
         @media (max-width: 1024px) {
-            header { flex-direction: column; align-items: flex-start; }
+            header { flex-direction: column; align-items: center; text-align: center; }
+            .cert-row { justify-content: center; }
             .hero { flex-direction: column; text-align: center; }
             .feature-item { justify-content: center; }
-            .product-card { width: 100%; }
+            .product-card { margin: 0 auto; width: 100%; }
         }
     </style>
 </head>
@@ -159,9 +185,9 @@
 
     <div class="container">
         <header>
-            <div class="brand-section">
+            <div class="brand-block">
                 <div class="logo">ELI.</div>
-                <div class="cert-bar">
+                <div class="cert-row">
                     <img src="images/fssc-22000.png" alt="FSSC">
                     <img src="images/halal.png" alt="Halal">
                     <img src="images/usda.png" alt="USDA">
@@ -174,14 +200,13 @@
                 <ul class="nav-links">
                     <li><a href="#">Product</a></li>
                     <li><a href="#">Factory</a></li>
-                    <li><a href="#">Certifications</a></li>
                     <li><a href="#">Contact</a></li>
                 </ul>
             </nav>
         </header>
 
         <section class="hero">
-            <div class="features">
+            <div class="content-area">
                 <div class="feature-item"><div class="check-icon"></div>100% Natural Coconut water</div>
                 <div class="feature-item"><div class="check-icon"></div>No Sugar Added</div>
                 <div class="feature-item"><div class="check-icon"></div>No Artificial Flavor</div>
@@ -190,8 +215,13 @@
             </div>
 
             <div class="product-card">
-                <img src="images/fssc-22005.png" alt="ELI Product">
-                <span class="price">฿45.00</span>
+                <img src="images/fssc-22005.png" alt="ELI Product" class="product-img">
+                
+                <div class="price-section">
+                    <span class="price-label">Price per pack</span>
+                    <span class="price-value">฿45.00</span>
+                </div>
+                
                 <a href="#" class="btn-shop">Shop Now</a>
             </div>
         </section>
