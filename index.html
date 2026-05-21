@@ -18,13 +18,18 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at top left, #f0f4f8, #d9e2ec);
+            /* ปรับพื้นหลังเป็นรูป fssc-22007.png พร้อม Overlay สีละมุน */
+            background: linear-gradient(rgba(240, 244, 248, 0.85), rgba(217, 226, 236, 0.85)), 
+                        url('images/fssc-22007.png');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
             min-height: 100vh;
             overflow-x: hidden;
             color: var(--text-dark);
         }
 
-        /* ตกแต่งพื้นหลังด้วยวงกลมสีส้มตามแบบ */
+        /* วงกลมตกแต่ง (ปรับความโปร่งแสงให้เข้ากับพื้นหลังใหม่) */
         body::before {
             content: '';
             position: absolute;
@@ -35,7 +40,7 @@
             top: 15%;
             right: -100px;
             z-index: -1;
-            opacity: 0.8;
+            opacity: 0.5;
         }
 
         nav {
@@ -57,7 +62,6 @@
             min-height: 80vh;
         }
 
-        /* ส่วนซ้าย: หัวข้อและข้อมูลเสริม */
         .content-left {
             display: flex;
             flex-direction: column;
@@ -71,24 +75,24 @@
             line-height: 0.9;
             color: var(--brand-blue);
             margin-bottom: 5px;
+            text-shadow: 0 5px 15px rgba(255,255,255,0.5);
         }
 
         .slogan {
             font-size: 1.2rem;
             font-weight: 800;
-            color: #bdc3c7;
+            color: #7f8c8d;
             letter-spacing: 2px;
             margin-bottom: 30px;
         }
 
-        /* กล่องข้อมูลแบบกรอบโค้งมนตามแบบ */
         .info-card {
             background: var(--bg-glass);
-            backdrop-filter: blur(10px);
-            border: 1px solid white;
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255,255,255,0.8);
             padding: 30px;
             border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
             width: fit-content;
         }
 
@@ -116,7 +120,6 @@
             font-weight: 900;
         }
 
-        /* ส่วนขวา: หน้าต่าง Search / ขวดสินค้า */
         .content-right {
             position: relative;
             display: flex;
@@ -124,14 +127,14 @@
         }
 
         .search-glass-card {
-            background: rgba(255, 255, 255, 0.4);
+            background: rgba(255, 255, 255, 0.45);
             backdrop-filter: blur(20px);
             border-radius: 40px;
             padding: 40px;
-            width: 90%;
-            max-width: 550px;
-            box-shadow: 0 25px 50px rgba(0,0,0,0.1);
-            border: 1px solid rgba(255,255,255,0.5);
+            width: 100%;
+            max-width: 580px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.12);
+            border: 1px solid rgba(255,255,255,0.6);
         }
 
         .search-bar {
@@ -142,6 +145,7 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
         }
         .search-bar span { color: var(--brand-blue); font-weight: 900; font-size: 1.4rem; }
         .search-icon { background: var(--brand-blue); color: white; width: 40px; height: 40px; border-radius: 10px; display: flex; align-items: center; justify-content: center; }
@@ -172,21 +176,25 @@
 
         .bottle-img {
             width: 220px;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15));
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.2));
             transform: rotate(5deg);
         }
 
         .cert-logos {
             display: flex;
-            gap: 15px;
+            gap: 12px;
             margin-top: 30px;
+            flex-wrap: wrap;
         }
-        .cert-logos img { height: 30px; opacity: 0.7; }
+        .cert-logos img { height: 32px; opacity: 0.85; transition: 0.3s; }
+        .cert-logos img:hover { opacity: 1; transform: translateY(-3px); }
 
         @media (max-width: 1024px) {
-            .container { grid-template-columns: 1fr; text-align: center; }
+            .container { grid-template-columns: 1fr; text-align: center; margin-top: 20px; }
             .info-card { margin: 0 auto; }
             .brand-logo { font-size: 3.5rem; }
+            .cert-logos { justify-content: center; }
+            .main-product-area { flex-direction: column; align-items: center; }
         }
     </style>
 </head>
@@ -201,7 +209,6 @@
     </nav>
 
     <div class="container">
-        <!-- ฝั่งซ้าย: โลโก้และรายการติ๊กถูก -->
         <div class="content-left">
             <h1 class="brand-logo">ELI.<br>COCONUT<br>WATER</h1>
             <p class="slogan">SIP. SIP. ELEGANCE.</p>
@@ -213,16 +220,15 @@
                     <li class="check-item">ZERO ADDED SUGAR</li>
                     <li class="check-item">NO PRESERVATIVES</li>
                 </ul>
-                <div style="font-weight: 900; font-size: 1.2rem; text-align: center; border: 2px solid #333; border-radius: 10px; padding: 5px;">present</div>
+                <div style="font-weight: 900; font-size: 1.2rem; text-align: center; border: 2.5px solid #333; border-radius: 12px; padding: 6px;">present</div>
             </div>
 
-            <div class="info-card" style="margin-top: 20px; opacity: 0.6;">
+            <div class="info-card" style="margin-top: 20px; opacity: 0.7;">
                 <div class="size-text">1000ml</div>
-                <div style="font-weight: 900; font-size: 1.2rem; text-align: center; border: 2px solid #333; border-radius: 10px; padding: 5px;">future</div>
+                <div style="font-weight: 900; font-size: 1.2rem; text-align: center; border: 2.5px solid #333; border-radius: 12px; padding: 6px;">future</div>
             </div>
         </div>
 
-        <!-- ฝั่งขวา: การ์ดสินค้าแบบกระจกฝ้า -->
         <div class="content-right">
             <div class="search-glass-card">
                 <div class="search-bar">
@@ -232,7 +238,7 @@
 
                 <div class="main-product-area">
                     <div class="product-meta">
-                        <div style="color: #7f8c8d; font-weight: 700;">SEO. www.eli.co.th</div>
+                        <div style="color: #7f8c8d; font-weight: 700; margin-bottom: 5px;">SEO. www.eli.co.th</div>
                         <div class="temp-text">
                             18 months <b>ตัวหนา</b>
                             @ room temp.
@@ -240,13 +246,11 @@
                         <div class="price-box">
                             <span class="price-old">฿5,690</span>
                             <span class="price-new">฿3,990</span>
-                            <div style="font-weight: 900; color: var(--brand-blue); margin-top: 5px;">prices ฿3,990</div>
+                            <div style="font-weight: 900; color: var(--brand-blue); margin-top: 8px; font-size: 1.2rem;">prices ฿3,990</div>
                         </div>
                         
-                        <!-- ดาวเรตติ้ง -->
-                        <div style="margin-top: 15px; font-size: 1.5rem;">★★★★★</div>
+                        <div style="margin-top: 15px; font-size: 1.5rem; color: #f1c40f;">★★★★★</div>
 
-                        <!-- ใบเซอร์ด้านล่าง -->
                         <div class="cert-logos">
                             <img src="images/fssc-22000.png" alt="cert">
                             <img src="images/fssc-22001.png" alt="cert">
@@ -256,7 +260,6 @@
                         </div>
                     </div>
 
-                    <!-- รูปขวดสินค้า -->
                     <img src="images/fssc-22005.png" class="bottle-img" alt="Eli Coconut Water">
                 </div>
             </div>
