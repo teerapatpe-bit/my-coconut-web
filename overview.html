@@ -22,17 +22,18 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
         
         body { 
-            background-color: var(--bg-light); 
+            background-color: var(--bg-light); /* สีพื้นหลังหลักที่ชัดเจน */
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
             position: relative; 
         }
 
+        /* --- เทคนิคทำพื้นหลังจาง (เว้นส่วนหัว) --- */
         body::before {
             content: "";
             position: fixed; 
-            top: 115px; 
+            top: 115px; /* ความสูงของ Header */
             left: 0;
             width: 100%;
             height: calc(100% - 115px); 
@@ -40,10 +41,15 @@
             background-size: cover; 
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.3; 
+            
+            /* --- ปรับความโปร่งใสที่นี่ (0.0 clear - 1.0 opaque) --- */
+            /* เดิมคือ 0.3 ปรับเป็น 0.1 เพื่อให้โปร่งใสยิ่งขึ้นครับ */
+            opacity: 0.1; 
+            
             z-index: -1; 
         }
 
+        /* --- HEADER (สไตล์เดิม) --- */
         .header-container {
             display: flex;
             justify-content: space-between;
@@ -81,10 +87,9 @@
             mix-blend-mode: multiply; 
         }
 
-        /* คลาสลบพื้นหลังสีขาวสำหรับรูปภาพ */
         .img-bg-fix {
-            mix-blend-mode: multiply; /* ทำให้สีขาวโปร่งใส */
-            filter: contrast(1.05); /* ปรับสีให้คมชัดขึ้นนิดหน่อยชดเชยกัน */
+            mix-blend-mode: multiply; 
+            filter: contrast(1.05); 
         }
 
         .nav-menu { 
@@ -113,6 +118,7 @@
             padding-bottom: 5px;
         }
 
+        /* --- Main Content (Overview - สไตล์เดิม) --- */
         .container {
             max-width: 1350px;
             margin: 0 auto;
@@ -136,6 +142,7 @@
             align-items: start;
         }
 
+        /* --- Columns (สไตล์เดิม) --- */
         .col-features {
             display: flex;
             flex-direction: column;
@@ -145,7 +152,6 @@
         .eli-logo-big {
             width: 160px;
             margin-bottom: 10px;
-            /* ย้าย mix-blend-mode ไปรวมในคลาส .img-bg-fix แล้วเพื่อให้จัดการง่าย */
         }
 
         .col-features h3 {
@@ -181,7 +187,6 @@
         .product-img {
             width: 100%;
             max-width: 200px;
-            /* เพิ่มคำสั่งลบพื้นหลังให้รูปสินค้าด้วยในกรณีที่มีพื้นหลังสีขาวติดมา */
             mix-blend-mode: multiply;
             filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.15));
         }
@@ -255,6 +260,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
+        /* --- Responsive Design (สไตล์เดิม) --- */
         @media (max-width: 1024px) {
             .overview-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
             .col-product { order: -1; grid-column: 1 / -1; }
