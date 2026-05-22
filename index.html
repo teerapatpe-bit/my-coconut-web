@@ -221,13 +221,27 @@
 .hero-content h1 { 
     color: var(--primary-green); 
     
-    /* --- ปรับขนาดตรงนี้ --- */
-    font-size: 13rem;      /* เดิม 6.5rem ลองขยับเป็น 8rem หรือ 9rem ดูครับ */
+    /* 1. ปรับขนาดให้ใหญ่ขึ้น (ลองเริ่มที่ 9rem หรือ 10rem) */
+    font-size: 10rem; 
     
-    line-height: 0.85;    /* ถ้าตัวหนังสือใหญ่แล้วบรรทัดห่างไป ให้ลดเลขนี้ลง (เช่น 0.8) */
-    font-weight: 800; 
-    margin: 0 0 20px;     /* ระยะห่างด้านล่างก่อนถึง PRODUCT OF THAILAND */
+    /* 2. ปรับให้บรรทัดชิดกันแบบในรูป (ค่าต้องน้อยกว่า 1.0) */
+    line-height: 0.8; 
+    
+    /* 3. ปรับตัวหนังสือให้ดูหนาและแน่น */
+    font-weight: 900; 
+    letter-spacing: -2px; /* บีบตัวอักษรให้ชิดกันนิดหน่อยแบบในรูป */
+    
+    margin: 0 0 20px; 
     text-transform: uppercase;
+}
+
+/* อย่าลืมปรับขนาดสำหรับ iPad ให้ใหญ่ตามไปด้วยนะครับ */
+@media (max-width: 1024px) {
+    .hero-content h1 { 
+        font-size: 6rem !important; 
+        line-height: 0.8 !important;
+    }
+}
 }            .product-origin { font-size: 1.8rem; margin-top: -5px; } /* ปรับขนาดสำหรับ iPad */
             .features-bar { margin: -40px 40px 30px; padding: 15px 20px; border-radius: 40px; }
         }
