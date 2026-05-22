@@ -67,16 +67,16 @@
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 50px; /* เพิ่มระยะห่างระหว่างเมนูให้ดูโปร่งขึ้น */
+            gap: 50px;
         }
 
         .nav-menu li a {
             text-decoration: none;
             color: var(--text-dark);
-            font-size: 0.85rem; /* ปรับขนาดให้พอดีตามรูป */
-            font-weight: 600; /* ความหนาระดับปานกลาง-หนา */
+            font-size: 0.85rem;
+            font-weight: 600;
             letter-spacing: 1px;
-            text-transform: uppercase; /* บังคับเป็นตัวพิมพ์ใหญ่ */
+            text-transform: uppercase;
             transition: color 0.3s;
         }
 
@@ -133,7 +133,7 @@
             transform: translateY(-2px);
         }
 
-        /* --- SHELF LIFE BADGE --- */
+        /* --- SHELF LIFE BADGE (iPad Position Adjusted) --- */
         .shelf-life-badge {
             position: absolute;
             top: 50%;
@@ -178,14 +178,15 @@
             color: var(--accent-green);
         }
 
-        /* --- FEATURES BAR --- */
+        /* --- FEATURES BAR (Image Icons) --- */
         .features-bar {
             background: var(--white);
             margin: -60px 80px 40px;
-            padding: 30px;
-            border-radius: 50px;
+            padding: 25px 40px;
+            border-radius: 60px;
             display: flex;
-            justify-content: space-around;
+            justify-content: space-between;
+            align-items: center;
             box-shadow: 0 15px 45px rgba(0,0,0,0.08);
             position: relative;
             z-index: 20;
@@ -195,7 +196,7 @@
             flex: 1;
             display: flex; 
             align-items: center; 
-            gap: 15px; 
+            gap: 12px; 
             justify-content: center;
             position: relative;
         }
@@ -209,34 +210,55 @@
             background-color: var(--divider-color);
         }
 
-        .f-icon { 
-            width: 60px; height: 60px; 
-            background: var(--accent-green); 
-            border-radius: 50%; 
-            display: flex; justify-content: center; align-items: center; 
-            color: var(--white); font-size: 1.4rem;
+        /* ปรับแต่งไอคอนรูปภาพให้เป็นวงกลมสีเขียวตามรูปภาพตัวอย่าง */
+        .f-icon-img { 
+            width: 55px; 
+            height: 55px; 
+            object-fit: contain;
+            background: #5a7e3d; /* สีเขียวตามแบรนด์ */
+            border-radius: 50%;
+            padding: 12px;
         }
 
-        .f-text b { display: block; font-size: 1.25rem; color: var(--primary-green); line-height: 1.1; }
-        .f-text span { font-size: 0.8rem; color: #666; display: block; }
+        .f-text b { display: block; font-size: 1.1rem; color: var(--primary-green); line-height: 1.1; font-weight: 700; }
+        .f-text span { font-size: 0.75rem; color: #666; display: block; white-space: nowrap; }
 
-        /* --- RESPONSIVE --- */
-        @media (max-width: 1200px) {
-            .nav-menu { display: none; }
-            .header-container { padding: 20px 30px; }
-            .features-bar { margin: 20px; border-radius: 20px; flex-wrap: wrap; }
-            .feature-item { width: 50%; flex: none; margin: 15px 0; }
-            .feature-item:not(:last-child)::after { display: none; }
+        /* --- IPAD & RESPONSIVE --- */
+        @media (max-width: 1024px) {
+            .header-container { padding: 20px 40px; }
+            .brand-header { font-size: 1.4rem; }
+            .nav-menu { gap: 20px; }
+            .nav-menu li a { font-size: 0.75rem; }
+
+            .hero { min-height: 600px; }
+            .hero-content h1 { font-size: 4rem; }
             
+            /* เลื่อนตำแหน่งวงกลมตาม iPad */
             .shelf-life-badge {
-                position: relative;
-                margin: 20px auto;
-                left: 0;
-                transform: none;
+                top: 30% !important;
+                left: 60% !important;
                 width: 110px;
                 height: 110px;
             }
             .badge-content .number { font-size: 2.5rem; }
+
+            /* ปรับ Features Bar สำหรับ iPad */
+            .features-bar {
+                margin: -40px 40px 30px;
+                padding: 15px 20px;
+                border-radius: 40px;
+            }
+            .f-icon-img { width: 45px; height: 45px; padding: 10px; }
+            .f-text b { font-size: 0.95rem; }
+            .f-text span { font-size: 0.65rem; }
+            .feature-item { gap: 8px; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .features-bar { flex-wrap: wrap; border-radius: 20px; margin: 20px; }
+            .feature-item { width: 50%; flex: none; margin: 10px 0; }
+            .feature-item:not(:last-child)::after { display: none; }
         }
     </style>
 </head>
@@ -289,23 +311,23 @@
 
     <div class="features-bar">
         <div class="feature-item">
-            <div class="f-icon"><i class="fas fa-leaf"></i></div>
+            <img src="images/icon-leaf.png" alt="100% Natural" class="f-icon-img">
             <div class="f-text"><b>100%</b><span>Natural Coconut Water</span></div>
         </div>
         <div class="feature-item">
-            <div class="f-icon"><i class="fas fa-cubes-stacked"></i></div>
+            <img src="images/icon-sugar.png" alt="No Sugar" class="f-icon-img">
             <div class="f-text"><b>No</b><span>Sugar Added</span></div>
         </div>
         <div class="feature-item">
-            <div class="f-icon"><i class="fas fa-vial"></i></div>
+            <img src="images/icon-flavor.png" alt="No Artificial Flavor" class="f-icon-img">
             <div class="f-text"><b>No</b><span>Artificial Flavor</span></div>
         </div>
         <div class="feature-item">
-            <div class="f-icon"><i class="fas fa-eye-dropper"></i></div>
+            <img src="images/icon-color.png" alt="No Coloring" class="f-icon-img">
             <div class="f-text"><b>No</b><span>Coloring</span></div>
         </div>
         <div class="feature-item">
-            <div class="f-icon"><i class="fas fa-shield-halved"></i></div>
+            <img src="images/icon-preservative.png" alt="No Preservatives" class="f-icon-img">
             <div class="f-text"><b>No</b><span>Preservatives</span></div>
         </div>
     </div>
