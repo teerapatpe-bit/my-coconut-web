@@ -1,136 +1,262 @@
 <!DOCTYPE html>
 <html lang="th">
-<head>    
+<head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Overview - Ever Good Partners</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --primary-green: #1F3F23;
             --accent-green: #59803C;
-            --gold: #A88F61;
-            --white: #FFFFFF;
-            --text-dark: #222222;
-            --bg-light: #fcfdfc;
-            --divider-color: #eeeeee;
+            --gold-text: #A88F61;
+            --text-dark: #333;
+            --bg-light: #ffffff;
+            --card-bg: #ffffff;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
-        body { background-color: var(--white); overflow-x: hidden; color: var(--text-dark); }
+        
+        body { 
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+            /* พื้นหลังลายเส้นจางๆ ตามรูป */
+            background-image: radial-gradient(circle at 2% 50%, rgba(89, 128, 60, 0.05) 0%, transparent 25%),
+                              radial-gradient(circle at 98% 50%, rgba(168, 143, 97, 0.05) 0%, transparent 25%);
+        }
 
-        /* --- HEADER --- */
-        .header-container {
+        /* --- Header Section --- */
+        header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
             padding: 20px 60px;
-            background: var(--white);
         }
 
-        .brand-info h1 { color: #8c7853; font-size: 1.4rem; font-weight: 500; letter-spacing: 1px; }
-        .brand-info p { color: #8c7853; font-size: 0.8rem; letter-spacing: 2px; margin-bottom: 10px; }
-        
-        .cert-icons { display: flex; gap: 10px; }
-        .cert-icons img { height: 30px; opacity: 0.8; }
-
-        .nav-menu { display: flex; list-style: none; gap: 30px; padding-top: 10px; }
-        .nav-menu li a {
-            text-decoration: none; color: var(--text-dark); font-size: 0.85rem;
-            font-weight: 500; letter-spacing: 1px; transition: 0.3s;
+        .brand-info h1 {
+            font-size: 1.2rem;
+            color: #888;
+            font-weight: 400;
+            letter-spacing: 1px;
         }
-        .nav-menu li a.active { color: var(--accent-green); }
 
-        /* --- OVERVIEW SECTION --- */
-        .overview-section {
-            padding: 40px 8% 80px;
-            position: relative;
-            /* เพิ่มลายเส้นจางๆ ด้านข้างเพื่อให้เหมือนรูปต้นฉบับ */
-            background-image: 
-                url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path d="M0 100 Q 50 50 100 100" stroke="%2359803C" stroke-width="0.2" fill="none"/></svg>');
-            background-size: 400px;
+        .brand-info p {
+            font-size: 0.8rem;
+            color: #aaa;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .cert-icons img {
+            height: 30px;
+            margin-right: 10px;
+            filter: grayscale(100%);
+            opacity: 0.6;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: 0.3s;
+        }
+
+        nav ul li a:hover, nav ul li a.active {
+            color: var(--accent-green);
+        }
+
+        /* --- Main Content --- */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
         .section-title {
             text-align: center;
             font-family: 'Playfair Display', serif;
-            color: #8c7853;
-            font-size: 3.2rem;
+            font-size: 3rem;
+            color: #8c7d6b;
+            margin: 20px 0 50px;
             font-weight: 500;
-            margin-bottom: 40px;
         }
 
         .overview-grid {
             display: grid;
             grid-template-columns: 1fr 1fr 1.2fr;
-            gap: 20px;
-            align-items: start;
+            gap: 40px;
+            align-items: center;
         }
 
-        /* LEFT */
-        .col-left { text-align: center; padding-top: 40px; }
-        .eli-logo-large { width: 180px; margin-bottom: 10px; }
-        .nature-title { font-size: 0.9rem; font-weight: 600; margin-bottom: 25px; letter-spacing: 0.5px; }
-        
-        .feature-list { list-style: none; text-align: left; display: inline-block; }
-        .feature-list li { 
-            display: flex; align-items: center; gap: 12px; margin-bottom: 15px; 
-            font-size: 0.95rem; font-weight: 400; 
+        /* Column 1: Logo & Features */
+        .col-features {
+            text-align: center;
         }
-        .feature-list li i { color: #8c7853; font-size: 1.2rem; }
 
-        /* CENTER */
-        .col-center { display: flex; justify-content: center; }
-        .product-image { width: 100%; max-width: 320px; filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1)); }
-
-        /* RIGHT */
-        .col-right { display: flex; flex-direction: column; gap: 20px; }
-        .info-card { 
-            background: white; padding: 25px; border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.04); border: 1px solid #f0f0f0;
+        .eli-logo-big {
+            width: 200px;
+            margin-bottom: 20px;
         }
-        .info-card h4 { font-size: 1rem; margin-bottom: 10px; color: var(--text-dark); }
-        .info-list { list-style: none; }
-        .info-list li { position: relative; padding-left: 15px; font-size: 0.9rem; margin-bottom: 5px; color: #555; }
-        .info-list li::before { content: "•"; position: absolute; left: 0; font-weight: bold; }
 
-        .quality-production h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 10px; text-transform: uppercase; }
-        .quality-images { display: flex; gap: 10px; margin-bottom: 10px; }
-        .quality-images img { width: 50%; border-radius: 10px; aspect-ratio: 4/3; object-fit: cover; }
-        .quality-text { font-size: 0.85rem; color: #666; line-height: 1.5; }
-
-        .video-box {
-            background: #7a7a7a; height: 180px; border-radius: 15px;
-            display: flex; justify-content: center; align-items: center;
-            color: white; font-size: 3rem; cursor: pointer; transition: 0.3s;
+        .col-features h3 {
+            font-size: 1.1rem;
+            margin-bottom: 30px;
+            letter-spacing: 1px;
         }
-        .video-box:hover { background: #666; }
 
+        .feature-list {
+            list-style: none;
+            text-align: left;
+            display: inline-block;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 0.95rem;
+        }
+
+        .feature-list li i {
+            color: #aaa;
+            margin-right: 15px;
+            font-size: 1.2rem;
+        }
+
+        /* Column 2: Product Image */
+        .col-product {
+            display: flex;
+            justify-content: center;
+        }
+
+        .product-img {
+            max-width: 100%;
+            filter: drop-shadow(0 20px 30px rgba(0,0,0,0.1));
+        }
+
+        /* Column 3: Info & Quality */
+        .col-info {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .info-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
+        }
+
+        .info-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        .info-card ul {
+            list-style: disc;
+            padding-left: 20px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        .info-card hr {
+            margin: 20px 0;
+            border: 0;
+            border-top: 1px solid #eee;
+        }
+
+        /* Quality Production */
+        .quality-section h4 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .quality-images {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .quality-images img {
+            width: 50%;
+            border-radius: 10px;
+            object-fit: cover;
+            aspect-ratio: 4/3;
+        }
+
+        .quality-desc {
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        /* Video Placeholder */
+        .video-placeholder {
+            width: 100%;
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #999, #666);
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .video-placeholder:hover {
+            transform: scale(1.02);
+            filter: brightness(1.1);
+        }
+
+        /* Responsive */
         @media (max-width: 1024px) {
-            .overview-grid { grid-template-columns: 1fr; }
-            .col-center { order: -1; }
+            .overview-grid {
+                grid-template-columns: 1fr;
+                gap: 60px;
+            }
+            header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                gap: 20px;
+            }
+            .section-title { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <header class="header-container">
+    <header>
         <div class="brand-info">
             <h1>EVER GOOD PARTNERS CO., LTD.</h1>
             <p>PARTNERS IN PURITY.</p>
             <div class="cert-icons">
-                <img src="images/fssc-22000.png" alt="Cert">
-                <img src="images/halal.png" alt="Cert">
-                <img src="images/usda.png" alt="Cert">
-                <img src="images/organic.png" alt="Cert">
-                <img src="images/taste.png" alt="Cert">
+                <img src="cert1.png" alt="Cert 1">
+                <img src="cert2.png" alt="Cert 2">
+                <img src="cert3.png" alt="Cert 3">
+                <img src="cert4.png" alt="Cert 4">
             </div>
         </div>
         <nav>
-            <ul class="nav-menu">
+            <ul>
                 <li><a href="#" class="active">OVERVIEW</a></li>
                 <li><a href="#">PRODUCTION</a></li>
                 <li><a href="#">CERTIFICATION</a></li>
@@ -139,13 +265,14 @@
         </nav>
     </header>
 
-    <main class="overview-section">
+    <div class="container">
         <h2 class="section-title">Product Overview</h2>
 
         <div class="overview-grid">
-            <div class="col-left">
-                <img src="images/fssc-22007.png" alt="Eli Logo" class="eli-logo-large">
-                <div class="nature-title">GOODNESS FROM NATURE</div>
+            
+            <div class="col-features">
+                <img src="eli-logo.png" alt="Eli Logo" class="eli-logo-big">
+                <h3>GOODNESS FROM NATURE</h3>
                 <ul class="feature-list">
                     <li><i class="fa-regular fa-circle-check"></i> 100% Natural Coconut Water</li>
                     <li><i class="fa-regular fa-circle-check"></i> No Sugar Added</li>
@@ -155,42 +282,43 @@
                 </ul>
             </div>
 
-            <div class="col-center">
-                <img src="images/fssc-22019.png" alt="Eli Product" class="product-image">
+            <div class="col-product">
+                <img src="coconut-product.png" alt="Eli Coconut Water" class="product-img">
             </div>
 
-            <div class="col-right">
+            <div class="col-info">
                 <div class="info-card">
                     <h4>Packaging Formats</h4>
-                    <ul class="info-list">
+                    <ul>
                         <li>Available in Tetrapak</li>
                         <li>330 ml</li>
                     </ul>
-                    <hr style="margin: 15px 0; border: 0; border-top: 1px solid #eee;">
+                    <hr>
                     <h4>Shelf Life</h4>
-                    <ul class="info-list">
+                    <ul>
                         <li>18 Months (at Room Temperature)</li>
                         <li>No refrigeration required</li>
                     </ul>
                 </div>
 
-                <div class="quality-production">
-                    <h4>QUALITY PRODUCTION</h4>
+                <div class="quality-section">
+                    <h4>Quality Production</h4>
                     <div class="quality-images">
-                        <img src="images/fssc-22020.png" alt="Production 1">
-                        <img src="images/fssc-22021.png" alt="Production 2">
+                        <img src="prod1.png" alt="Production 1">
+                        <img src="prod2.png" alt="Production 2">
                     </div>
-                    <p class="quality-text">
+                    <p class="quality-desc">
                         Carefully selected coconuts to a fresh, authentic taste with consistent flavor quality.
                     </p>
-                </div>
-
-                <div class="video-box">
-                    <i class="fa-regular fa-circle-play"></i>
+                    
+                    <div class="video-placeholder">
+                        <i class="fa-regular fa-circle-play"></i>
+                    </div>
                 </div>
             </div>
+
         </div>
-    </main>
+    </div>
 
 </body>
 </html>
