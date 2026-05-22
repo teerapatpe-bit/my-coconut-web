@@ -104,7 +104,7 @@
 
         .hero-top-icon {
             position: absolute;
-            top: -15px; /* ขยับโลโก้ Eli ขึ้นนิดหน่อย */
+            top: -15px;
             left: 8%;
             width: 240px;
             z-index: 15;
@@ -119,42 +119,42 @@
             letter-spacing: 3px;
             text-transform: uppercase;
             margin-left: 5px;
-            margin-top: 100px; /* เลื่อน 100% NATURAL ลงมาให้ห่างจากโลโก้ Eli */
-            margin-bottom: 5px; /* ชิดกับ COCONUT WATER มากขึ้น */
+            margin-top: 100px;
+            margin-bottom: 5px;
         }
 
         .hero-content h1 { 
             color: var(--primary-green); 
-            font-size: 10rem; /* ขยายขนาดใหญ่สะใจ */
-            line-height: 0.8; /* บีบบรรทัดให้ชิดกัน */
-            font-weight: 900; /* ทำให้ตัวหนังสือหนาขึ้น */
-            letter-spacing: -2px; /* บีบตัวอักษรให้ดูแน่นขึ้น */
+            font-size: 10rem;
+            line-height: 0.8;
+            font-weight: 900;
+            letter-spacing: -2px;
             margin: 0 0 15px; 
             text-transform: uppercase;
         }
 
-        /* --- ปรับแต่งส่วน PRODUCT OF THAILAND ให้เล็กลง --- */
+        /* --- PRODUCT OF THAILAND (ปรับขนาดให้เล็กลงแล้ว) --- */
         .product-origin {
             color: var(--primary-green);
-            font-size: 1.1rem; /* ลดขนาดลงตามที่ต้องการให้ดูคลีนขึ้น */
-            font-weight: 600; /* ลดความหนาลงนิดหน่อยให้ไม่แย่งซีนหัวข้อหลัก */
-            margin-top: -5px; 
-            margin-bottom: 40px; /* ระยะห่างก่อนถึงปุ่ม */
-            letter-spacing: 2px; /* เพิ่มระยะห่างตัวอักษรให้ดูแพง */
+            font-size: 0.9rem; /* ปรับลดขนาดลงให้ดูเล็กและคลีน */
+            font-weight: 500; /* ลดความหนาลงนิดหน่อย */
+            margin-top: 5px;  /* เพิ่มช่องว่างด้านบนนิดนึงให้ไม่ติดตัวอักษรใหญ่เกินไป */
+            margin-bottom: 40px; 
+            letter-spacing: 3px; /* เพิ่มระยะห่างตัวอักษรให้ดูแพง */
             text-transform: uppercase;
         }
 
         .btn-more {
             background: var(--accent-green);
             color: var(--white);
-            font-size: 1.5rem; /* ขยายตัวอักษร 330 ml */
-            padding: 20px 60px; /* ขยายขนาดปุ่มให้สมดุลกับตัวหนังสือใหญ่ */
+            font-size: 1.5rem;
+            padding: 20px 60px;
             border-radius: 50px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            font-weight: 700; /* เพิ่มความหนาให้เด่นชัด */
+            font-weight: 700;
             box-shadow: 0 8px 25px rgba(89, 128, 60, 0.3);
             transition: background 0.3s, transform 0.3s, scale 0.3s;
         }
@@ -221,7 +221,7 @@
             .hero-content h1 { font-size: 6rem; line-height: 0.8; letter-spacing: -1px; }
             
             /* ปรับขนาดให้เล็กลงสำหรับ iPad/Tablet */
-            .product-origin { font-size: 0.9rem !important; margin-top: 0px; margin-bottom: 30px; } 
+            .product-origin { font-size: 0.75rem !important; margin-top: 5px; margin-bottom: 30px; letter-spacing: 2px; } 
             
             .btn-more { font-size: 1.2rem; padding: 15px 40px; }
             .features-bar { margin: -40px 40px 30px; padding: 15px 20px; border-radius: 40px; }
