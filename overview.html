@@ -22,45 +22,38 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
         
         body { 
-            background-color: var(--bg-light); /* สีพื้นหลังหลักเมื่อภาพจางลง */
+            background-color: var(--bg-light); 
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
-            position: relative; /* จำเป็นสำหรับเทคนิคทำพื้นหลังจาง */
+            position: relative; 
         }
 
-        /* --- เทคนิคทำพื้นหลังจาง (เว้นส่วนหัว) --- */
         body::before {
             content: "";
-            position: fixed; /* ให้อยู่กับที่เวลา Scroll */
-            top: 115px; /* *** ปรับค่านี้ให้เท่ากับความสูงของ Header ของคุณ *** */
+            position: fixed; 
+            top: 115px; 
             left: 0;
             width: 100%;
-            height: calc(100% - 115px); /* ความสูงลบส่วนหัวออก */
-            
-            /* --- ใส่พื้นหลังที่นี่แทน --- */
+            height: calc(100% - 115px); 
             background-image: url('images/fssc-22022.png'); 
             background-size: cover; 
             background-position: center;
             background-repeat: no-repeat;
-            
-            /* --- ปรับความจางที่นี่ (0.0 ถึง 1.0) --- */
-            opacity: 0.3; /* 0.3 คือจางลงเหลือ 30% */
-            
-            z-index: -1; /* ให้อยู่หลังเนื้อหา */
+            opacity: 0.3; 
+            z-index: -1; 
         }
 
-        /* --- HEADER (สไตล์เดิม) --- */
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 30px 60px;
-            background: #FFFFFF; /* ส่วนหัวสีขาวทึบ */
+            background: #FFFFFF; 
             position: relative;
-            z-index: 100; /* ให้อยู่หน้าสุด */
+            z-index: 100; 
             border-bottom: 1px solid #eeeeee;
-            height: 115px; /* กำหนดความสูงตายตัวเพื่อให้ body::before เว้นระยะถูก */
+            height: 115px; 
         }
 
         .brand-header { 
@@ -88,8 +81,10 @@
             mix-blend-mode: multiply; 
         }
 
+        /* คลาสลบพื้นหลังสีขาวสำหรับรูปภาพ */
         .img-bg-fix {
-            filter: contrast(1.2) brightness(1.1);
+            mix-blend-mode: multiply; /* ทำให้สีขาวโปร่งใส */
+            filter: contrast(1.05); /* ปรับสีให้คมชัดขึ้นนิดหน่อยชดเชยกัน */
         }
 
         .nav-menu { 
@@ -118,12 +113,11 @@
             padding-bottom: 5px;
         }
 
-        /* --- Main Content (Overview - สไตล์เดิม) --- */
         .container {
             max-width: 1350px;
             margin: 0 auto;
             padding: 40px 4% 80px;
-            position: relative; /* ให้อยู่หน้า body::before */
+            position: relative; 
         }
 
         .section-title {
@@ -142,7 +136,6 @@
             align-items: start;
         }
 
-        /* --- Columns (สไตล์เดิม) --- */
         .col-features {
             display: flex;
             flex-direction: column;
@@ -152,7 +145,7 @@
         .eli-logo-big {
             width: 160px;
             margin-bottom: 10px;
-            mix-blend-mode: multiply;
+            /* ย้าย mix-blend-mode ไปรวมในคลาส .img-bg-fix แล้วเพื่อให้จัดการง่าย */
         }
 
         .col-features h3 {
@@ -188,6 +181,8 @@
         .product-img {
             width: 100%;
             max-width: 200px;
+            /* เพิ่มคำสั่งลบพื้นหลังให้รูปสินค้าด้วยในกรณีที่มีพื้นหลังสีขาวติดมา */
+            mix-blend-mode: multiply;
             filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.15));
         }
 
@@ -260,7 +255,6 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* --- Responsive Design (สไตล์เดิม) --- */
         @media (max-width: 1024px) {
             .overview-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
             .col-product { order: -1; grid-column: 1 / -1; }
@@ -268,8 +262,8 @@
         
         @media (max-width: 768px) {
             .overview-grid { grid-template-columns: 1fr; }
-            .header-container { flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 20px; height: auto; } /* Mobile height auto */
-            body::before { top: 0; height: 100%; } /* Mobile background full */
+            .header-container { flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 20px; height: auto; } 
+            body::before { top: 0; height: 100%; } 
             .nav-menu { flex-wrap: wrap; justify-content: center; gap: 15px; }
             .section-title { font-size: 2.5rem; }
         }
