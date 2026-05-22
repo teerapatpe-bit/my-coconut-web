@@ -133,14 +133,14 @@
             text-transform: uppercase;
         }
 
-        /* ปรับแต่งส่วน PRODUCT OF THAILAND ให้เล็กลง */
+        /* --- ปรับแต่งส่วน PRODUCT OF THAILAND ให้เล็กลง --- */
         .product-origin {
             color: var(--primary-green);
-            font-size: 1.5rem; /* ลดขนาดลงตามที่ต้องการ */
-            font-weight: 700;
-            margin-top: -10px; 
+            font-size: 1.1rem; /* ลดขนาดลงตามที่ต้องการให้ดูคลีนขึ้น */
+            font-weight: 600; /* ลดความหนาลงนิดหน่อยให้ไม่แย่งซีนหัวข้อหลัก */
+            margin-top: -5px; 
             margin-bottom: 40px; /* ระยะห่างก่อนถึงปุ่ม */
-            letter-spacing: 1px;
+            letter-spacing: 2px; /* เพิ่มระยะห่างตัวอักษรให้ดูแพง */
             text-transform: uppercase;
         }
 
@@ -219,7 +219,10 @@
             .nav-menu { gap: 20px; }
             .hero-content h4 { font-size: 1.5rem; letter-spacing: 2px; margin-top: 60px; }
             .hero-content h1 { font-size: 6rem; line-height: 0.8; letter-spacing: -1px; }
-            .product-origin { font-size: 1.2rem; margin-top: -5px; margin-bottom: 30px; } 
+            
+            /* ปรับขนาดให้เล็กลงสำหรับ iPad/Tablet */
+            .product-origin { font-size: 0.9rem !important; margin-top: 0px; margin-bottom: 30px; } 
+            
             .btn-more { font-size: 1.2rem; padding: 15px 40px; }
             .features-bar { margin: -40px 40px 30px; padding: 15px 20px; border-radius: 40px; }
         }
