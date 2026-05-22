@@ -13,6 +13,7 @@
             --accent-green: #59803C;
             --gold: #A88F61;
             --white: #FFFFFF;
+            --text-dark: #333333;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
@@ -21,16 +22,67 @@
         .header-container {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center; /* ปรับให้กึ่งกลางแนวตั้ง */
             padding: 20px 60px;
             background: var(--white);
             z-index: 100;
             position: relative;
         }
+
         .brand-header { color: var(--gold); font-size: 1.35rem; font-weight: 700; }
         .partners-text { color: var(--gold); font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 12px; }
-        .cert-icons { display: flex; gap: 15px; }
-        .cert-icons img { height: 50px; mix-blend-mode: multiply; }
+        .cert-icons { display: flex; gap: 10px; }
+        .cert-icons img { height: 35px; mix-blend-mode: multiply; }
+
+        /* --- เมนูใหม่ (Nav Links) --- */
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 40px; /* ระยะห่างระหว่างเมนู */
+            margin: 0 40px;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1.5px; /* เพิ่มระยะห่างตัวอักษรตามภาพ */
+            transition: 0.3s;
+            text-transform: uppercase; /* ทำเป็นตัวพิมพ์ใหญ่ทั้งหมด */
+        }
+
+        .nav-menu li a:hover {
+            color: var(--accent-green);
+        }
+
+        .nav-right-icons {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        .search-btn {
+            background: #f4f4f4;
+            border: none;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            color: var(--primary-green);
+            transition: 0.3s;
+        }
+
+        .search-btn:hover { background: #e0e0e0; }
+
+        .mobile-menu-icon {
+            display: none; /* ซ่อนไว้ในหน้าจอคอม */
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
 
         /* --- Hero Section --- */
         .hero {
@@ -47,11 +99,10 @@
             background-color: #f8faf9; 
         }
 
-        /* ★ โลโก้ Eli ถูกจับแยกมาไว้ด้านบน ★ */
         .hero-top-icon {
             position: absolute;
-            top: 40px; /* ปรับตำแหน่งความสูงตรงนี้ครับ (เลขน้อยลง=สูงขึ้น) */
-            left: 8%;  /* ให้ตรงกับระยะขอบซ้ายของเนื้อหา */
+            top: 40px;
+            left: 8%;
             width: 220px; 
             mix-blend-mode: multiply;
             z-index: 15;
@@ -63,20 +114,8 @@
             max-width: 650px;
         }
 
-        .hero-content h4 { 
-            color: var(--accent-green); 
-            font-size: 1.4rem; 
-            font-weight: 600; 
-            letter-spacing: 1px;
-        }
-        
-        .hero-content h1 { 
-            color: var(--primary-green); 
-            font-size: 6.5rem; 
-            line-height: 0.9; 
-            font-weight: 800; 
-            margin: 15px 0 35px;
-        }
+        .hero-content h4 { color: var(--accent-green); font-size: 1.4rem; font-weight: 600; letter-spacing: 1px; }
+        .hero-content h1 { color: var(--primary-green); font-size: 6.5rem; line-height: 0.9; font-weight: 800; margin: 15px 0 35px; }
 
         .btn-more {
             background: var(--accent-green);
@@ -90,11 +129,6 @@
             font-weight: 600;
             box-shadow: 0 8px 20px rgba(89, 128, 60, 0.3);
             transition: 0.3s;
-        }
-        
-        .btn-more:hover {
-            transform: translateY(-3px);
-            background: var(--primary-green);
         }
 
         /* --- Features Bar --- */
@@ -112,22 +146,17 @@
         .feature-item { display: flex; align-items: center; gap: 12px; }
         .f-icon { width: 50px; height: 50px; background: var(--accent-green); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; }
         .f-text b { display: block; font-size: 1.1rem; color: var(--primary-green); line-height: 1.2; }
-        .f-text span { font-size: 0.8rem; color: #777; }
 
         /* --- Responsive --- */
+        @media (max-width: 1100px) {
+            .nav-menu { display: none; } /* ซ่อนเมนูตัวหนังสือเมื่อจอเล็กลง */
+            .mobile-menu-icon { display: block; } /* แสดง Hamburger แทน */
+            .header-container { padding: 20px 30px; }
+        }
+
         @media (max-width: 992px) {
-            .hero { background-position: center; padding: 80px 20px; text-align: center; }
-            .hero-content { margin: 0 auto; }
-            
-            /* คืนค่าโลโก้ในมือถือให้กลับมาอยู่ตรงกลางแบบปกติ */
-            .hero-top-icon { 
-                position: relative;
-                top: auto;
-                left: auto;
-                margin: 0 auto 20px; 
-                width: 180px; 
-            }
-            
+            .hero { background-position: center; padding: 120px 20px; text-align: center; }
+            .hero-top-icon { position: relative; top: auto; left: auto; margin: 0 auto 20px; width: 180px; }
             .hero-content h1 { font-size: 4.5rem; }
             .features-bar { flex-wrap: wrap; gap: 20px; margin: 20px; padding: 20px; }
             .feature-item { width: 45%; }
@@ -148,18 +177,25 @@
                 <img src="images/fssc-22004.png" alt="BRC">
             </div>
         </div>
-        <nav style="display: flex; align-items: center; gap: 20px;">
-            <button style="background:none; border:none; font-size:1.2rem; cursor:pointer;"><i class="fas fa-search"></i></button>
-            <i class="fas fa-bars" style="font-size: 1.5rem; cursor:pointer;"></i>
-        </nav>
+
+        <ul class="nav-menu">
+            <li><a href="#">Overview</a></li>
+            <li><a href="#">Production</a></li>
+            <li><a href="#">Certification</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+        <div class="nav-right-icons">
+            <button class="search-btn"><i class="fas fa-search"></i></button>
+            <i class="fas fa-bars mobile-menu-icon"></i>
+        </div>
     </header>
 
     <section class="hero">
         <img src="images/fssc-22015.png" alt="Eli Logo" class="hero-top-icon">
-        
         <div class="hero-content">
             <h4>100% NATURAL</h4>
-            <h1>COCONUT<br>WATER</h1>
+            <h1>Coconut<br>Water</h1>
             <a href="#" class="btn-more">300 ml &nbsp; <i class="fas fa-arrow-right"></i></a>
         </div>
     </section>
