@@ -174,8 +174,14 @@
             transform: scale(1.05); 
         }
 
-        .text-info { position: relative; z-index: 10; font-family: 'Montserrat', sans-serif; }
-        .text-info h4 { color: #7da58a; font-size: 12px; letter-spacing: 2.5px; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; }
+.text-info {
+    position: absolute; /* เปลี่ยนเป็น absolute เพื่อให้ย้ายไปได้ทุกที่ */
+    top: 120px;         /* ปรับตัวเลขนี้เพื่อเลื่อน ขึ้น-ลง (น้อย = ขึ้น, มาก = ลง) */
+    left: 450px;        /* ปรับตัวเลขนี้เพื่อเลื่อน ซ้าย-ขวา (ตามลูกศรที่คุณชี้) */
+    z-index: 10;
+    font-family: 'Montserrat', sans-serif;
+    text-align: left;   /* ให้ข้อความชิดซ้ายเหมือนเดิม */
+}        .text-info h4 { color: #7da58a; font-size: 12px; letter-spacing: 2.5px; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; }
         
         .text-info h1 { 
             font-size: 52px; 
