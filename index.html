@@ -13,122 +13,124 @@
             --accent-green: #59803C;
             --gold: #A88F61;
             --white: #FFFFFF;
-            --bg-light: #f3f7f4; /* สีพื้นหลังฝั่งซ้าย */
+            --bg-content: #f4f8f5; /* สีพื้นหลังหลักฝั่งซ้าย */
+            --bg-highlight: #ebf2ee; /* สีพื้นหลังซ้อนใต้ข้อความ */
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
         body { background-color: var(--white); overflow-x: hidden; }
 
-        /* --- Header --- */
+        /* --- Header Section --- */
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
+            padding: 15px 5%;
             background: var(--white);
+            position: relative;
             z-index: 100;
         }
+        .cert-icons { display: flex; gap: 20px; align-items: center; }
+        .cert-icons img { height: 60px; mix-blend-mode: multiply; }
+        
+        .nav-links { display: flex; list-style: none; gap: 25px; align-items: center; }
+        .nav-links a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.85rem; }
+        .search-btn { background: var(--accent-green); color: white; border: none; width: 35px; height: 35px; border-radius: 50%; cursor: pointer; }
 
-        .brand-header { color: var(--gold); font-size: 1.4rem; font-weight: 700; }
-        .partners-text { color: var(--gold); font-size: 0.8rem; letter-spacing: 3px; margin-bottom: 10px; }
-
-        /* ปรับขนาดไอคอนมาตรฐานให้ใหญ่ขึ้น (ตามรูป image_243883.png) */
-        .cert-icons { display: flex; gap: 25px; align-items: center; }
-        .cert-icons img { height: 70px; width: auto; mix-blend-mode: multiply; }
-
-        nav { display: flex; align-items: center; gap: 30px; }
-        .nav-links { display: flex; list-style: none; gap: 25px; }
-        .nav-links a { text-decoration: none; color: #333; font-weight: 600; font-size: 0.9rem; }
-        .search-btn { background: var(--accent-green); color: white; border: none; width: 40px; height: 40px; border-radius: 50%; cursor: pointer; }
-
-        /* --- Hero Section แบบเต็มกล่อง 50/50 --- */
+        /* --- Hero Section 50/50 --- */
         .hero {
             display: flex;
-            min-height: 800px;
+            min-height: 750px;
             width: 100%;
-            align-items: stretch; /* ให้ทั้งสองฝั่งสูงเท่ากัน */
         }
 
-        /* ฝั่งซ้าย: เนื้อหา */
-        .hero-content {
-            flex: 1; /* กินพื้นที่ 50% */
-            background-color: var(--bg-light);
+        /* ฝั่งซ้าย: มีพื้นหลังซ้อน */
+        .hero-left {
+            flex: 1;
+            background-color: var(--bg-content);
+            position: relative; /* เพื่อให้พื้นหลังไฮไลท์อ้างอิงตำแหน่งได้ */
             display: flex;
             flex-direction: column;
             justify-content: center;
-            padding-left: 8%; /* ให้เนื้อหาเยื้องซ้ายแต่มีพื้นที่หายใจ */
-            padding-right: 5%;
-            z-index: 2;
+            padding-left: 8%;
+            z-index: 1;
+            overflow: hidden;
         }
 
-        /* โลโก้ Eli (ขยับขึ้นตามรูป image_24346d.png) */
+        /* แถบพื้นหลังพิเศษใต้ข้อความ (ทำให้ดูเต็มกล่องตามรูป) */
+        .text-bg-layer {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            width: 120%; /* ขยายให้กว้างกว่ากล่อง */
+            height: 400px;
+            background: var(--bg-highlight);
+            transform: translateY(-40%) rotate(-2deg); /* เอียงเล็กน้อยให้มีมิติ */
+            z-index: -1;
+            border-radius: 50px;
+        }
+
         .hero-top-icon {
-            width: 220px;
-            margin-top: -100px; /* ดันขึ้นด้านบน */
-            margin-bottom: 30px;
+            width: 200px;
+            margin-top: -80px; /* ดันโลโก้ Eli ขึ้น */
+            margin-bottom: 20px;
             mix-blend-mode: multiply;
         }
 
-        .hero-content h4 { color: var(--accent-green); font-size: 1.6rem; margin-bottom: 10px; }
-        .hero-content h1 { 
+        .hero-left h4 { color: var(--accent-green); font-size: 1.4rem; font-weight: 600; }
+        .hero-left h1 { 
             color: var(--primary-green); 
-            font-size: 7.5rem; /* ตัวใหญ่เต็มกล่อง */
-            line-height: 0.85; 
+            font-size: 7rem; 
+            line-height: 0.9; 
             font-weight: 800; 
-            margin-bottom: 40px;
+            margin: 15px 0 35px;
         }
 
         .btn-more {
             background: var(--accent-green);
             color: white;
-            padding: 18px 50px;
+            padding: 15px 40px;
             border-radius: 50px;
             text-decoration: none;
-            display: inline-flex;
             width: fit-content;
             font-weight: 600;
-            box-shadow: 0 10px 20px rgba(89, 128, 60, 0.2);
+            box-shadow: 0 8px 15px rgba(89, 128, 60, 0.2);
         }
 
-        /* ฝั่งขวา: รูปภาพเต็มพื้นที่ */
-        .hero-image-box {
-            flex: 1; /* กินพื้นที่อีก 50% */
-            position: relative;
-            background: #fdfdfd;
+        /* ฝั่งขวา: รูปภาพสินค้า */
+        .hero-right {
+            flex: 1;
+            background: #fff;
         }
-
         .product-img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* รูปจะขยายเต็มบล็อกฝั่งขวาพอดี */
+            object-fit: cover;
             object-position: center;
         }
 
         /* --- Features Bar --- */
         .features-bar {
             background: white;
-            margin: -50px 5% 50px;
-            padding: 40px;
-            border-radius: 30px;
+            margin: -40px 5% 40px;
+            padding: 30px;
+            border-radius: 20px;
             display: flex;
             justify-content: space-around;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
             position: relative;
             z-index: 10;
         }
+        .feature-item { display: flex; align-items: center; gap: 12px; }
+        .f-icon { width: 45px; height: 45px; background: var(--accent-green); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; }
+        .f-text b { display: block; font-size: 1rem; color: var(--primary-green); }
+        .f-text span { font-size: 0.75rem; color: #888; }
 
-        .feature-item { display: flex; align-items: center; gap: 15px; }
-        .f-icon { width: 50px; height: 50px; background: var(--accent-green); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; }
-        .f-text b { display: block; font-size: 1.1rem; color: var(--primary-green); }
-        .f-text span { font-size: 0.8rem; color: #777; }
-
-        /* Responsive */
         @media (max-width: 1024px) {
             .hero { flex-direction: column; }
-            .hero-content { padding: 80px 5%; text-align: center; align-items: center; }
-            .hero-content h1 { font-size: 5rem; }
-            .hero-top-icon { margin-top: 0; }
-            .hero-image-box { height: 500px; }
+            .hero-right { height: 450px; }
+            .hero-left h1 { font-size: 4.5rem; }
+            .text-bg-layer { width: 100%; transform: none; top: 20%; height: 60%; }
         }
     </style>
 </head>
@@ -136,7 +138,7 @@
 
     <header class="header-container">
         <div class="brand">
-            <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
+            <h1 style="color: var(--gold); font-size: 1.2rem; font-weight: 700;">EVER GOOD PARTNERS CO.,LTD.</h1>
             <p class="partners-text">PARTNERS IN PURITY.</p>
             <div class="cert-icons">
                 <img src="images/fssc-22000.png" alt="FSSC">
@@ -152,20 +154,20 @@
                 <li><a href="#">PRODUCTION</a></li>
                 <li><a href="#">CERTIFICATION</a></li>
                 <li><a href="#">CONTACT</a></li>
+                <li><button class="search-btn"><i class="fas fa-search"></i></button></li>
             </ul>
-            <button class="search-btn"><i class="fas fa-search"></i></button>
         </nav>
     </header>
 
     <section class="hero">
-        <div class="hero-content">
-            <img src="images/fssc-22015.png" alt="Eli Logo" class="hero-top-icon">
+        <div class="hero-left">
+            <div class="text-bg-layer"></div> <img src="images/fssc-22015.png" alt="Eli Logo" class="hero-top-icon">
             <h4>100% NATURAL</h4>
             <h1>Coconut<br>Water</h1>
             <a href="#" class="btn-more">300ml &nbsp; <i class="fas fa-arrow-right"></i></a>
         </div>
         
-        <div class="hero-image-box">
+        <div class="hero-right">
             <img src="images/fssc-22016.png" alt="Coconut Water" class="product-img">
         </div>
     </section>
