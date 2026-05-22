@@ -84,126 +84,97 @@
             gap: 40px;
             align-items: center;
         }
+/* --- Eli Info Card (ส่วนที่ปรับแต่งใหม่ตามรูป) --- */
+    .info-side { 
+        width: 340px; 
+    }
 
-        /* --- Eli Info Card --- */
-        .info-side { width: 340px; }
+    /* เปลี่ยนจาก Eli Badge เดิม เป็นทรงแคปซูล Pill */
+    .eli-pill-header {
+        border: 2px solid #000;
+        border-radius: 50px;
+        padding: 8px 25px;
+        display: block; /* หรือ flex */
+        text-align: center;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 1.2rem;
+        font-weight: 800;
+        color: #000;
+        background: transparent;
+        margin-bottom: 15px; /* เว้นระยะก่อนเข้ากล่องข้อมูล */
+    }
 
-        .eli-badge {
-            background: #000;
-            color: #fff;
-            padding: 10px 25px;
-            border-radius: 15px 15px 0 0;
-            display: inline-block;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 900;
-        }
+    .feature-box {
+        background: var(--glass-bg); /* ใช้ตัวแปรสีที่คุณกำหนด */
+        backdrop-filter: blur(15px);
+        padding: 30px 25px;
+        border-radius: 25px; /* ปรับให้มนเท่ากันทุกมุมเพื่อให้รับกับ Pill */
+        border: 1px solid rgba(255,255,255,0.4);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
 
-        .feature-box {
-            background: var(--glass-bg);
-            backdrop-filter: blur(15px);
-            padding: 30px 25px;
-            border-radius: 0 25px 25px 25px;
-            border: 1px solid rgba(255,255,255,0.4);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+    .feature-item {
+        list-style: none;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 0.9rem;
+        font-weight: 700; /* ตัวหนาตามความต้องการ */
+        color: #2D3436;
+    }
 
-        .feature-item {
-            list-style: none;
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.9rem;
-            font-weight: 700;
-        }
+    /* สัญลักษณ์เครื่องหมายถูกสีเขียว */
+    .feature-item::before {
+        content: '✓';
+        width: 18px; height: 18px;
+        background: #27AE60;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.6rem;
+    }
 
-        .feature-item::before {
-            content: '✓';
-            width: 18px; height: 18px;
-            background: #27AE60;
-            color: white;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.6rem;
-        }
+    /* ปุ่ม "present" ทรงแคปซูลด้านล่าง */
+    .present-pill {
+        border: 2px solid #000;
+        border-radius: 50px;
+        padding: 12px;
+        text-align: center;
+        text-decoration: none;
+        color: #000;
+        font-weight: 800;
+        font-size: 1rem;
+        margin-top: 5px;
+        transition: 0.3s ease;
+        background: transparent;
+    }
 
-        /* ปุ่ม "present" ในกล่อง Eli */
-        .present-pill {
-            border: 2px solid #000;
-            border-radius: 50px;
-            padding: 12px;
-            text-align: center;
-            text-decoration: none;
-            color: #000;
-            font-weight: 800;
-            font-size: 1rem;
-            margin-top: 5px;
-            transition: 0.3s ease;
-        }
+    .present-pill:hover {
+        background: #000;
+        color: #fff;
+    }
+</style>
 
-        .present-pill:hover {
-            background: #000;
-            color: #fff;
-        }
+<div class="info-side">
+    <div class="eli-pill-header">Eli</div>
 
-        /* --- Product Showcase --- */
-        .product-display {
-            flex: 1;
-            background: var(--glass-bg);
-            backdrop-filter: blur(20px);
-            border-radius: 40px;
-            padding: 60px;
-            display: flex;
-            justify-content: center;
-            gap: 50px;
-            align-items: center;
-            border: 1px solid rgba(255,255,255,0.5);
-        }
-
-        /* ข้อความสีทอง Solid ในรายละเอียด */
-        .export-label {
-            color: var(--gold-solid);
-            font-weight: 800;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
-        }
-
-        .shelf-life {
-            font-size: 3.5rem;
-            color: var(--brand-blue);
-            font-weight: 800;
-            line-height: 1.1;
-        }
-
-        .shelf-life span {
-            display: block;
-            font-size: 1.8rem;
-            color: #718096;
-            font-weight: 400;
-        }
-
-        .volume {
-            font-size: 4.8rem;
-            font-weight: 900;
-            color: #1a202c;
-            margin: 10px 0;
-        }
-
-        .stars { color: #F1C40F; font-size: 1.3rem; }
-
-        .bottle-img img {
-            max-width: 420px;
-            width: 100%;
-            filter: drop-shadow(20px 25px 40px rgba(0,0,0,0.1));
-            transform: rotate(2deg);
-        }
-
+    <div class="feature-box">
+        <ul>
+            <li class="feature-item">100% Natural Coconut water</li>
+            <li class="feature-item">No Sugar Added</li>
+            <li class="feature-item">No Artificial Flavor</li>
+            <li class="feature-item">No Coloring</li>
+            <li class="feature-item">No Preservatives</li>
+        </ul>
+        
+        <a href="#" class="present-pill">present</a>
+    </div>
+</div>
     </style>
 </head>
 <body>
