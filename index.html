@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVER GOOD PARTNERS - Eli Coconut Water</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@900&display=swap" rel="stylesheet">
+    <title>EVER GOOD PARTNERS - Official Landing Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@300;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --brand-blue: #2B6CB0;
+            /* สีทอง Gradient เดิมตามบรีฟ */
             --gold-gradient: linear-gradient(180deg, #D4AF37 0%, #F1D592 50%, #B8860B 100%);
         }
 
@@ -15,7 +16,6 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            /* ปรับพื้นหลังให้จางลง (0.85) เพื่อให้เนื้อหาชัดเจน */
             background: linear-gradient(rgba(240, 244, 248, 0.85), rgba(240, 244, 248, 0.85)), 
                         url('images/fssc-22007.png') no-repeat center center fixed;
             background-size: cover;
@@ -32,21 +32,31 @@
             align-items: center;
         }
 
-        /* ส่วนชื่อแบรนด์สีทอง */
+        /* --- ปรับแต่งชื่อบริษัทเป็นตัวบาง (Thin) แต่สีเดิม --- */
         .brand-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 2.8rem;
+            font-size: 2.6rem; /* ปรับขนาดให้สมดุลกับความบาง */
+            font-weight: 300;   /* ปรับเป็นตัวบางตามคำขอ */
+            letter-spacing: 2px; /* เพิ่มระยะห่างตัวอักษรเล็กน้อยให้ดูพรีเมียม */
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
-            font-weight: 900;
+            white-space: nowrap;
+        }
+
+        .slogan {
+            font-size: 0.85rem;
+            font-weight: 400;
+            color: #636e72;
+            letter-spacing: 5px;
+            margin-top: 5px;
         }
 
         nav a {
             text-decoration: none;
             color: #111;
-            font-weight: 900;
+            font-weight: 700;
             font-size: 0.85rem;
             margin-left: 30px;
             text-transform: uppercase;
@@ -61,7 +71,6 @@
             gap: 50px;
         }
 
-        /* --- กล่องข้อความ Eli ตัวหนา --- */
         .eli-box {
             background: #fff;
             padding: 10px 25px;
@@ -73,7 +82,7 @@
 
         .eli-text {
             font-size: 2.5rem;
-            font-weight: 900; /* ตัวหนาตามบรีฟ */
+            font-weight: 900; 
             color: #111;
             font-family: 'Montserrat', sans-serif;
         }
@@ -97,7 +106,6 @@
             color: #2d3436;
         }
 
-        /* ไอคอนเครื่องหมายถูกสีเขียว */
         .info-card li::before {
             content: '✓';
             color: #2ecc71;
@@ -123,13 +131,6 @@
             line-height: 1;
         }
 
-        .product-text .desc {
-            font-size: 1.8rem;
-            color: #4a5568;
-            margin-bottom: 15px;
-            display: block;
-        }
-
         .volume { font-size: 3.8rem; font-weight: 900; }
 
         .bottle-img {
@@ -149,7 +150,10 @@
 <body>
 
     <div class="top-container">
-        <h1 class="brand-title">EVER GOOD PARTNERS CO., LTD.</h1>
+        <div class="brand-header">
+            <h1 class="brand-title">EVER GOOD PARTNERS CO., LTD.</h1>
+            <p class="slogan">PARTNERS IN PURITY.</p>
+        </div>
         <nav>
             <a href="#">Overview</a>
             <a href="#">Production</a>
@@ -185,7 +189,7 @@
         <div class="glass-box">
             <div class="product-text">
                 <p style="color:#718096; font-weight:700; margin-bottom:8px;">SEO. www.evergood.co.th</p>
-                <h2>18 months <span class="desc">@ room temp.</span></h2>
+                <h2>18 months <span style="display:block; font-size:1.8rem; font-weight:400; color:#4a5568;">@ room temp.</span></h2>
                 <div class="volume">300ml</div>
                 <div style="color: #f1c40f; font-size: 1.5rem; margin-top: 10px;">★★★★★</div>
             </div>
