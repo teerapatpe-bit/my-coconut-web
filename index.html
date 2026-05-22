@@ -9,7 +9,6 @@
         :root {
             --brand-blue: #1A4F8B;
             --gold-gradient: linear-gradient(135deg, #C5A059 0%, #F1D592 50%, #B8860B 100%);
-            /* ปรับความโปร่งใสของพื้นหลังกล่อง (0.45) เพื่อความโปร่ง */
             --glass-panel: rgba(255, 255, 255, 0.45);
             --glass-border: rgba(255, 255, 255, 0.3);
         }
@@ -18,7 +17,6 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            /* พื้นหลังหลักแบบเดิมที่คุณชอบ */
             background: radial-gradient(circle at top right, rgba(255,255,255,0.8), rgba(235, 240, 245, 0.7)), 
                         url('images/fssc-22007.png') no-repeat center center fixed;
             background-size: cover;
@@ -28,7 +26,7 @@
         /* --- Header Section --- */
         .header {
             width: 100%;
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
             padding: 40px 5% 30px;
             display: flex;
@@ -76,34 +74,34 @@
 
         /* --- Content Layout --- */
         .main-content {
-            max-width: 1300px;
+            max-width: 1100px; /* ลดความกว้างรวมลงเพื่อให้ทุกอย่างชิดกันมากขึ้น */
             margin: 0 auto;
             padding: 0 5% 50px;
             display: flex;
-            gap: 40px;
+            gap: 30px; /* ลดระยะห่างระหว่างกล่อง Eli และกล่องขวด */
             align-items: center;
         }
 
         /* --- Eli Info Card --- */
         .info-side {
-            width: 320px;
+            width: 280px; /* ลดขนาดความกว้างลงเล็กน้อย */
         }
 
         .eli-badge {
             background: #000;
             color: #fff;
-            padding: 8px 25px;
+            padding: 6px 20px;
             border-radius: 12px 12px 0 0;
             display: inline-block;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 900;
         }
 
         .feature-box {
             background: var(--glass-panel);
             backdrop-filter: blur(12px);
-            padding: 25px;
+            padding: 20px;
             border-radius: 0 20px 20px 20px;
             border: 1px solid var(--glass-border);
             box-shadow: 0 10px 30px rgba(0,0,0,0.02);
@@ -114,58 +112,58 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.85rem;
+            font-size: 0.8rem;
             font-weight: 600;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
             color: #4A5568;
         }
 
         .feature-item::before {
             content: '✓';
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             background: #27AE60;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
         }
 
-        /* --- Product Showcase (ปรับให้โปร่งแสงและดูหรูขึ้น) --- */
+        /* --- Product Showcase (ปรับลดพื้นที่ว่างตรงกลาง) --- */
         .product-display {
             flex: 1;
-            /* ปรับพื้นหลังให้โปร่งแสง (rgba 0.4) และใส่เอฟเฟกต์เบลอ */
             background: rgba(255, 255, 255, 0.4); 
             backdrop-filter: blur(15px); 
             -webkit-backdrop-filter: blur(15px);
             border-radius: 40px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.5); /* ขอบจางๆ ช่วยให้ดูมีมิติ */
+            padding: 40px 50px; /* เพิ่ม Padding ซ้ายขวาเพื่อบีบเนื้อหาเข้าหากัน */
+            border: 1px solid rgba(255, 255, 255, 0.5);
             box-shadow: 0 15px 45px rgba(0,0,0,0.03);
             display: flex;
-            justify-content: space-between;
+            justify-content: center; /* เปลี่ยนเป็น Center เพื่อให้เนื้อหาอยู่ใกล้กันมากขึ้น */
+            gap: 40px; /* กำหนดระยะห่างคงที่ระหว่างตัวหนังสือและรูปภาพ */
             align-items: center;
         }
 
         .product-text h2 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             color: var(--brand-blue);
             font-weight: 800;
             line-height: 1;
         }
 
         .product-text .vol {
-            font-size: 3.5rem;
+            font-size: 3.2rem;
             font-weight: 800;
-            margin: 15px 0 5px;
+            margin: 10px 0 5px;
         }
 
         .bottle-img img {
-            max-width: 400px;
+            max-width: 360px; /* ลดขนาดรูปขวดลงเล็กน้อยเพื่อให้ดูสมส่วนกับพื้นที่ที่ลดลง */
             width: 100%;
-            filter: drop-shadow(15px 20px 40px rgba(0,0,0,0.08));
+            filter: drop-shadow(10px 15px 30px rgba(0,0,0,0.08));
             transform: rotate(2deg);
         }
 
@@ -210,7 +208,7 @@
         <div class="product-display">
             <div class="product-text">
                 <p style="color:#A0AEC0; font-weight:700; font-size:0.7rem; letter-spacing:2px; margin-bottom:10px;">PREMIUM EXPORT QUALITY</p>
-                <h2>18 months <span style="display:block; font-size:1.4rem; color:#718096; font-weight:400;">@ room temp.</span></h2>
+                <h2>18 months <span style="display:block; font-size:1.3rem; color:#718096; font-weight:400;">@ room temp.</span></h2>
                 <div class="vol">330ml</div>
                 <div style="color: #F1C40F; font-size: 1.1rem;">★★★★★</div>
             </div>
