@@ -15,24 +15,23 @@
             --gold: #A88F61;
             --text-dark: #222222;
             --text-gray: #666666;
-            --gold-title: #8C7A6B;
-            --bg-transparent: rgba(255, 255, 255, 0.85);
+            --gold-title: #4A4A4A; /* ปรับสี Title ให้เข้ากับธีมใหม่ */
+            --bg-light: #fcfdfc;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
         
         body { 
+            background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
-
-            /* --- พื้นหลัง --- */
+            
+            /* --- พื้นหลัง (อิงจาก Production) --- */
             background-image: url('images/fssc-22022.png'); 
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
+            background-size: cover; 
             background-attachment: fixed;
-            background-color: #fcfdfc;
+            background-position: center;
         }
 
         /* --- HEADER (ซิงค์สไตล์ให้ตรงกันทุกหน้า) --- */
@@ -69,10 +68,10 @@
 
         .cert-icons img { 
             height: 40px; 
-            mix-blend-mode: multiply; /* ตัดพื้นหลังสีขาวออก */
+            mix-blend-mode: multiply; 
         }
 
-        /* คลาสพิเศษแก้ปัญหาพื้นหลังอมเทา/เหลือง */
+        /* คลาสพิเศษแก้ปัญหาพื้นหลังรูปภาพ */
         .img-bg-fix {
             filter: contrast(1.2) brightness(1.1);
         }
@@ -103,11 +102,11 @@
             padding-bottom: 5px;
         }
 
-        /* --- Main Content --- */
+        /* --- Main Content (Overview) --- */
         .container {
             max-width: 1350px;
             margin: 0 auto;
-            padding: 20px 4% 80px;
+            padding: 40px 4% 80px; /* ปรับ padding บนให้เท่าหน้า production */
         }
 
         .section-title {
@@ -136,7 +135,7 @@
         .eli-logo-big {
             width: 160px;
             margin-bottom: 10px;
-            mix-blend-mode: multiply; /* ใช้เพื่อความเนียน */
+            mix-blend-mode: multiply;
         }
 
         .col-features h3 {
@@ -180,6 +179,7 @@
             padding: 30px 25px;
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            border: 1px solid #EBEBEB; /* เพิ่มกรอบให้เข้ากับสไตล์กล่องหน้า production */
         }
 
         .info-card h4 {
@@ -245,7 +245,7 @@
 
         /* --- Responsive Design --- */
         @media (max-width: 1024px) {
-            .overview-grid { grid-template-columns: 1fr 1fr; }
+            .overview-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
             .col-product { order: -1; grid-column: 1 / -1; }
         }
         
