@@ -19,13 +19,11 @@
             --divider-color: #eeeeee;
         }
 
-        /* เพิ่มความนุ่มนวลเวลาเลื่อนหน้า */
         html { scroll-behavior: smooth; }
-
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
         body { background-color: var(--bg-light); overflow-x: hidden; }
 
-        /* --- HEADER & BRANDING --- */
+        /* --- HEADER --- */
         .header-container {
             display: flex;
             justify-content: space-between;
@@ -36,53 +34,17 @@
             z-index: 100;
         }
 
-        .brand-header { 
-            color: var(--gold); 
-            font-size: 1.8rem; 
-            font-weight: 700; 
-            line-height: 1.1;
-        }
+        .brand-header { color: var(--gold); font-size: 1.8rem; font-weight: 700; line-height: 1.1; }
+        .partners-text { color: var(--gold); font-size: 0.85rem; letter-spacing: 4px; margin-bottom: 15px; }
+        
+        .cert-icons { display: flex; gap: 15px; align-items: center; }
+        .cert-icons img { height: 40px; mix-blend-mode: multiply; }
 
-        .partners-text { 
-            color: var(--gold); 
-            font-size: 0.85rem; 
-            letter-spacing: 4px; 
-            margin-bottom: 15px; 
-        }
-
-        .cert-icons { 
-            display: flex; 
-            gap: 15px; 
-            align-items: center;
-        }
-
-        .cert-icons img { 
-            height: 40px; 
-            mix-blend-mode: multiply; 
-        }
-
-        /* --- NAVIGATION --- */
-        .nav-section {
-            display: flex;
-            align-items: center;
-        }
-
-        .nav-menu {
-            display: flex;
-            list-style: none;
-            gap: 50px;
-        }
-
+        .nav-menu { display: flex; list-style: none; gap: 50px; }
         .nav-menu li a {
-            text-decoration: none;
-            color: var(--text-dark);
-            font-size: 0.85rem;
-            font-weight: 600;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-            transition: color 0.3s;
+            text-decoration: none; color: var(--text-dark); font-size: 0.85rem;
+            font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s;
         }
-
         .nav-menu li a:hover { color: var(--accent-green); }
 
         /* --- HERO SECTION --- */
@@ -96,10 +58,6 @@
             display: flex;
             align-items: center;
             padding: 0 8%;
-            
-            image-rendering: -webkit-optimize-contrast;
-            filter: none !important;
-            opacity: 1 !important;
         }
 
         .hero-top-icon {
@@ -108,7 +66,6 @@
             left: 8%;
             width: 240px;
             z-index: 15;
-            background-color: transparent !important;
             mix-blend-mode: multiply; 
         }
 
@@ -118,37 +75,38 @@
             font-weight: 700;
             letter-spacing: 3px;
             text-transform: uppercase;
-            margin-left: 5px;
             margin-top: 100px;
             margin-bottom: 5px;
         }
 
+        /* หัวข้อหลักเน้นใหญ่ */
         .hero-content h1 { 
             color: var(--primary-green); 
             font-size: 10rem;
             line-height: 0.8;
             font-weight: 900;
             letter-spacing: -2px;
-            margin: 0 0 15px; 
+            margin: 0; 
             text-transform: uppercase;
         }
 
-        /* --- PRODUCT OF THAILAND (ปรับขนาดให้เล็กลงแล้ว) --- */
+        /* ปรับให้เล็กลงมากตามต้องการ เพื่อให้ COCONUT เด่นขึ้น */
         .product-origin {
             color: var(--primary-green);
-            font-size: 0.9rem; /* ปรับลดขนาดลงให้ดูเล็กและคลีน */
-            font-weight: 500; /* ลดความหนาลงนิดหน่อย */
-            margin-top: 5px;  /* เพิ่มช่องว่างด้านบนนิดนึงให้ไม่ติดตัวอักษรใหญ่เกินไป */
-            margin-bottom: 40px; 
-            letter-spacing: 3px; /* เพิ่มระยะห่างตัวอักษรให้ดูแพง */
+            font-size: 0.7rem; 
+            font-weight: 400;
+            margin-top: 10px; 
+            margin-bottom: 45px; 
+            letter-spacing: 5px; /* เพิ่มระยะห่างให้อารมณ์หรูหรา */
             text-transform: uppercase;
+            opacity: 0.8;
         }
 
         .btn-more {
             background: var(--accent-green);
             color: var(--white);
-            font-size: 1.5rem;
-            padding: 20px 60px;
+            font-size: 1.4rem;
+            padding: 18px 55px;
             border-radius: 50px;
             text-decoration: none;
             display: inline-flex;
@@ -156,13 +114,9 @@
             gap: 12px;
             font-weight: 700;
             box-shadow: 0 8px 25px rgba(89, 128, 60, 0.3);
-            transition: background 0.3s, transform 0.3s, scale 0.3s;
+            transition: 0.3s;
         }
-
-        .btn-more:hover {
-            transform: scale(1.05);
-            background: var(--primary-green);
-        }
+        .btn-more:hover { transform: scale(1.05); background: var(--primary-green); }
 
         /* --- FEATURES BAR --- */
         .features-bar {
@@ -172,58 +126,20 @@
             border-radius: 60px;
             display: flex;
             justify-content: space-between;
-            align-items: center;
             box-shadow: 0 15px 45px rgba(0,0,0,0.08);
             position: relative;
             z-index: 20;
         }
-
-        .feature-item { 
-            flex: 1;
-            display: flex; 
-            align-items: center; 
-            gap: 12px; 
-            justify-content: center;
-            position: relative;
-        }
-
-        .feature-item:not(:last-child)::after {
-            content: "";
-            position: absolute;
-            right: 0;
-            height: 40px;
-            width: 1px;
-            background-color: var(--divider-color);
-        }
-
-        .f-icon-circle { 
-            width: 55px; 
-            height: 55px; 
-            background: #5a7e3d; 
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-
-        .f-text b { display: block; font-size: 1.1rem; color: var(--primary-green); line-height: 1.1; font-weight: 700; }
-        .f-text span { font-size: 0.75rem; color: #666; display: block; white-space: nowrap; }
+        .feature-item { flex: 1; display: flex; align-items: center; gap: 12px; justify-content: center; position: relative; }
+        .feature-item:not(:last-child)::after { content: ""; position: absolute; right: 0; height: 40px; width: 1px; background-color: var(--divider-color); }
+        .f-icon-circle { width: 50px; height: 50px; background: #5a7e3d; border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; }
+        .f-text b { display: block; font-size: 1.1rem; color: var(--primary-green); font-weight: 700; }
+        .f-text span { font-size: 0.75rem; color: #666; }
 
         /* --- RESPONSIVE --- */
         @media (max-width: 1024px) {
-            .header-container { padding: 20px 40px; }
-            .brand-header { font-size: 1.4rem; }
-            .nav-menu { gap: 20px; }
-            .hero-content h4 { font-size: 1.5rem; letter-spacing: 2px; margin-top: 60px; }
-            .hero-content h1 { font-size: 6rem; line-height: 0.8; letter-spacing: -1px; }
-            
-            /* ปรับขนาดให้เล็กลงสำหรับ iPad/Tablet */
-            .product-origin { font-size: 0.75rem !important; margin-top: 5px; margin-bottom: 30px; letter-spacing: 2px; } 
-            
-            .btn-more { font-size: 1.2rem; padding: 15px 40px; }
+            .hero-content h1 { font-size: 6rem; }
+            .product-origin { font-size: 0.6rem !important; letter-spacing: 3px; margin-bottom: 30px; }
             .features-bar { margin: -40px 40px 30px; padding: 15px 20px; border-radius: 40px; }
         }
     </style>
@@ -243,16 +159,14 @@
             </div>
         </div>
 
-        <div class="nav-section">
-            <nav>
-                <ul class="nav-menu">
-                    <li><a href="overview.html">OVERVIEW</a></li>
-                    <li><a href="#production">PRODUCTION</a></li>
-                    <li><a href="#certification">CERTIFICATION</a></li>
-                    <li><a href="#contact">CONTACT</a></li>
-                </ul>
-            </nav>
-        </div>
+        <nav class="nav-section">
+            <ul class="nav-menu">
+                <li><a href="overview.html">OVERVIEW</a></li>
+                <li><a href="#production">PRODUCTION</a></li>
+                <li><a href="#certification">CERTIFICATION</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
     </header>
 
     <section class="hero">
