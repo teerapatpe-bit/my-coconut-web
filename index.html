@@ -14,13 +14,13 @@
             --accent-green: #59803C;
             --gold: #A88F61;
             --white: #FFFFFF;
-            --text-dark: #333333;
+            --text-dark: #222222;
             --bg-light: #f8faf9;
             --divider-color: #eeeeee;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
-        body { background-color: var(--bg-light); }
+        body { background-color: var(--bg-light); overflow-x: hidden; }
 
         /* --- HEADER & BRANDING --- */
         .header-container {
@@ -58,47 +58,31 @@
             mix-blend-mode: multiply; 
         }
 
-        /* --- NAVIGATION & SEARCH --- */
+        /* --- NAVIGATION --- */
         .nav-section {
             display: flex;
             align-items: center;
-            gap: 40px;
         }
 
         .nav-menu {
             display: flex;
             list-style: none;
-            gap: 45px;
+            gap: 50px; /* เพิ่มระยะห่างระหว่างเมนูให้ดูโปร่งขึ้น */
         }
 
         .nav-menu li a {
             text-decoration: none;
             color: var(--text-dark);
-            font-size: 0.95rem;
-            font-weight: 700;
+            font-size: 0.85rem; /* ปรับขนาดให้พอดีตามรูป */
+            font-weight: 600; /* ความหนาระดับปานกลาง-หนา */
             letter-spacing: 1px;
-            text-transform: uppercase;
+            text-transform: uppercase; /* บังคับเป็นตัวพิมพ์ใหญ่ */
             transition: color 0.3s;
         }
 
-        .nav-menu li a:hover { color: var(--accent-green); }
-
-        .search-circle {
-            width: 55px;
-            height: 55px;
-            background: #f1f1f1;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: var(--primary-green);
-            font-size: 1.2rem;
-            cursor: pointer;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-            transition: transform 0.2s ease;
+        .nav-menu li a:hover { 
+            color: var(--accent-green); 
         }
-
-        .search-circle:hover { transform: scale(1.05); }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -141,13 +125,19 @@
             gap: 12px;
             font-weight: 600;
             box-shadow: 0 8px 25px rgba(89, 128, 60, 0.3);
+            transition: background 0.3s, transform 0.3s;
+        }
+        
+        .btn-more:hover {
+            background: var(--primary-green);
+            transform: translateY(-2px);
         }
 
-        /* --- SHELF LIFE BADGE (ส่วนที่เพิ่มใหม่) --- */
+        /* --- SHELF LIFE BADGE --- */
         .shelf-life-badge {
             position: absolute;
             top: 50%;
-            left: 45%; /* ปรับตำแหน่งซ้าย-ขวาได้ตามต้องการ */
+            left: 45%; 
             transform: translateY(-50%);
             width: 140px;
             height: 140px;
@@ -156,7 +146,7 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgba(255, 255, 255, 0.85); /* พื้นหลังสีขาวโปร่งแสง */
+            background-color: rgba(255, 255, 255, 0.85); 
             z-index: 12;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
@@ -238,7 +228,6 @@
             .feature-item { width: 50%; flex: none; margin: 15px 0; }
             .feature-item:not(:last-child)::after { display: none; }
             
-            /* ปรับขนาดวงกลมสำหรับจอเล็ก */
             .shelf-life-badge {
                 position: relative;
                 margin: 20px auto;
@@ -269,15 +258,12 @@
         <div class="nav-section">
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="#overview">Overview</a></li>
-                    <li><a href="#production">Production</a></li>
-                    <li><a href="#certification">Certification</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#overview">OVERVIEW</a></li>
+                    <li><a href="#production">PRODUCTION</a></li>
+                    <li><a href="#certification">CERTIFICATION</a></li>
+                    <li><a href="#contact">CONTACT</a></li>
                 </ul>
             </nav>
-            <div class="search-circle">
-                <i class="fas fa-search"></i>
-            </div>
         </div>
     </header>
 
@@ -299,7 +285,6 @@
                 <span class="condition">@ ROOM TEMP</span>
             </div>
         </div>
-
     </section>
 
     <div class="features-bar">
