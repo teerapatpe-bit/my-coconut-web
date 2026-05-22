@@ -15,7 +15,7 @@
             --gold: #A88F61;
             --neon-green: #1AC41A; /* สีเขียวสว่างสำหรับคำว่า CONTACT */
             --dark-brown: #4B382A; /* สีน้ำตาลเข้มสำหรับไอคอนและแถบด้านล่าง */
-            --bg-light: #F4F5F0;
+            --bg-light: #fcfdfc; /* ปรับให้ตรงกับหน้าอื่น */
             --text-dark: #222222;
         }
 
@@ -26,9 +26,15 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
+            
+            /* --- พื้นหลัง (ซิงค์กับหน้าอื่น) --- */
+            background-image: url('images/fssc-22022.png'); 
+            background-size: cover; 
+            background-attachment: fixed;
+            background-position: center;
         }
 
-        /* --- HEADER (อิงขนาดและสไตล์ตามหน้า Index เป๊ะๆ) --- */
+        /* --- HEADER (ซิงค์สไตล์ให้ตรงกันทุกหน้า) --- */
         .header-container {
             display: flex;
             justify-content: space-between;
@@ -63,6 +69,11 @@
         .cert-icons img { 
             height: 40px; 
             mix-blend-mode: multiply; 
+        }
+
+        /* คลาสพิเศษแก้ปัญหาพื้นหลังรูปภาพ */
+        .img-bg-fix {
+            filter: contrast(1.2) brightness(1.1);
         }
 
         .nav-menu { 
@@ -115,6 +126,8 @@
             margin-bottom: 40px;
             line-height: 1;
             letter-spacing: 1px;
+            /* เพิ่มเงาบางๆ ให้ข้อความอ่านง่ายขึ้นบนพื้นหลัง */
+            text-shadow: 2px 2px 4px rgba(255,255,255,0.7); 
         }
 
         .contact-list {
@@ -140,6 +153,7 @@
             align-items: center;
             font-size: 1.5rem;
             flex-shrink: 0;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
         .contact-text {
@@ -154,7 +168,7 @@
 
         .contact-text span {
             font-size: 1rem;
-            font-weight: 400;
+            font-weight: 500;
         }
 
         /* --- Right Side: QR Card --- */
@@ -172,6 +186,7 @@
             max-width: 400px;
             overflow: hidden;
             text-align: center;
+            border: 1px solid #EBEBEB;
         }
 
         .qr-top {
@@ -264,7 +279,7 @@
                 <img src="images/fssc-22000.png" alt="FSSC 22000">
                 <img src="images/fssc-22001.png" alt="Halal">
                 <img src="images/fssc-22002.png" alt="USDA Organic">
-                <img src="images/fssc-22003.png" alt="Kosher">
+                <img src="images/fssc-22003.png" alt="Kosher" class="img-bg-fix">
                 <img src="images/fssc-22004.png" alt="Superior Taste Award">
             </div>
         </div>
