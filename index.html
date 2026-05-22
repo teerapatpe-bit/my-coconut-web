@@ -3,342 +3,408 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVER GOOD PARTNERS</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <title>Ever Good Partners Co.,Ltd. - Product</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        :root {
-            --brand-gold: #D4B26C;
-            --brand-blue: #23589B;
-            --text-dark: #1A1A1A;
-            --text-gray: #8F9EAF;
-            --bg-color: #F7F7F5;
-            --green-check: #22C55E;
-        }
-
+        /* ================= Reset & Global ================= */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            -webkit-font-smoothing: antialiased;
         }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            background: linear-gradient(135deg, #ffffff 0%, #F1F1EF 100%);
+            font-family: 'Poppins', 'Montserrat', sans-serif;
+            background-color: #f7f8fa; /* พื้นหลังสีสว่าง */
+            background-image: radial-gradient(circle at top right, #fff 0%, #f0f0f0 100%);
             min-height: 100vh;
-            color: var(--text-dark);
-            padding: 40px 50px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .container {
-            width: 100%;
-            max-width: 1280px;
-        }
-
-        /* ================= HEADER ================= */
-        .header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 50px;
-        }
-
-        .logo {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 900;
-            color: var(--brand-gold);
-            line-height: 1.1;
-            letter-spacing: -0.5px;
-        }
-
-        .nav-menu {
-            border: 1px solid #000;
-            border-radius: 50px;
-            padding: 10px 30px;
-            background: #fff;
-            display: flex;
-            gap: 25px;
-        }
-
-        .nav-menu a {
-            text-decoration: none;
-            color: #000;
-            font-size: 0.75rem;
-            font-weight: 800;
-            letter-spacing: 0.5px;
-        }
-
-        /* ================= MAIN LAYOUT ================= */
-        .main-content {
-            display: flex;
-            gap: 40px;
-            align-items: flex-start;
-        }
-
-        /* ================= LEFT SIDEBAR (ELI BOX) ================= */
-        .sidebar {
-            width: 320px;
-        }
-
-        .eli-title {
-            background-color: #000;
-            color: #fff;
-            text-align: center;
-            padding: 18px;
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
-            font-weight: 900;
-            border-radius: 12px 12px 0 0;
-        }
-
-        .features-list {
-            background-color: #fff;
-            padding: 30px 25px;
-            border-radius: 0 0 16px 16px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-            display: flex;
-            flex-direction: column;
-            gap: 16px;
-        }
-
-        .feature-item {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-            font-size: 0.95rem;
-            font-weight: 700;
             color: #333;
-        }
-
-        .check-icon {
-            width: 20px;
-            height: 20px;
-            background-color: var(--green-check);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .check-icon::after {
-            content: '';
-            width: 4px;
-            height: 8px;
-            border: solid white;
-            border-width: 0 2px 2px 0;
-            transform: rotate(45deg);
-            margin-top: -2px;
-        }
-
-        /* ================= RIGHT SHOWCASE ================= */
-        .showcase {
-            flex: 1;
-            background-color: #fff;
-            border-radius: 30px;
-            padding: 50px 60px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.04);
-            display: flex;
-            flex-direction: column;
+            overflow-x: hidden;
             position: relative;
         }
 
-        /* SEARCH BAR */
-        .search-container {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 40px;
+        /* เงาและแสงตกกระทบที่พื้นหลัง (ตกแต่งให้คล้ายภาพ) */
+        .bg-decor-1 {
+            position: absolute;
+            top: -100px;
+            left: 20%;
+            width: 500px;
+            height: 500px;
+            background: rgba(200, 220, 200, 0.2);
+            filter: blur(100px);
+            z-index: -1;
+            border-radius: 50%;
         }
 
-        .search-box {
-            width: 100%;
-            max-width: 450px;
-            border: 1px solid #E5E7EB;
-            border-radius: 12px;
-            padding: 8px 8px 8px 20px;
+        .bg-decor-2 {
+            position: absolute;
+            bottom: 0;
+            right: 10%;
+            width: 600px;
+            height: 600px;
+            background: rgba(180, 200, 220, 0.2);
+            filter: blur(120px);
+            z-index: -1;
+            border-radius: 50%;
+        }
+
+        /* ================= Header ================= */
+        header {
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 30px 60px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .search-box span {
-            font-size: 1rem;
+        .brand-section {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .brand-name {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
             font-weight: 700;
-            color: #4B5563;
+            color: #C3A358; /* สีทอง */
+            letter-spacing: 1px;
+        }
+
+        .certifications {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            font-size: 12px;
+            color: #555;
+            font-weight: 500;
+        }
+
+        .cert-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .cert-item img {
+            height: 20px;
+        }
+
+        /* Navigation Menu (ทรงเม็ดยา) */
+        nav {
+            border: 1.5px solid #000;
+            border-radius: 40px;
+            padding: 12px 30px;
+            background: transparent;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 700;
+            font-size: 13px;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #C3A358;
+        }
+
+        /* ================= Main Layout ================= */
+        main {
+            max-width: 1200px;
+            margin: 40px auto;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        /* กล่องเนื้อหาหลัก (กล่องขวาที่ใหญ่กว่า) */
+        .product-card {
+            background: linear-gradient(135deg, #eef1f6 0%, #d8dfe8 100%);
+            border-radius: 40px;
+            width: 85%;
+            margin-left: auto; /* ดันไปทางขวา */
+            min-height: 600px;
+            position: relative;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.08);
+            padding: 40px 60px;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        /* เอฟเฟกต์ควัน/น้ำแข็งที่พื้นหลังกล่อง */
+        .card-bg-effect {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(circle at 80% 80%, rgba(255,255,255,0.6) 0%, transparent 60%);
+            z-index: 0;
+        }
+
+        /* ================= Search Bar ================= */
+        .search-container {
+            position: relative;
+            z-index: 2;
+            width: 50%;
+            margin: 0 auto 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            padding: 10px 20px;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .search-container input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            font-size: 16px;
+            font-weight: 600;
+            color: #333;
         }
 
         .search-btn {
-            background-color: #3B82F6;
-            width: 36px;
-            height: 36px;
-            border-radius: 8px;
+            background: #2a75d3;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            width: 35px;
+            height: 35px;
             display: flex;
             justify-content: center;
             align-items: center;
+            cursor: pointer;
+            transition: 0.3s;
         }
 
-        .search-btn::before {
-            content: '🔍';
-            color: white;
-            font-size: 14px;
+        .search-btn:hover {
+            background: #1e5bb0;
         }
 
-        /* PRESENT BUTTON */
-        .present-wrapper {
-            margin-bottom: 30px;
-        }
-
-        .present-btn {
-            display: inline-block;
-            border: 1.5px solid #000;
-            border-radius: 50px;
-            padding: 8px 45px;
-            font-size: 0.95rem;
-            font-weight: 800;
-            color: #000;
-            background: transparent;
-            text-decoration: none;
-        }
-
-        /* PRODUCT INFO & IMAGE */
-        .product-grid {
+        /* ================= Product Details ================= */
+        .product-content {
             display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
+            z-index: 2;
+            position: relative;
+            height: 100%;
         }
 
-        .product-info {
+        .text-info {
             flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding-left: 20px;
         }
 
-        .export-label {
-            color: var(--brand-gold);
-            font-size: 0.85rem;
-            font-weight: 800;
-            letter-spacing: 1.5px;
+        .premium-tag {
+            font-size: 14px;
+            color: #7da58a;
+            font-weight: 700;
+            letter-spacing: 2px;
             margin-bottom: 10px;
             text-transform: uppercase;
         }
 
-        .shelf-life-number {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 6.5rem;
-            font-weight: 900;
-            color: var(--brand-blue);
-            line-height: 1;
-            margin-top: -10px;
-        }
-
-        .shelf-life-text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 5rem;
-            font-weight: 900;
-            color: var(--brand-blue);
+        .shelf-life {
+            font-size: 65px;
+            font-weight: 800;
+            color: #2b5b84; /* สีน้ำเงินเข้ม */
             line-height: 1;
             margin-bottom: 5px;
         }
 
-        .room-temp {
-            font-size: 2.2rem;
+        .desc-text {
+            font-size: 28px;
+            color: #8896a6;
             font-weight: 500;
-            color: var(--text-gray);
-            margin-bottom: 25px;
-        }
-
-        .volume-text {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 6.5rem;
-            font-weight: 900;
-            color: var(--text-dark);
-            line-height: 1;
-            letter-spacing: -2px;
             margin-bottom: 20px;
         }
 
+        .volume {
+            font-size: 80px;
+            font-weight: 800;
+            color: #1a1a1a;
+            line-height: 1;
+            margin-bottom: 15px;
+        }
+
         .stars {
-            color: #F59E0B;
-            font-size: 1.8rem;
-            letter-spacing: 4px;
+            color: #f1c40f;
+            font-size: 20px;
+            letter-spacing: 3px;
         }
 
-        .product-image {
-            flex: 0 0 45%;
+        /* พื้นที่วางรูปภาพ (ด้านขวา) */
+        .image-showcase {
+            flex: 1;
+            position: relative;
             display: flex;
-            justify-content: flex-end;
+            justify-content: center;
+            align-items: flex-end;
         }
 
-        .product-image img {
-            max-width: 400px;
+        /* ตัวอย่าง Placeholder รอกางรูปจริงใส่ */
+        .mock-product-image {
             width: 100%;
-            height: auto;
-            /* เพิ่มเงาเล็กน้อยและเอียงรูปตามภาพต้นฉบับ */
-            filter: drop-shadow(15px 20px 25px rgba(0,0,0,0.1));
-            transform: rotate(3deg);
+            height: 400px;
+            background: rgba(255, 255, 255, 0.3);
+            border: 2px dashed #999;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #666;
+            font-weight: bold;
+            text-align: center;
+            backdrop-filter: blur(5px);
+        }
+
+        /* ================= Left Panel (คุณสมบัติ) ================= */
+        .features-panel {
+            position: absolute;
+            left: 0;
+            top: 25%;
+            background: rgba(245, 245, 245, 0.85);
+            backdrop-filter: blur(15px); /* เอฟเฟกต์กระจกเบลอๆ */
+            border-radius: 25px;
+            padding: 40px 30px;
+            width: 320px;
+            box-shadow: -10px 20px 40px rgba(0,0,0,0.1);
+            z-index: 10;
+        }
+
+        /* ป้ายแบรนด์สีดำที่ยื่นออกมา */
+        .brand-badge {
+            position: absolute;
+            top: -20px;
+            left: 20px;
+            background: #000;
+            color: #fff;
+            padding: 10px 25px;
+            border-radius: 12px;
+            font-size: 24px;
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        .features-list {
+            list-style: none;
+            margin-top: 20px;
+        }
+
+        .features-list li {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 18px;
+            font-size: 15px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        /* วงกลมเครื่องหมายถูกสีเขียว */
+        .check-icon {
+            background: #27ae60;
+            color: white;
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 12px;
+            flex-shrink: 0;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <header class="header">
-            <div class="logo">
-                EVER GOOD PARTNERS<br>
-                CO.,LTD.
-            </div>
-            <div class="nav-menu">
-                <a href="#">OVERVIEW</a>
-                <a href="#">PRODUCTION</a>
-                <a href="#">CERTIFICATION</a>
-                <a href="#">CONTACT</a>
-            </div>
-        </header>
+    <div class="bg-decor-1"></div>
+    <div class="bg-decor-2"></div>
 
-        <main class="main-content">
+    <header>
+        <div class="brand-section">
+            <h1 class="brand-name">EVER GOOD PARTNERS CO.,LTD.</h1>
+            <div class="certifications">
+                <span class="cert-item"><i class="fa-solid fa-leaf" style="color: green;"></i> FSSC22000</span>
+                <span class="cert-item"><i class="fa-solid fa-check-circle" style="color: #555;"></i> Halal</span>
+                <span class="cert-item"><i class="fa-solid fa-seedling" style="color: green;"></i> USDA Organic</span>
+                <span class="cert-item"><i class="fa-solid fa-certificate" style="color: #555;"></i> Kosher</span>
+                <span class="cert-item"><i class="fa-solid fa-award" style="color: gold;"></i> Taste Award</span>
+            </div>
+        </div>
+        
+        <nav>
+            <ul>
+                <li><a href="#">OVERVIEW</a></li>
+                <li><a href="#">PRODUCTION</a></li>
+                <li><a href="#">CERTIFICATION</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="features-panel">
+            <div class="brand-badge">Eli</div>
+            <ul class="features-list">
+                <li><span class="check-icon"><i class="fa-solid fa-check"></i></span> 100% Natural Coconut water</li>
+                <li><span class="check-icon"><i class="fa-solid fa-check"></i></span> No Sugar Added</li>
+                <li><span class="check-icon"><i class="fa-solid fa-check"></i></span> No Artificial Flavor</li>
+                <li><span class="check-icon"><i class="fa-solid fa-check"></i></span> No Coloring</li>
+                <li><span class="check-icon"><i class="fa-solid fa-check"></i></span> No Preservatives</li>
+            </ul>
+        </div>
+
+        <div class="product-card">
+            <div class="card-bg-effect"></div>
             
-            <aside class="sidebar">
-                <div class="eli-title">Eli</div>
-                <div class="features-list">
-                    <div class="feature-item"><div class="check-icon"></div> 100% Natural Coconut water</div>
-                    <div class="feature-item"><div class="check-icon"></div> No Sugar Added</div>
-                    <div class="feature-item"><div class="check-icon"></div> No Artificial Flavor</div>
-                    <div class="feature-item"><div class="check-icon"></div> No Coloring</div>
-                    <div class="feature-item"><div class="check-icon"></div> No Preservatives</div>
-                </div>
-            </aside>
+            <div class="search-container">
+                <input type="text" value="coconut water" readonly>
+                <button class="search-btn"><i class="fa-solid fa-search"></i></button>
+            </div>
 
-            <section class="showcase">
-                
-                <div class="search-container">
-                    <div class="search-box">
-                        <span>coconut water</span>
-                        <div class="search-btn"></div>
+            <div class="product-content">
+                <div class="text-info">
+                    <span class="premium-tag">Premium Export Quality</span>
+                    <h2 class="shelf-life">18 months</h2>
+                    <p class="desc-text">Shelf-life at room temp</p>
+                    <h3 class="volume">330ml</h3>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
+                        <i class="fa-solid fa-star"></i>
                     </div>
                 </div>
 
-                <div class="present-wrapper">
-                    <a href="#" class="present-btn">present</a>
-                </div>
-
-                <div class="product-grid">
-                    <div class="product-info">
-                        <div class="export-label">PREMIUM EXPORT QUALITY</div>
-                        <div class="shelf-life-number">18</div>
-                        <div class="shelf-life-text">months</div>
-                        <div class="room-temp">@ room temp.</div>
-                        <div class="volume-text">330ml</div>
-                        <div class="stars">★★★★★</div>
-                    </div>
-                    <div class="product-image">
-                        <img src="images/fssc-22009.png" alt="Eli Coconut Water Pouch">
+                <div class="image-showcase">
+                    <div class="mock-product-image">
+                        [ พื้นที่สำหรับใส่รูป กล่องน้ำมะพร้าว / แก้วน้ำแข็ง ]<br>
+                        &lt;img src="path/to/your-image.png" style="width:100%; object-fit:contain;"&gt;
                     </div>
                 </div>
-
-            </section>
-        </main>
-    </div>
+            </div>
+        </div>
+    </main>
 
 </body>
 </html>
