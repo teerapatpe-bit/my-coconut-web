@@ -3,268 +3,427 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ever Good Partners - Eli Coconut Water</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Ever Good Partners - Coconut Water</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
+        /* ================= Reset & Global Variables ================= */
         :root {
-            --brand-gold: #C3A358;
-            --brand-navy: #2b5b84;
-            --text-gray: #718096;
+            --primary-green: #1F3F23;
+            --accent-green: #59803C;
+            --light-green: #EBF4EB;
+            --gold: #A88F61;
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-body: #F9FBFA;
+            --white: #FFFFFF;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Prompt', sans-serif;
+        }
 
-        /* --- Header --- */
-        .header-container {
+        body {
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            line-height: 1.5;
+        }
+
+        .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 60px;
+            padding: 0 40px;
+        }
+
+        /* ================= Header / Navigation ================= */
+        header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
+            padding: 20px 40px;
+            background: var(--white);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+            position: relative;
+            z-index: 10;
         }
 
-        .brand-header {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 28px;
-            font-weight: 500; 
-            color: var(--brand-gold);
+        .logo-section .brand-name {
+            color: var(--gold);
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
+
+        .logo-section .slogan {
+            color: var(--gold);
+            font-size: 0.75rem;
             letter-spacing: 2px;
+            margin-bottom: 5px;
         }
 
-        .partners-text {
-            font-size: 12px;
-            font-weight: 500;
-            color: #888;
-            letter-spacing: 4px;
-            text-transform: uppercase;
+        .cert-icons {
+            display: flex;
+            gap: 10px;
+            font-size: 0.8rem;
+            color: var(--accent-green);
         }
 
-        .cert-icons img { height: 22px; width: auto; margin: 10px 12px 0 0; }
-
-        nav ul {
+        .nav-links {
             display: flex;
             list-style: none;
-            gap: 20px;
-            border: 1px solid #333;
-            padding: 10px 30px;
-            border-radius: 50px;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            gap: 40px;
         }
 
-        nav ul li a { text-decoration: none; color: #000; font-weight: 600; font-size: 12px; font-family: 'Montserrat', sans-serif;}
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
 
-        /* --- Main Layout --- */
-        main {
-            position: relative;
-            max-width: 1300px;
-            margin: 0 auto;
+        .nav-links a:hover {
+            color: var(--accent-green);
+        }
+
+        .search-btn {
+            background-color: var(--accent-green);
+            color: var(--white);
+            border: none;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: transform 0.2s;
+        }
+
+        .search-btn:hover {
+            transform: scale(1.05);
+        }
+
+        /* ================= Hero Section ================= */
+        .hero {
             display: flex;
             align-items: center;
-            justify-content: flex-end;
-            min-height: 600px;
-        }
- /* กล่องหลัก */
-        .product-card {
-            background-image: 
-linear-gradient(90deg, rgba(255, 255, 255, 0.98) 0%, rgba(255, 255, 255, 0.5) 20%, rgba(255, 255, 255, 0) 50%)                url('images/fssc-22010.png');
-            background-size: cover; 
-            background-repeat: no-repeat;
-            background-position: right center; 
-            
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 50px;
-            width: 85%;
-            min-height: 540px; 
-            padding: 60px 60px 60px 180px; 
             position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12); 
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        /* กล่อง Eli */
-        .eli-box {
-            position: absolute;
-            left: 40px; 
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255, 255, 255, 0.5); 
-            backdrop-filter: blur(20px); 
-            border: 1px solid rgba(255, 255, 255, 0.8);
-            width: 290px;
-            padding: 50px 30px 40px;
-            border-radius: 35px;
-            z-index: 20;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+            padding: 80px 40px 120px;
+            background: linear-gradient(135deg, #f0f8ff 0%, #e0f2f1 100%); /* พื้นหลังจำลองแทนรูปน้ำ */
+            overflow: hidden;
         }
 
-        /* ปรับป้าย Eli เป็นทรงแคปซูลและจัดให้อยู่ตรงกลาง */
-        .eli-tag {
-            font-family: 'Montserrat', sans-serif;
-            background: #000;
-            color: #fff;
-            padding: 6px 30px; /* เพิ่ม Padding แนวนอนให้ดูเป็นแคปซูลยาวขึ้น */
-            border-radius: 50px; /* ทรงแคปซูล */
-            font-size: 20px;
-            font-weight: 800;
+        .hero-content {
+            flex: 1;
+            max-width: 500px;
+            z-index: 2;
+        }
+
+        .hero-subtitle {
+            color: var(--accent-green);
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: -10px;
+        }
+
+        .hero-title {
+            color: var(--primary-green);
+            font-size: 5.5rem;
+            line-height: 1.1;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .hero-title-th {
+            font-size: 1.5rem;
+            color: var(--text-light);
+            font-weight: 500;
+            margin-bottom: 10px;
+        }
+
+        .hero-desc {
+            color: var(--text-light);
+            font-size: 1rem;
+            margin-bottom: 40px;
+        }
+
+        .btn-discover {
+            background-color: var(--accent-green);
+            color: var(--white);
+            border: none;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: background 0.3s;
+        }
+
+        .btn-discover:hover {
+            background-color: var(--primary-green);
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* กล่องแทนที่รูปภาพสินค้าในส่วน Hero */
+        .product-placeholder {
+            width: 300px;
+            height: 500px;
+            background: var(--white);
+            border: 2px dashed #ccc;
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #999;
+            text-align: center;
+            padding: 20px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+        }
+
+        /* ================= Features Banner ================= */
+        .features-container {
+            margin-top: -60px;
+            position: relative;
+            z-index: 5;
+            padding: 0 40px;
+        }
+
+        .features-box {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 30px 40px;
+            display: flex;
+            justify-content: space-between;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            position: relative;
+            flex: 1;
+            justify-content: center;
+        }
+
+        .feature-item:not(:last-child)::after {
+            content: '';
             position: absolute;
-            top: -20px;
-            left: 50%; /* ดันมาตรงกลาง */
-            transform: translateX(-50%); /* ดึงกลับให้กึ่งกลางเป๊ะๆ */
+            right: 0;
+            height: 40px;
+            width: 1px;
+            background-color: #E0E0E0;
+        }
+
+        .feature-icon {
+            background: var(--accent-green);
+            color: var(--white);
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .feature-text strong {
+            display: block;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            line-height: 1.2;
+        }
+
+        .feature-text span {
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+
+        /* ================= Promo Section ================= */
+        .promo-section {
+            padding: 60px 40px;
+            margin-top: 20px;
+        }
+
+        .promo-card {
+            background-color: var(--light-green);
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            gap: 40px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .video-thumbnail {
+            width: 300px;
+            height: 180px;
+            background: url('https://images.unsplash.com/photo-1526315250481-2292f72bc977?auto=format&fit=crop&q=80&w=600') center/cover;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+        .play-btn {
+            width: 50px;
+            height: 50px;
+            background: var(--white);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--accent-green);
+            font-size: 1.2rem;
+            cursor: pointer;
+            padding-left: 5px; /* จัดกึ่งกลางไอคอน Play */
             box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .feature { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; font-weight: 500; color: #222; }
-        .check { width: 20px; height: 20px; background: #27ae60; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; }
-
-        /* --- Text Style --- */
-        
-.search-mini {
-    position: absolute;  /* เปลี่ยนจาก relative เป็น absolute เพื่อให้เคลื่อนย้ายได้อิสระ */
-    top: -80px;           /* ระยะห่างจากขอบบนของกล่องสีขาว (ปรับให้น้อยลงเพื่อให้สูงขึ้น) */
-    left: 430px;         /* ระยะห่างจากขอบซ้าย (เพิ่มค่านี้เพื่อดันไปทางขวาตามลูกศร) */
-    
-    /* ส่วนด้านล่างนี้ให้คงไว้ตามเดิม หรือปรับตามความสวยงาม */
-    background: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(10px);
-    width: 270px; 
-    padding: 8px 10px 8px 22px; 
-    border-radius: 50px; 
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    z-index: 10;
-    margin-bottom: 0;    /* เอา margin ออกเพราะเราใช้ตำแหน่ง absolute แล้ว */
-}
-
-        .search-mini input { 
-            font-family: 'Inter', sans-serif; 
-            border: none; 
-            outline: none; 
-            font-weight: 500; 
-            width: 100%; 
-            font-size: 13px; 
-            background: transparent;
-            color: #333;
-        }
-        
-        .search-mini button { 
-            background: #3b82f6; 
-            color: #fff; 
-            border: none; 
-            min-width: 36px; 
-            height: 36px; 
-            border-radius: 50%; 
-            cursor: pointer; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
+        .promo-text h3 {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
         }
 
-        .search-mini button:hover {
-            background: #2563eb;
-            transform: scale(1.05); 
-        }
-
-.text-info {
-    position: absolute; /* เปลี่ยนเป็น absolute เพื่อให้ย้ายไปได้ทุกที่ */
-    top: 20px;         /* ปรับตัวเลขนี้เพื่อเลื่อน ขึ้น-ลง (น้อย = ขึ้น, มาก = ลง) */
-    left: 450px;        /* ปรับตัวเลขนี้เพื่อเลื่อน ซ้าย-ขวา (ตามลูกศรที่คุณชี้) */
-    z-index: 10;
-    font-family: 'Montserrat', sans-serif;
-    text-align: left;   /* ให้ข้อความชิดซ้ายเหมือนเดิม */
-}        .text-info h4 { color: #7da58a; font-size: 12px; letter-spacing: 2.5px; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; }
-        
-        .text-info h1 { 
-            font-size: 52px; 
-            color: var(--brand-navy); 
-            line-height: 1; 
-            white-space: nowrap; 
+        .promo-text h2 {
+            font-size: 2.5rem;
+            color: var(--primary-green);
+            margin-bottom: 10px;
             font-weight: 700;
-            margin-bottom: 5px;
+        }
+
+        .promo-text p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            max-width: 400px;
+            line-height: 1.6;
         }
         
-        .text-info p { 
-            font-family: 'Inter', sans-serif;
-            font-size: 20px; 
-            color: var(--text-gray); 
-            margin-bottom: 30px; 
-            font-weight: 400; 
-            letter-spacing: 0.5px;
+        /* ใบไม้ตกแต่งมุมขวาล่าง */
+        .promo-card::after {
+            content: '🌿'; /* แทนที่ด้วยภาพใบไม้ในงานจริง */
+            position: absolute;
+            right: -20px;
+            bottom: -50px;
+            font-size: 200px;
+            opacity: 0.1;
         }
-
-        .text-info h2 { 
-            font-size: 60px; 
-            color: #1e293b; 
-            line-height: 1; 
-            margin-bottom: 15px;
-            font-weight: 800;
-        }
-
-        .stars { color: #fbbf24; display: flex; gap: 5px; font-size: 16px; }
 
     </style>
 </head>
 <body>
 
-    <header class="header-container">
-        <div class="brand">
-            <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
-            <p class="partners-text">PARTNERS IN PURITY.</p>
+    <header>
+        <div class="logo-section">
+            <div class="brand-name">EVER GOOD PARTNERS CO.,LTD.</div>
+            <div class="slogan">PARTNERS IN PURITY.</div>
             <div class="cert-icons">
-                <img src="images/fssc-22000.png" alt="FSSC">
-                <img src="images/fssc-22001.png" alt="Halal">
-                <img src="images/fssc-22002.png" alt="USDA">
-                <img src="images/fssc-22003.png" alt="Kosher">
-                 <img src="images/fssc-22004.png" alt="Kosher">
+                <i class="fas fa-certificate"></i>
+                <i class="fas fa-leaf"></i>
+                <i class="fas fa-check-circle"></i>
+                <i class="fas fa-medal"></i>
             </div>
         </div>
-        <nav>
-            <ul>
-                <li><a href="#">OVERVIEW</a></li>
-                <li><a href="#">PRODUCTION</a></li>
-                <li><a href="#">CERTIFICATION</a></li>
-                <li><a href="#">CONTACT</a></li>
-            </ul>
-        </nav>
+        <ul class="nav-links">
+            <li><a href="#">OVERVIEW</a></li>
+            <li><a href="#">PRODUCTION</a></li>
+            <li><a href="#">CERTIFICATION</a></li>
+            <li><a href="#">CONTACT</a></li>
+        </ul>
+        <button class="search-btn"><i class="fas fa-search"></i></button>
     </header>
 
-    <main>
-        <div class="eli-box">
-            <div class="eli-tag">Eli</div>
-            
-            <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> 100% Natural Coconut water</div>
-            <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> No Sugar Added</div>
-            <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> No Artificial Flavor</div>
-            <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> No Coloring</div>
-            <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> No Preservatives</div>
+    <section class="hero">
+        <div class="hero-content">
+            <p class="hero-subtitle">100% NATURAL</p>
+            <h1 class="hero-title">Coconut<br>Water</h1>
+            <p class="hero-title-th">น้ำมะพร้าวแท้ 100%</p>
+            <p class="hero-desc">Naturally refreshing. Packed with goodness.<br>For a healthier you, every day.</p>
+            <button class="btn-discover">
+                DISCOVER MORE <i class="fas fa-arrow-right"></i>
+            </button>
         </div>
-
-        <div class="product-card">
-            
-            <div class="search-mini">
-                <input type="text" value="coconut water" readonly>
-                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+        <div class="hero-image">
+            <div class="product-placeholder">
+                [ ใส่รูปภาพสินค้า (Product Mockup / Splash) ที่นี่ ]<br><br>
+                <img src="" alt="Coconut Water">
             </div>
+        </div>
+    </section>
 
-            <div class="text-info">
-                <h1>18 months</h1>
-                <p>@ room temp</p>
-                <h2>330ml</h2>
-                <div class="stars">
-                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+    <div class="features-container">
+        <div class="features-box">
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-leaf"></i></div>
+                <div class="feature-text">
+                    <strong>100%</strong>
+                    <span>Natural Coconut<br>Water</span>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-ban"></i></div>
+                <div class="feature-text">
+                    <strong>No</strong>
+                    <span>Sugar Added</span>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-flask"></i></div>
+                <div class="feature-text">
+                    <strong>No</strong>
+                    <span>Artificial Flavor</span>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-eye-dropper"></i></div>
+                <div class="feature-text">
+                    <strong>No</strong>
+                    <span>Coloring</span>
+                </div>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                <div class="feature-text">
+                    <strong>No</strong>
+                    <span>Preservatives</span>
                 </div>
             </div>
         </div>
-    </main>
+    </div>
+
+    <section class="promo-section container">
+        <div class="promo-card">
+            <div class="video-thumbnail">
+                <div class="play-btn">
+                    <i class="fas fa-play"></i>
+                </div>
+            </div>
+            <div class="promo-text">
+                <h3>FROM NATURE</h3>
+                <h2>To You</h2>
+                <p>เราคัดสรรมะพร้าวคุณภาพดีจากธรรมชาติ<br>เพื่อมอบความสดชื่น และคุณประโยชน์ที่ดีที่สุด<br>ในทุกขวดที่คุณดื่ม</p>
+            </div>
+        </div>
+    </section>
 
 </body>
 </html>
