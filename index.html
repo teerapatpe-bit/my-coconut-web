@@ -150,29 +150,6 @@
             background: var(--primary-green);
         }
 
-        /* --- SHELF LIFE BADGE --- */
-        .shelf-life-badge {
-            position: absolute;
-            top: 15%; 
-            left: 40%; 
-            transform: translateY(-50%);
-            width: 150px; 
-            height: 150px;
-            border: 2.5px solid var(--accent-green); 
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgba(255, 255, 255, 0.8); 
-            z-index: 12;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
-        }
-
-        .badge-content { text-align: center; color: var(--primary-green); line-height: 1.1; }
-        .badge-content .number { display: block; font-size: 3.5rem; font-weight: 800; }
-        .badge-content .unit { display: block; font-size: 1rem; font-weight: 700; letter-spacing: 1px; }
-        .badge-content .condition { display: block; font-size: 0.65rem; font-weight: 500; margin-top: 2px; color: var(--accent-green); }
-
         /* --- FEATURES BAR --- */
         .features-bar {
             background: var(--white);
@@ -228,7 +205,6 @@
             .nav-menu { gap: 20px; }
             .hero-content h4 { font-size: 1.2rem; letter-spacing: 2px; }
             .hero-content h1 { font-size: 4rem; }
-            .shelf-life-badge { top: 15% !important; left: 62% !important; width: 130px !important; height: 130px !important; }
             .features-bar { margin: -40px 40px 30px; padding: 15px 20px; border-radius: 40px; }
         }
     </style>
@@ -269,14 +245,6 @@
             <a href="overview.html" class="btn-more">
                 330 ml <i class="fas fa-arrow-right"></i>
             </a>
-        </div>
-
-        <div class="shelf-life-badge">
-            <div class="badge-content">
-                <span class="number">18</span>
-                <span class="unit">MONTHS</span>
-                <span class="condition">@ ROOM TEMP</span>
-            </div>
         </div>
     </section>
 
