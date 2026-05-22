@@ -5,166 +5,166 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         :root {
-            --brand-gold: #C5A059;
-            --brand-blue: #1A4F8B;
-            /* เพิ่มความโปร่งแสงให้กล่องดูเบาและสวยขึ้น */
-            --glass-bg: rgba(255, 255, 255, 0.45);
+            --gold: #C5A059;
+            --blue: #1A4F8B;
+            --glass: rgba(255, 255, 255, 0.4);
         }
 
-        body { 
+        body {
             font-family: 'Inter', sans-serif;
             background: #ffffff;
             margin: 0;
             display: flex;
             justify-content: center;
-            min-height: 100vh;
         }
 
-        .main-wrapper {
+        .container {
             width: 100%;
-            max-width: 1100px; /* ลดความกว้างรวมเพื่อให้ดูรวมศูนย์สวยงาม */
-            padding: 40px 20px;
+            max-width: 1050px; /* ลดความกว้างรวมของหน้าเว็บ */
+            padding: 30px;
         }
 
-        /* --- Header: ขนาดกะทัดรัดสไตล์พรีเมียม --- */
+        /* --- Header: เล็กและคลีน --- */
         .header {
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
-        .brand-title {
-            font-size: 1.3rem; /* ปรับขนาดชื่อบริษัทให้เล็กลงแต่ดูแพง */
+        .brand-name {
+            font-size: 1.25rem; /* ย่อขนาดชื่อบริษัท */
             font-weight: 500;
             letter-spacing: 2px;
-            color: var(--brand-gold);
+            color: var(--gold);
             text-transform: uppercase;
             margin: 0;
         }
 
-        .slogan {
+        .partners-text {
             font-size: 0.55rem;
             letter-spacing: 3px;
             color: #94A3B8;
             margin-top: 4px;
+            text-transform: uppercase;
         }
 
-        .cert-row {
+        .cert-icons {
             display: flex;
-            gap: 12px;
-            margin-top: 15px;
+            gap: 10px;
+            margin-top: 12px;
         }
 
-        .cert-row img {
-            height: 20px; /* ปรับขนาดโลโก้ให้พอดีกับชื่อบริษัท */
+        .cert-icons img {
+            height: 18px; /* ย่อขนาดโลโก้รับรอง */
             opacity: 0.8;
         }
 
-        .nav {
+        .nav-menu {
             display: flex;
-            gap: 20px;
-            font-size: 0.7rem;
-            font-weight: 700;
+            gap: 18px;
+            font-size: 0.65rem;
+            font-weight: 800;
             color: #1e293b;
         }
 
-        /* --- Content Section --- */
-        .content-grid {
+        /* --- Main Content Layout --- */
+        .grid-layout {
             display: grid;
-            grid-template-columns: 240px 1fr; /* ลดความกว้างกล่อง Eli ลงอย่างชัดเจน */
-            gap: 40px;
+            grid-template-columns: 230px 1fr; /* ย่อขนาดความกว้างกล่อง Eli */
+            gap: 35px;
             align-items: center;
         }
 
-        /* --- Eli Compact Box: กล่องข้อมูลขนาดเล็ก --- */
-        .eli-box-container {
-            z-index: 5;
+        /* --- Eli Compact Card --- */
+        .eli-section {
+            z-index: 10;
         }
 
-        .eli-badge {
+        .eli-label {
             background: #000;
             color: #fff;
-            padding: 4px 15px;
-            border-radius: 8px 8px 0 0;
-            font-size: 1rem;
+            padding: 4px 14px;
+            border-radius: 7px 7px 0 0;
+            font-size: 0.95rem;
             font-weight: 900;
             display: inline-block;
         }
 
-        .feature-card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            padding: 18px; /* ลด Padding ภายในกล่อง */
-            border-radius: 0 15px 15px 15px;
-            border: 1px solid rgba(255,255,255,0.6);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.02);
+        .info-card {
+            background: var(--glass);
+            backdrop-filter: blur(12px);
+            padding: 16px; /* ย่อพื้นที่ว่างภายในกล่อง */
+            border-radius: 0 14px 14px 14px;
+            border: 1px solid rgba(255,255,255,0.7);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.02);
         }
 
-        .feature-item {
-            font-size: 0.72rem; /* ลดขนาดตัวอักษรเพื่อความกะทัดรัด */
+        .list-item {
+            font-size: 0.7rem; /* ย่อขนาดฟอนต์คุณสมบัติ */
             font-weight: 600;
             color: #475569;
-            margin-bottom: 8px;
+            margin-bottom: 7px;
             display: flex;
             align-items: center;
-            gap: 8px;
+            gap: 7px;
             list-style: none;
         }
 
-        .feature-item::before {
+        .list-item::before {
             content: '✓';
             color: #22c55e;
+            font-size: 0.65rem;
             font-weight: 900;
-            font-size: 0.7rem;
         }
 
-        /* --- Product Display --- */
-        .display-area {
+        /* --- Product Display Area --- */
+        .product-showcase {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 40px;
-            background: rgba(248, 250, 252, 0.5);
-            border-radius: 40px;
+            padding: 25px 45px;
+            background: rgba(248, 250, 252, 0.4);
+            border-radius: 35px;
+            min-height: 380px;
         }
 
-        .product-info h2 {
-            font-size: 2.2rem;
-            color: var(--brand-blue);
+        .desc-side h2 {
+            font-size: 2rem;
+            color: var(--blue);
             margin: 0;
         }
 
-        .product-info .vol {
-            font-size: 3rem;
+        .desc-side .size {
+            font-size: 2.8rem;
             font-weight: 800;
-            margin: 10px 0;
+            margin: 8px 0;
             color: #0f172a;
         }
 
-        .product-image img {
-            max-width: 280px; /* ลดขนาดขวดเพื่อให้เข้ากับกล่องที่เล็กลง */
-            filter: drop-shadow(15px 20px 30px rgba(0,0,0,0.07));
+        .bottle-frame img {
+            max-width: 260px; /* ย่อขนาดรูปขวดให้ดูพอดีกับกล่อง */
+            filter: drop-shadow(12px 15px 25px rgba(0,0,0,0.06));
             transform: rotate(2deg);
         }
     </style>
 </head>
 <body>
 
-    <div class="main-wrapper">
+    <div class="container">
         <header class="header">
-            <div class="brand-group">
-                <h1 class="brand-title">EVER GOOD PARTNERS CO.,LTD.</h1>
-                <p class="slogan">PARTNERS IN PURITY.</p>
-                           <div class="cert-icons">
+            <div>
+                <h1 class="brand-name">EVER GOOD PARTNERS CO.,LTD.</h1>
+                <p class="partners-text">PARTNERS IN PURITY.</p>
+                          <div class="cert-icons">
                 <img src="images/fssc-22000.png" alt="FSSC">
                 <img src="images/fssc-22001.png" alt="HALAL">
                 <img src="images/fssc-22002.png" alt="USDA">
                 <img src="images/fssc-22003.png" alt="K">
                 <img src="images/fssc-22004.png" alt="KOSHER">
-            </div>+
             </div>
-            <nav class="nav">
+            </div>
+            <nav class="nav-menu">
                 <span>OVERVIEW</span>
                 <span>PRODUCTION</span>
                 <span>CERTIFICATION</span>
@@ -172,27 +172,27 @@
             </nav>
         </header>
 
-        <main class="content-grid">
-            <div class="eli-box-container">
-                <div class="eli-badge">Eli</div>
-                <div class="feature-card">
-                    <li class="feature-item">100% Natural Coconut water</li>
-                    <li class="feature-item">No Sugar Added</li>
-                    <li class="feature-item">No Artificial Flavor</li>
-                    <li class="feature-item">No Coloring</li>
-                    <li class="feature-item">No Preservatives</li>
+        <main class="grid-layout">
+            <div class="eli-section">
+                <div class="eli-label">Eli</div>
+                <div class="info-card">
+                    <li class="list-item">100% Natural Coconut water</li>
+                    <li class="list-item">No Sugar Added</li>
+                    <li class="list-item">No Artificial Flavor</li>
+                    <li class="list-item">No Coloring</li>
+                    <li class="list-item">No Preservatives</li>
                 </div>
             </div>
 
-            <div class="display-area">
-                <div class="product-info">
-                    <p style="font-size: 0.6rem; font-weight: 800; color: #94A3B8; letter-spacing: 1px; margin-bottom: 5px;">PREMIUM QUALITY</p>
-                    <h2>18 months <br><span style="font-size: 1.1rem; font-weight: 400; color: #64748B;">@ room temp.</span></h2>
-                    <div class="vol">330ml</div>
-                    <div style="color: #fbbf24; font-size: 0.9rem;">★★★★★</div>
+            <div class="product-showcase">
+                <div class="desc-side">
+                    <p style="font-size: 0.55rem; font-weight: 800; color: #94A3B8; letter-spacing: 1.5px; margin-bottom: 4px;">PREMIUM EXPORT QUALITY</p>
+                    <h2>18 months <br><span style="font-size: 1rem; font-weight: 400; color: #64748B;">@ room temp.</span></h2>
+                    <div class="size">330ml</div>
+                    <div style="color: #fbbf24; font-size: 0.8rem;">★★★★★</div>
                 </div>
-                <div class="product-image">
-                    <img src="images/fssc-22009.png" alt="Eli Pouch">
+                <div class="bottle-frame">
+                    <img src="images/fssc-22009.png alt="Eli Coconut Pouch">
                 </div>
             </div>
         </main>
