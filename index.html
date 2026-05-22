@@ -18,10 +18,8 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            /* พื้นหลังไล่เฉดสีแบบนวลๆ เพื่อให้ภาพดูสะอาดตา */
-            background: radial-gradient(circle at top right, rgba(255,255,255,0.9), rgba(240, 244, 248, 0.8)), 
-                        url('images/fssc-22007.png') no-repeat center center fixed;
-            background-size: cover;
+            /* ปรับพื้นหลังหลักของหน้าเว็บเป็นสีขาวบริสุทธิ์ */
+            background: #ffffff;
             min-height: 100vh;
         }
 
@@ -133,14 +131,16 @@
             font-size: 0.6rem;
         }
 
-        /* --- Product Showcase (ปรับให้ดูกลมกลืน) --- */
+        /* --- Product Showcase (ปรับเป็นพื้นหลังสีขาวตามคำขอ) --- */
         .product-display {
             flex: 1;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
+            /* ปรับส่วนนี้เป็นพื้นสีขาวและลดความซับซ้อนเพื่อให้ดูสะอาดที่สุด */
+            background: #ffffff;
             border-radius: 40px;
             padding: 40px;
-            border: 1px solid var(--glass-border);
+            /* ปรับเส้นขอบและเงาให้บางลงเพื่อความสวยงามบนพื้นขาว */
+            border: 1px solid #f1f5f9;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.03);
             display: flex;
             justify-content: space-between;
             align-items: center;
