@@ -128,21 +128,25 @@
 
         /* --- Text Style --- */
         
-        .search-mini {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            width: 270px; 
-            margin-bottom: 35px;
-            padding: 8px 10px 8px 22px; 
-            border-radius: 50px; 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
-            border: 1px solid rgba(255, 255, 255, 0.6);
-            position: relative;
-            z-index: 10;
-        }
+.search-mini {
+    position: absolute;  /* เปลี่ยนจาก relative เป็น absolute เพื่อให้เคลื่อนย้ายได้อิสระ */
+    top: 40px;           /* ระยะห่างจากขอบบนของกล่องสีขาว (ปรับให้น้อยลงเพื่อให้สูงขึ้น) */
+    left: 530px;         /* ระยะห่างจากขอบซ้าย (เพิ่มค่านี้เพื่อดันไปทางขวาตามลูกศร) */
+    
+    /* ส่วนด้านล่างนี้ให้คงไว้ตามเดิม หรือปรับตามความสวยงาม */
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    width: 270px; 
+    padding: 8px 10px 8px 22px; 
+    border-radius: 50px; 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    z-index: 10;
+    margin-bottom: 0;    /* เอา margin ออกเพราะเราใช้ตำแหน่ง absolute แล้ว */
+}
 
         .search-mini input { 
             font-family: 'Inter', sans-serif; 
