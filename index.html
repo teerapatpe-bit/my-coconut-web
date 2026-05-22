@@ -8,8 +8,9 @@
     <style>
         :root {
             --brand-blue: #1A4F8B;
-            --gold-solid: #C5A059;
+            /* สีทอง Gradient แบบพรีเมียม */
             --gold-gradient: linear-gradient(135deg, #C5A059 0%, #F1D592 50%, #B8860B 100%);
+            --gold-solid: #C5A059;
             --glass-bg: rgba(255, 255, 255, 0.45);
         }
 
@@ -17,14 +18,13 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: radial-gradient(circle at top right, rgba(255,255,255,0.8), rgba(235, 240, 245, 0.7)), 
-                        url('images/fssc-22007.png') no-repeat center center fixed;
+            background: radial-gradient(circle at top right, rgba(255,255,255,0.8), rgba(235, 240, 245, 0.7));
             background-size: cover;
             min-height: 100vh;
             color: #2D3436;
         }
 
-        /* --- Header Section --- */
+        /* --- ส่วนหัวบริษัท --- */
         .header {
             width: 100%;
             max-width: 1300px;
@@ -40,18 +40,10 @@
             font-size: 2.2rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 1px;
+            /* ใช้สีทอง Gradient ตามบรีฟ */
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-        }
-
-        .partners-text {
-            color: #718096;
-            font-size: 0.75rem;
-            letter-spacing: 3px;
-            margin-top: -5px;
-            font-weight: 600;
         }
 
         .cert-row {
@@ -60,9 +52,9 @@
             margin-top: 15px;
         }
 
-        .cert-row img { height: 28px; opacity: 0.9; }
+        .cert-row img { height: 28px; }
 
-        /* แถบเมนูทรงแคปซูลหลัก */
+        /* --- เมนูนำทางทรงแคปซูล --- */
         .nav-pill {
             border: 2px solid #000;
             border-radius: 50px;
@@ -81,7 +73,7 @@
             text-transform: uppercase;
         }
 
-        /* --- Main Content Layout --- */
+        /* --- Layout หลัก --- */
         .main-content {
             max-width: 1300px;
             margin: 0 auto;
@@ -91,46 +83,39 @@
             align-items: center;
         }
 
-        /* --- Eli Info Card (ส่วนที่ปรับแต่งใหม่) --- */
-        .info-side { 
-            width: 340px; 
-        }
+        /* --- กล่อง Eli (Double Pill Design) --- */
+        .info-side { width: 340px; }
 
         .eli-pill-header {
             border: 2px solid #000;
             border-radius: 50px;
-            padding: 8px 25px;
+            padding: 8px 0;
             text-align: center;
             font-family: 'Montserrat', sans-serif;
             font-size: 1.2rem;
             font-weight: 800;
             color: #000;
-            margin-bottom: 15px;
-            background: transparent;
+            margin-bottom: 10px;
         }
 
         .feature-box {
             background: var(--glass-bg);
             backdrop-filter: blur(15px);
-            padding: 30px 25px;
+            padding: 25px;
             border-radius: 25px;
-            border: 1px solid rgba(255,255,255,0.4);
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 15px;
         }
 
-        .feature-list { list-style: none; }
-
         .feature-item {
+            list-style: none;
             display: flex;
             align-items: center;
             gap: 12px;
             font-size: 0.9rem;
-            font-weight: 700;
-            color: #2D3436;
-            margin-bottom: 12px;
+            font-weight: 700; /* เน้นตัวหนาตามต้องการ */
         }
 
         .feature-item::before {
@@ -145,25 +130,20 @@
             font-size: 0.6rem;
         }
 
-        .present-pill {
+        .present-btn {
             border: 2px solid #000;
             border-radius: 50px;
-            padding: 12px;
+            padding: 10px;
             text-align: center;
             text-decoration: none;
             color: #000;
             font-weight: 800;
-            font-size: 1rem;
-            transition: 0.3s ease;
-            background: transparent;
+            transition: 0.3s;
         }
 
-        .present-pill:hover {
-            background: #000;
-            color: #fff;
-        }
+        .present-btn:hover { background: #000; color: #fff; }
 
-        /* --- Product Showcase --- */
+        /* --- พื้นที่แสดงสินค้า --- */
         .product-display {
             flex: 1;
             background: var(--glass-bg);
@@ -171,18 +151,9 @@
             border-radius: 40px;
             padding: 60px;
             display: flex;
-            justify-content: center;
-            gap: 50px;
             align-items: center;
-            border: 1px solid rgba(255,255,255,0.5);
-        }
-
-        .export-label {
-            color: var(--gold-solid);
-            font-weight: 800;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
+            justify-content: center;
+            gap: 40px;
         }
 
         .shelf-life {
@@ -209,25 +180,21 @@
         .stars { color: #F1C40F; font-size: 1.3rem; }
 
         .bottle-img img {
-            max-width: 420px;
-            width: 100%;
+            max-width: 400px;
             filter: drop-shadow(20px 25px 40px rgba(0,0,0,0.1));
-            transform: rotate(2deg);
         }
     </style>
 </head>
 <body>
 
     <header class="header">
-        <div class="brand-group">
-            <h1 class="brand-title">EVER GOOD PARTNERS CO.,LTD.</h1>
-            <p class="partners-text">PARTNERS IN PURITY.</p>
+        <div>
+            <h1 class="brand-title">EVER GOOD PARTNERS</h1>
             <div class="cert-row">
-                <img src="images/fssc-22000.png" alt="Cert">
-                <img src="images/fssc-22001.png" alt="Cert">
-                <img src="images/fssc-22002.png" alt="Cert">
-                <img src="images/fssc-22003.png" alt="Cert">
-                <img src="images/fssc-22004.png" alt="Cert">
+                <img src="cert1.png" alt="FSSC 22000">
+                <img src="cert2.png" alt="Halal">
+                <img src="cert3.png" alt="USDA">
+                <img src="cert4.png" alt="Kosher">
             </div>
         </div>
         
@@ -243,26 +210,26 @@
         <div class="info-side">
             <div class="eli-pill-header">Eli</div>
             <div class="feature-box">
-                <ul class="feature-list">
+                <ul>
                     <li class="feature-item">100% Natural Coconut water</li>
                     <li class="feature-item">No Sugar Added</li>
                     <li class="feature-item">No Artificial Flavor</li>
                     <li class="feature-item">No Coloring</li>
                     <li class="feature-item">No Preservatives</li>
                 </ul>
-                <a href="#" class="present-pill">present</a>
+                <a href="#" class="present-btn">present</a>
             </div>
         </div>
 
         <div class="product-display">
             <div class="product-text">
-                <p class="export-label">PREMIUM EXPORT QUALITY</p>
+                <p style="color: var(--gold-solid); font-weight: 800; letter-spacing: 2px;">PREMIUM EXPORT QUALITY</p>
                 <h2 class="shelf-life">18 months <span>Shelf-life at room temp.</span></h2>
                 <div class="volume">330ml</div>
                 <div class="stars">★★★★★</div>
             </div>
             <div class="bottle-img">
-                <img src="images/fssc-22009.png" alt="Eli Coconut Pouch">
+                <img src="eli-pouch.png" alt="Eli Coconut Water">
             </div>
         </div>
     </main>
