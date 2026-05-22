@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-    <meta charset="UTF-8"> 
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Overview - Ever Good Partners</title>
     
@@ -15,35 +15,52 @@
             --gold: #A88F61;
             --text-dark: #222222;
             --text-gray: #666666;
-            --gold-title: #4A4A4A; /* ปรับสี Title ให้เข้ากับธีมใหม่ */
+            --gold-title: #4A4A4A; 
             --bg-light: #fcfdfc;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
         
         body { 
-            background-color: var(--bg-light);
+            background-color: var(--bg-light); /* สีพื้นหลังหลักเมื่อภาพจางลง */
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
-            
-            /* --- พื้นหลัง (อิงจาก Production) --- */
-            background-image: url('images/fssc-22022.png'); 
-            background-size: cover; 
-            background-attachment: fixed;
-            background-position: center;
+            position: relative; /* จำเป็นสำหรับเทคนิคทำพื้นหลังจาง */
         }
 
-        /* --- HEADER (ซิงค์สไตล์ให้ตรงกันทุกหน้า) --- */
+        /* --- เทคนิคทำพื้นหลังจาง (เว้นส่วนหัว) --- */
+        body::before {
+            content: "";
+            position: fixed; /* ให้อยู่กับที่เวลา Scroll */
+            top: 115px; /* *** ปรับค่านี้ให้เท่ากับความสูงของ Header ของคุณ *** */
+            left: 0;
+            width: 100%;
+            height: calc(100% - 115px); /* ความสูงลบส่วนหัวออก */
+            
+            /* --- ใส่พื้นหลังที่นี่แทน --- */
+            background-image: url('images/fssc-22022.png'); 
+            background-size: cover; 
+            background-position: center;
+            background-repeat: no-repeat;
+            
+            /* --- ปรับความจางที่นี่ (0.0 ถึง 1.0) --- */
+            opacity: 0.3; /* 0.3 คือจางลงเหลือ 30% */
+            
+            z-index: -1; /* ให้อยู่หลังเนื้อหา */
+        }
+
+        /* --- HEADER (สไตล์เดิม) --- */
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 30px 60px;
-            background: #FFFFFF;
+            background: #FFFFFF; /* ส่วนหัวสีขาวทึบ */
             position: relative;
-            z-index: 100;
+            z-index: 100; /* ให้อยู่หน้าสุด */
             border-bottom: 1px solid #eeeeee;
+            height: 115px; /* กำหนดความสูงตายตัวเพื่อให้ body::before เว้นระยะถูก */
         }
 
         .brand-header { 
@@ -71,7 +88,6 @@
             mix-blend-mode: multiply; 
         }
 
-        /* คลาสพิเศษแก้ปัญหาพื้นหลังรูปภาพ */
         .img-bg-fix {
             filter: contrast(1.2) brightness(1.1);
         }
@@ -102,11 +118,12 @@
             padding-bottom: 5px;
         }
 
-        /* --- Main Content (Overview) --- */
+        /* --- Main Content (Overview - สไตล์เดิม) --- */
         .container {
             max-width: 1350px;
             margin: 0 auto;
-            padding: 40px 4% 80px; /* ปรับ padding บนให้เท่าหน้า production */
+            padding: 40px 4% 80px;
+            position: relative; /* ให้อยู่หน้า body::before */
         }
 
         .section-title {
@@ -125,7 +142,7 @@
             align-items: start;
         }
 
-        /* --- Columns --- */
+        /* --- Columns (สไตล์เดิม) --- */
         .col-features {
             display: flex;
             flex-direction: column;
@@ -179,7 +196,7 @@
             padding: 30px 25px;
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-            border: 1px solid #EBEBEB; /* เพิ่มกรอบให้เข้ากับสไตล์กล่องหน้า production */
+            border: 1px solid #EBEBEB;
         }
 
         .info-card h4 {
@@ -243,7 +260,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* --- Responsive Design --- */
+        /* --- Responsive Design (สไตล์เดิม) --- */
         @media (max-width: 1024px) {
             .overview-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
             .col-product { order: -1; grid-column: 1 / -1; }
@@ -251,7 +268,8 @@
         
         @media (max-width: 768px) {
             .overview-grid { grid-template-columns: 1fr; }
-            .header-container { flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 20px; }
+            .header-container { flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 20px; height: auto; } /* Mobile height auto */
+            body::before { top: 0; height: 100%; } /* Mobile background full */
             .nav-menu { flex-wrap: wrap; justify-content: center; gap: 15px; }
             .section-title { font-size: 2.5rem; }
         }
