@@ -14,7 +14,6 @@
             --accent-green: #59803C;
             --gold: #A88F61;
             --text-dark: #333333;
-            --text-gray: #666666;
             --gold-title: #A88F61;
             --bg-light: #fcfdfc;
         }
@@ -24,27 +23,23 @@
         body { 
             color: var(--text-dark);
             line-height: 1.6;
-            overflow-x: hidden;
             background-color: var(--bg-light);
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* --- HEADER (Desktop & Tablet Friendly) --- */
+        /* --- HEADER --- */
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px 5%;
+            padding: 20px 40px;
             background: #FFFFFF;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
             border-bottom: 1px solid #eeeeee;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
         }
 
         .brand-header { 
             color: var(--gold); 
-            font-size: clamp(1.2rem, 2vw, 1.8rem); 
+            font-size: 1.5rem; 
             font-weight: 700; 
             line-height: 1.1;
         }
@@ -53,166 +48,121 @@
             color: var(--gold); 
             font-size: 0.75rem; 
             letter-spacing: 3px; 
-            margin-bottom: 8px; 
-        }
-
-        .cert-icons { 
-            display: flex; 
-            gap: 10px; 
-            align-items: center; 
+            margin-bottom: 10px; 
         }
 
         .cert-icons img { 
-            height: clamp(25px, 3vw, 35px); 
+            height: 30px; 
             mix-blend-mode: multiply;
+            margin-right: 8px;
         }
 
         .nav-menu { 
             display: flex; 
             list-style: none; 
-            gap: clamp(15px, 3vw, 40px); 
+            gap: 25px; 
         }
 
         .nav-menu li a {
             text-decoration: none; 
             color: var(--text-dark); 
-            font-size: clamp(0.75rem, 1vw, 0.85rem);
+            font-size: 0.8rem;
             font-weight: 600; 
-            letter-spacing: 1px; 
             text-transform: uppercase;
-            transition: 0.3s;
         }
 
-        .nav-menu li a:hover, 
-        .nav-menu li a.nav-active { color: var(--accent-green); }
+        .nav-menu li a.nav-active { color: var(--accent-green); border-bottom: 2px solid var(--accent-green); padding-bottom: 5px; }
 
         /* --- MAIN CONTAINER --- */
         .container {
-            max-width: 1400px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 5%;
+            padding: 40px 30px;
         }
 
         .section-title {
             text-align: center;
             font-family: 'Playfair Display', serif;
-            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-size: 3rem;
             color: var(--gold-title);
-            margin-bottom: clamp(30px, 6vw, 60px);
-            font-weight: 400;
+            margin-bottom: 40px;
         }
 
-        /* --- GRID SYSTEM (The Core Fix) --- */
+        /* --- ADAPTIVE GRID --- */
         .overview-grid {
             display: grid;
-            /* Default: 4 columns for Notebook/Desktop */
-            grid-template-columns: 1.2fr 1fr 1fr 1.5fr;
+            grid-template-columns: 1fr 1fr 1fr 1fr; /* Desktop default */
             gap: 30px;
             align-items: start;
         }
 
         /* Column Styles */
-        .col-card {
-            background: #ffffff;
+        .col-features { text-align: center; }
+        .eli-logo-big { width: 130px; margin-bottom: 15px; mix-blend-mode: multiply; }
+        .feature-list { list-style: none; text-align: left; display: inline-block; }
+        .feature-list li { margin-bottom: 10px; font-size: 0.9rem; display: flex; align-items: center; }
+        .feature-list li i { margin-right: 10px; color: var(--text-dark); }
+
+        .col-product { display: flex; justify-content: center; }
+        .product-img { width: 100%; max-width: 220px; filter: drop-shadow(0 15px 20px rgba(0,0,0,0.1)); }
+
+        .info-card {
+            background: #fff;
             padding: 30px 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            border: 1px solid #f0f0f0;
         }
 
-        .eli-logo-big { width: 130px; margin-bottom: 15px; }
+        .info-group h4 { font-size: 1rem; margin-bottom: 10px; color: #000; }
+        .info-group ul { list-style: none; padding-left: 0; }
+        .info-group ul li { font-size: 0.85rem; margin-bottom: 5px; position: relative; padding-left: 15px; }
+        .info-group ul li::before { content: "•"; position: absolute; left: 0; color: var(--gold); }
+        .divider { height: 1px; background: #eee; margin: 20px 0; }
 
-        .feature-list {
-            list-style: none;
-            text-align: left;
-            margin-top: 15px;
-        }
-
-        .feature-list li {
-            margin-bottom: 10px;
-            display: flex;
-            align-items: center;
-            font-size: 0.9rem;
-        }
-
-        .feature-list li i {
-            color: var(--primary-green);
-            margin-right: 10px;
-            font-size: 1.1rem;
-        }
-
-        .product-img {
-            width: 100%;
-            max-width: 240px;
-            filter: drop-shadow(0 15px 25px rgba(0,0,0,0.1));
-            transition: transform 0.3s ease;
-        }
-        .product-img:hover { transform: translateY(-10px); }
-
-        .info-group { text-align: left; width: 100%; }
-        .info-group h4 { font-size: 1rem; margin-bottom: 12px; color: #000; border-left: 3px solid var(--gold); padding-left: 10px; }
-        .info-group ul { list-style: none; padding-left: 15px; margin-bottom: 20px; }
-        .info-group ul li { font-size: 0.9rem; margin-bottom: 5px; position: relative; }
-        .info-group ul li::before { content: "•"; color: var(--gold); position: absolute; left: -12px; }
-
-        .quality-images {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 8px;
-            margin-bottom: 15px;
-            width: 100%;
-        }
-
-        .quality-images img {
-            width: 100%;
-            border-radius: 8px;
-            aspect-ratio: 4/3;
-            object-fit: cover;
-        }
+        .quality-images { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin: 15px 0; }
+        .quality-images img { width: 100%; border-radius: 6px; aspect-ratio: 4/3; object-fit: cover; }
+        .quality-desc { font-size: 0.85rem; color: #555; margin-bottom: 20px; }
 
         .video-box {
             width: 100%;
             aspect-ratio: 16/9;
-            background: linear-gradient(135deg, #A88F61, #8C7A6B);
-            border-radius: 12px;
+            background: #999;
+            border-radius: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: white;
+            color: #fff;
             font-size: 3rem;
-            cursor: pointer;
             box-shadow: 0 8px 20px rgba(0,0,0,0.1);
         }
 
-        /* --- RESPONSIVE BREAKPOINTS --- */
-
-        /* สำหรับ iPad Pro และ Tablet จอใหญ่ (1024px - 1200px) */
-        @media (max-width: 1200px) {
+        /* --- TABLET (iPad) OPTIMIZATION --- */
+        @media (max-width: 1024px) {
+            .header-container { padding: 20px; }
+            .nav-menu { gap: 15px; }
+            
             .overview-grid {
-                grid-template-columns: 1fr 1fr; /* ปรับเป็น 2 คอลัมน์ */
-                gap: 25px;
+                grid-template-columns: 1fr 1fr; /* iPad: 2 columns is best */
+                gap: 40px;
             }
-            .header-container { padding: 20px 3%; }
+
+            .section-title { font-size: 2.8rem; }
+            
+            /* Re-order for better flow on tablet */
+            .col-features { order: 1; }
+            .col-product { order: 2; }
+            .info-card { order: 3; }
+            .col-quality { order: 4; }
         }
 
-        /* สำหรับ iPad Air / Mini (768px - 1023px) */
-        @media (max-width: 991px) {
-            .container { padding: 20px 4%; }
-            .section-title { margin-bottom: 40px; }
-            .nav-menu { gap: 20px; }
-        }
-
-        /* สำหรับมือถือ (ต่ำกว่า 767px) */
+        /* --- MOBILE OPTIMIZATION --- */
         @media (max-width: 767px) {
             .header-container { flex-direction: column; text-align: center; }
             .nav-menu { margin-top: 15px; flex-wrap: wrap; justify-content: center; }
-            .overview-grid { grid-template-columns: 1fr; } /* ปรับเป็นคอลัมน์เดียว */
-            .cert-icons { justify-content: center; margin-top: 10px; }
-            .col-card { padding: 20px; }
+            .overview-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2.2rem; }
+            .product-img { max-width: 180px; }
         }
     </style>
 </head>
@@ -223,11 +173,11 @@
             <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
             <p class="partners-text">PARTNERS IN PURITY.</p>
             <div class="cert-icons">
-                <img src="images/fssc-22000.png" alt="FSSC 22000">
+                <img src="images/fssc-22000.png" alt="FSSC">
                 <img src="images/fssc-22001.png" alt="Halal">
-                <img src="images/fssc-22002.png" alt="USDA Organic">
+                <img src="images/fssc-22002.png" alt="USDA">
                 <img src="images/fssc-22003.png" alt="Kosher">
-                <img src="images/fssc-22004.png" alt="Superior Taste">
+                <img src="images/fssc-22004.png" alt="Taste">
             </div>
         </div>
 
@@ -247,56 +197,53 @@
 
         <div class="overview-grid">
             
-            <div class="col-card">
+            <section class="col-features">
                 <img src="images/fssc-22007.png" alt="Eli Logo" class="eli-logo-big">
-                <h3 style="font-size: 0.85rem; letter-spacing: 1px;">GOODNESS FROM NATURE</h3>
+                <h3 style="font-size: 0.9rem; margin-bottom: 20px;">GOODNESS FROM NATURE</h3>
                 <ul class="feature-list">
-                    <li><i class="fa-solid fa-circle-check"></i> 100% Natural Coconut</li>
-                    <li><i class="fa-solid fa-circle-check"></i> No Sugar Added</li>
-                    <li><i class="fa-solid fa-circle-check"></i> No Artificial Flavor</li>
-                    <li><i class="fa-solid fa-circle-check"></i> No Coloring</li>
-                    <li><i class="fa-solid fa-circle-check"></i> No Preservatives</li>
+                    <li><i class="fa-regular fa-circle-check"></i> 100% Natural Coconut Water</li>
+                    <li><i class="fa-regular fa-circle-check"></i> No Sugar Added</li>
+                    <li><i class="fa-regular fa-circle-check"></i> No Artificial Flavor</li>
+                    <li><i class="fa-regular fa-circle-check"></i> No Coloring</li>
+                    <li><i class="fa-regular fa-circle-check"></i> No Preservatives</li>
                 </ul>
-            </div>
+            </section>
 
-            <div class="col-card" style="background: transparent; box-shadow: none;">
-                <img src="images/fssc-22019.png" alt="Eli Coconut" class="product-img">
-            </div>
+            <section class="col-product">
+                <img src="images/fssc-22019.png" alt="Product" class="product-img">
+            </section>
 
-            <div class="col-card">
+            <section class="info-card">
                 <div class="info-group">
-                    <h4>Packaging</h4>
+                    <h4>Packaging Formats</h4>
                     <ul>
-                        <li>Tetrapak Prism</li>
-                        <li>Size: 330 ml</li>
+                        <li>Available in Tetrapak</li>
+                        <li>330 ml</li>
                     </ul>
                 </div>
-                <div style="height: 1px; background: #eee; width: 100%; margin: 10px 0 20px;"></div>
+                <div class="divider"></div>
                 <div class="info-group">
                     <h4>Shelf Life</h4>
                     <ul>
-                        <li>18 Months</li>
-                        <li>Room Temperature</li>
-                        <li>No Fridge Required</li>
+                        <li>18 Months (at Room Temp)</li>
+                        <li>No refrigeration required</li>
                     </ul>
                 </div>
-            </div>
+            </section>
 
-            <div class="col-card">
-                <div class="info-group">
-                    <h4 style="margin-bottom: 15px;">QUALITY PRODUCTION</h4>
-                    <div class="quality-images">
-                        <img src="images/fssc-22020.png" alt="Production">
-                        <img src="images/fssc-22021.png" alt="Selected">
-                    </div>
-                    <p style="font-size: 0.85rem; color: #666; margin-bottom: 20px;">
-                        Authentic taste with consistent quality from carefully selected coconuts.
-                    </p>
-                    <div class="video-box">
-                        <i class="fa-regular fa-circle-play"></i>
-                    </div>
+            <section class="col-quality">
+                <h4 style="font-size: 0.9rem; font-weight: 700;">QUALITY PRODUCTION</h4>
+                <div class="quality-images">
+                    <img src="images/fssc-22020.png" alt="Prod 1">
+                    <img src="images/fssc-22021.png" alt="Prod 2">
                 </div>
-            </div>
+                <p class="quality-desc">
+                    Carefully selected coconuts to a fresh, authentic taste with consistent flavor quality.
+                </p>
+                <div class="video-box">
+                    <i class="fa-regular fa-circle-play"></i>
+                </div>
+            </section>
 
         </div>
     </main>
