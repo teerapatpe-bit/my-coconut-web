@@ -17,6 +17,7 @@
             --gold: #A88F61;
             --white: #FFFFFF;
             --bg-light: #F8FAF9;
+            --bg-highlight: #e8f2ea; /* เพิ่มสีพื้นหลังสำหรับกล่องใต้ข้อความ */
         }
 
         * {
@@ -132,7 +133,6 @@
             display: flex;
             align-items: center;
             min-height: 700px;
-            /* แก้ไข: ลบ padding ฝั่งขวาออกเพื่อให้รูปชิดขอบ */
             padding: 0 0 0 60px; 
             position: relative;
             background: radial-gradient(circle at 75% 50%, #e8f5e9 0%, #f8faf9 100%);
@@ -143,8 +143,23 @@
             flex: 1;
             z-index: 10;
             padding-bottom: 80px;
-            /* แก้ไข: จำกัดความกว้างฝั่งซ้ายไม่ให้ข้อความไปทับรูปมากเกินไป */
             max-width: 45%; 
+            position: relative; /* เพิ่ม position เพื่อให้อ้างอิงเลเยอร์พื้นหลังได้ */
+        }
+
+        /* -----------------------------------------
+           ★ ส่วนที่เพิ่ม: แถบพื้นหลังใต้ข้อความ
+        ----------------------------------------- */
+        .text-bg-layer {
+            position: absolute;
+            top: 45%;
+            left: -60px; /* ดึงให้ชิดขอบจอฝั่งซ้าย */
+            width: 130%; /* ขยายให้กว้างครอบคลุมข้อความ */
+            height: 380px;
+            background: var(--bg-highlight);
+            transform: translateY(-50%) rotate(-2deg); /* เอียงเล็กน้อยให้มีมิติ */
+            z-index: -1; /* ให้อยู่หลังข้อความ */
+            border-radius: 0 50px 50px 0; /* โค้งเฉพาะฝั่งขวา */
         }
 
         /* โลโก้ Eli */
@@ -194,13 +209,13 @@
             box-shadow: 0 15px 25px rgba(31, 63, 35, 0.3);
         }
 
-        /* แก้ไข: จัดการรูปภาพให้เต็มจอฝั่งขวา */
+        /* จัดการรูปภาพให้เต็มจอฝั่งขวา */
         .hero-image {
             position: absolute;
             right: 0;
             top: 0;
             bottom: 0;
-            width: 55%; /* กินพื้นที่ 55% ของหน้าจอฝั่งขวา */
+            width: 55%; 
             height: 100%;
             z-index: 1;
             display: flex;
@@ -209,7 +224,7 @@
         .product-img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* ★ คำสั่งนี้ทำให้รูปภาพขยายเต็มพื้นที่โดยไม่เบี้ยว */
+            object-fit: cover; 
             object-position: right center;
         }
 
@@ -258,7 +273,6 @@
         }
 
         @media (max-width: 992px) {
-            /* Header & Certifications */
             .header-container {
                 flex-direction: column;
                 align-items: center;
@@ -271,11 +285,10 @@
                 flex-wrap: wrap;
             }
 
-            /* Hero Section */
             .hero {
                 flex-direction: column;
                 text-align: center;
-                padding: 80px 0 0 0; /* เอา padding ออกเพื่อให้รูปเต็มจอด้านล่าง */
+                padding: 80px 0 0 0; 
                 min-height: auto;
             }
 
@@ -284,18 +297,26 @@
                 padding: 0 30px 40px;
             }
 
+            /* ปรับแถบพื้นหลังในมือถือ */
+            .text-bg-layer {
+                width: 100%;
+                left: 0;
+                top: 40%;
+                height: 250px;
+                transform: none;
+                border-radius: 20px;
+            }
+
             .hero-top-icon {
                 margin: 0 auto 20px;
             }
 
-            /* แก้ไข: ปรับรูปภาพให้เต็มความกว้างในมือถือ */
             .hero-image {
                 position: relative;
                 width: 100%;
                 height: 500px; 
             }
 
-            /* Features Bar */
             .features-bar {
                 flex-wrap: wrap;
                 gap: 30px;
@@ -346,6 +367,8 @@
 
     <section class="hero">
         <div class="hero-content"> 
+            <div class="text-bg-layer"></div>
+
             <img src="images/fssc-22015.png" alt="Eli Logo" class="hero-top-icon">
             
             <h4>100% NATURAL</h4>
