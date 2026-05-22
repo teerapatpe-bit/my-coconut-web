@@ -125,14 +125,13 @@
             padding-top: 40px; /* ปรับลดพื้นที่ด้านบนนิดหน่อยเพื่อให้รูปโลโก้พอดี */
         }
 
-        /* --- CSS สำหรับรูปโลโก้ Eli เหนือข้อความ 100% NATURAL --- */
         .hero-top-icon {
-            width: 120px; /* ขนาดความกว้าง ปรับได้ตามความเหมาะสม */
-            height: auto;
-            mix-blend-mode: multiply; /* ลบพื้นหลังขาวให้เนียนกับแบคกราวด์ */
-            margin-bottom: 15px; /* ระยะห่างด้านล่าง */
-            display: block;
-        }
+    width: 180px; /* 👈 แก้ตัวเลขตรงนี้ให้มากขึ้น (ลองปรับเป็น 150px, 180px, หรือ 200px) */
+    height: auto; /* ความสูงจะปรับตามอัตโนมัติ ทำให้รูปไม่เบี้ยว */
+    mix-blend-mode: multiply;
+    margin-bottom: 15px;
+    display: block;
+}
 
         .hero-content h4 {
             color: var(--accent-green);
