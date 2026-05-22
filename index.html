@@ -1,237 +1,191 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="th">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Eli Coconut Water Landing Page - Background Panel Removed</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
+    <title>Ever Good Partners - Coconut Water</title>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <style>
-        body {
-            font-family: 'Montserrat', sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8faf9; /* Clean, uniform light background for entire page area */
-            color: #1f3f23;
+        :root {
+            --primary-green: #1F3F23;
+            --accent-green: #59803C;
+            --gold: #A88F61;
+            --white: #FFFFFF;
         }
 
-        /* certifications Row at the Top */
-        .cert-row {
-            display: flex;
-            justify-content: flex-end;
-            align-items: center;
-            padding: 20px;
-            background-color: #fff;
-            border-bottom: 1px solid #e0e0e0;
-        }
-        .cert-item {
-            display: flex;
-            align-items: center;
-            margin-left: 20px;
-        }
-        .cert-icon {
-            height: 40px; /* Base icon size */
-            margin-right: 8px;
-        }
-        .cert-icon.med {
-            height: 50px;
-        }
-        .cert-icon.large {
-            height: 60px;
-        }
-        .cert-label {
-            font-size: 14px;
-            font-weight: 500;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
 
-        /* Main Content Container with integrated background */
-        .hero-section {
+        /* --- Header --- */
+        .header-container {
             display: flex;
-            width: 100%;
-            min-height: 100vh; /* Adjust as needed for page length */
-            align-items: center;
-            background-color: #f8faf9; /* pale background across the whole hero */
-            overflow: hidden; /* Prevent splash overlap problems */
-        }
-
-        /* Left Content Area (Green Panel REMOVED) */
-        .content-panel {
-            flex: 1;
-            padding: 100px;
-            position: relative;
-            background-color: transparent; /* Seamless background integration */
-        }
-
-        /* Clean Logo Placement on light background */
-        .brand-logo-container {
-            display: flex;
+            justify-content: space-between;
             align-items: flex-start;
-            margin-bottom: 40px;
-        }
-        .logo-img {
-            height: 100px;
-        }
-
-        /* Key Text and button elements on clean background */
-        .sub-text {
-            font-size: 16px;
-            color: #59803c;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 10px;
-        }
-        .main-title {
-            font-size: 80px;
-            font-weight: 700;
-            line-height: 1;
-            color: #1f3f23; /* Dark green for clean contrast on white */
-            margin: 0;
-        }
-        .main-title.top {
-            margin-bottom: 5px;
-        }
-        .main-title.bottom {
-            margin-bottom: 50px;
-        }
-
-        /* Button element */
-        .btn-more {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: #59803c;
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-size: 18px;
-            font-weight: 700;
-            transition: background-color 0.3s ease;
-        }
-        .btn-more:hover {
-            background-color: #4a6a32;
-        }
-        .arrow-icon {
-            margin-left: 10px;
-            font-size: 16px;
-        }
-
-        /* Right Image Scene directly transitions, removed distinctive color box boundary */
-        .image-scene {
-            flex: 1;
-            height: 100vh;
+            padding: 20px 60px;
+            background: var(--white);
+            z-index: 100;
             position: relative;
+        }
+        .brand-header { color: var(--gold); font-size: 1.35rem; font-weight: 700; }
+        .partners-text { color: var(--gold); font-size: 0.75rem; letter-spacing: 3px; margin-bottom: 12px; }
+        .cert-icons { display: flex; gap: 15px; }
+        .cert-icons img { height: 50px; mix-blend-mode: multiply; }
+
+        /* --- Hero Section --- */
+        .hero {
+            position: relative;
+            min-height: 800px;
+            width: 100%;
+            background-image: url('images/fssc-22016.png'); 
+            background-size: cover;
+            background-position: center right; 
+            background-repeat: no-repeat;
             display: flex;
-            justify-content: flex-end;
-            align-items: flex-end;
+            align-items: center;
+            padding: 0 8%;
+        }
+
+        /* Overlay เพื่อให้อ่านง่าย */
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 55%;
+            height: 100%;
+            background: linear-gradient(to right, rgba(248, 250, 249, 0.95) 0%, rgba(248, 250, 249, 0) 100%);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 650px;
+        }
+
+        /* ★ ปรับขนาดโลโก้ Eli ที่นี่ ★ */
+        .hero-top-icon {
+            width: 220px; /* เพิ่มจาก 150px */
+            margin-bottom: 25px;
+            mix-blend-mode: multiply;
+            display: block;
+        }
+
+        .hero-content h4 { 
+            color: var(--accent-green); 
+            font-size: 1.4rem; 
+            font-weight: 600; 
+            letter-spacing: 1px;
         }
         
-        /* Placeholder image based on combined scene content image_6.png */
-        .full-water-scene {
-            width: 100%;
-            height: 100%;
-            background-image: url('combined_eli_coconut_water_scene.png'); /* simulated seamless scene image containing carton, ice, coconut, splashes from image_1.png and image_6.png */
-            background-size: cover;
-            background-position: center right;
+        .hero-content h1 { 
+            color: var(--primary-green); 
+            font-size: 6.5rem; /* ปรับลดลงเล็กน้อยเพื่อให้ดูหรูหราเข้ากับโลโก้ */
+            line-height: 0.9; 
+            font-weight: 800; 
+            margin: 15px 0 35px;
         }
 
-        /* Integrated bottom certifications row row, still good for focus, but panel is gone */
-        .features-hero-footer {
+        .btn-more {
+            background: var(--accent-green);
+            color: white;
+            padding: 16px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 600;
+            box-shadow: 0 8px 20px rgba(89, 128, 60, 0.3);
+            transition: 0.3s;
+        }
+        
+        .btn-more:hover {
+            transform: translateY(-3px);
+            background: var(--primary-green);
+        }
+
+        /* --- Features Bar --- */
+        .features-bar {
+            background: white;
+            margin: -60px 60px 40px;
+            padding: 35px;
+            border-radius: 20px;
             display: flex;
             justify-content: space-around;
-            width: 90%;
-            background-color: white;
-            border-radius: 40px 40px 0 0;
-            padding: 30px 10%;
-            box-shadow: 0 -15px 30px rgba(0,0,0,0.05); /* Soft top shadow */
-            position: absolute;
-            bottom: 0;
-            left: 5%;
-            z-index: 10;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 20;
         }
-        .feature-item-box {
-            display: flex;
-            align-items: center;
-        }
-        .f-icon-circle {
-            width: 60px;
-            height: 60px;
-            background-color: #d8f3e5; /* pale green for focus circle is okay, panel is removed */
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 15px;
-        }
-        .f-icon-img {
-            height: 35px;
-        }
-        .f-text {
-            color: #1f3f23;
-        }
-        .f-num {
-            font-size: 18px;
-            font-weight: 700;
-        }
-        .f-desc {
-            font-size: 14px;
+        .feature-item { display: flex; align-items: center; gap: 12px; }
+        .f-icon { width: 50px; height: 50px; background: var(--accent-green); border-radius: 50%; display: flex; justify-content: center; align-items: center; color: white; }
+        .f-text b { display: block; font-size: 1.1rem; color: var(--primary-green); line-height: 1.2; }
+        .f-text span { font-size: 0.8rem; color: #777; }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .hero { background-position: center; padding: 80px 20px; text-align: center; }
+            .hero::before { width: 100%; background: rgba(248, 250, 249, 0.8); }
+            .hero-content { margin: 0 auto; }
+            .hero-top-icon { margin: 0 auto 20px; width: 180px; }
+            .hero-content h1 { font-size: 4.5rem; }
+            .features-bar { flex-wrap: wrap; gap: 20px; margin: 20px; padding: 20px; }
+            .feature-item { width: 45%; }
         }
     </style>
 </head>
 <body>
 
-    <div class="cert-row">
-        <div class="cert-item"><img src="fssc22000.png" class="cert-icon large" alt="FSSC 22000"></div>
-        <div class="cert-item"><img src="halal.png" class="cert-icon large" alt="Halal"></div>
-        <div class="cert-item"><img src="usda_organic.png" class="cert-icon large" alt="USDA Organic"></div>
-        <div class="cert-item"><img src="certified_kosher.png" class="cert-icon large" alt="Certified Kosher"></div>
-        <div class="cert-item"><img src="medal_icon.png" class="cert-icon med" alt="Award Medal"></div>
-    </div>
+    <header class="header-container">
+        <div class="brand">
+            <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
+            <p class="partners-text">PARTNERS IN PURITY.</p>
+            <div class="cert-icons">
+                <img src="images/fssc-22000.png" alt="FSSC">
+                <img src="images/fssc-22001.png" alt="Halal">
+                <img src="images/fssc-22002.png" alt="USDA">
+                <img src="images/fssc-22014.png" alt="Kosher">
+                <img src="images/fssc-22004.png" alt="BRC">
+            </div>
+        </div>
+        <nav style="display: flex; align-items: center; gap: 20px;">
+            <button style="background:none; border:none; font-size:1.2rem; cursor:pointer;"><i class="fas fa-search"></i></button>
+            <i class="fas fa-bars" style="font-size: 1.5rem; cursor:pointer;"></i>
+        </nav>
+    </header>
 
-    <div class="hero-section">
-        
-        <div class="content-panel">
-            <div class="brand-logo-container">
-                <img src="eli_logo_with_leaf_and_star.png" class="logo-img" alt="Eli Coconut Logo"> </div>
+    <section class="hero">
+        <div class="hero-content">
+            <img src="images/fssc-22015.png" alt="Eli Logo" class="hero-top-icon">
             
-            <div class="text-and-button">
-                <div class="sub-text">100% NATURAL</div>
-                <div class="main-title top">Coconut</div>
-                <div class="main-title bottom">Water</div>
-                
-                <a href="#" class="btn-more">
-                    300ml
-                    <span class="arrow-icon">→</span>
-                </a>
-            </div>
+            <h4>100% NATURAL</h4>
+            <h1>Coconut<br>Water</h1>
+            <a href="#" class="btn-more">300 ml &nbsp; <i class="fas fa-arrow-right"></i></a>
         </div>
-        
-        <div class="image-scene">
-            <img src="combined_eli_coconut_water_scene.png" class="full-water-scene" alt="Coconut Water Scene"> </div>
+    </section>
 
-        <div class="features-hero-footer">
-            <div class="feature-item-box">
-                <div class="f-icon-circle"><img src="icon_leaf_100.png" class="f-icon-img" alt="100% icon"></div>
-                <div class="f-text"><div class="f-num">100%</div> <div class="f-desc"></div></div>
-            </div>
-            <div class="feature-item-box">
-                <div class="f-icon-circle"><img src="icon_sugar.png" class="f-icon-img" alt="No Sugar Added icon"></div>
-                <div class="f-text"><div class="f-num"></div> <div class="f-desc">No Sugar Added</div></div>
-            </div>
-            <div class="feature-item-box">
-                <div class="f-icon-circle"><img src="icon_artificial_flavor.png" class="f-icon-img" alt="No Artificial Flavor icon"></div>
-                <div class="f-text"><div class="f-num"></div> <div class="f-desc">No Artificial Flavor</div></div>
-            </div>
-            <div class="feature-item-box">
-                <div class="f-icon-circle"><img src="icon_coloring.png" class="f-icon-img" alt="No Coloring icon"></div>
-                <div class="f-text"><div class="f-num"></div> <div class="f-desc">No Coloring</div></div>
-            </div>
-            <div class="feature-item-box">
-                <div class="f-icon-circle"><img src="icon_preservatives.png" class="f-icon-img" alt="No Preservatives icon"></div>
-                <div class="f-text"><div class="f-num"></div> <div class="f-desc">No Preservatives</div></div>
-            </div>
+    <div class="features-bar">
+        <div class="feature-item">
+            <div class="f-icon"><i class="fas fa-leaf"></i></div>
+            <div class="f-text"><b>100%</b><span>Natural Coconut Water</span></div>
         </div>
-
+        <div class="feature-item">
+            <div class="f-icon"><i class="fas fa-tint-slash"></i></div>
+            <div class="f-text"><b>No</b><span>Sugar Added</span></div>
+        </div>
+        <div class="feature-item">
+            <div class="f-icon"><i class="fas fa-vial-slash"></i></div>
+            <div class="f-text"><b>No</b><span>Artificial Flavor</span></div>
+        </div>
+        <div class="feature-item">
+            <div class="f-icon"><i class="fas fa-eye-dropper"></i></div>
+            <div class="f-text"><b>No</b><span>Coloring</span></div>
+        </div>
+        <div class="feature-item">
+            <div class="f-icon"><i class="fas fa-shield-alt"></i></div>
+            <div class="f-text"><b>No</b><span>Preservatives</span></div>
+        </div>
     </div>
 
 </body>
