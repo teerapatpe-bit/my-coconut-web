@@ -13,7 +13,7 @@
             --primary-green: #2B4E2B;
             --text-dark: #333333;
             --text-gray: #666666;
-            --gold-title: #8C7A6B; /* สีน้ำตาลทองของหัวข้อ */
+            --gold-title: #8C7A6B;
             --bg-transparent: rgba(255, 255, 255, 0.85);
         }
 
@@ -24,13 +24,13 @@
             line-height: 1.6;
             overflow-x: hidden;
 
-            /* --- ตั้งค่าพื้นหลังตามที่คุณต้องการ --- */
-            background-image: url('images/fssc-22022.png'); 
-            background-repeat: no-repeat;
-            background-position: center center;
-            background-size: cover;
-            background-attachment: fixed;
-            background-color: #fcfdfc; /* สีพื้นหลังสำรอง */
+            /* --- เพิ่มการตั้งค่าพื้นหลังตรงนี้ --- */
+            background-image: url('images/fssc-22022.png'); /* ใส่พาธรูปภาพ */
+            background-repeat: no-repeat; /* ไม่ให้รูปซ้ำ */
+            background-position: center center; /* จัดให้อยู่ตรงกลาง */
+            background-size: cover; /* ขยายรูปให้คลุมพื้นที่ทั้งหมด */
+            background-attachment: fixed; /* ให้รูปอยู่กับที่เวลาเลื่อนหน้า */
+            background-color: #fcfdfc; /* สีพื้นหลังสำรอง เผื่อรูปโหลดไม่ขึ้น */
         }
 
         /* --- Header Section --- */
@@ -39,47 +39,45 @@
             justify-content: space-between;
             align-items: flex-start;
             padding: 30px 5%;
-            background: transparent;
+            background: rgba(255, 255, 255, 0.3); /* เพิ่มพื้นหลังขาวจางๆ ให้ Header */
         }
 
         .brand-info h1 {
             font-size: 1.3rem;
-            color: #777;
-            font-weight: 400;
+            color: #555;
+            font-weight: 500;
             letter-spacing: 0.5px;
         }
 
         .brand-info p {
-            font-size: 0.85rem;
-            color: #999;
+            font-size: 0.8rem;
+            color: #888;
             letter-spacing: 1px;
             margin-bottom: 15px;
         }
 
         .cert-icons {
             display: flex;
-            gap: 12px;
-            align-items: center;
+            gap: 10px;
         }
 
         .cert-icons img {
-            height: 32px;
-            /* ปรับให้รูป Cert กลืนกับพื้นหลัง */
+            height: 28px;
             mix-blend-mode: multiply; 
         }
 
         nav ul {
             display: flex;
             list-style: none;
-            gap: 35px;
+            gap: 25px;
             margin-top: 5px;
         }
 
         nav ul li a {
             text-decoration: none;
             color: #111;
-            font-size: 0.9rem;
-            font-weight: 500;
+            font-size: 0.85rem;
+            font-weight: 600;
             transition: 0.3s;
         }
 
@@ -87,9 +85,9 @@
 
         /* --- Main Content --- */
         .container {
-            max-width: 1350px; /* ขยายความกว้างให้พอดีกับ 4 คอลัมน์ */
+            max-width: 1350px;
             margin: 0 auto;
-            padding: 20px 30px 80px;
+            padding: 20px 4% 80px;
         }
 
         .section-title {
@@ -97,19 +95,18 @@
             font-family: 'Playfair Display', serif;
             font-size: 3.5rem;
             color: var(--gold-title);
-            margin-bottom: 50px;
+            margin-bottom: 40px;
             font-weight: 500;
         }
 
-        /* จัด Layout เป็น 4 ส่วน ตามภาพ */
         .overview-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1fr 1.2fr 1.5fr; /* สัดส่วนความกว้างของแต่ละคอลัมน์ */
-            gap: 30px;
-            align-items: start; /* ให้ทุกอันเริ่มจากด้านบน */
+            grid-template-columns: 1.2fr 1fr 1.2fr 1.5fr;
+            gap: 25px;
+            align-items: start;
         }
 
-        /* --- คอลัมน์ 1: Logo & Features --- */
+        /* --- คอลัมน์ --- */
         .col-features {
             display: flex;
             flex-direction: column;
@@ -117,41 +114,35 @@
         }
 
         .eli-logo-big {
-            width: 180px;
+            width: 160px;
             margin-bottom: 10px;
         }
 
         .col-features h3 {
-            font-size: 0.9rem;
-            font-weight: 600;
-            margin-bottom: 25px;
-            letter-spacing: 0.5px;
+            font-size: 0.85rem;
+            margin-bottom: 20px;
             color: #222;
         }
 
         .feature-list {
             list-style: none;
+            text-align: left;
             width: 100%;
-            max-width: 260px; /* จัดให้อยู่ตรงกลางของคอลัมน์ */
         }
 
         .feature-list li {
-            margin-bottom: 18px;
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            font-size: 0.95rem;
-            font-weight: 400;
-            color: #333;
+            font-size: 0.9rem;
         }
 
         .feature-list li i {
             color: #555;
-            margin-right: 12px;
-            font-size: 1.3rem;
-            font-weight: 300; /* ให้เส้นไอคอนบางลง */
+            margin-right: 10px;
+            font-size: 1.1rem;
         }
 
-        /* --- คอลัมน์ 2: Product Image --- */
         .col-product {
             display: flex;
             justify-content: center;
@@ -159,104 +150,86 @@
 
         .product-img {
             width: 100%;
-            max-width: 220px;
-            filter: drop-shadow(5px 15px 25px rgba(0,0,0,0.15));
+            max-width: 200px;
+            filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.15));
         }
 
-        /* --- คอลัมน์ 3: Info Card --- */
         .info-card {
             background: #ffffff;
-            padding: 35px 30px;
+            padding: 30px 25px;
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.06);
-            width: 100%;
         }
 
         .info-card h4 {
-            font-size: 1.05rem;
-            margin-bottom: 12px;
-            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 10px;
             color: #111;
         }
 
         .info-card ul {
             list-style: disc;
             padding-left: 20px;
-            font-size: 0.9rem;
-            color: #444;
-            line-height: 1.8;
+            font-size: 0.85rem;
+            line-height: 1.7;
         }
 
         .info-card hr {
-            margin: 25px 0;
+            margin: 20px 0;
             border: 0;
-            border-top: 1px solid #e0e0e0;
+            border-top: 1px solid #eee;
         }
 
-        /* --- คอลัมน์ 4: Quality & Video --- */
         .col-quality {
             display: flex;
             flex-direction: column;
         }
 
         .quality-section h4 {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            margin-bottom: 12px;
-            color: #111;
+            margin-bottom: 10px;
         }
 
         .quality-images {
             display: flex;
-            gap: 12px;
-            margin-bottom: 12px;
+            gap: 10px;
+            margin-bottom: 10px;
         }
 
         .quality-images img {
             width: 50%;
             border-radius: 8px;
-            object-fit: cover;
             aspect-ratio: 4/3;
+            object-fit: cover;
         }
 
         .quality-desc {
-            font-size: 0.9rem;
-            color: #444;
-            margin-bottom: 20px;
-            line-height: 1.5;
+            font-size: 0.85rem;
+            margin-bottom: 15px;
         }
 
-        /* Video Placeholder */
         .video-placeholder {
             width: 100%;
             aspect-ratio: 16/9;
             background: linear-gradient(135deg, #a0a0a0, #777777);
-            border-radius: 12px;
+            border-radius: 10px;
             display: flex;
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 3.5rem;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            font-size: 3rem;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        .video-placeholder:hover {
-            transform: scale(1.02);
-            filter: brightness(1.1);
-        }
-
-        /* --- Responsive Design (มือถือและแท็บเล็ต) --- */
-        @media (max-width: 1200px) {
-            .overview-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-            .col-product { order: -1; grid-column: 1 / -1; } /* เอารูปขวดขึ้นบนสุดในจอเล็ก */
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .overview-grid { grid-template-columns: 1fr 1fr; }
+            .col-product { order: -1; grid-column: 1 / -1; }
         }
         
         @media (max-width: 768px) {
-            .overview-grid { grid-template-columns: 1fr; gap: 40px; }
+            .overview-grid { grid-template-columns: 1fr; }
             header { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
             nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
             .section-title { font-size: 2.5rem; }
@@ -279,8 +252,8 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#">OVERVIEW</a></li>
-                <li><a href="#">PRODUCTION</a></li>
+                <li><a href="#" style="color: var(--primary-green);">OVERVIEW</a></li>
+                <li><a href="production.html">PRODUCTION</a></li>
                 <li><a href="#">CERTIFICATION</a></li>
                 <li><a href="#">CONTACT</a></li>
             </ul>
