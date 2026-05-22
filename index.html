@@ -32,11 +32,12 @@
         .cert-icons { display: flex; gap: 15px; }
         .cert-icons img { height: 50px; mix-blend-mode: multiply; }
 
-        /* --- Hero Section --- */
+        /* --- Hero Section (ปรับปรุงลบพื้นหลังฝั่งซ้ายออก) --- */
         .hero {
             position: relative;
             min-height: 800px;
             width: 100%;
+            /* เปลี่ยนไปใช้รูปพื้นหลังหลักที่ไม่มีแถบสีขาว/เขียวทับ */
             background-image: url('images/fssc-22016.png'); 
             background-size: cover;
             background-position: center right; 
@@ -44,19 +45,11 @@
             display: flex;
             align-items: center;
             padding: 0 8%;
+            /* เพิ่มสีพื้นหลังสำรองเพื่อให้ดูสะอาด */
+            background-color: #f8faf9; 
         }
 
-        /* Overlay เพื่อให้อ่านง่าย */
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 55%;
-            height: 100%;
-            background: linear-gradient(to right, rgba(248, 250, 249, 0.95) 0%, rgba(248, 250, 249, 0) 100%);
-            z-index: 1;
-        }
+        /* --- ลบส่วน .hero::before เดิมออกเพื่อให้ไม่มีแถบสีบัง --- */
 
         .hero-content {
             position: relative;
@@ -64,11 +57,11 @@
             max-width: 650px;
         }
 
-        /* ★ ปรับขนาดโลโก้ Eli ที่นี่ ★ */
+        /* โลโก้ Eli ขนาดใหญ่และลบพื้นหลังขาวในตัวรูป */
         .hero-top-icon {
-            width: 220px; /* เพิ่มจาก 150px */
+            width: 220px; 
             margin-bottom: 25px;
-            mix-blend-mode: multiply;
+            mix-blend-mode: multiply; /* ทำให้พื้นหลังสีขาวของรูปโลโก้โปร่งใส */
             display: block;
         }
 
@@ -81,7 +74,7 @@
         
         .hero-content h1 { 
             color: var(--primary-green); 
-            font-size: 6.5rem; /* ปรับลดลงเล็กน้อยเพื่อให้ดูหรูหราเข้ากับโลโก้ */
+            font-size: 6.5rem; 
             line-height: 0.9; 
             font-weight: 800; 
             margin: 15px 0 35px;
@@ -123,10 +116,8 @@
         .f-text b { display: block; font-size: 1.1rem; color: var(--primary-green); line-height: 1.2; }
         .f-text span { font-size: 0.8rem; color: #777; }
 
-        /* Responsive */
         @media (max-width: 992px) {
             .hero { background-position: center; padding: 80px 20px; text-align: center; }
-            .hero::before { width: 100%; background: rgba(248, 250, 249, 0.8); }
             .hero-content { margin: 0 auto; }
             .hero-top-icon { margin: 0 auto 20px; width: 180px; }
             .hero-content h1 { font-size: 4.5rem; }
