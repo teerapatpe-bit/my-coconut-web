@@ -17,7 +17,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Inter', sans-serif; /* ใช้ Inter เป็นฟอนต์หลัก */
+            font-family: 'Inter', sans-serif; 
             background-image: url('images/fssc-22007.png');
             background-size: cover;
             background-position: center;
@@ -133,26 +133,57 @@
         .check { width: 20px; height: 20px; background: #27ae60; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; }
 
         /* --- Text Style --- */
+        
+        /* ปรับดีไซน์ช่องค้นหาใหม่ให้สวยและสั้นลง */
         .search-mini {
-            background: #fff;
-            width: 350px;
-            margin-bottom: 40px;
-            padding: 10px 20px;
-            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            width: 270px; /* ลดขนาดความกว้างให้สั้นลง */
+            margin-bottom: 35px;
+            padding: 8px 10px 8px 22px; /* ปรับ Padding ให้ปุ่มดูพอดีกับกล่อง */
+            border-radius: 50px; /* เปลี่ยนเป็นทรงแคปซูล */
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-            border: 1px solid rgba(0,0,0,0.02);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* เพิ่มเงาให้นุ่มและดูแพงขึ้น */
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            position: relative;
+            z-index: 10;
         }
 
-        .search-mini input { font-family: 'Inter', sans-serif; border: none; outline: none; font-weight: 500; width: 80%; font-size: 14px; }
-        .search-mini button { background: #3b82f6; color: #fff; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; }
+        .search-mini input { 
+            font-family: 'Inter', sans-serif; 
+            border: none; 
+            outline: none; 
+            font-weight: 500; 
+            width: 100%; 
+            font-size: 13px; 
+            background: transparent;
+            color: #333;
+        }
+        
+        .search-mini button { 
+            background: #3b82f6; 
+            color: #fff; 
+            border: none; 
+            min-width: 36px; 
+            height: 36px; 
+            border-radius: 50%; /* ปุ่มทรงกลม */
+            cursor: pointer; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .search-mini button:hover {
+            background: #2563eb;
+            transform: scale(1.05); /* เอฟเฟกต์ตอนชี้เมาส์ */
+        }
 
         .text-info { position: relative; z-index: 10; font-family: 'Montserrat', sans-serif; }
         .text-info h4 { color: #7da58a; font-size: 12px; letter-spacing: 2.5px; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; }
         
-        /* 18 months: ปรับขนาดให้เล็กลง */
         .text-info h1 { 
             font-size: 52px; 
             color: var(--brand-navy); 
@@ -162,7 +193,6 @@
             margin-bottom: 5px;
         }
         
-        /* @ room temp: ปรับเป็นหัวข้อย่อย */
         .text-info p { 
             font-family: 'Inter', sans-serif;
             font-size: 20px; 
@@ -172,7 +202,6 @@
             letter-spacing: 0.5px;
         }
 
-        /* 330ml: ปรับขนาดให้เล็กลง */
         .text-info h2 { 
             font-size: 60px; 
             color: #1e293b; 
@@ -219,6 +248,7 @@
         </div>
 
         <div class="product-card">
+            
             <div class="search-mini">
                 <input type="text" value="coconut water" readonly>
                 <button><i class="fa-solid fa-magnifying-glass"></i></button>
@@ -227,7 +257,9 @@
             <div class="text-info">
                 <h4>Premium Export Quality</h4>
                 <h1>18 months</h1>
-                <p>@ room temp</p> <h2>330ml</h2> <div class="stars">
+                <p>@ room temp</p>
+                <h2>330ml</h2>
+                <div class="stars">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
             </div>
