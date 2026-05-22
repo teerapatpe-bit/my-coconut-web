@@ -9,28 +9,29 @@
         :root {
             --brand-blue: #1A4F8B;
             --gold-gradient: linear-gradient(135deg, #C5A059 0%, #F1D592 50%, #B8860B 100%);
-            /* ปรับความโปร่งใสของพื้นหลังกล่องให้กลมกลืนขึ้น (0.6) */
-            --glass-panel: rgba(255, 255, 255, 0.6);
-            --glass-border: rgba(255, 255, 255, 0.4);
+            /* ปรับพื้นหลังกล่องให้มีความนวลและโปร่งแสงมากขึ้น (0.4) */
+            --glass-panel: rgba(255, 255, 255, 0.45);
+            --glass-border: rgba(255, 255, 255, 0.3);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             font-family: 'Inter', sans-serif;
-            /* พื้นหลังไล่เฉดสีแบบนวลๆ เพื่อให้ภาพดูสะอาดตา */
-            background: radial-gradient(circle at top right, rgba(255,255,255,0.9), rgba(240, 244, 248, 0.8)), 
+            /* ปรับพื้นหลังให้ดูสะอาดตาและเชื่อมต่อกับตัวขวดได้ดีขึ้น */
+            background: radial-gradient(circle at 70% 30%, rgba(255,255,255,1) 0%, rgba(242, 246, 249, 0.8) 100%), 
                         url('images/fssc-22007.png') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
+            overflow-x: hidden;
         }
 
         /* --- Header Section --- */
         .header {
             width: 100%;
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 40px 5% 30px;
+            padding: 35px 5% 20px;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
@@ -38,9 +39,9 @@
 
         .brand-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem; /* ลดขนาดลงเล็กน้อยตามบรีฟ */
+            font-size: 1.5rem; /* ลดขนาดลงอีกเล็กน้อยเพื่อให้ดูแพง */
             font-weight: 500;
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -48,65 +49,57 @@
         }
 
         .slogan {
-            font-size: 0.65rem;
+            font-size: 0.6rem;
             font-weight: 700;
-            color: #8E9AAF;
+            color: #94A3B8;
             letter-spacing: 4px;
-            margin: 5px 0 15px;
+            margin: 4px 0 12px;
         }
 
         .cert-logos {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
 
         .cert-logos img {
-            height: 28px;
-            opacity: 0.85;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #2D3436;
-            font-weight: 700;
-            font-size: 0.75rem;
-            margin-left: 25px;
-            text-transform: uppercase;
+            height: 24px; /* ปรับขนาดโลโก้ให้กะทัดรัด */
+            opacity: 0.8;
         }
 
         /* --- Content Layout --- */
         .main-content {
-            max-width: 1300px;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 0 5% 50px;
+            padding: 20px 5% 40px;
             display: flex;
-            gap: 40px;
+            gap: 30px;
             align-items: center;
         }
 
-        /* --- Eli Info Card (ปรับขนาดให้เล็กลงและโปร่งแสง) --- */
+        /* --- Eli Info Card (Compact Version) --- */
         .info-side {
-            width: 320px; /* ลดความกว้างกล่องข้อมูล */
+            width: 280px; /* ลดความกว้างกล่อง Eli ลง */
+            z-index: 2;
         }
 
         .eli-badge {
             background: #000;
             color: #fff;
-            padding: 8px 25px;
-            border-radius: 12px 12px 0 0;
+            padding: 6px 20px;
+            border-radius: 10px 10px 0 0;
             display: inline-block;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 900;
         }
 
         .feature-box {
             background: var(--glass-panel);
-            backdrop-filter: blur(15px); /* เอฟเฟกต์กระจกฝ้า */
-            padding: 25px;
-            border-radius: 0 20px 20px 20px;
+            backdrop-filter: blur(12px);
+            padding: 20px;
+            border-radius: 0 18px 18px 18px;
             border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.02);
         }
 
         .feature-item {
@@ -114,61 +107,74 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.85rem;
+            font-size: 0.8rem; /* ลดขนาดตัวอักษรลง */
             font-weight: 600;
-            margin-bottom: 12px;
-            color: #4A5568;
+            margin-bottom: 10px;
+            color: #475569;
         }
 
         .feature-item::before {
             content: '✓';
-            width: 18px;
-            height: 18px;
+            width: 16px;
+            height: 16px;
             background: #27AE60;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.6rem;
+            font-size: 0.55rem;
         }
 
-        /* --- Product Showcase (ปรับให้ดูกลมกลืน) --- */
+        /* --- Product Showcase (ปรับขนาดให้เล็กลงและนวลขึ้น) --- */
         .product-display {
             flex: 1;
-            background: rgba(255, 255, 255, 0.2);
-            backdrop-filter: blur(10px);
-            border-radius: 40px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(8px);
+            border-radius: 35px;
             padding: 40px;
             border: 1px solid var(--glass-border);
             display: flex;
-            justify-content: space-between;
+            justify-content: space-around;
             align-items: center;
+            min-height: 400px;
+        }
+
+        .product-text {
+            max-width: 200px;
         }
 
         .product-text h2 {
-            font-size: 3rem;
+            font-size: 2.5rem; /* ลดขนาดหัวข้อ */
             color: var(--brand-blue);
             font-weight: 800;
-            line-height: 1;
+            line-height: 1.1;
         }
 
         .product-text .vol {
-            font-size: 3.5rem;
+            font-size: 3rem; /* ลดขนาดตัวเลขปริมาณ */
             font-weight: 800;
-            margin: 15px 0 5px;
+            margin: 10px 0;
+            color: #1E293B;
         }
 
         .bottle-img {
             position: relative;
+            display: flex;
+            justify-content: center;
         }
 
         .bottle-img img {
-            max-width: 400px;
+            max-width: 320px; /* ลดขนาดขวดลง (เดิมประมาณ 400-480px) */
             width: 100%;
-            /* ใส่เงาแบบจางๆ ให้ดูเป็นธรรมชาติ */
-            filter: drop-shadow(15px 20px 40px rgba(0,0,0,0.08));
-            transform: rotate(2deg);
+            /* ปรับเงาให้ฟุ้งจางๆ เพื่อความกลมกลืน */
+            filter: drop-shadow(10px 15px 30px rgba(0,0,0,0.06));
+            transform: rotate(2.5deg);
+            transition: transform 0.4s ease;
+        }
+
+        .bottle-img img:hover {
+            transform: rotate(0deg) scale(1.02);
         }
 
     </style>
@@ -188,10 +194,10 @@
             </div>
         </div>
         <nav class="nav-links">
-            <a href="#">Overview</a>
-            <a href="#">Production</a>
-            <a href="#">Certification</a>
-            <a href="#">Contact</a>
+            <a href="#" style="color: #64748B; font-size: 0.7rem;">OVERVIEW</a>
+            <a href="#" style="color: #64748B; font-size: 0.7rem;">PRODUCTION</a>
+            <a href="#" style="color: #64748B; font-size: 0.7rem;">CERTIFICATION</a>
+            <a href="#" style="color: #64748B; font-size: 0.7rem;">CONTACT</a>
         </nav>
     </header>
 
@@ -211,13 +217,13 @@
 
         <div class="product-display">
             <div class="product-text">
-                <p style="color:#A0AEC0; font-weight:700; font-size:0.7rem; letter-spacing:2px; margin-bottom:10px;">PREMIUM EXPORT QUALITY</p>
-                <h2>18 months <span style="display:block; font-size:1.4rem; color:#718096; font-weight:400;">@ room temp.</span></h2>
+                <p style="color:#94A3B8; font-weight:700; font-size:0.65rem; letter-spacing:1.5px; margin-bottom:8px; text-transform:uppercase;">Premium Quality</p>
+                <h2>18 months <span style="display:block; font-size:1.2rem; color:#64748B; font-weight:400;">@ room temp.</span></h2>
                 <div class="vol">330ml</div>
-                <div style="color: #F1C40F; font-size: 1.1rem;">★★★★★</div>
+                <div style="color: #FACC15; font-size: 1rem;">★★★★★</div>
             </div>
             <div class="bottle-img">
-                <img src="images/fssc-22009.png" alt="Eli Coconut Water Product">
+                <img src="images/fssc-22009.png" alt="Eli Coconut Water 330ml">
             </div>
         </div>
     </main>
