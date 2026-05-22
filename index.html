@@ -15,106 +15,105 @@
 
         body {
             font-family: 'Inter', sans-serif;
-            background: #f0f4f8 url('images/fssc-22007.png') no-repeat center center fixed;
+            /* พื้นหลังดึงจาก fssc-22006 */
+            background: #f0f4f8 url('images/fssc-22006.png') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
             overflow-x: hidden;
         }
 
-        /* ส่วนหัวและเมนู */
         .top-container {
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 5% 0;
+            padding: 30px 5% 0;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
         }
 
-        /* 1. เลื่อนแบรนด์ขึ้นมาบนสุด */
         .brand-header {
             flex: 1;
         }
 
+        /* --- ปรับขนาดตัวอักษรให้เล็กลงตามคำขอ --- */
         .brand-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 4.2rem;
-            line-height: 0.9;
+            font-size: 2.8rem; /* ปรับลดขนาดลงจากเดิม 4.2rem */
+            line-height: 1.1;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
-            margin-bottom: 10px;
+            margin-bottom: 5px;
         }
 
         .slogan {
-            font-size: 1.1rem;
+            font-size: 0.9rem; /* ปรับลดขนาดสโลแกนให้สัมพันธ์กัน */
             font-weight: 800;
             color: #636e72;
-            letter-spacing: 5px;
+            letter-spacing: 4px;
             margin-bottom: 30px;
         }
 
         nav {
             display: flex;
-            gap: 35px;
-            padding-top: 15px;
+            gap: 30px;
+            padding-top: 10px;
         }
 
         nav a {
             text-decoration: none;
             color: #111;
             font-weight: 900;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
         }
 
-        /* เลย์เอาต์หลัก */
         .content-section {
             max-width: 1400px;
             margin: 0 auto;
             padding: 20px 5% 60px;
             display: grid;
-            grid-template-columns: 450px 1fr;
+            grid-template-columns: 420px 1fr;
             gap: 40px;
             align-items: start;
         }
 
-        /* ฝั่งซ้าย: ข้อมูลสินค้า */
         .left-panel {
             display: flex;
             flex-direction: column;
-            gap: 30px;
+            gap: 25px;
         }
 
-        /* ขยายไอคอน Certification */
         .cert-icons {
             display: flex;
-            gap: 15px;
+            gap: 12px;
         }
 
         .cert-icons img {
-            height: 45px;
+            height: 38px; /* ปรับขนาดไอคอนให้เล็กลงเล็กน้อยเพื่อให้ดูแพง */
             filter: drop-shadow(0 4px 6px rgba(0,0,0,0.1));
         }
 
         .info-card {
-            background: rgba(255, 255, 255, 0.8);
+            background: rgba(255, 255, 255, 0.85);
             backdrop-filter: blur(10px);
-            border-radius: 35px;
-            padding: 40px;
+            border-radius: 30px;
+            padding: 35px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.5);
         }
 
-        .info-card ul { list-style: none; }
         .info-card li {
+            list-style: none;
             display: flex;
             align-items: center;
             gap: 12px;
             font-weight: 700;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
+            margin-bottom: 12px;
+            font-size: 1rem;
+            color: #2d3436;
         }
 
         .info-card li::before {
@@ -123,66 +122,65 @@
             font-weight: 900;
         }
 
-        /* ฝั่งขวา: กรอบสินค้าพรีเมียม (เลื่อนมาทางขวาชิดตัว T) */
+        /* --- กรอบขวดน้ำฝั่งขวา --- */
         .product-glass-container {
             display: flex;
-            justify-content: flex-end; /* เลื่อนกรอบไปทางขวาสุด */
+            justify-content: flex-end;
         }
 
         .glass-box {
             background: rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(20px);
+            backdrop-filter: blur(25px);
             border: 1.5px solid rgba(255, 255, 255, 0.5);
-            border-radius: 60px;
-            padding: 50px;
-            width: 750px;
+            border-radius: 50px;
+            padding: 45px;
+            width: 720px;
             box-shadow: 0 40px 100px rgba(0,0,0,0.1);
-            position: relative;
         }
 
         .search-bar {
             background: white;
-            border-radius: 25px;
-            padding: 15px 30px;
+            border-radius: 20px;
+            padding: 12px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 40px;
+            margin-bottom: 35px;
         }
 
         .search-bar span {
             color: var(--brand-blue);
             font-weight: 900;
-            font-size: 1.8rem;
+            font-size: 1.6rem;
         }
 
         .product-content {
             display: flex;
             align-items: center;
-            gap: 30px;
+            gap: 20px;
         }
 
         .product-text { flex: 1; }
 
+        /* ปรับขนาดตัวเลข 18 months ให้ดูสมส่วน */
         .product-text h2 {
-            font-size: 3.2rem;
+            font-size: 2.8rem;
             color: var(--brand-blue);
             font-weight: 900;
             line-height: 1;
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .product-text h2 span {
             display: block;
-            font-size: 2rem;
-            color: #555;
+            font-size: 1.8rem;
+            color: #4a5568;
             margin-top: 5px;
         }
 
-        .volume { font-size: 4rem; font-weight: 900; color: #111; }
-        .rating { color: #f1c40f; font-size: 1.8rem; margin-top: 10px; }
+        .volume { font-size: 3.5rem; font-weight: 900; color: #1a202c; }
+        .rating { color: #f1c40f; font-size: 1.6rem; margin-top: 5px; }
 
-        /* ขยายรูปขวดน้ำและลบพื้นหลังขาว */
         .product-img-wrap {
             flex: 1.2;
             display: flex;
@@ -190,17 +188,16 @@
         }
 
         .bottle-img {
-            width: 130%; /* ขยายรูปให้ใหญ่ขึ้น */
-            max-width: 450px;
-            mix-blend-mode: multiply; /* ลบพื้นหลังสีขาว */
-            transform: rotate(6deg);
-            filter: drop-shadow(25px 35px 50px rgba(0,0,0,0.2));
+            width: 125%;
+            max-width: 420px;
+            mix-blend-mode: multiply; /* ลบพื้นหลังสีขาวของภาพขวด */
+            transform: rotate(5deg);
+            filter: drop-shadow(20px 30px 50px rgba(0,0,0,0.15));
         }
 
-        @media (max-width: 1200px) {
+        @media (max-width: 1100px) {
             .content-section { grid-template-columns: 1fr; }
-            .product-glass-container { justify-content: center; }
-            .brand-title { font-size: 3rem; }
+            .brand-title { font-size: 2.2rem; }
         }
     </style>
 </head>
@@ -244,19 +241,19 @@
             <div class="glass-box">
                 <div class="search-bar">
                     <span>coconut water</span>
-                    <div style="background: var(--brand-blue); color:white; padding:12px; border-radius:15px;">🔍</div>
+                    <div style="background: var(--brand-blue); color:white; padding:10px; border-radius:12px;">🔍</div>
                 </div>
 
                 <div class="product-content">
                     <div class="product-text">
-                        <p style="color:#888; font-weight:700; margin-bottom:10px;">SEO. www.evergood.co.th</p>
+                        <p style="color:#718096; font-weight:700; margin-bottom:8px; font-size: 0.9rem;">SEO. www.evergood.co.th</p>
                         <h2>18 months<span>@ room temp.</span></h2>
                         <div class="volume">300ml</div>
                         <div class="rating">★★★★★</div>
                     </div>
 
                     <div class="product-img-wrap">
-                        <img src="images/fssc-22008.png" class="bottle-img" alt="Ever Good Coconut Water">
+                        <img src="images/fssc-22008.png" class="bottle-img" alt="Ever Good Coconut Water Product">
                     </div>
                 </div>
             </div>
