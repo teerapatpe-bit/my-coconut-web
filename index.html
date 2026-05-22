@@ -4,20 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ever Good Partners - Eli Coconut Water</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --brand-gold: #C3A358;
             --brand-navy: #2b5b84;
+            --text-gray: #718096;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Poppins', sans-serif;
-            background-image: url('images/fssc-22007.png'); /* พื้นหลังใบไม้ */
+            font-family: 'Inter', sans-serif; /* ใช้ Inter เป็นฟอนต์หลัก */
+            background-image: url('images/fssc-22007.png');
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
@@ -63,7 +64,7 @@
             backdrop-filter: blur(10px);
         }
 
-        nav ul li a { text-decoration: none; color: #000; font-weight: 600; font-size: 12px; }
+        nav ul li a { text-decoration: none; color: #000; font-weight: 600; font-size: 12px; font-family: 'Montserrat', sans-serif;}
 
         /* --- Main Layout --- */
         main {
@@ -76,7 +77,7 @@
             min-height: 600px;
         }
 
-        /* กล่องหลัก: ปรับ Gradient ให้ไล่ระดับเนียนขึ้น ซ้ายสว่าง ขวาภาพชัด */
+        /* กล่องหลัก */
         .product-card {
             background-image: 
                 linear-gradient(90deg, rgba(255, 255, 255, 0.98) 30%, rgba(255, 255, 255, 0.75) 48%, rgba(255, 255, 255, 0) 65%), 
@@ -90,16 +91,16 @@
             border: 1px solid rgba(255, 255, 255, 0.4);
             border-radius: 50px;
             width: 85%;
-            min-height: 540px; /* เพิ่มความสูงเล็กน้อยให้ภาพดูสมดุล */
+            min-height: 540px; 
             padding: 60px 60px 60px 180px; 
             position: relative;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.12); /* เพิ่มมิติเงาให้ดูเข้มขึ้นเล็กน้อย */
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12); 
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
 
-        /* กล่อง Eli: ปรับให้สมดุลกับพื้นหลังใหม่ */
+        /* กล่อง Eli */
         .eli-box {
             position: absolute;
             left: 40px; 
@@ -116,6 +117,7 @@
         }
 
         .eli-tag {
+            font-family: 'Montserrat', sans-serif;
             background: #000;
             color: #fff;
             padding: 5px 20px;
@@ -127,7 +129,7 @@
             left: 30px;
         }
 
-        .feature { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; font-weight: 600; color: #222; }
+        .feature { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; font-weight: 500; color: #222; }
         .check { width: 20px; height: 20px; background: #27ae60; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; }
 
         /* --- Text Style --- */
@@ -144,24 +146,42 @@
             border: 1px solid rgba(0,0,0,0.02);
         }
 
-        .search-mini input { border: none; outline: none; font-weight: 600; width: 80%; }
+        .search-mini input { font-family: 'Inter', sans-serif; border: none; outline: none; font-weight: 500; width: 80%; font-size: 14px; }
         .search-mini button { background: #3b82f6; color: #fff; border: none; width: 30px; height: 30px; border-radius: 8px; cursor: pointer; }
 
-        .text-info { position: relative; z-index: 10; }
-        .text-info h4 { color: #7da58a; font-size: 13px; letter-spacing: 2px; margin-bottom: 5px; text-transform: uppercase; font-weight: 700; }
+        .text-info { position: relative; z-index: 10; font-family: 'Montserrat', sans-serif; }
+        .text-info h4 { color: #7da58a; font-size: 12px; letter-spacing: 2.5px; margin-bottom: 10px; text-transform: uppercase; font-weight: 700; }
         
+        /* 18 months: ปรับขนาดให้เล็กลง */
         .text-info h1 { 
-            font-size: 65px; 
+            font-size: 52px; 
             color: var(--brand-navy); 
-            line-height: 1.1; 
+            line-height: 1; 
             white-space: nowrap; 
             font-weight: 700;
             margin-bottom: 5px;
         }
         
-        .text-info p { font-size: 22px; color: #8896a6; margin-bottom: 25px; font-weight: 500; }
-        .text-info h2 { font-size: 80px; color: #1e293b; line-height: 1; margin-bottom: 20px; }
-        .stars { color: #fbbf24; display: flex; gap: 5px; font-size: 18px; }
+        /* @ room temp: ปรับเป็นหัวข้อย่อย */
+        .text-info p { 
+            font-family: 'Inter', sans-serif;
+            font-size: 20px; 
+            color: var(--text-gray); 
+            margin-bottom: 30px; 
+            font-weight: 400; 
+            letter-spacing: 0.5px;
+        }
+
+        /* 330ml: ปรับขนาดให้เล็กลง */
+        .text-info h2 { 
+            font-size: 60px; 
+            color: #1e293b; 
+            line-height: 1; 
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .stars { color: #fbbf24; display: flex; gap: 5px; font-size: 16px; }
 
     </style>
 </head>
@@ -173,10 +193,9 @@
             <p class="partners-text">PARTNERS IN PURITY.</p>
             <div class="cert-icons">
                 <img src="images/fssc-22000.png" alt="FSSC">
-                <img src="images/fssc-22001.png" alt="Halal">
-                <img src="images/fssc-22002.png" alt="USDA">
-                <img src="images/fssc-22003.png" alt="Kosher">
-                <img src="images/fssc-22004.png" alt="Kosher">
+                <img src="images/halal.png" alt="Halal">
+                <img src="images/usda.png" alt="USDA">
+                <img src="images/kosher.png" alt="Kosher">
             </div>
         </div>
         <nav>
@@ -208,9 +227,7 @@
             <div class="text-info">
                 <h4>Premium Export Quality</h4>
                 <h1>18 months</h1>
-                <p>Shelf-life at room temp</p>
-                <h2>330ml</h2>
-                <div class="stars">
+                <p>@ room temp</p> <h2>330ml</h2> <div class="stars">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                 </div>
             </div>
