@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>EVER GOOD PARTNERS CO.LTD | Partners in Purity</title>
+    <title>EVER GOOD | Premium Coconut Water</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
     <style>
         :root {
             --brand-blue: #2B6CB0;
-            --brand-gold: #D4AF37;
             --text-dark: #2D3436;
-            --bg-glass: rgba(255, 255, 255, 0.8);
+            --bg-glass: rgba(255, 255, 255, 0.85);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -24,74 +23,58 @@
             background-attachment: fixed;
             min-height: 100vh;
             color: var(--text-dark);
-            overflow-x: hidden;
         }
 
-        /* Navigation - จัดขนาดให้สมดุลไม่เกินกรอบ */
+        /* Navigation - จัดขนาดรูปแบบให้สวยงามไม่ให้เกินกรอบด้านขวา */
         nav {
             display: flex;
             justify-content: flex-end;
-            padding: 40px 6%;
-            gap: 20px;
+            padding: 40px 8%;
+            gap: 25px;
         }
         nav a { 
             text-decoration: none; 
             color: #333; 
             font-weight: 700; 
-            font-size: 0.75rem;
+            font-size: 0.72rem; /* ปรับขนาดให้พอดี */
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            transition: 0.3s;
+            letter-spacing: 1.2px;
         }
-        nav a:hover { color: var(--brand-blue); }
 
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 6%;
+            padding: 0 8%;
             display: grid;
             grid-template-columns: 1fr 1.2fr;
             align-items: center;
             min-height: 75vh;
-            gap: 30px;
+            gap: 40px;
         }
 
-        /* ฝั่งซ้าย: แบรนด์และรายการคุณสมบัติใหม่ */
-        .brand-header {
+        /* ฝั่งซ้าย: แบรนด์และกล่อง 330ml */
+        .brand-logo {
             font-family: 'Montserrat', sans-serif;
-            font-size: 5.2rem;
+            font-size: 5.5rem;
             font-weight: 900;
             line-height: 0.85;
             color: var(--brand-blue);
-            margin-bottom: 10px;
         }
+        .partners-tag { font-weight: 800; color: #95a5a6; letter-spacing: 3px; margin: 10px 0; }
 
-        .partners-text {
-            font-size: 1rem;
-            font-weight: 800;
-            color: #7f8c8d;
-            letter-spacing: 3px;
-            margin-bottom: 15px;
-        }
+        .cert-icons { display: flex; gap: 10px; margin-bottom: 30px; }
+        .cert-icons img { height: 26px; opacity: 0.8; }
 
-        .cert-icons {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-        .cert-icons img { height: 28px; opacity: 0.85; }
-
-        /* กล่อง 330ml พร้อมรายการใหม่ 5 ข้อ */
         .feature-card {
             background: var(--bg-glass);
             backdrop-filter: blur(15px);
             border-radius: 40px;
             padding: 35px;
-            width: 340px;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.06);
+            width: 350px;
             border: 1px solid white;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.05);
         }
-        .feature-card h3 { font-size: 2.5rem; font-weight: 900; margin-bottom: 20px; }
+        .feature-card h3 { font-size: 2.6rem; font-weight: 900; margin-bottom: 20px; }
         
         .check-list { list-style: none; margin-bottom: 25px; }
         .check-list li {
@@ -99,79 +82,73 @@
             align-items: center;
             gap: 12px;
             font-weight: 700;
-            font-size: 0.85rem;
+            font-size: 0.88rem;
             margin-bottom: 12px;
-            color: #444;
         }
-        .check-list li::before { content: '✓'; color: #2ecc71; font-weight: 900; font-size: 1.1rem; }
+        .check-list li::before { content: '✓'; color: #2ecc71; font-weight: 900; }
 
-        .present-label {
+        .btn-present {
             width: 100%;
             padding: 12px;
-            border: 2px solid #000;
+            border: 2.5px solid #000;
             border-radius: 18px;
             text-align: center;
             font-weight: 900;
-            font-size: 1.2rem;
-            background: rgba(255,255,255,0.5);
+            font-size: 1.3rem;
         }
 
-        /* ฝั่งขวา: รายละเอียดสินค้าแบบโปร่งแสง */
-        .product-glass-panel {
+        /* ฝั่งขวา: การ์ดสินค้ากระจกฝ้า */
+        .product-glass-card {
             background: rgba(255, 255, 255, 0.45);
-            backdrop-filter: blur(30px);
-            border-radius: 60px;
+            backdrop-filter: blur(25px);
+            border-radius: 55px;
             padding: 50px;
-            border: 1px solid rgba(255,255,255,0.7);
+            border: 1px solid rgba(255,255,255,0.6);
             box-shadow: 0 30px 60px rgba(0,0,0,0.1);
         }
 
-        .search-area {
+        .search-strip {
             background: #fff;
             border-radius: 20px;
-            padding: 14px 25px;
+            padding: 15px 25px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 40px;
         }
-        .search-area span { color: var(--brand-blue); font-weight: 900; font-size: 1.6rem; }
+        .search-strip span { color: var(--brand-blue); font-weight: 900; font-size: 1.6rem; }
         .search-btn { background: var(--brand-blue); color: #fff; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; }
 
-        .main-display { display: flex; gap: 20px; align-items: flex-start; }
+        .flex-content { display: flex; gap: 25px; align-items: flex-start; }
 
-        .text-content { flex: 1; }
-        .seo-link { color: #95a5a6; font-weight: 700; font-size: 0.9rem; margin-bottom: 15px; }
+        .text-info { flex: 1; }
+        .seo-link { color: #7f8c8d; font-weight: 700; font-size: 0.95rem; margin-bottom: 15px; }
         
-        .promo-heading { font-size: 3.2rem; font-weight: 900; color: var(--brand-blue); line-height: 1.1; margin-bottom: 25px; }
-        .promo-heading .red-sub { color: #e74c3c; font-size: 1.4rem; display: block; margin: 8px 0; }
-        .promo-heading .temp-sub { font-size: 3rem; display: block; }
+        /* จัดข้อความคนละบรรทัด */
+        .promo-text { font-size: 3.2rem; font-weight: 900; color: var(--brand-blue); line-height: 1.1; margin-bottom: 25px; }
+        .promo-text b { color: #e74c3c; font-size: 1.4rem; display: block; margin: 8px 0; }
+        .promo-text .temp { font-size: 3rem; display: block; }
 
-        .product-specs { margin-bottom: 25px; }
-        .spec-size { font-size: 3.2rem; font-weight: 900; color: #2d3436; }
-        .spec-desc { color: var(--brand-blue); font-weight: 900; font-size: 1.4rem; margin-top: -5px; }
+        .spec-box { margin-bottom: 25px; }
+        .spec-box .size { font-size: 3.5rem; font-weight: 900; }
+        .spec-box .quality { color: var(--brand-blue); font-weight: 900; font-size: 1.5rem; margin-top: -5px; }
 
-        .rating-stars { color: #f1c40f; font-size: 1.5rem; margin-top: 15px; }
+        .rating { color: #f1c40f; font-size: 1.6rem; margin-top: 15px; }
 
-        /* ลบพื้นหลังสีขาวออกจากรูปภาพขวด */
-        .bottle-wrap {
-            position: relative;
-            display: flex;
-            justify-content: center;
-        }
-        .bottle-render {
+        /* การลบพื้นหลังขาวด้วย mix-blend-mode */
+        .bottle-image {
             width: 260px;
-            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.15)) contrast(1.05);
-            transform: rotate(6deg);
-            /* ช่วยลบพื้นหลังขาว */
-            mix-blend-mode: multiply; 
+            filter: drop-shadow(0 20px 40px rgba(0,0,0,0.12));
+            transform: rotate(5deg);
+            mix-blend-mode: multiply; /* ช่วยลบพื้นหลังขาวของภาพ Eli Coconut Water */
         }
 
         @media (max-width: 1024px) {
             .container { grid-template-columns: 1fr; text-align: center; }
             .cert-icons { justify-content: center; }
             .feature-card { margin: 0 auto; }
-            .main-display { flex-direction: column; align-items: center; }
+            .flex-content { flex-direction: column; align-items: center; }
+            nav { justify-content: center; }
         }
     </style>
 </head>
@@ -185,18 +162,18 @@
     </nav>
 
     <div class="container">
-        <div class="brand-section">
-            <h1 class="brand-header">EVER GOOD<br>PARTNERS<br>CO.LTD.</h1>
-            <p class="partners-text">PARTNERS IN PURITY.</p>
+        <div class="brand-side">
+            <h1 class="brand-logo">EVER<br>GOOD</h1>
+            <p class="partners-tag">PARTNERS IN PURITY.</p>
             <div class="cert-icons">
                 <img src="images/fssc-22000.png" alt="FSSC">
-                <img src="images/fssc-22001.png" alt="HALAL">
-                <img src="images/fssc-22002.png" alt="USDA">
-                <img src="images/fssc-22003.png" alt="K">
-                <img src="images/fssc-22004.png" alt="KOSHER">
+                <img src="images/halal.png" alt="HALAL">
+                <img src="images/usda.png" alt="USDA">
+                <img src="images/kosher.png" alt="KOSHER">
             </div>
 
             <div class="feature-card">
+                <h3>330ml</h3>
                 <ul class="check-list">
                     <li>100% Natural Coconut water</li>
                     <li>No Sugar Added</li>
@@ -204,34 +181,34 @@
                     <li>No Coloring</li>
                     <li>No Preservatives</li>
                 </ul>
-                <div class="present-label">present</div>
+                <div class="btn-present">present</div>
             </div>
         </div>
 
-        <div class="product-glass-panel">
-            <div class="search-area">
+        <div class="product-glass-card">
+            <div class="search-strip">
                 <span>coconut water</span>
                 <div class="search-btn">🔍</div>
             </div>
 
-            <div class="main-display">
-                <div class="text-content">
+            <div class="flex-content">
+                <div class="text-info">
                     <p class="seo-link">SEO. www.evergood.co.th</p>
-                    <h2 class="promo-heading">
+                    <h2 class="promo-text">
                         18 months
-                        <span class="temp-sub">@ room temp.</span>
+                        <b>ตัวหนา</b>
+                        <span class="temp">@ room temp.</span>
                     </h2>
                     
-                    <div class="product-specs">
-                        <div class="spec-size">300ml</div>
+                    <div class="spec-box">
+                        <div class="size">300ml</div>
+                        <div class="quality">premium quality</div>
                     </div>
                     
-                    <div class="rating-stars">★★★★★</div>
+                    <div class="rating">★★★★★</div>
                 </div>
 
-                <div class="bottle-wrap">
-                    <img src="images/fssc-22005.png" class="bottle-render" alt="Ever Good Bottle">
-                </div>
+                <img src="images/fssc-22005.png" class="bottle-image" alt="Eli Coconut Water">
             </div>
         </div>
     </div>
