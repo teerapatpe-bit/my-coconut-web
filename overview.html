@@ -14,7 +14,8 @@
             --accent-green: #59803C;
             --gold-text: #A88F61;
             --text-dark: #333;
-            --bg-light: #ffffff;
+            /* เพิ่มความโปร่งใสให้สีพื้นหลัง เผื่อรูปพื้นหลังโหลดไม่ทัน */
+            --bg-light: rgba(255, 255, 255, 0.9); 
             --card-bg: #ffffff;
         }
 
@@ -25,9 +26,19 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
-            /* พื้นหลังลายเส้นจางๆ ตามรูป */
+
+            /* --- การตั้งค่ารูปพื้นหลังใหม่ --- */
+            background-image: url('images/fssc-22022.png'); /* ใส่รูปภาพพื้นหลัง */
+            background-repeat: no-repeat; /* ไม่ให้รูปซ้ำ */
+            background-position: center center; /* จัดให้อยู่ตรงกลาง */
+            background-size: cover; /* ขยายรูปให้คลุมพื้นที่ทั้งหมด */
+            background-attachment: fixed; /* (ตัวเลือก) ให้รูปอยู่กับที่เวลาเลื่อนหน้า */
+
+            /* --- คอมเมนต์ลายเส้นเก่าออก --- */
+            /*
             background-image: radial-gradient(circle at 2% 50%, rgba(89, 128, 60, 0.05) 0%, transparent 25%),
                               radial-gradient(circle at 98% 50%, rgba(168, 143, 97, 0.05) 0%, transparent 25%);
+            */
         }
 
         /* --- Header Section --- */
@@ -36,6 +47,8 @@
             justify-content: space-between;
             align-items: flex-start;
             padding: 20px 60px;
+            /* เพิ่มพื้นหลังขาวจางๆ ให้ Header เด่นขึ้นถ้าพื้นหลังลายเยอะ */
+            background-color: rgba(255, 255, 255, 0.5); 
         }
 
         .brand-info h1 {
@@ -82,6 +95,7 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
+            padding-bottom: 50px;
         }
 
         .section-title {
@@ -237,6 +251,7 @@
                 align-items: center;
                 text-align: center;
                 gap: 20px;
+                padding: 20px;
             }
             .section-title { font-size: 2.5rem; }
         }
