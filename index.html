@@ -116,17 +116,20 @@
             box-shadow: 0 15px 35px rgba(0,0,0,0.08);
         }
 
+        /* ปรับป้าย Eli เป็นทรงแคปซูลและจัดให้อยู่ตรงกลาง */
         .eli-tag {
             font-family: 'Montserrat', sans-serif;
             background: #000;
             color: #fff;
-            padding: 5px 20px;
-            border-radius: 10px;
+            padding: 6px 30px; /* เพิ่ม Padding แนวนอนให้ดูเป็นแคปซูลยาวขึ้น */
+            border-radius: 50px; /* ทรงแคปซูล */
             font-size: 20px;
             font-weight: 800;
             position: absolute;
-            top: -15px;
-            left: 30px;
+            top: -20px;
+            left: 50%; /* ดันมาตรงกลาง */
+            transform: translateX(-50%); /* ดึงกลับให้กึ่งกลางเป๊ะๆ */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .feature { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; font-weight: 500; color: #222; }
@@ -134,18 +137,17 @@
 
         /* --- Text Style --- */
         
-        /* ปรับดีไซน์ช่องค้นหาใหม่ให้สวยและสั้นลง */
         .search-mini {
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(10px);
-            width: 270px; /* ลดขนาดความกว้างให้สั้นลง */
+            width: 270px; 
             margin-bottom: 35px;
-            padding: 8px 10px 8px 22px; /* ปรับ Padding ให้ปุ่มดูพอดีกับกล่อง */
-            border-radius: 50px; /* เปลี่ยนเป็นทรงแคปซูล */
+            padding: 8px 10px 8px 22px; 
+            border-radius: 50px; 
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.08); /* เพิ่มเงาให้นุ่มและดูแพงขึ้น */
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08); 
             border: 1px solid rgba(255, 255, 255, 0.6);
             position: relative;
             z-index: 10;
@@ -168,7 +170,7 @@
             border: none; 
             min-width: 36px; 
             height: 36px; 
-            border-radius: 50%; /* ปุ่มทรงกลม */
+            border-radius: 50%; 
             cursor: pointer; 
             display: flex;
             align-items: center;
@@ -178,7 +180,7 @@
 
         .search-mini button:hover {
             background: #2563eb;
-            transform: scale(1.05); /* เอฟเฟกต์ตอนชี้เมาส์ */
+            transform: scale(1.05); 
         }
 
         .text-info { position: relative; z-index: 10; font-family: 'Montserrat', sans-serif; }
@@ -240,6 +242,7 @@
     <main>
         <div class="eli-box">
             <div class="eli-tag">Eli</div>
+            
             <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> 100% Natural Coconut water</div>
             <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> No Sugar Added</div>
             <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> No Artificial Flavor</div>
