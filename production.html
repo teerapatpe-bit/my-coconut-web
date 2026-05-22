@@ -11,11 +11,11 @@
     <style>
         :root {
             --primary-green: #2B4E2B;
-            --box-green: #A3CBB1; /* สีเขียวของกล่อง */
-            --tab-green: #C2DFCE; /* สีเขียวของ Tab ที่ยังไม่กด */
+            --box-green: #A3CBB1; 
+            --tab-green: #C2DFCE; 
             --text-dark: #333333;
             --text-gray: #555555;
-            --gold-title: #4A4A4A; /* สีหัวข้อ A Legacy of Purity */
+            --gold-title: #4A4A4A; 
             --bg-light: #fcfdfc;
         }
 
@@ -26,14 +26,17 @@
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
-            /* พื้นหลังสีอ่อนตามต้นฉบับ ถ้ามีรูป fssc-22022.png สามารถเปิดใช้งานโค้ดล่างนี้ได้ */
-            /* background-image: url('images/fssc-22022.png'); background-size: cover; background-attachment: fixed; */
+            /* เปิดใช้งานพื้นหลังถ้ามีไฟล์ภาพ */
+            background-image: url('images/fssc-22022.png'); 
+            background-size: cover; 
+            background-attachment: fixed;
+            background-position: center;
         }
 
-        /* --- Header Section (อิงจากหน้าเดิมเพื่อให้เว็บต่อกัน) --- */
+        /* --- Header Section --- */
         header {
             display: flex; justify-content: space-between; align-items: flex-start;
-            padding: 30px 5%; background: rgba(255, 255, 255, 0.7);
+            padding: 30px 5%; background: rgba(255, 255, 255, 0.8);
         }
         .brand-info h1 { font-size: 1.3rem; color: #777; font-weight: 400; }
         .brand-info p { font-size: 0.85rem; color: #999; letter-spacing: 1px; margin-bottom: 15px; }
@@ -41,14 +44,19 @@
         .cert-icons img { height: 32px; mix-blend-mode: multiply; }
         
         nav ul { display: flex; list-style: none; gap: 35px; margin-top: 5px; }
-        nav ul li a { text-decoration: none; color: #111; font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
-        nav ul li a.active, nav ul li a:hover { color: var(--primary-green); font-weight: 600; }
+        nav ul li a { text-decoration: none; color: #111; font-size: 0.9rem; font-weight: 600; transition: 0.3s; text-transform: uppercase; }
+        
+        /* สไตล์สำหรับเมนูหน้าที่เปิดอยู่ */
+        nav ul li a.active, nav ul li a:hover { 
+            color: var(--primary-green); 
+            border-bottom: 2px solid var(--primary-green); 
+        }
 
         /* --- Main Container --- */
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 20px 20px 80px;
+            padding: 40px 20px 80px;
         }
 
         /* --- Top Section: Map & Legacy --- */
@@ -59,15 +67,14 @@
             margin-bottom: 50px;
         }
 
-        /* Map Box */
         .map-wrapper {
-            background: #F1F8F4; /* สีพื้นหลังกล่องแผนที่อ่อนๆ */
+            background: #F1F8F4; 
             border: 2px solid #E0EBE4;
             border-radius: 8px;
             padding: 20px;
             display: flex;
             flex-direction: column;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
         .map-header {
             display: flex;
@@ -78,7 +85,8 @@
             margin-bottom: 15px;
             font-weight: 500;
         }
-        .map-header i { color: #666; margin-top: 3px; }
+        .map-header i { color: var(--primary-green); margin-top: 3px; }
+        
         .map-image-placeholder {
             flex-grow: 1;
             background: #E8F1EC;
@@ -87,13 +95,14 @@
             justify-content: center;
             align-items: center;
             min-height: 200px;
-            color: #ff6b6b; /* สีแดงเลียนแบบลายมือเขียน Map */
-            font-size: 3rem;
-            font-family: 'Caveat', cursive, sans-serif;
-            transform: rotate(-15deg);
+            overflow: hidden;
+        }
+        .map-image-placeholder img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
-        /* Legacy Boxes */
         .legacy-section {
             display: flex;
             flex-direction: column;
@@ -127,24 +136,11 @@
             width: 35px;
             text-align: center;
         }
-        .legacy-text {
-            color: #333;
-            line-height: 1.2;
-        }
-        .legacy-text strong {
-            font-size: 1.4rem;
-            font-weight: 700;
-        }
-        .legacy-text span {
-            font-size: 0.95rem;
-            font-weight: 500;
-            display: block;
-        }
+        .legacy-text { color: #333; line-height: 1.2; }
+        .legacy-text strong { font-size: 1.4rem; font-weight: 700; }
+        .legacy-text span { font-size: 0.95rem; font-weight: 500; display: block; }
 
         /* --- Bottom Section: Production Excellence --- */
-        .excellence-section {
-            background: transparent;
-        }
         .excellence-title {
             text-align: center;
             font-family: 'Playfair Display', serif;
@@ -159,7 +155,6 @@
             gap: 20px;
         }
 
-        /* Card Style */
         .ex-card {
             background: #ffffff;
             border-radius: 12px;
@@ -170,11 +165,7 @@
             border: 1px solid #EBEBEB;
         }
         
-        /* Tabs */
-        .tabs {
-            display: flex;
-            background: var(--tab-green);
-        }
+        .tabs { display: flex; background: var(--tab-green); }
         .tab {
             flex: 1;
             text-align: center;
@@ -188,77 +179,36 @@
             align-items: center;
             line-height: 1.2;
         }
-        .tab:last-child { border-right: none; }
         .tab.active {
-            background: #ffffff; /* แท็บที่ถูกเลือกเป็นสีขาว */
+            background: #ffffff;
             border-top-left-radius: 12px;
             border-top-right-radius: 12px;
             margin-top: -5px;
             padding-top: 17px;
-            box-shadow: 0 -4px 10px rgba(0,0,0,0.02);
         }
 
-        /* Card Content Area */
-        .card-body {
-            padding: 25px;
-            display: flex;
-            gap: 15px;
-            align-items: center;
-            flex-grow: 1;
-        }
-        .card-text {
-            flex: 1;
-        }
+        .card-body { padding: 25px; display: flex; gap: 15px; align-items: center; flex-grow: 1; }
         .card-text h3 {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: #333;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        .card-text ul {
-            list-style: none;
+            font-size: 1.05rem; font-weight: 700; color: #333;
+            margin-bottom: 15px; text-transform: uppercase;
         }
         .card-text li {
-            font-size: 0.85rem;
-            color: #222;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: flex-start;
-            gap: 12px;
-            font-weight: 500;
+            font-size: 0.85rem; color: #222; margin-bottom: 12px;
+            display: flex; align-items: flex-start; gap: 12px; font-weight: 500;
         }
-        .card-text li i {
-            font-size: 1.1rem;
-            color: #666;
-            margin-top: 2px;
-            width: 18px; /* จัดให้ไอคอนตรงกัน */
-            text-align: center;
-        }
-        .card-img-placeholder {
-            width: 130px;
-            height: 110px;
-            background: #E8E8E8;
+        .card-text li i { color: var(--primary-green); margin-top: 2px; width: 18px; text-align: center; }
+        
+        .card-img {
+            width: 130px; height: 110px;
             border-radius: 8px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #999;
-            font-size: 2rem;
-            flex-shrink: 0;
             object-fit: cover;
+            flex-shrink: 0;
+            background: #eee;
         }
 
-        /* Responsive */
         @media (max-width: 900px) {
             .top-section, .excellence-grid { grid-template-columns: 1fr; }
-            .legacy-title { text-align: center; }
             header { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
-        }
-        @media (max-width: 500px) {
-            .legacy-grid { grid-template-columns: 1fr; }
-            .card-body { flex-direction: column; }
-            .card-img-placeholder { width: 100%; height: 150px; }
         }
     </style>
 </head>
@@ -278,10 +228,11 @@
         </div>
         <nav>
             <ul>
+                <li><a href="index.html">HOME</a></li>
                 <li><a href="overview.html">OVERVIEW</a></li>
-                <li><a href="#" class="active">PRODUCTION</a></li>
-                <li><a href="#">CERTIFICATION</a></li>
-                <li><a href="#">CONTACT</a></li>
+                <li><a href="production.html" class="active">PRODUCTION</a></li>
+                <li><a href="certification.html">CERTIFICATION</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
             </ul>
         </nav>
     </header>
@@ -289,14 +240,13 @@
     <div class="container">
         
         <div class="top-section">
-            
             <div class="map-wrapper">
                 <div class="map-header">
-                    <i class="fa-solid fa-anchor"></i>
+                    <i class="fa-solid fa-location-dot"></i>
                     Location: Nakhon Pathom, prime young coconut region
                 </div>
                 <div class="map-image-placeholder">
-                    Map
+                    <img src="images/image_3ff72b.png" alt="Map Location">
                 </div>
             </div>
 
@@ -316,7 +266,7 @@
                         </div>
                     </div>
                     <div class="legacy-box">
-                        <i class="fa-solid fa-location-dot"></i>
+                        <i class="fa-solid fa-map-pin"></i>
                         <div class="legacy-text">
                             <strong>Nakhon Pathom</strong><br><span>Prime Region</span>
                         </div>
@@ -329,7 +279,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <div class="excellence-section">
@@ -339,57 +288,38 @@
                 
                 <div class="ex-card">
                     <div class="tabs">
-                        <div class="tab">Turn 1</div>
-                        <div class="tab active">Turn 2<br>SUPPLIER SELECTION</div>
-                        <div class="tab">Turn 3<br>RAW MATERIAL CHECK</div>
+                        <div class="tab">STEP 1</div>
+                        <div class="tab active">STEP 2<br>SUPPLIER SELECTION</div>
+                        <div class="tab">STEP 3<br>RAW MATERIAL CHECK</div>
                     </div>
                     <div class="card-body">
                         <div class="card-text">
                             <h3>100% TRACEABLE SUPPLY CHAIN</h3>
-                            <ul>
-                                <li>
-                                    <i class="fa-solid fa-link"></i> 
-                                    Direct sourcing policy guarantees Full Traceability.
-                                </li>
-                                <li>
-                                    <i class="fa-regular fa-circle-check"></i> 
-                                    Highest quality & supply chain reliability.
-                                </li>
+                            <ul style="list-style: none;">
+                                <li><i class="fa-solid fa-link"></i> Direct sourcing policy guarantees Full Traceability.</li>
+                                <li><i class="fa-regular fa-circle-check"></i> Highest quality & supply chain reliability.</li>
                             </ul>
                         </div>
-                        <img src="images/fssc-22020.png" alt="Raw Material" class="card-img-placeholder">
+                        <img src="images/fssc-22020.png" alt="Raw Material" class="card-img">
                     </div>
                 </div>
 
                 <div class="ex-card">
                     <div class="tabs">
-                        <div class="tab">Turn 1</div>
-                        <div class="tab">Turn 2<br>QUALITY CONTROL</div>
-                        <div class="tab active">Turn 3<br>BOTTLING & PACKAGING</div>
+                        <div class="tab">STEP 1</div>
+                        <div class="tab">STEP 2<br>QUALITY CONTROL</div>
+                        <div class="tab active">STEP 3<br>BOTTLING & PACKAGING</div>
                     </div>
                     <div class="card-body">
                         <div class="card-text">
-                            <h3>SAFE & PURE PRODUCTION PROCESS</h3>
-                            <ul>
-                                <li>
-                                    <i class="fa-solid fa-award"></i> 
-                                    Guaranteed highest food safety.
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-microchip"></i> 
-                                    Advanced processing technology.
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-seedling"></i> 
-                                    Meticulous selection from farms.
-                                </li>
-                                <li>
-                                    <i class="fa-solid fa-leaf"></i> 
-                                    100% natural coconut water, no additives.
-                                </li>
+                            <h3>SAFE & PURE PROCESS</h3>
+                            <ul style="list-style: none;">
+                                <li><i class="fa-solid fa-award"></i> Guaranteed highest food safety.</li>
+                                <li><i class="fa-solid fa-microchip"></i> Advanced processing technology.</li>
+                                <li><i class="fa-solid fa-leaf"></i> 100% natural, no additives.</li>
                             </ul>
                         </div>
-                        <img src="images/fssc-22021.png" alt="Bottling Process" class="card-img-placeholder">
+                        <img src="images/fssc-22021.png" alt="Bottling Process" class="card-img">
                     </div>
                 </div>
 
