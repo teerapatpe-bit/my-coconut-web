@@ -66,13 +66,10 @@
         }
 
         .cert-icons img {
-    height: 45px; /* ขนาดที่คุณปรับไว้ */
-    width: auto;
-    object-fit: contain;
-    
-    /* เพิ่มบรรทัดนี้ครับ */
-    mix-blend-mode: multiply; 
-}
+            height: 45px; /* ขนาดโลโก้ */
+            width: auto;
+            object-fit: contain;
+            mix-blend-mode: multiply; /* ลบพื้นหลังขาว */
         }
 
         /* --- Navigation --- */
@@ -125,7 +122,16 @@
 
         .hero-content {
             flex: 1;
-            padding-top: 60px;
+            padding-top: 40px; /* ปรับลดพื้นที่ด้านบนนิดหน่อยเพื่อให้รูปโลโก้พอดี */
+        }
+
+        /* --- CSS สำหรับรูปโลโก้ Eli เหนือข้อความ 100% NATURAL --- */
+        .hero-top-icon {
+            width: 120px; /* ขนาดความกว้าง ปรับได้ตามความเหมาะสม */
+            height: auto;
+            mix-blend-mode: multiply; /* ลบพื้นหลังขาวให้เนียนกับแบคกราวด์ */
+            margin-bottom: 15px; /* ระยะห่างด้านล่าง */
+            display: block;
         }
 
         .hero-content h4 {
@@ -139,19 +145,7 @@
             font-size: 5.5rem;
             line-height: 1;
             font-weight: 700;
-            margin-bottom: 15px;
-        }
-
-        .hero-content .thai-title {
-            font-size: 1.6rem;
-            color: #555;
-            margin-bottom: 20px;
-        }
-
-        .hero-content p {
-            color: #777;
-            margin-bottom: 35px;
-            line-height: 1.6;
+            margin-bottom: 30px;
         }
 
         .btn-more {
@@ -184,7 +178,6 @@
         .product-img {
             max-width: 90%;
             z-index: 2;
-            /* ในรูปต้นฉบับจะมีเอฟเฟกต์หยดน้ำและน้ำแข็ง */
         }
 
         /* --- Floating Features (กล่องขาวด้านล่าง) --- */
@@ -223,6 +216,7 @@
 
         @media (max-width: 1024px) {
             .hero { flex-direction: column; text-align: center; }
+            .hero-top-icon { margin: 0 auto 15px; } /* จัดโลโก้ให้อยู่กึ่งกลางในหน้าจอมือถือ */
             .header-container { flex-direction: column; align-items: center; gap: 20px; }
             .features-bar { flex-wrap: wrap; gap: 20px; margin: 20px; }
         }
@@ -258,12 +252,13 @@
 
     <section class="hero">
         <div class="hero-content"> 
-            <div class="hero-content">
-            <img src="images/fssc-22015.png" alt="Icon" class="hero-top-icon">
+            <img src="images/fssc-22015.png" alt="Eli Logo" class="hero-top-icon">
+            
             <h4>100% NATURAL</h4>
             <h1>Coconut<br>Water</h1>
             <a href="#" class="btn-more">300ml <i class="fas fa-arrow-right"></i></a>
         </div>
+        
         <div class="hero-image">
             <img src="images/product-bottle.png" alt="Coconut Water" class="product-img">
         </div>
