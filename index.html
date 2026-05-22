@@ -97,7 +97,6 @@
             align-items: center;
             padding: 0 8%;
             
-            /* ปรับให้พื้นหลังชัดเจนที่สุด */
             image-rendering: -webkit-optimize-contrast;
             filter: none !important;
             opacity: 1 !important;
@@ -128,7 +127,18 @@
             font-size: 6.5rem; 
             line-height: 0.9; 
             font-weight: 800; 
-            margin: 0 0 35px; 
+            margin: 0 0 10px; /* ลด margin-bottom เพื่อให้ PRODUCT OF THAILAND ขยับขึ้นมา */
+            text-transform: uppercase;
+        }
+
+        /* ปรับแต่งส่วน PRODUCT OF THAILAND ให้เล็กลง */
+        .product-origin {
+            color: var(--primary-green);
+            font-size: 2.8rem; /* ขนาดที่เล็กลงกว่าหัวข้อหลัก */
+            font-weight: 700;
+            margin-top: -15px; /* ขยับขึ้นไปชิดกับคำว่า WATER */
+            margin-bottom: 35px; /* ระยะห่างก่อนถึงปุ่ม */
+            letter-spacing: 1px;
             text-transform: uppercase;
         }
 
@@ -206,6 +216,7 @@
             .nav-menu { gap: 20px; }
             .hero-content h4 { font-size: 1.2rem; letter-spacing: 2px; }
             .hero-content h1 { font-size: 4rem; }
+            .product-origin { font-size: 1.8rem; margin-top: -5px; } /* ปรับขนาดสำหรับ iPad */
             .features-bar { margin: -40px 40px 30px; padding: 15px 20px; border-radius: 40px; }
         }
     </style>
