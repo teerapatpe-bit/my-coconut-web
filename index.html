@@ -102,8 +102,18 @@
             left: 8%;
             width: 240px;
             z-index: 15;
-            background-color: transparent !important; /* ทำให้ Container โปร่งใส */
-            mix-blend-mode: multiply; /* ช่วยตัดพื้นหลังสีขาวของรูปภาพออกให้เนียนไปกับ Background */
+            background-color: transparent !important;
+            mix-blend-mode: multiply; 
+        }
+
+        /* ปรับขนาด 100% NATURAL ให้ใหญ่ขึ้น */
+        .hero-content h4 {
+            color: var(--accent-green);
+            font-size: 1.6rem; /* เพิ่มขนาดจากเดิม */
+            font-weight: 700;
+            letter-spacing: 3px;
+            margin-bottom: 10px;
+            text-transform: uppercase;
         }
 
         .hero-content h1 { 
@@ -129,13 +139,13 @@
             transition: background 0.3s, transform 0.3s;
         }
 
-        /* --- SHELF LIFE BADGE ปรับตำแหน่งและขนาด --- */
+        /* --- SHELF LIFE BADGE --- */
         .shelf-life-badge {
             position: absolute;
-            top: 15%; /* ขยับขึ้นด้านบนตามรูป */
+            top: 15%; 
             left: 40%; 
             transform: translateY(-50%);
-            width: 150px; /* เพิ่มขนาดตามที่ต้องการ */
+            width: 150px; 
             height: 150px;
             border: 2.5px solid var(--accent-green); 
             border-radius: 50%;
@@ -206,6 +216,7 @@
             .brand-header { font-size: 1.4rem; }
             .nav-menu { gap: 20px; }
             
+            .hero-content h4 { font-size: 1.2rem; letter-spacing: 2px; } /* ปรับขนาดบน iPad */
             .hero-content h1 { font-size: 4rem; }
             
             .shelf-life-badge {
