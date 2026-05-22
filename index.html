@@ -10,7 +10,7 @@
     
     <style>
         /* ========================================== */
-        /* CSS VARIABLES (กำหนดสีหลักของเว็บไซต์)          */
+        /* CSS VARIABLES                              */
         /* ========================================== */
         :root {
             --primary-green: #1F3F23;
@@ -22,7 +22,7 @@
         }
 
         /* ========================================== */
-        /* GLOBAL STYLES (ตั้งค่าพื้นฐาน)                 */
+        /* GLOBAL STYLES                              */
         /* ========================================== */
         * { 
             margin: 0; 
@@ -36,7 +36,7 @@
         }
 
         /* ========================================== */
-        /* HEADER & NAVIGATION (ส่วนหัวและเมนู)           */
+        /* HEADER & NAVIGATION                        */
         /* ========================================== */
         .header-container {
             display: flex;
@@ -48,7 +48,6 @@
             z-index: 100;
         }
 
-        /* ฝั่งซ้าย: โลโก้และใบรับรอง */
         .brand-header { 
             color: var(--gold); 
             font-size: 1.35rem; 
@@ -72,7 +71,6 @@
             mix-blend-mode: multiply; 
         }
 
-        /* ตรงกลาง: เมนู */
         .nav-menu {
             display: flex;
             list-style: none;
@@ -94,7 +92,6 @@
             color: var(--accent-green);
         }
 
-        /* ฝั่งขวา: เมนูมือถือ */
         .nav-right-icons {
             display: flex;
             align-items: center;
@@ -102,13 +99,13 @@
         }
 
         .mobile-menu-icon {
-            display: none; /* ค่าเริ่มต้นซ่อนไว้ */
+            display: none;
             font-size: 1.5rem;
             cursor: pointer;
         }
 
         /* ========================================== */
-        /* HERO SECTION (ส่วนภาพแบนเนอร์หลัก)             */
+        /* HERO SECTION                               */
         /* ========================================== */
         .hero {
             position: relative;
@@ -123,7 +120,6 @@
             padding: 0 8%;
         }
 
-        /* โลโก้ Eli ด้านบน */
         .hero-top-icon {
             position: absolute;
             top: 40px;
@@ -133,18 +129,19 @@
             z-index: 15;
         }
 
-        /* ข้อความและปุ่มใน Hero */
         .hero-content {
             position: relative;
             z-index: 10;
             max-width: 650px;
         }
 
+        /* --- จุดที่ปรับขนาดตัวอักษร 100% NATURAL --- */
         .hero-content h4 { 
             color: var(--accent-green); 
-            font-size: 1.4rem; 
-            font-weight: 600; 
-            letter-spacing: 1px; 
+            font-size: 2.2rem; /* ปรับให้ใหญ่ขึ้นจาก 1.4rem */
+            font-weight: 700; 
+            letter-spacing: 2px;
+            margin-bottom: 5px;
         }
 
         .hero-content h1 { 
@@ -152,7 +149,7 @@
             font-size: 6.5rem; 
             line-height: 0.9; 
             font-weight: 800; 
-            margin: 15px 0 35px; 
+            margin: 0 0 35px; 
         }
 
         .btn-more {
@@ -175,7 +172,7 @@
         }
 
         /* ========================================== */
-        /* FEATURES BAR (แถบคุณสมบัติ 5 ข้อด้านล่าง)       */
+        /* FEATURES BAR                               */
         /* ========================================== */
         .features-bar {
             background: var(--white);
@@ -219,55 +216,27 @@
         }
 
         /* ========================================== */
-        /* RESPONSIVE DESIGN (การแสดงผลบนจอขนาดต่างๆ)     */
+        /* RESPONSIVE DESIGN                         */
         /* ========================================== */
-        
-        /* แท็บเล็ตและจอขนาดกลาง */
         @media (max-width: 1100px) {
-            .nav-menu { 
-                display: none; /* ซ่อนเมนูหลัก */
-            } 
-            .mobile-menu-icon { 
-                display: block; /* แสดงปุ่มแฮมเบอร์เกอร์ */
-            } 
-            .header-container { 
-                padding: 20px 30px; 
-            }
+            .nav-menu { display: none; } 
+            .mobile-menu-icon { display: block; } 
+            .header-container { padding: 20px 30px; }
         }
 
-        /* มือถือและจอขนาดเล็ก */
         @media (max-width: 992px) {
-            .hero { 
-                background-position: center; 
-                padding: 120px 20px; 
-                text-align: center; 
-            }
-            .hero-top-icon { 
-                position: relative; 
-                top: auto; 
-                left: auto; 
-                margin: 0 auto 20px; 
-                width: 180px; 
-            }
-            .hero-content h1 { 
-                font-size: 4.5rem; 
-            }
-            .features-bar { 
-                flex-wrap: wrap; 
-                gap: 20px; 
-                margin: 20px; 
-                padding: 20px; 
-            }
-            .feature-item { 
-                width: 45%; 
-            }
+            .hero { background-position: center; padding: 120px 20px; text-align: center; }
+            .hero-top-icon { position: relative; margin: 0 auto 20px; width: 180px; }
+            .hero-content h1 { font-size: 4.5rem; }
+            .hero-content h4 { font-size: 1.5rem; } /* ปรับขนาดเล็กลงบนมือถือเพื่อความสวยงาม */
+            .features-bar { flex-wrap: wrap; gap: 20px; margin: 20px; padding: 20px; }
+            .feature-item { width: 45%; }
         }
     </style>
 </head>
 <body>
 
     <header class="header-container">
-        
         <div class="brand">
             <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
             <p class="partners-text">PARTNERS IN PURITY.</p>
@@ -293,9 +262,7 @@
     </header>
 
     <section class="hero">
-        
         <img src="images/fssc-22015.png" alt="Eli Logo" class="hero-top-icon">
-        
         <div class="hero-content">
             <h4>100% NATURAL</h4>
             <h1>Coconut<br>Water</h1>
@@ -308,38 +275,23 @@
     <div class="features-bar">
         <div class="feature-item">
             <div class="f-icon"><i class="fas fa-leaf"></i></div>
-            <div class="f-text">
-                <b>100%</b>
-                <span>Natural Coconut Water</span>
-            </div>
+            <div class="f-text"><b>100%</b><span>Natural Coconut Water</span></div>
         </div>
         <div class="feature-item">
             <div class="f-icon"><i class="fas fa-tint-slash"></i></div>
-            <div class="f-text">
-                <b>No</b>
-                <span>Sugar Added</span>
-            </div>
+            <div class="f-text"><b>No</b><span>Sugar Added</span></div>
         </div>
         <div class="feature-item">
             <div class="f-icon"><i class="fas fa-vial-slash"></i></div>
-            <div class="f-text">
-                <b>No</b>
-                <span>Artificial Flavor</span>
-            </div>
+            <div class="f-text"><b>No</b><span>Artificial Flavor</span></div>
         </div>
         <div class="feature-item">
             <div class="f-icon"><i class="fas fa-eye-dropper"></i></div>
-            <div class="f-text">
-                <b>No</b>
-                <span>Coloring</span>
-            </div>
+            <div class="f-text"><b>No</b><span>Coloring</span></div>
         </div>
         <div class="feature-item">
             <div class="f-icon"><i class="fas fa-shield-alt"></i></div>
-            <div class="f-text">
-                <b>No</b>
-                <span>Preservatives</span>
-            </div>
+            <div class="f-text"><b>No</b><span>Preservatives</span></div>
         </div>
     </div>
 
