@@ -8,9 +8,8 @@
     <style>
         :root {
             --brand-blue: #1A4F8B;
-            --gold-gradient: linear-gradient(135deg, #C5A059 0%, #F1D592 50%, #B8860B 100%);
-            --glass-panel: rgba(255, 255, 255, 0.45);
-            --glass-border: rgba(255, 255, 255, 0.3);
+            --gold-text: #C5A059;
+            --glass-white: rgba(255, 255, 255, 0.45);
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -26,145 +25,166 @@
         /* --- Header Section --- */
         .header {
             width: 100%;
-            max-width: 1200px;
+            max-width: 1300px;
             margin: 0 auto;
-            padding: 40px 5% 30px;
+            padding: 40px 5% 20px;
             display: flex;
             justify-content: space-between;
             align-items: flex-start;
         }
 
-        .brand-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
-            font-weight: 500;
-            letter-spacing: 3px;
-            background: var(--gold-gradient);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            text-transform: uppercase;
-        }
-
-        .slogan {
-            font-size: 0.65rem;
-            font-weight: 700;
-            color: #8E9AAF;
-            letter-spacing: 4px;
-            margin: 5px 0 15px;
-        }
-
-        .cert-logos {
+        .brand-group {
             display: flex;
+            flex-direction: column;
             gap: 15px;
         }
 
-        .cert-logos img {
-            height: 28px;
-            opacity: 0.85;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            color: #2D3436;
-            font-weight: 700;
-            font-size: 0.75rem;
-            margin-left: 25px;
+        .brand-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 500;
+            color: var(--gold-text);
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
-        /* --- Content Layout --- */
-        .main-content {
-            max-width: 1100px; /* ลดความกว้างรวมลงเพื่อให้ทุกอย่างชิดกันมากขึ้น */
-            margin: 0 auto;
-            padding: 0 5% 50px;
+        /* โลโก้การรับรองอยู่ที่เดิม */
+        .cert-row-original {
             display: flex;
-            gap: 30px; /* ลดระยะห่างระหว่างกล่อง Eli และกล่องขวด */
+            gap: 12px;
             align-items: center;
         }
 
-        /* --- Eli Info Card --- */
+        .cert-row-original img {
+            height: 28px;
+            opacity: 0.9;
+        }
+
+        .nav-container {
+            border: 2px solid #000;
+            border-radius: 50px;
+            padding: 8px 30px;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-container a {
+            text-decoration: none;
+            color: #000;
+            font-weight: 800;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+        }
+
+        /* --- Layout --- */
+        .main-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 20px 5% 50px;
+            display: flex;
+            gap: 40px;
+            align-items: center;
+        }
+
+        /* --- Eli Info Card (ไม่มีโลโก้ Cert) --- */
         .info-side {
-            width: 280px; /* ลดขนาดความกว้างลงเล็กน้อย */
+            width: 320px;
         }
 
         .eli-badge {
             background: #000;
             color: #fff;
-            padding: 6px 20px;
-            border-radius: 12px 12px 0 0;
+            padding: 10px 25px;
+            border-radius: 15px 15px 0 0;
             display: inline-block;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.2rem;
+            font-size: 1.6rem;
             font-weight: 900;
         }
 
         .feature-box {
-            background: var(--glass-panel);
-            backdrop-filter: blur(12px);
-            padding: 20px;
-            border-radius: 0 20px 20px 20px;
-            border: 1px solid var(--glass-border);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            background: var(--glass-white);
+            backdrop-filter: blur(10px);
+            padding: 30px 25px;
+            border-radius: 0 25px 25px 25px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
         }
 
         .feature-item {
             list-style: none;
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            margin-bottom: 10px;
-            color: #4A5568;
+            gap: 12px;
+            font-size: 0.85rem;
+            font-weight: 700; /* ปรับตัวหนาตามภาพ */
+            margin-bottom: 15px;
+            color: #2D3436;
         }
 
         .feature-item::before {
             content: '✓';
-            width: 16px;
-            height: 16px;
+            width: 18px; height: 18px;
             background: #27AE60;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.55rem;
+            font-size: 0.6rem;
         }
 
-        /* --- Product Showcase (ปรับลดพื้นที่ว่างตรงกลาง) --- */
+        /* --- Product Showcase (ขยายพื้นที่ตามต้องการ) --- */
         .product-display {
             flex: 1;
-            background: rgba(255, 255, 255, 0.4); 
-            backdrop-filter: blur(15px); 
-            -webkit-backdrop-filter: blur(15px);
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(15px);
             border-radius: 40px;
-            padding: 40px 50px; /* เพิ่ม Padding ซ้ายขวาเพื่อบีบเนื้อหาเข้าหากัน */
-            border: 1px solid rgba(255, 255, 255, 0.5);
-            box-shadow: 0 15px 45px rgba(0,0,0,0.03);
+            padding: 60px;
             display: flex;
-            justify-content: center; /* เปลี่ยนเป็น Center เพื่อให้เนื้อหาอยู่ใกล้กันมากขึ้น */
-            gap: 40px; /* กำหนดระยะห่างคงที่ระหว่างตัวหนังสือและรูปภาพ */
+            justify-content: center;
+            gap: 50px;
             align-items: center;
         }
 
-        .product-text h2 {
-            font-size: 2.8rem;
+        .product-text {
+            text-align: left;
+        }
+
+        .export-label {
+            color: #A0AEC0;
+            font-weight: 700;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .shelf-life {
+            font-size: 3.5rem;
             color: var(--brand-blue);
             font-weight: 800;
-            line-height: 1;
+            line-height: 1.1;
         }
 
-        .product-text .vol {
-            font-size: 3.2rem;
-            font-weight: 800;
-            margin: 10px 0 5px;
+        .shelf-life span {
+            display: block;
+            font-size: 1.8rem;
+            color: #718096;
+            font-weight: 400;
         }
+
+        .volume {
+            font-size: 4.5rem;
+            font-weight: 800;
+            color: #1a202c;
+            margin: 10px 0;
+        }
+
+        .stars { color: #F1C40F; font-size: 1.3rem; }
 
         .bottle-img img {
-            max-width: 360px; /* ลดขนาดรูปขวดลงเล็กน้อยเพื่อให้ดูสมส่วนกับพื้นที่ที่ลดลง */
+            max-width: 420px;
             width: 100%;
-            filter: drop-shadow(10px 15px 30px rgba(0,0,0,0.08));
-            transform: rotate(2deg);
+            filter: drop-shadow(20px 25px 40px rgba(0,0,0,0.1));
         }
 
     </style>
@@ -173,17 +193,17 @@
 
     <header class="header">
         <div class="brand-group">
-            <h1 class="brand-title">EVER GOOD PARTNERS CO.,LTD.</h1>
-            <p class="slogan">PARTNERS IN PURITY.</p>
-            <div class="cert-logos">
-                <img src="images/fssc-22000.png" alt="Cert">
-                <img src="images/fssc-22001.png" alt="Cert">
-                <img src="images/fssc-22002.png" alt="Cert">
-                <img src="images/fssc-22003.png" alt="Cert">
-                <img src="images/fssc-22004.png" alt="Cert">
+            <h1 class="brand-title">EVER GOOD PARTNERS</h1>
+            <div class="cert-row-original">
+                <img src="images/fssc-22000.png" alt="FSSC 22000">
+                <img src="images/halal.png" alt="Halal">
+                <img src="images/usda.png" alt="USDA Organic">
+                <img src="images/kosher.png" alt="Kosher">
+                <img src="images/taste-award.png" alt="Taste Award">
             </div>
         </div>
-        <nav class="nav-links">
+        
+        <nav class="nav-container">
             <a href="#">Overview</a>
             <a href="#">Production</a>
             <a href="#">Certification</a>
@@ -207,13 +227,13 @@
 
         <div class="product-display">
             <div class="product-text">
-                <p style="color:#A0AEC0; font-weight:700; font-size:0.7rem; letter-spacing:2px; margin-bottom:10px;">PREMIUM EXPORT QUALITY</p>
-                <h2>18 months <span style="display:block; font-size:1.3rem; color:#718096; font-weight:400;">@ room temp.</span></h2>
-                <div class="vol">330ml</div>
-                <div style="color: #F1C40F; font-size: 1.1rem;">★★★★★</div>
+                <p class="export-label">PREMIUM EXPORT QUALITY</p>
+                <h2 class="shelf-life">18 months <span>Shelf-life at room temp.</span></h2>
+                <div class="volume">330ml</div>
+                <div class="stars">★★★★★</div>
             </div>
             <div class="bottle-img">
-                <img src="images/fssc-22009.png" alt="Product Image">
+                <img src="images/fssc-22009.png" alt="Eli Coconut Water">
             </div>
         </div>
     </main>
