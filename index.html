@@ -95,12 +95,15 @@
             padding: 0 8%;
         }
 
+        /* ปรับแต่ง Eli Logo ให้พื้นหลังโปร่ง */
         .hero-top-icon {
             position: absolute;
             top: 40px;
             left: 8%;
             width: 240px;
             z-index: 15;
+            background-color: transparent !important; /* ทำให้ Container โปร่งใส */
+            mix-blend-mode: multiply; /* ช่วยตัดพื้นหลังสีขาวของรูปภาพออกให้เนียนไปกับ Background */
         }
 
         .hero-content h1 { 
@@ -126,20 +129,20 @@
             transition: background 0.3s, transform 0.3s;
         }
 
-        /* --- SHELF LIFE BADGE --- */
+        /* --- SHELF LIFE BADGE ปรับตำแหน่งและขนาด --- */
         .shelf-life-badge {
             position: absolute;
-            top: 15%;
-            left:40%; 
+            top: 15%; /* ขยับขึ้นด้านบนตามรูป */
+            left: 40%; 
             transform: translateY(-50%);
-            width: 140px;
-            height: 140px;
+            width: 150px; /* เพิ่มขนาดตามที่ต้องการ */
+            height: 150px;
             border: 2.5px solid var(--accent-green); 
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgba(255, 255, 255, 0.9); 
+            background-color: rgba(255, 255, 255, 0.8); 
             z-index: 12;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
@@ -208,10 +211,10 @@
             .shelf-life-badge {
                 top: 15% !important; 
                 left: 62% !important;
-                width: 115px;
-                height: 115px;
+                width: 130px !important;
+                height: 130px !important;
             }
-            .badge-content .number { font-size: 2.6rem; }
+            .badge-content .number { font-size: 2.8rem; }
 
             .features-bar {
                 margin: -40px 40px 30px;
@@ -220,13 +223,6 @@
             }
             .f-icon-circle { width: 45px; height: 45px; font-size: 1rem; }
             .f-text b { font-size: 0.95rem; }
-        }
-
-        @media (max-width: 768px) {
-            .nav-menu { display: none; }
-            .features-bar { flex-wrap: wrap; border-radius: 20px; margin: 20px; padding: 20px; }
-            .feature-item { width: 50%; flex: none; margin: 10px 0; }
-            .feature-item:not(:last-child)::after { display: none; }
         }
     </style>
 </head>
