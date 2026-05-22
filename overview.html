@@ -24,13 +24,13 @@
             line-height: 1.6;
             overflow-x: hidden;
 
-            /* --- เพิ่มการตั้งค่าพื้นหลังตรงนี้ --- */
-            background-image: url('images/fssc-22022.png'); /* ใส่พาธรูปภาพ */
-            background-repeat: no-repeat; /* ไม่ให้รูปซ้ำ */
-            background-position: center center; /* จัดให้อยู่ตรงกลาง */
-            background-size: cover; /* ขยายรูปให้คลุมพื้นที่ทั้งหมด */
-            background-attachment: fixed; /* ให้รูปอยู่กับที่เวลาเลื่อนหน้า */
-            background-color: #fcfdfc; /* สีพื้นหลังสำรอง เผื่อรูปโหลดไม่ขึ้น */
+            /* --- พื้นหลัง --- */
+            background-image: url('images/fssc-22022.png'); 
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-size: cover;
+            background-attachment: fixed;
+            background-color: #fcfdfc;
         }
 
         /* --- Header Section --- */
@@ -39,7 +39,7 @@
             justify-content: space-between;
             align-items: flex-start;
             padding: 30px 5%;
-            background: rgba(255, 255, 255, 0.3); /* เพิ่มพื้นหลังขาวจางๆ ให้ Header */
+            background: rgba(255, 255, 255, 0.3);
         }
 
         .brand-info h1 {
@@ -79,9 +79,16 @@
             font-size: 0.85rem;
             font-weight: 600;
             transition: 0.3s;
+            text-transform: uppercase;
         }
 
         nav ul li a:hover { color: var(--primary-green); }
+        
+        /* สไตล์สำหรับเมนูหน้าที่เปิดอยู่ */
+        .nav-active {
+            color: var(--primary-green) !important;
+            border-bottom: 2px solid var(--primary-green);
+        }
 
         /* --- Main Content --- */
         .container {
@@ -106,7 +113,7 @@
             align-items: start;
         }
 
-        /* --- คอลัมน์ --- */
+        /* --- Columns --- */
         .col-features {
             display: flex;
             flex-direction: column;
@@ -252,10 +259,11 @@
         </div>
         <nav>
             <ul>
-                <li><a href="#" style="color: var(--primary-green);">OVERVIEW</a></li>
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="overview.html" class="nav-active">OVERVIEW</a></li>
                 <li><a href="production.html">PRODUCTION</a></li>
-                <li><a href="#">CERTIFICATION</a></li>
-                <li><a href="#">CONTACT</a></li>
+                <li><a href="certification.html">CERTIFICATION</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
             </ul>
         </nav>
     </header>
