@@ -27,13 +27,12 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 60px; /* เพิ่มพื้นที่ให้โลโก้ดูโปร่งขึ้น */
+            padding: 30px 60px;
             background: var(--white);
             position: relative;
             z-index: 100;
         }
 
-        /* ปรับขนาดชื่อบริษัทให้ใหญ่และหนาขึ้น */
         .brand-header { 
             color: var(--gold); 
             font-size: 1.8rem; 
@@ -48,7 +47,6 @@
             margin-bottom: 15px; 
         }
 
-        /* ปรับไอคอนการรับรองให้ใหญ่ขึ้น */
         .cert-icons { 
             display: flex; 
             gap: 15px; 
@@ -67,7 +65,6 @@
             gap: 40px;
         }
 
-        /* การจัดวางเมนูแบบเรียงในบรรทัดเดียว */
         .nav-menu {
             display: flex;
             list-style: none;
@@ -86,7 +83,6 @@
 
         .nav-menu li a:hover { color: var(--accent-green); }
 
-        /* ปุ่มค้นหาวงกลมสีเทาอ่อน */
         .search-circle {
             width: 55px;
             height: 55px;
@@ -121,7 +117,7 @@
             position: absolute;
             top: 40px;
             left: 8%;
-            width: 240px; /* ขยายขนาดโลโก้ Eli */
+            width: 240px;
             z-index: 15;
         }
 
@@ -147,6 +143,51 @@
             box-shadow: 0 8px 25px rgba(89, 128, 60, 0.3);
         }
 
+        /* --- SHELF LIFE BADGE (ส่วนที่เพิ่มใหม่) --- */
+        .shelf-life-badge {
+            position: absolute;
+            top: 50%;
+            left: 45%; /* ปรับตำแหน่งซ้าย-ขวาได้ตามต้องการ */
+            transform: translateY(-50%);
+            width: 140px;
+            height: 140px;
+            border: 2px solid var(--accent-green);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgba(255, 255, 255, 0.85); /* พื้นหลังสีขาวโปร่งแสง */
+            z-index: 12;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        }
+
+        .badge-content {
+            text-align: center;
+            color: var(--primary-green);
+            line-height: 1.1;
+        }
+
+        .badge-content .number {
+            display: block;
+            font-size: 3.5rem;
+            font-weight: 800;
+        }
+
+        .badge-content .unit {
+            display: block;
+            font-size: 1rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .badge-content .condition {
+            display: block;
+            font-size: 0.65rem;
+            font-weight: 500;
+            margin-top: 2px;
+            color: var(--accent-green);
+        }
+
         /* --- FEATURES BAR --- */
         .features-bar {
             background: var(--white);
@@ -169,7 +210,6 @@
             position: relative;
         }
 
-        /* เส้นคั่นระหว่างหัวข้อ */
         .feature-item:not(:last-child)::after {
             content: "";
             position: absolute;
@@ -190,12 +230,24 @@
         .f-text b { display: block; font-size: 1.25rem; color: var(--primary-green); line-height: 1.1; }
         .f-text span { font-size: 0.8rem; color: #666; display: block; }
 
+        /* --- RESPONSIVE --- */
         @media (max-width: 1200px) {
             .nav-menu { display: none; }
             .header-container { padding: 20px 30px; }
             .features-bar { margin: 20px; border-radius: 20px; flex-wrap: wrap; }
             .feature-item { width: 50%; flex: none; margin: 15px 0; }
             .feature-item:not(:last-child)::after { display: none; }
+            
+            /* ปรับขนาดวงกลมสำหรับจอเล็ก */
+            .shelf-life-badge {
+                position: relative;
+                margin: 20px auto;
+                left: 0;
+                transform: none;
+                width: 110px;
+                height: 110px;
+            }
+            .badge-content .number { font-size: 2.5rem; }
         }
     </style>
 </head>
@@ -230,7 +282,8 @@
     </header>
 
     <section class="hero">
-        <img src="images/fssc-22007" alt="Eli Logo" class="hero-top-icon">
+        <img src="images/fssc-22007.png" alt="Eli Logo" class="hero-top-icon">
+        
         <div class="hero-content">
             <h4>100% NATURAL</h4>
             <h1>COCONUT<br>WATER</h1>
@@ -238,6 +291,15 @@
                 DISCOVER MORE <i class="fas fa-arrow-right"></i>
             </a>
         </div>
+
+        <div class="shelf-life-badge">
+            <div class="badge-content">
+                <span class="number">18</span>
+                <span class="unit">MONTHS</span>
+                <span class="condition">@ ROOM TEMP</span>
+            </div>
+        </div>
+
     </section>
 
     <div class="features-bar">
