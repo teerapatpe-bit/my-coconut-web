@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html lang="th">
-<head>      
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ever Good Partners - Coconut Water</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -104,7 +104,7 @@
 
         .hero-top-icon {
             position: absolute;
-            top: -5px;
+            top: -15px; /* ขยับโลโก้ Eli ขึ้นนิดหน่อย */
             left: 8%;
             width: 240px;
             z-index: 15;
@@ -117,27 +117,29 @@
             font-size: 2.5rem; 
             font-weight: 700;
             letter-spacing: 3px;
-            margin-bottom: 10px;
             text-transform: uppercase;
             margin-left: 5px;
+            margin-top: 100px; /* เลื่อน 100% NATURAL ลงมาให้ห่างจากโลโก้ Eli */
+            margin-bottom: 5px; /* ชิดกับ COCONUT WATER มากขึ้น */
         }
 
         .hero-content h1 { 
             color: var(--primary-green); 
-            font-size: 6.5rem; 
-            line-height: 0.9; 
-            font-weight: 800; 
-            margin: 0 0 10px; /* ลด margin-bottom เพื่อให้ PRODUCT OF THAILAND ขยับขึ้นมา */
+            font-size: 10rem; /* ขยายขนาดใหญ่สะใจ */
+            line-height: 0.8; /* บีบบรรทัดให้ชิดกัน */
+            font-weight: 900; /* ทำให้ตัวหนังสือหนาขึ้น */
+            letter-spacing: -2px; /* บีบตัวอักษรให้ดูแน่นขึ้น */
+            margin: 0 0 15px; 
             text-transform: uppercase;
         }
 
         /* ปรับแต่งส่วน PRODUCT OF THAILAND ให้เล็กลง */
         .product-origin {
             color: var(--primary-green);
-            font-size: 2.8rem; /* ขนาดที่เล็กลงกว่าหัวข้อหลัก */
+            font-size: 1.5rem; /* ลดขนาดลงตามที่ต้องการ */
             font-weight: 700;
-            margin-top: -15px; /* ขยับขึ้นไปชิดกับคำว่า WATER */
-            margin-bottom: 35px; /* ระยะห่างก่อนถึงปุ่ม */
+            margin-top: -10px; 
+            margin-bottom: 40px; /* ระยะห่างก่อนถึงปุ่ม */
             letter-spacing: 1px;
             text-transform: uppercase;
         }
@@ -145,13 +147,14 @@
         .btn-more {
             background: var(--accent-green);
             color: var(--white);
-            padding: 16px 45px;
+            font-size: 1.5rem; /* ขยายตัวอักษร 330 ml */
+            padding: 20px 60px; /* ขยายขนาดปุ่มให้สมดุลกับตัวหนังสือใหญ่ */
             border-radius: 50px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 12px;
-            font-weight: 600;
+            font-weight: 700; /* เพิ่มความหนาให้เด่นชัด */
             box-shadow: 0 8px 25px rgba(89, 128, 60, 0.3);
             transition: background 0.3s, transform 0.3s, scale 0.3s;
         }
@@ -214,9 +217,10 @@
             .header-container { padding: 20px 40px; }
             .brand-header { font-size: 1.4rem; }
             .nav-menu { gap: 20px; }
-            .hero-content h4 { font-size: 1.2rem; letter-spacing: 2px; }
-            .hero-content h1 { font-size: 4rem; }
-            .product-origin { font-size: 1.8rem; margin-top: -5px; } /* ปรับขนาดสำหรับ iPad */
+            .hero-content h4 { font-size: 1.5rem; letter-spacing: 2px; margin-top: 60px; }
+            .hero-content h1 { font-size: 6rem; line-height: 0.8; letter-spacing: -1px; }
+            .product-origin { font-size: 1.2rem; margin-top: -5px; margin-bottom: 30px; } 
+            .btn-more { font-size: 1.2rem; padding: 15px 40px; }
             .features-bar { margin: -40px 40px 30px; padding: 15px 20px; border-radius: 40px; }
         }
     </style>
