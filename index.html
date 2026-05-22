@@ -14,117 +14,184 @@
             --accent-green: #59803C;
             --gold: #A88F61;
             --white: #FFFFFF;
-            --text-gray: #666666;
+            --text-dark: #333333;
             --bg-light: #f8faf9;
-            --divider-color: #eeeeee;
+            --divider-color: #e0e0e0;
         }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
-        body { background-color: var(--bg-light); }
+        * { 
+            margin: 0; 
+            padding: 0; 
+            box-sizing: border-box; 
+            font-family: 'Prompt', sans-serif; 
+        }
 
-        /* --- HEADER --- */
+        body {
+            background-color: var(--bg-light);
+        }
+
+        /* HEADER & NAVIGATION */
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 15px 60px;
+            padding: 20px 60px;
             background: var(--white);
             position: relative;
             z-index: 100;
         }
 
-        .brand-section { display: flex; flex-direction: column; }
-        .brand-header { color: var(--gold); font-size: 1.4rem; font-weight: 700; letter-spacing: 0.5px; }
-        .partners-text { color: var(--gold); font-size: 0.7rem; letter-spacing: 2.5px; margin-bottom: 8px; }
-        
-        .cert-icons { display: flex; gap: 8px; align-items: center; }
-        .cert-icons img { height: 22px; filter: grayscale(20%); }
-
-        .nav-container { display: flex; align-items: center; gap: 30px; margin-left: auto; }
-        .nav-menu { display: flex; list-style: none; gap: 30px; }
-        .nav-menu li a {
-            text-decoration: none;
-            color: #333;
-            font-size: 0.85rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            transition: 0.3s;
+        .brand-header { 
+            color: var(--gold); 
+            font-size: 1.35rem; 
+            font-weight: 700; 
         }
 
-        /* Search Button Style (Ref: image_26850f.png) */
-        .search-circle {
-            width: 48px;
-            height: 48px;
-            background: #f5f5f5;
+        .partners-text { 
+            color: var(--gold); 
+            font-size: 0.75rem; 
+            letter-spacing: 3px; 
+            margin-bottom: 8px; 
+        }
+
+        .cert-icons { 
+            display: flex; 
+            gap: 10px; 
+        }
+
+        .cert-icons img { 
+            height: 25px; 
+            mix-blend-mode: multiply; 
+        }
+
+        .nav-section {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu li a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-size: 0.85rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .nav-menu li a:hover {
+            color: var(--accent-green);
+        }
+
+        /* Search Icon */
+        .search-container {
+            width: 45px;
+            height: 45px;
+            background: #f1f1f1;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
             color: var(--primary-green);
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             cursor: pointer;
-            transition: 0.3s;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
-        .search-circle:hover { background: #e0e0e0; }
 
-        /* --- HERO --- */
+        /* HERO SECTION */
         .hero {
             position: relative;
-            min-height: 550px;
-            background: url('images/fssc-22017.png') no-repeat center right;
+            min-height: 600px;
+            width: 100%;
+            background-image: url('images/fssc-22018.png'); 
             background-size: cover;
+            background-position: center right; 
+            background-repeat: no-repeat;
             display: flex;
             align-items: center;
-            padding: 0 10%;
+            padding: 0 8%;
         }
 
-        .hero-content { max-width: 500px; }
-        .hero-content h4 { color: var(--accent-green); font-size: 1.8rem; font-weight: 700; }
+        .hero-top-icon {
+            position: absolute;
+            top: 40px;
+            left: 8%;
+            width: 180px; 
+            mix-blend-mode: multiply;
+            z-index: 15;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 650px;
+        }
+
+        .hero-content h4 { 
+            color: var(--accent-green); 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+        }
+
         .hero-content h1 { 
             color: var(--primary-green); 
-            font-size: 5.5rem; 
+            font-size: 6rem; 
             line-height: 0.9; 
             font-weight: 800; 
-            margin: 10px 0 30px;
-            text-transform: uppercase;
+            margin: 0 0 35px; 
+            text-transform: capitalize;
         }
 
-        .btn-discover {
+        .btn-more {
             background: var(--accent-green);
             color: var(--white);
-            padding: 12px 35px;
+            padding: 14px 40px;
             border-radius: 50px;
             text-decoration: none;
             display: inline-flex;
             align-items: center;
-            gap: 15px;
+            gap: 10px;
             font-weight: 600;
-            transition: 0.3s;
+            box-shadow: 0 8px 20px rgba(89, 128, 60, 0.3);
+            transition: 0.3s ease;
+        }
+        
+        .btn-more:hover {
+            transform: translateY(-3px);
+            background: var(--primary-green);
         }
 
-        /* --- FEATURES BAR (Ref: image_27f5c4.png) --- */
+        /* FEATURES BAR */
         .features-bar {
             background: var(--white);
-            margin: -50px 80px 40px;
-            padding: 25px 10px;
-            border-radius: 40px;
+            margin: -60px 80px 40px;
+            padding: 25px 15px;
+            border-radius: 60px; /* ขอบมนมากตามรูป */
             display: flex;
-            align-items: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            justify-content: space-between;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.06);
             position: relative;
             z-index: 20;
         }
 
-        .feature-item {
+        .feature-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 12px; 
             flex: 1;
-            display: flex;
-            align-items: center;
             justify-content: center;
-            gap: 12px;
             position: relative;
         }
 
-        /* เส้นคั่นระหว่างไอคอน */
+        /* เส้นคั่นระหว่างไอเทม */
         .feature-item:not(:last-child)::after {
             content: "";
             position: absolute;
@@ -134,67 +201,77 @@
             background-color: var(--divider-color);
         }
 
-        .f-icon {
-            width: 55px;
-            height: 55px;
-            background: var(--accent-green);
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 1.4rem;
+        .f-icon { 
+            width: 55px; 
+            height: 55px; 
+            background: var(--accent-green); 
+            border-radius: 50%; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            color: var(--white); 
+            font-size: 1.2rem;
             flex-shrink: 0;
         }
 
-        .f-text b { display: block; font-size: 1.1rem; color: #222; line-height: 1.1; }
-        .f-text span { font-size: 0.7rem; color: var(--text-gray); display: block; }
+        .f-text b { 
+            display: block; 
+            font-size: 1.1rem; 
+            color: var(--primary-green); 
+            line-height: 1.1; 
+        }
 
-        @media (max-width: 1024px) {
-            .nav-menu, .search-circle { display: none; }
-            .features-bar { margin: 20px; flex-wrap: wrap; border-radius: 20px; }
-            .feature-item { flex: none; width: 50%; margin: 15px 0; }
+        .f-text span {
+            font-size: 0.75rem;
+            color: #777777;
+            display: block;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 1100px) {
+            .nav-menu { display: none; } 
+            .header-container { padding: 20px 30px; }
+            .features-bar { margin: 20px; border-radius: 20px; flex-wrap: wrap; }
             .feature-item::after { display: none; }
+            .feature-item { width: 50%; flex: none; margin: 15px 0; }
         }
     </style>
 </head>
 <body>
 
     <header class="header-container">
-        <div class="brand-section">
+        <div class="brand">
             <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
             <p class="partners-text">PARTNERS IN PURITY.</p>
             <div class="cert-icons">
-                <img src="images/cert1.png" alt="FSSC">
-                <img src="images/cert2.png" alt="Halal">
-                <img src="images/cert3.png" alt="USDA">
-                <img src="images/cert4.png" alt="Eco">
-                <img src="images/cert5.png" alt="Quality">
+                <img src="images/fssc-22000.png" alt="FSSC 22000">
+                <img src="images/fssc-22001.png" alt="Halal">
+                <img src="images/fssc-22002.png" alt="USDA Organic">
+                <img src="images/fssc-22014.png" alt="Eco">
+                <img src="images/fssc-22004.png" alt="Quality">
             </div>
         </div>
 
-        <nav class="nav-container">
+        <div class="nav-section">
             <ul class="nav-menu">
-                <li><a href="#">Overview</a></li>
-                <li><a href="#">Production</a></li>
-                <li><a href="#">Certification</a></li>
-                <li><a href="#">Contact</a></li>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#production">Production</a></li>
+                <li><a href="#certification">Certification</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
-            <div class="search-circle">
+            <div class="search-container">
                 <i class="fas fa-search"></i>
             </div>
-        </nav>
+        </div>
     </header>
 
     <section class="hero">
+        <img src="images/fssc-22015.png" alt="Eli Logo" class="hero-top-icon">
         <div class="hero-content">
             <h4>100% NATURAL</h4>
-            <h1>COCONUT<br>WATER</h1>
-            <p style="color: #666; margin-bottom: 25px; font-size: 0.9rem;">
-                Naturally refreshing. Packed with goodness.<br>For a healthier you, every day.
-            </p>
-            <a href="#" class="btn-discover">
-                DISCOVER MORE <i class="fas fa-arrow-right"></i>
+            <h1>Coconut<br>Water</h1>
+            <a href="#discover" class="btn-more">
+                DISCOVER MORE &nbsp; <i class="fas fa-arrow-right"></i>
             </a>
         </div>
     </section>
@@ -204,22 +281,18 @@
             <div class="f-icon"><i class="fas fa-leaf"></i></div>
             <div class="f-text"><b>100%</b><span>Natural Coconut Water</span></div>
         </div>
-        
         <div class="feature-item">
-            <div class="f-icon"><i class="fas fa-cubes-stacked" style="font-size: 1.1rem; transform: rotate(-10deg);"></i></div>
+            <div class="f-icon"><i class="fas fa-cubes-stacked"></i></div>
             <div class="f-text"><b>No</b><span>Sugar Added</span></div>
         </div>
-
         <div class="feature-item">
-            <div class="f-icon"><i class="fas fa-vial-slash" style="font-size: 1.2rem;"></i></div>
+            <div class="f-icon"><i class="fas fa-vial"></i></div>
             <div class="f-text"><b>No</b><span>Artificial Flavor</span></div>
         </div>
-
         <div class="feature-item">
             <div class="f-icon"><i class="fas fa-eye-dropper"></i></div>
             <div class="f-text"><b>No</b><span>Coloring</span></div>
         </div>
-
         <div class="feature-item">
             <div class="f-icon"><i class="fas fa-shield-halved"></i></div>
             <div class="f-text"><b>No</b><span>Preservatives</span></div>
