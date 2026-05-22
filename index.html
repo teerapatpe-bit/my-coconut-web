@@ -48,7 +48,6 @@
             letter-spacing: 2px;
         }
 
-        /* โลโก้การรับรองอยู่ที่เดิม */
         .cert-row-original {
             display: flex;
             gap: 12px;
@@ -60,19 +59,21 @@
             opacity: 0.9;
         }
 
+        /* --- Pill Navigation Style --- */
         .nav-container {
             border: 2px solid #000;
             border-radius: 50px;
             padding: 8px 30px;
             display: flex;
             gap: 20px;
+            background: white; /* ใส่พื้นหลังขาวให้อ่านง่ายขึ้น */
         }
 
         .nav-container a {
             text-decoration: none;
             color: #000;
             font-weight: 800;
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             text-transform: uppercase;
         }
 
@@ -86,9 +87,9 @@
             align-items: center;
         }
 
-        /* --- Eli Info Card (ไม่มีโลโก้ Cert) --- */
+        /* --- Eli Info Card --- */
         .info-side {
-            width: 320px;
+            width: 340px;
         }
 
         .eli-badge {
@@ -108,6 +109,9 @@
             padding: 30px 25px;
             border-radius: 0 25px 25px 25px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .feature-item {
@@ -116,8 +120,7 @@
             align-items: center;
             gap: 12px;
             font-size: 0.85rem;
-            font-weight: 700; /* ปรับตัวหนาตามภาพ */
-            margin-bottom: 15px;
+            font-weight: 700;
             color: #2D3436;
         }
 
@@ -133,7 +136,26 @@
             font-size: 0.6rem;
         }
 
-        /* --- Product Showcase (ขยายพื้นที่ตามต้องการ) --- */
+        /* ปุ่ม present ภายในกล่อง Eli */
+        .present-btn {
+            border: 2px solid #000;
+            border-radius: 50px;
+            padding: 10px;
+            text-align: center;
+            text-decoration: none;
+            color: #000;
+            font-weight: 800;
+            font-size: 0.9rem;
+            margin-top: 10px;
+            transition: all 0.3s;
+        }
+
+        .present-btn:hover {
+            background: #000;
+            color: #fff;
+        }
+
+        /* --- Product Showcase --- */
         .product-display {
             flex: 1;
             background: rgba(255, 255, 255, 0.4);
@@ -144,18 +166,6 @@
             justify-content: center;
             gap: 50px;
             align-items: center;
-        }
-
-        .product-text {
-            text-align: left;
-        }
-
-        .export-label {
-            color: #A0AEC0;
-            font-weight: 700;
-            font-size: 0.75rem;
-            letter-spacing: 2px;
-            margin-bottom: 10px;
         }
 
         .shelf-life {
@@ -199,7 +209,6 @@
                 <img src="images/halal.png" alt="Halal">
                 <img src="images/usda.png" alt="USDA Organic">
                 <img src="images/kosher.png" alt="Kosher">
-                <img src="images/taste-award.png" alt="Taste Award">
             </div>
         </div>
         
@@ -222,12 +231,14 @@
                     <li class="feature-item">No Coloring</li>
                     <li class="feature-item">No Preservatives</li>
                 </ul>
+                
+                <a href="#" class="present-btn">present</a>
             </div>
         </div>
 
         <div class="product-display">
             <div class="product-text">
-                <p class="export-label">PREMIUM EXPORT QUALITY</p>
+                <p style="color:#A0AEC0; font-weight:700; font-size:0.75rem; letter-spacing:2px;">PREMIUM EXPORT QUALITY</p>
                 <h2 class="shelf-life">18 months <span>Shelf-life at room temp.</span></h2>
                 <div class="volume">330ml</div>
                 <div class="stars">★★★★★</div>
