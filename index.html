@@ -19,9 +19,6 @@
             --divider-color: #eeeeee;
         }
 
-        /* เพิ่มความนุ่มนวลเวลาเลื่อนหน้า */
-        html { scroll-behavior: smooth; }
-
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
         body { background-color: var(--bg-light); overflow-x: hidden; }
 
@@ -90,36 +87,20 @@
             position: relative;
             min-height: 800px;
             width: 100%;
-            background-image: url('images/fssc-22013.png'); 
+            background-image: url('images/fssc-22018.png'); 
             background-size: cover;
             background-position: center right; 
             display: flex;
             align-items: center;
             padding: 0 8%;
-            
-            /* ปรับให้พื้นหลังชัดเจนที่สุด */
-            image-rendering: -webkit-optimize-contrast;
-            filter: none !important;
-            opacity: 1 !important;
         }
 
         .hero-top-icon {
             position: absolute;
-            top: 40px;
+            top: 15px;
             left: 8%;
             width: 240px;
             z-index: 15;
-            background-color: transparent !important;
-            mix-blend-mode: multiply; 
-        }
-
-        .hero-content h4 {
-            color: var(--accent-green);
-            font-size: 1.6rem; 
-            font-weight: 700;
-            letter-spacing: 3px;
-            margin-bottom: 10px;
-            text-transform: uppercase;
         }
 
         .hero-content h1 { 
@@ -142,28 +123,23 @@
             gap: 12px;
             font-weight: 600;
             box-shadow: 0 8px 25px rgba(89, 128, 60, 0.3);
-            transition: background 0.3s, transform 0.3s, scale 0.3s;
-        }
-
-        .btn-more:hover {
-            transform: scale(1.05);
-            background: var(--primary-green);
+            transition: background 0.3s, transform 0.3s;
         }
 
         /* --- SHELF LIFE BADGE --- */
         .shelf-life-badge {
             position: absolute;
-            top: 15%; 
-            left: 40%; 
+            top: 15%;
+            left:55%; 
             transform: translateY(-50%);
-            width: 150px; 
-            height: 150px;
+            width: 140px;
+            height: 140px;
             border: 2.5px solid var(--accent-green); 
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: rgba(255, 255, 255, 0.8); 
+            background-color: rgba(255, 255, 255, 0.9); 
             z-index: 12;
             box-shadow: 0 10px 20px rgba(0,0,0,0.05);
         }
@@ -221,15 +197,36 @@
         .f-text b { display: block; font-size: 1.1rem; color: var(--primary-green); line-height: 1.1; font-weight: 700; }
         .f-text span { font-size: 0.75rem; color: #666; display: block; white-space: nowrap; }
 
-        /* --- RESPONSIVE --- */
+        /* --- IPAD & RESPONSIVE --- */
         @media (max-width: 1024px) {
             .header-container { padding: 20px 40px; }
             .brand-header { font-size: 1.4rem; }
             .nav-menu { gap: 20px; }
-            .hero-content h4 { font-size: 1.2rem; letter-spacing: 2px; }
+            
             .hero-content h1 { font-size: 4rem; }
-            .shelf-life-badge { top: 15% !important; left: 62% !important; width: 130px !important; height: 130px !important; }
-            .features-bar { margin: -40px 40px 30px; padding: 15px 20px; border-radius: 40px; }
+            
+            .shelf-life-badge {
+                top: 15% !important; 
+                left: 62% !important;
+                width: 115px;
+                height: 115px;
+            }
+            .badge-content .number { font-size: 2.6rem; }
+
+            .features-bar {
+                margin: -40px 40px 30px;
+                padding: 15px 20px;
+                border-radius: 40px;
+            }
+            .f-icon-circle { width: 45px; height: 45px; font-size: 1rem; }
+            .f-text b { font-size: 0.95rem; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu { display: none; }
+            .features-bar { flex-wrap: wrap; border-radius: 20px; margin: 20px; padding: 20px; }
+            .feature-item { width: 50%; flex: none; margin: 10px 0; }
+            .feature-item:not(:last-child)::after { display: none; }
         }
     </style>
 </head>
@@ -251,7 +248,7 @@
         <div class="nav-section">
             <nav>
                 <ul class="nav-menu">
-                    <li><a href="overview.html">OVERVIEW</a></li>
+                    <li><a href="#overview">OVERVIEW</a></li>
                     <li><a href="#production">PRODUCTION</a></li>
                     <li><a href="#certification">CERTIFICATION</a></li>
                     <li><a href="#contact">CONTACT</a></li>
@@ -266,7 +263,7 @@
         <div class="hero-content">
             <h4>100% NATURAL</h4>
             <h1>COCONUT<br>WATER</h1>
-            <a href="overview.html" class="btn-more">
+            <a href="#discover" class="btn-more">
                 330 ml <i class="fas fa-arrow-right"></i>
             </a>
         </div>
