@@ -19,61 +19,62 @@
             background: linear-gradient(rgba(245, 247, 250, 0.94), rgba(245, 247, 250, 0.94)), 
                         url('images/fssc-22007.png') no-repeat center center fixed;
             background-size: cover;
-            color: #333;
             min-height: 100vh;
         }
 
-        /* --- Header Section --- */
+        /* --- ปรับปรุงส่วน Header ให้โลโก้เด่นขึ้น --- */
         .header {
             width: 100%;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 40px 5% 10px;
+            padding: 50px 5% 20px;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start; /* ปรับให้ชิดบนเพื่อรองรับสโลแกน */
+            align-items: flex-start;
         }
 
         .brand-group {
             display: flex;
             flex-direction: column;
-            gap: 5px;
         }
 
-        /* ปรับขนาดชื่อบริษัทให้เล็กลงแต่ดูพรีเมียม */
         .brand-title {
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.8rem; /* ลดขนาดลงจากเดิม */
-            font-weight: 500;   /* ความหนาระดับกลาง ดูสะอาดตา */
+            font-size: 1.8rem; 
+            font-weight: 500;   
             letter-spacing: 3px;
             background: var(--gold-gradient);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             text-transform: uppercase;
-            line-height: 1.2;
+            line-height: 1.1;
         }
 
-        /* สโลแกนใตชื่อบริษัท */
         .slogan {
-            font-size: 0.75rem;
+            font-size: 0.7rem;
             font-weight: 700;
             color: #7F8C8D;
-            letter-spacing: 4px;
+            letter-spacing: 5px;
             text-transform: uppercase;
-            margin-bottom: 15px;
+            margin: 8px 0 20px 0; /* เพิ่มระยะห่างก่อนถึงโลโก้ */
         }
 
-        /* จัดวางกลุ่มโลโก้ใต้สโลแกน */
+        /* --- ปรับขนาดโลโก้มาตรฐานให้เหมาะสม (ขยายขนาด) --- */
         .cert-logos-top {
             display: flex;
-            gap: 12px;
+            gap: 18px; /* เพิ่มระยะห่างระหว่างโลโก้ */
             align-items: center;
         }
 
         .cert-logos-top img {
-            height: 24px; /* ขนาดกะทัดรัด */
-            filter: grayscale(20%) contrast(1.1);
-            opacity: 0.9;
+            height: 32px; /* ขยายจาก 24px เป็น 32px เพื่อความชัดเจน */
+            width: auto;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.05));
+            transition: transform 0.3s ease;
+        }
+
+        .cert-logos-top img:hover {
+            transform: scale(1.1);
         }
 
         .nav-links {
@@ -94,27 +95,21 @@
         .main-content {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 20px 5% 80px;
+            padding: 40px 5%;
             display: grid;
             grid-template-columns: 400px 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
-        }
-
-        .info-card-group {
-            display: flex;
-            flex-direction: column;
         }
 
         .eli-label {
             background: #000;
             color: #fff;
-            padding: 10px 30px;
+            padding: 12px 35px;
             border-radius: 15px 15px 0 0;
             display: inline-block;
-            width: fit-content;
             font-family: 'Montserrat', sans-serif;
-            font-size: 1.6rem;
+            font-size: 1.8rem;
             font-weight: 900;
         }
 
@@ -124,71 +119,64 @@
             padding: 35px;
             border-radius: 0 25px 25px 25px;
             border: 1px solid #fff;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
         }
 
         .feature-item {
             display: flex;
             align-items: center;
             gap: 12px;
-            font-size: 0.95rem;
+            font-size: 1rem;
             font-weight: 600;
-            margin-bottom: 15px;
-            color: #444;
+            margin-bottom: 18px;
+            color: #2D3436;
             list-style: none;
         }
 
         .feature-item::before {
             content: '✓';
-            width: 20px;
-            height: 20px;
+            width: 22px;
+            height: 22px;
             background: #27AE60;
             color: white;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             font-weight: 900;
         }
 
-        /* --- Product Display --- */
-        .glass-container {
-            background: rgba(255, 255, 255, 0.4);
+        /* --- Product Showcase --- */
+        .product-card {
+            background: rgba(255, 255, 255, 0.45);
             backdrop-filter: blur(30px);
             border-radius: 50px;
-            padding: 50px;
-            border: 1px solid rgba(255, 255, 255, 0.5);
+            padding: 60px;
+            border: 1px solid rgba(255, 255, 255, 0.6);
             display: flex;
             justify-content: space-between;
             align-items: center;
-            box-shadow: 0 25px 60px rgba(0,0,0,0.05);
         }
 
-        .text-side h2 {
-            font-size: 3.5rem;
+        .text-content h2 {
+            font-size: 3.8rem;
             color: var(--brand-blue);
             font-weight: 800;
             line-height: 1;
         }
 
-        .text-side .subtitle {
-            font-size: 1.4rem;
-            color: #7F8C8D;
-            margin-top: 5px;
-            display: block;
-        }
-
-        .text-side .size {
-            font-size: 4rem;
+        .text-content .volume {
+            font-size: 4.5rem;
             font-weight: 800;
-            margin: 20px 0 10px;
+            margin: 20px 0;
+            color: #111;
         }
 
-        .image-side img {
-            width: 110%;
-            max-width: 450px;
-            filter: drop-shadow(20px 30px 50px rgba(0,0,0,0.12));
+        .bottle-img img {
+            width: 120%;
+            max-width: 480px;
+            filter: drop-shadow(25px 35px 60px rgba(0,0,0,0.15));
             transform: rotate(3deg);
         }
     </style>
@@ -200,11 +188,11 @@
             <h1 class="brand-title">EVER GOOD PARTNERS CO.,LTD.</h1>
             <p class="slogan">PARTNERS IN PURITY.</p>
             <div class="cert-logos-top">
-                <img src="images/fssc-22000.png" alt="FSSC">
-                <img src="images/fssc-22001.png" alt="Halal">
-                <img src="images/fssc-22002.png" alt="USDA">
-                <img src="images/fssc-22003.png" alt="Kosher">
-                <img src="images/fssc-22004.png" alt="Superior Taste">
+                <img src="images/fssc-22000.png" alt="FSSC 22000">
+                <img src="images/halal.png" alt="Halal Certified">
+                <img src="images/usda.png" alt="USDA Organic">
+                <img src="images/kosher.png" alt="Kosher Certified">
+                <img src="images/taste.png" alt="Superior Taste Award">
             </div>
         </div>
         <nav class="nav-links">
@@ -216,7 +204,7 @@
     </header>
 
     <main class="main-content">
-        <div class="info-card-group">
+        <div class="info-side">
             <div class="eli-label">Eli</div>
             <div class="info-box">
                 <ul>
@@ -229,15 +217,15 @@
             </div>
         </div>
 
-        <div class="glass-container">
-            <div class="text-side">
-                <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: #BDC3C7; margin-bottom: 10px; font-size: 0.75rem;">Premium Export Quality</p>
-                <h2>18 months <span class="subtitle">Shelf-life at room temp.</span></h2>
-                <div class="size">330ml</div>
-                <div style="color: #F1C40F; font-size: 1.3rem;">★★★★★</div>
+        <div class="product-card">
+            <div class="text-content">
+                <p style="text-transform: uppercase; letter-spacing: 2px; font-weight: 700; color: #A0AEC0; margin-bottom: 10px; font-size: 0.8rem;">Premium Quality</p>
+                <h2>18 months <span style="display:block; font-size:1.6rem; color:#718096; font-weight:400;">@ room temp.</span></h2>
+                <div class="volume">330ml</div>
+                <div style="color: #F1C40F; font-size: 1.4rem;">★★★★★</div>
             </div>
-            <div class="image-side">
-                <img src="images/eli-pouch.png" alt="Eli Coconut Water">
+            <div class="bottle-img">
+                <img src="images/eli-pouch.png" alt="Eli Coconut Water Product">
             </div>
         </div>
     </main>
