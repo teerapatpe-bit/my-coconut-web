@@ -5,13 +5,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Overview - Ever Good Partners</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
         :root {
             --primary-green: #2B4E2B;
-            --text-dark: #333333;
+            --accent-green: #59803C;
+            --gold: #A88F61;
+            --text-dark: #222222;
             --text-gray: #666666;
             --gold-title: #8C7A6B;
             --bg-transparent: rgba(255, 255, 255, 0.85);
@@ -33,61 +35,68 @@
             background-color: #fcfdfc;
         }
 
-        /* --- Header Section --- */
-        header {
+        /* --- HEADER (อิงขนาดและสไตล์ตามหน้า Index เป๊ะๆ) --- */
+        .header-container {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
-            padding: 30px 5%;
-            background: rgba(255, 255, 255, 0.3);
+            align-items: center;
+            padding: 30px 60px;
+            background: #FFFFFF;
+            position: relative;
+            z-index: 100;
+            border-bottom: 1px solid #eeeeee;
         }
 
-        .brand-info h1 {
-            font-size: 1.3rem;
-            color: #555;
-            font-weight: 500;
-            letter-spacing: 0.5px;
+        .brand-header { 
+            color: var(--gold); 
+            font-size: 1.8rem; 
+            font-weight: 700; 
+            line-height: 1.1; 
         }
 
-        .brand-info p {
-            font-size: 0.8rem;
-            color: #888;
-            letter-spacing: 1px;
-            margin-bottom: 15px;
+        .partners-text { 
+            color: var(--gold); 
+            font-size: 0.85rem; 
+            letter-spacing: 4px; 
+            margin-bottom: 15px; 
         }
 
-        .cert-icons {
-            display: flex;
-            gap: 10px;
+        .cert-icons { 
+            display: flex; 
+            gap: 15px; 
+            align-items: center; 
         }
 
-        .cert-icons img {
-            height: 28px;
+        .cert-icons img { 
+            height: 40px; 
             mix-blend-mode: multiply; 
         }
 
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 25px;
-            margin-top: 5px;
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            gap: 50px; 
         }
 
-        nav ul li a {
-            text-decoration: none;
-            color: #111;
+        .nav-menu li a {
+            text-decoration: none; 
+            color: var(--text-dark); 
             font-size: 0.85rem;
-            font-weight: 600;
-            transition: 0.3s;
+            font-weight: 600; 
+            letter-spacing: 1px; 
             text-transform: uppercase;
+            transition: color 0.3s;
         }
 
-        nav ul li a:hover { color: var(--primary-green); }
-        
-        /* สไตล์สำหรับเมนูหน้าที่เปิดอยู่ */
-        .nav-active {
-            color: var(--primary-green) !important;
-            border-bottom: 2px solid var(--primary-green);
+        .nav-menu li a:hover, 
+        .nav-menu li a.nav-active { 
+            color: var(--accent-green); 
+        }
+
+        /* สไตล์สำหรับเส้นใต้เมนูหน้าที่เปิดอยู่ */
+        .nav-menu li a.nav-active {
+            border-bottom: 2px solid var(--accent-green);
+            padding-bottom: 5px;
         }
 
         /* --- Main Content --- */
@@ -229,7 +238,7 @@
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
-        /* --- Responsive --- */
+        /* --- Responsive Design --- */
         @media (max-width: 1024px) {
             .overview-grid { grid-template-columns: 1fr 1fr; }
             .col-product { order: -1; grid-column: 1 / -1; }
@@ -237,18 +246,18 @@
         
         @media (max-width: 768px) {
             .overview-grid { grid-template-columns: 1fr; }
-            header { flex-direction: column; align-items: center; text-align: center; gap: 20px; }
-            nav ul { flex-wrap: wrap; justify-content: center; gap: 15px; }
+            .header-container { flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 20px; }
+            .nav-menu { flex-wrap: wrap; justify-content: center; gap: 15px; }
             .section-title { font-size: 2.5rem; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="brand-info">
-            <h1>EVER GOOD PARTNERS CO., LTD.</h1>
-            <p>PARTNERS IN PURITY.</p>
+    <header class="header-container">
+        <div class="brand">
+            <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
+            <p class="partners-text">PARTNERS IN PURITY.</p>
             <div class="cert-icons">
                 <img src="images/fssc-22000.png" alt="FSSC 22000">
                 <img src="images/fssc-22001.png" alt="Halal">
@@ -257,8 +266,9 @@
                 <img src="images/fssc-22004.png" alt="Superior Taste Award">
             </div>
         </div>
-        <nav>
-            <ul>
+
+        <nav class="nav-section">
+            <ul class="nav-menu">
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="overview.html" class="nav-active">OVERVIEW</a></li>
                 <li><a href="production.html">PRODUCTION</a></li>
