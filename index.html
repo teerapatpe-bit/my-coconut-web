@@ -62,7 +62,6 @@
 
         .cert-row img { height: 28px; opacity: 0.9; }
 
-        /* แถบเมนูทรงแคปซูลหลัก */
         .nav-pill {
             border: 2px solid #000;
             border-radius: 50px;
@@ -91,7 +90,6 @@
             align-items: center;
         }
 
-        /* --- Eli Info Card (ส่วนที่ปรับแต่งใหม่) --- */
         .info-side { 
             width: 340px; 
         }
@@ -169,13 +167,63 @@
             background: var(--glass-bg);
             backdrop-filter: blur(20px);
             border-radius: 40px;
-            padding: 60px;
+            padding: 40px 60px 60px; /* ปรับ Padding บนเล็กน้อยเพื่อรองรับช่องค้นหา */
             display: flex;
+            flex-wrap: wrap; /* เพื่อให้ Search Box อยู่ด้านบนสุด */
             justify-content: center;
-            gap: 50px;
             align-items: center;
             border: 1px solid rgba(255,255,255,0.5);
+            position: relative;
         }
+
+        /* --- ส่วนกล่องค้นหาที่เพิ่มใหม่ --- */
+        .search-container {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        .search-box {
+            width: 100%;
+            max-width: 450px;
+            background: #fff;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 12px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+        }
+
+        .search-box span {
+            color: #2D3748;
+            font-weight: 700;
+            font-size: 1.1rem;
+        }
+
+        .search-icon {
+            width: 24px;
+            height: 24px;
+            background: #3182CE;
+            border-radius: 6px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .search-icon::after {
+            content: '';
+            width: 8px;
+            height: 8px;
+            border: 2px solid #fff;
+            border-radius: 50%;
+        }
+
+        /* --- จบส่วนกล่องค้นหา --- */
+
+        .product-text { flex: 1; }
 
         .export-label {
             color: var(--gold-solid);
@@ -208,8 +256,10 @@
 
         .stars { color: #F1C40F; font-size: 1.3rem; }
 
+        .bottle-img { flex: 1; text-align: center; }
+
         .bottle-img img {
-            max-width: 420px;
+            max-width: 380px;
             width: 100%;
             filter: drop-shadow(20px 25px 40px rgba(0,0,0,0.1));
             transform: rotate(2deg);
@@ -241,9 +291,8 @@
 
     <main class="main-content">
         <div class="info-side">
-           
             <div class="feature-box">
-                 <a href="#" class="present-pill">present</a>
+                 <a href="#" class="present-pill">Eli</a>
                 <ul class="feature-list">
                     <li class="feature-item">100% Natural Coconut water</li>
                     <li class="feature-item">No Sugar Added</li>
@@ -251,11 +300,17 @@
                     <li class="feature-item">No Coloring</li>
                     <li class="feature-item">No Preservatives</li>
                 </ul>
-            
             </div>
         </div>
 
         <div class="product-display">
+            <div class="search-container">
+                <div class="search-box">
+                    <span>coconut water</span>
+                    <div class="search-icon"></div>
+                </div>
+            </div>
+
             <div class="product-text">
                 <p class="export-label">PREMIUM EXPORT QUALITY</p>
                 <h2 class="shelf-life">18 months <span>Shelf-life at room temp.</span></h2>
