@@ -3,6 +3,249 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ever Good Partners - Eli Coconut Water</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --brand-gold: #C3A358;
+            --brand-navy: #2b5b84;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-image: url('images/fssc-22007.png'); /* พื้นหลังใบไม้ */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            min-height: 100vh;
+        }
+
+        /* --- Header: ฟอนต์ผอมสวย --- */
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 40px 60px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+        }
+
+        .brand-header {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 28px;
+            font-weight: 400; /* ปรับให้ผอมบางดูหรู */
+            color: var(--brand-gold);
+            letter-spacing: 2px;
+            line-height: 1.1;
+        }
+
+        .partners-text {
+            font-size: 12px;
+            font-weight: 500;
+            color: #888;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+        }
+
+        .cert-icons img {
+            height: 22px;
+            width: auto;
+            margin-right: 12px;
+            margin-top: 10px;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            border: 1px solid #333;
+            padding: 10px 30px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        nav ul li a { text-decoration: none; color: #000; font-weight: 600; font-size: 12px; }
+
+        /* --- Main Layout --- */
+        main {
+            position: relative;
+            max-width: 1300px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            min-height: 600px;
+        }
+
+        /* กล่องหลัก: โปร่งแสงเห็นพื้นหลัง */
+        .product-card {
+            background: rgba(255, 255, 255, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            border-radius: 50px;
+            width: 82%;
+            min-height: 520px;
+            padding: 40px 40px 40px 140px; /* เว้นที่ให้ Eli */
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        /* กล่อง Eli: ขยับเข้าใกล้ข้อความ 18 months */
+        .eli-box {
+            position: absolute;
+            left: 60px; 
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.35);
+            backdrop-filter: blur(25px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            width: 290px;
+            padding: 50px 30px 40px;
+            border-radius: 35px;
+            z-index: 30;
+        }
+
+        .eli-tag {
+            background: #000;
+            color: #fff;
+            padding: 5px 20px;
+            border-radius: 10px;
+            font-size: 20px;
+            font-weight: 800;
+            position: absolute;
+            top: -15px;
+            left: 30px;
+        }
+
+        .feature { display: flex; align-items: center; gap: 10px; margin-bottom: 12px; font-size: 13px; font-weight: 600; }
+        .check { width: 20px; height: 20px; background: #27ae60; color: #fff; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 10px; }
+
+        /* --- Content & Image Overlap --- */
+        .content-area {
+            display: flex;
+            align-items: center;
+            height: 100%;
+        }
+
+        .text-info { flex: 1; z-index: 10; }
+        .text-info h4 { color: #7da58a; font-size: 12px; letter-spacing: 2px; margin-bottom: 8px; }
+        
+        /* 18 months: บรรทัดเดียว */
+        .text-info h1 { 
+            font-size: 60px; 
+            color: var(--brand-navy); 
+            line-height: 1; 
+            white-space: nowrap; 
+            margin-bottom: 5px;
+        }
+        
+        .text-info p { font-size: 20px; color: #8896a6; margin-bottom: 20px; }
+        .text-info h2 { font-size: 70px; color: #1e293b; line-height: 1; margin-bottom: 15px; }
+        .stars { color: #fbbf24; display: flex; gap: 5px; }
+
+        /* ส่วนรูปภาพสินค้าที่วางซ้อนทับ */
+        .image-container {
+            flex: 1.2;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .product-img {
+            width: 110%; /* ขยายให้ใหญ่ขึ้นเพื่อความเด่น */
+            height: auto;
+            z-index: 20;
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
+            transform: translateX(-20px); /* ขยับให้ทับข้อความเล็กน้อยตามแบบ */
+        }
+
+        .search-mini {
+            background: #fff;
+            width: 350px;
+            margin: 0 auto 40px;
+            padding: 10px 20px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .search-mini input { border: none; outline: none; font-weight: 600; width: 80%; }
+        .search-mini button { background: #3b82f6; color: #fff; border: none; width: 30px; height: 30px; border-radius: 8px; }
+
+    </style>
+</head>
+<body>
+
+    <header class="header-container">
+        <div class="brand">
+            <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
+            <p class="partners-text">PARTNERS IN PURITY.</p>
+            <div class="cert-icons">
+                <img src="images/fssc-22000.png" alt="FSSC">
+                <img src="images/fssc-22001.png" alt="Halal">
+                <img src="images/fssc-22002.png" alt="USDA">
+                <img src="images/fssc-22003.png" alt="Kosher">
+                 <img src="images/fssc-22004.png" alt="Kosher">
+            </div>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#">OVERVIEW</a></li>
+                <li><a href="#">PRODUCTION</a></li>
+                <li><a href="#">CERTIFICATION</a></li>
+                <li><a href="#">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="eli-box">
+            <div class="eli-tag">Eli</div>
+            <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> 100% Natural Coconut water</div>
+            <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> No Sugar Added</div>
+            <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> No Artificial Flavor</div>
+            <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> No Coloring</div>
+            <div class="feature"><div class="check"><i class="fa-solid fa-check"></i></div> No Preservatives</div>
+        </div>
+
+        <div class="product-card">
+            <div class="search-mini">
+                <input type="text" value="coconut water" readonly>
+                <button><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+
+            <div class="content-area">
+                <div class="text-info">
+                    <h4>Premium Export Quality</h4>
+                    <h1>18 months</h1>
+                    <p>Shelf-life at room temp</p>
+                    <h2>330ml</h2>
+                    <div class="stars">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                </div>
+
+                <div class="image-container">
+                    <img src="images/fssc-22010.png" alt="Eli Coconut Product" class="product-img">
+                </div>
+            </div>
+        </div>
+    </main>
+
+</body>
+</html><!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Ever Good Partners - Professional Product Page</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700;800&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
