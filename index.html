@@ -121,16 +121,18 @@
             text-transform: uppercase;
             margin-left: 5px;
         }
+.hero-content h4 {
+    color: var(--accent-green);
+    font-size: 2.5rem; 
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    margin-left: 5px;
 
-        .hero-content h1 { 
-            color: var(--primary-green); 
-            font-size: 6.5rem; 
-            line-height: 0.9; 
-            font-weight: 800; 
-            margin: 0 0 10px; /* ลด margin-bottom เพื่อให้ PRODUCT OF THAILAND ขยับขึ้นมา */
-            text-transform: uppercase;
-        }
-
+    /* --- ปรับตรงนี้เพื่อเลื่อนลง --- */
+    margin-top: 120px;  /* ยิ่งตัวเลขเยอะ ข้อความจะยิ่งเลื่อนลงมาข้างล่าง */
+    margin-bottom: 5px; /* ปรับให้ชิดกับคำว่า COCONUT WATER มากขึ้น */
+}
         /* ปรับแต่งส่วน PRODUCT OF THAILAND ให้เล็กลง */
         .product-origin {
             color: var(--primary-green);
@@ -215,24 +217,18 @@
             .header-container { padding: 20px 40px; }
             .brand-header { font-size: 1.4rem; }
             .nav-menu { gap: 20px; }
-.hero-content h4 {
-    color: var(--accent-green);
-    font-size: 2.5rem; 
-    font-weight: 700;
-    letter-spacing: 3px;
+            .hero-content h4 { font-size: 1.2rem; letter-spacing: 2px; }
+.hero-content h1 { 
+    color: var(--primary-green); 
+    
+    /* --- ปรับขนาดตรงนี้ --- */
+    font-size: 8rem;      /* เดิม 6.5rem ลองขยับเป็น 8rem หรือ 9rem ดูครับ */
+    
+    line-height: 0.85;    /* ถ้าตัวหนังสือใหญ่แล้วบรรทัดห่างไป ให้ลดเลขนี้ลง (เช่น 0.8) */
+    font-weight: 800; 
+    margin: 0 0 20px;     /* ระยะห่างด้านล่างก่อนถึง PRODUCT OF THAILAND */
     text-transform: uppercase;
-    margin-left: 5px;
-
-    /* --- ปรับตรงนี้เพื่อเลื่อนลง --- */
-    margin-top: 120px;  /* ยิ่งตัวเลขเยอะ ข้อความจะยิ่งเลื่อนลงมาข้างล่าง */
-    margin-bottom: 15px; /* ปรับให้ชิดกับคำว่า COCONUT WATER มากขึ้น */
-}
-
-    /* --- เพิ่ม/แก้ไข บรรทัดนี้เพื่อปรับระยะลงมา --- */
-    margin-top: 60px;   /* เพิ่มตัวเลขเพื่อดันข้อความลงข้างล่าง */
-    margin-bottom: 30px; /* ระยะห่างจากคำว่า COCONUT WATER (ถ้าอยากให้ชิดกันให้ลดค่านี้) */
-}            .hero-content h1 { font-size: 4rem; }
-            .product-origin { font-size: 1.8rem; margin-top: -5px; } /* ปรับขนาดสำหรับ iPad */
+}            .product-origin { font-size: 1.8rem; margin-top: -5px; } /* ปรับขนาดสำหรับ iPad */
             .features-bar { margin: -40px 40px 30px; padding: 15px 20px; border-radius: 40px; }
         }
     </style>
