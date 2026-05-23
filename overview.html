@@ -27,6 +27,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             position: relative; 
+            font-size: 1.05rem; /* ปรับขนาดฟอนต์พื้นฐานให้ใหญ่ขึ้นเล็กน้อย */
         }
 
         body::before {
@@ -58,14 +59,14 @@
 
         .brand-header { 
             color: var(--gold); 
-            font-size: 1.8rem; 
+            font-size: 2rem; /* ขยายจาก 1.8rem */
             font-weight: 700; 
             line-height: 1.1; 
         }
 
         .partners-text { 
             color: var(--gold); 
-            font-size: 0.85rem; 
+            font-size: 0.95rem; /* ขยายจาก 0.85rem */
             letter-spacing: 4px; 
             margin-bottom: 15px; 
         }
@@ -76,13 +77,11 @@
             align-items: center; 
         }
 
-        /* แก้ไข: ปรับค่า mix-blend-mode สำหรับรูป cert ทุกรูปใน header */
         .cert-icons img { 
-            height: 40px; 
+            height: 45px; /* ขยายจาก 40px */
             mix-blend-mode: multiply; 
         }
 
-        /* CSS เดิมที่มีอยู่แล้ว ช่วยเรื่องการลบพื้นหลัง */
         .img-bg-fix {
             mix-blend-mode: multiply; 
             filter: contrast(1.05); 
@@ -97,7 +96,7 @@
         .nav-menu li a {
             text-decoration: none; 
             color: var(--text-dark); 
-            font-size: 0.85rem;
+            font-size: 0.95rem; /* ขยายจาก 0.85rem */
             font-weight: 600; 
             letter-spacing: 1px; 
             text-transform: uppercase;
@@ -115,7 +114,7 @@
         }
 
         .container {
-            max-width: 1350px;
+            max-width: 1400px; /* ขยายกล่องคอนเทนเนอร์หลัก */
             margin: 0 auto;
             padding: 40px 4% 80px;
             position: relative; 
@@ -124,9 +123,9 @@
         .section-title {
             text-align: center;
             font-family: 'Prompt', sans-serif;
-            font-size: 3.5rem;
+            font-size: 3.8rem; /* ขยายจาก 3.5rem */
             color: #1F3F23;
-            margin-bottom: 40px;
+            margin-bottom: 45px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: -2px;
@@ -135,7 +134,7 @@
         .overview-grid {
             display: grid;
             grid-template-columns: 1.2fr 1fr 1.2fr 1.5fr;
-            gap: 25px;
+            gap: 30px; /* เพิ่มช่องว่างระหว่างคอลัมน์เล็กน้อย */
             align-items: start;
         }
 
@@ -146,13 +145,14 @@
         }
 
         .eli-logo-big {
-            width: 160px;
-            margin-bottom: 10px;
+            width: 180px; /* ขยายจาก 160px */
+            margin-top: -25px; /* ขยับโลโก้ขึ้นด้านบน */
+            margin-bottom: 15px; 
         }
 
         .col-features h3 {
-            font-size: 0.85rem;
-            margin-bottom: 20px;
+            font-size: 1rem; /* ขยายจาก 0.85rem */
+            margin-bottom: 25px;
             color: #222;
         }
 
@@ -163,16 +163,16 @@
         }
 
         .feature-list li {
-            margin-bottom: 15px;
+            margin-bottom: 18px;
             display: flex;
             align-items: center;
-            font-size: 0.9rem;
+            font-size: 1.05rem; /* ขยายจาก 0.9rem */
         }
 
         .feature-list li i {
             color: #555;
-            margin-right: 10px;
-            font-size: 1.1rem;
+            margin-right: 12px;
+            font-size: 1.2rem;
         }
 
         .col-product {
@@ -180,37 +180,36 @@
             justify-content: center;
         }
 
-        /* CSS เดิมที่มีอยู่แล้ว สำหรับรูประป๋องน้ำมะพร้าว */
         .product-img {
             width: 100%;
-            max-width: 200px;
+            max-width: 240px; /* ขยายรูปกระป๋องจาก 200px */
             mix-blend-mode: multiply;
             filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.15));
         }
 
         .info-card {
             background: #ffffff;
-            padding: 30px 25px;
+            padding: 35px 30px;
             border-radius: 12px;
             box-shadow: 0 8px 30px rgba(0,0,0,0.06);
             border: 1px solid #EBEBEB;
         }
 
         .info-card h4 {
-            font-size: 1rem;
-            margin-bottom: 10px;
+            font-size: 1.15rem; /* ขยายจาก 1rem */
+            margin-bottom: 12px;
             color: #111;
         }
 
         .info-card ul {
             list-style: disc;
             padding-left: 20px;
-            font-size: 0.85rem;
+            font-size: 1rem; /* ขยายจาก 0.85rem */
             line-height: 1.7;
         }
 
         .info-card hr {
-            margin: 20px 0;
+            margin: 25px 0;
             border: 0;
             border-top: 1px solid #eee;
         }
@@ -221,18 +220,17 @@
         }
 
         .quality-section h4 {
-            font-size: 0.85rem;
+            font-size: 1rem; /* ขยายจาก 0.85rem */
             font-weight: 700;
-            margin-bottom: 10px;
+            margin-bottom: 12px;
         }
 
         .quality-images {
             display: flex;
-            gap: 10px;
-            margin-bottom: 10px;
+            gap: 12px;
+            margin-bottom: 15px;
         }
 
-        /* แก้ไข: เพิ่ม mix-blend-mode สำหรับรูปภาพในส่วน QUALITY PRODUCTION */
         .quality-images img {
             width: 50%;
             border-radius: 8px;
@@ -242,8 +240,8 @@
         }
 
         .quality-desc {
-            font-size: 0.85rem;
-            margin-bottom: 15px;
+            font-size: 1rem; /* ขยายจาก 0.85rem */
+            margin-bottom: 18px;
         }
 
         .video-placeholder {
@@ -255,12 +253,12 @@
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 3rem;
+            font-size: 3.5rem; /* ขยายไอคอนวิดีโอ */
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
         @media (max-width: 1024px) {
-            .overview-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+            .overview-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
             .col-product { order: -1; grid-column: 1 / -1; }
         }
         
@@ -269,7 +267,8 @@
             .header-container { flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 20px; height: auto; } 
             body::before { top: 0; height: 100%; } 
             .nav-menu { flex-wrap: wrap; justify-content: center; gap: 15px; }
-            .section-title { font-size: 2.5rem; }
+            .section-title { font-size: 2.8rem; }
+            .eli-logo-big { margin-top: 0; } /* รีเซ็ต margin-top กลับสำหรับจอมือถือเพื่อไม่ให้ชิดขอบเกินไป */
         }
     </style>
 </head>
