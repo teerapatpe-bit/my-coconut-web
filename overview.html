@@ -116,7 +116,7 @@
             align-items: start;
         }
 
-        /* --- คอลัมน์ 1: Features (แก้ไขส่วนนี้) --- */
+        /* --- คอลัมน์ 1: Features --- */
         .col-features {
             display: flex;
             flex-direction: column;
@@ -150,7 +150,7 @@
         .feature-list li {
             margin-bottom: 20px;
             display: flex;
-            align-items: flex-start; /* เปลี่ยนเป็น start เพื่อให้ข้อความยาวๆ สวยงาม */
+            align-items: flex-start;
             font-size: 1.05rem; 
             color: var(--text-dark);
             font-weight: 500;
@@ -161,7 +161,7 @@
             color: var(--accent-green); 
             margin-right: 12px;
             font-size: 1.25rem;
-            margin-top: 3px; /* ขยับไอคอนลงมาเล็กน้อยให้ตรงกับบรรทัดแรก */
+            margin-top: 3px;
         }
 
         /* --- คอลัมน์ 2 --- */
@@ -178,21 +178,39 @@
             transform: translateX(-15%); 
         }
 
-        /* --- คอลัมน์ 3: Info Box --- */
+        /* --- คอลัมน์ 3: Info Box (จุดที่ปรับตามรูปวงกลม) --- */
         .info-card {
             background: #ffffff;
             border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0,0,0,0.05); 
             border: 1px solid #EBEBEB;
+            padding: 35px 30px;
         }
 
-        .top-box { padding: 30px 25px; }
-        .top-box p { color: var(--text-dark); font-weight: 500; font-size: 1.05rem; }
+        .info-card h4 {
+            color: var(--primary-green);
+            font-size: 1.1rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            text-transform: none; /* ปรับตามรูปที่ไม่เป็นตัวพิมพ์ใหญ่ทั้งหมด */
+        }
 
-        .info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
-        .small-box { padding: 20px 15px; text-align: center; }
-        .small-box h4 { font-size: 0.95rem; margin-bottom: 8px; color: var(--primary-green); font-weight: 800; text-transform: uppercase;}
-        .small-box p { font-size: 1.1rem; color: var(--text-dark); font-weight: 700; }
+        .info-card .info-list {
+            list-style: disc;
+            padding-left: 20px;
+            margin-bottom: 30px;
+        }
+
+        .info-card .info-list:last-child {
+            margin-bottom: 0;
+        }
+
+        .info-card .info-list li {
+            color: var(--text-gray);
+            font-size: 1rem;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
 
         /* --- คอลัมน์ 4: Quality & Video --- */
         .quality-title {
@@ -277,21 +295,18 @@
             </div>
 
             <div class="col-info">
-                <div class="info-card top-box">
-                    <p>
-                        Our coconut water captures the true essence of Thailand's finest groves, ensuring every sip is as pure as nature intended.
-                    </p>
-                </div>
-                
-                <div class="info-row">
-                    <div class="info-card small-box">
-                        <h4>Current Packaging</h4>
-                        <p>330 ml</p>
-                    </div>
-                    <div class="info-card small-box">
-                        <h4>Shelf Life</h4>
-                        <p>18 Months</p>
-                    </div>
+                <div class="info-card">
+                    <h4>Packaging Formats</h4>
+                    <ul class="info-list">
+                        <li>Available in Tetrapak</li>
+                        <li>330 ml</li>
+                    </ul>
+
+                    <h4>Shelf Life</h4>
+                    <ul class="info-list">
+                        <li>18 Months (at Room Temperature)</li>
+                        <li>No refrigeration required</li>
+                    </ul>
                 </div>
             </div>
 
