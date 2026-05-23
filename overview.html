@@ -10,7 +10,6 @@
     
     <style>
         :root {
-            /* ปรับโทนสีใหม่ให้ดูพรีเมียมและเป็นธรรมชาติมากขึ้น */
             --primary-green: #1F4529; 
             --accent-green: #478A3E; 
             --gold: #C0A062; 
@@ -22,7 +21,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
         
         html {
-            background-color: var(--bg-light); /* ย้ายสีพื้นหลังมาไว้ที่ html แก้บั๊กลายน้ำไม่ขึ้นในคอม */
+            background-color: var(--bg-light); 
         }
 
         body { 
@@ -61,7 +60,7 @@
         }
 
         .brand-header { 
-            color: var(--primary-green); /* ปรับชื่อบริษัทเป็นสีเขียวเข้มเพื่อความน่าเชื่อถือ */
+            color: var(--primary-green); 
             font-size: 1.8rem; 
             font-weight: 800; 
             line-height: 1.1; 
@@ -81,13 +80,15 @@
             align-items: center; 
         }
 
-        /* รวมคลาสรูปลบพื้นหลัง + แก้บั๊ก Safari บน iPad */
+        /* --- แก้ไขคราบจางๆ และบั๊ก iPad --- */
         .cert-icons img,
         .eli-logo-big,
         .product-img,
         .quality-images img,
         .img-bg-fix { 
             mix-blend-mode: multiply; 
+            /* ดันแสงและความสว่างเพื่อลบคราบขอบเทา/เหลืองจางๆ */
+            filter: brightness(1.05) contrast(1.15); 
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
             -webkit-backface-visibility: hidden;
@@ -97,10 +98,6 @@
 
         .cert-icons img {
             height: 40px;
-        }
-
-        .img-bg-fix {
-            filter: contrast(1.05); 
         }
 
         .nav-menu { 
@@ -140,7 +137,7 @@
         .section-title {
             text-align: center;
             font-size: 3.8rem; 
-            color: var(--primary-green); /* ใช้สีเขียวหลัก */
+            color: var(--primary-green); 
             margin-bottom: 45px;
             font-weight: 900;
             text-transform: uppercase;
@@ -187,7 +184,7 @@
         }
 
         .feature-list li i {
-            color: var(--accent-green); /* เปลี่ยนสีไอคอนติ๊กถูกเป็นสีเขียวสด */
+            color: var(--accent-green); 
             margin-right: 12px;
             font-size: 1.2rem;
         }
@@ -200,21 +197,20 @@
         .product-img {
             width: 100%;
             max-width: 240px; 
-            filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.12));
         }
 
         .info-card {
             background: #ffffff;
             padding: 35px 30px;
             border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(31, 69, 41, 0.06); /* เงาสีเขียวอ่อนๆ */
+            box-shadow: 0 8px 30px rgba(31, 69, 41, 0.06); 
             border: 1px solid #EBEBEB;
         }
 
         .info-card h4 {
             font-size: 1.15rem; 
             margin-bottom: 12px;
-            color: var(--primary-green); /* หัวข้อในการ์ดเป็นสีเขียวหลัก */
+            color: var(--primary-green); 
         }
 
         .info-card ul {
@@ -265,7 +261,7 @@
         .video-placeholder {
             width: 100%;
             aspect-ratio: 16/9;
-            background: linear-gradient(135deg, var(--accent-green), var(--primary-green)); /* เปลี่ยนสีวิดีโอเป็นไล่สีเขียว */
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-green)); 
             border-radius: 10px;
             display: flex;
             justify-content: center;
