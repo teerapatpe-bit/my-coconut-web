@@ -33,7 +33,7 @@
             background-position: center;
         }
 
-        /* --- HEADER --- */
+        /* --- HEADER (ยังคงเก็บ CSS ไว้เพื่อให้แสดงผลได้ถูกต้องเมื่อดึง header.html มา) --- */
         .header-container {
             display: flex;
             justify-content: space-between;
@@ -45,51 +45,18 @@
             border-bottom: 1px solid #eeeeee;
         }
 
-        .brand-header { 
-            color: var(--gold); 
-            font-size: 1.8rem; 
-            font-weight: 700; 
-            line-height: 1.1; 
-        }
-
-        .partners-text { 
-            color: var(--gold); 
-            font-size: 0.85rem; 
-            letter-spacing: 4px; 
-            margin-bottom: 15px; 
-        }
-
-        .cert-icons { 
-            display: flex; 
-            gap: 15px; 
-            align-items: center; 
-        }
-
-        .cert-icons img { 
-            height: 40px; 
-            mix-blend-mode: multiply; 
-        }
-
-        .nav-menu { 
-            display: flex; 
-            list-style: none; 
-            gap: 50px; 
-        }
-
+        .brand-header { color: var(--gold); font-size: 1.8rem; font-weight: 700; line-height: 1.1; }
+        .partners-text { color: var(--gold); font-size: 0.85rem; letter-spacing: 4px; margin-bottom: 15px; font-weight: 600; }
+        .cert-icons { display: flex; gap: 15px; align-items: center; }
+        .cert-icons img { height: 40px; mix-blend-mode: multiply; }
+        
+        .nav-menu { display: flex; list-style: none; gap: 50px; }
         .nav-menu li a {
-            text-decoration: none; 
-            color: var(--text-dark); 
-            font-size: 0.85rem;
-            font-weight: 600; 
-            letter-spacing: 1px; 
-            text-transform: uppercase;
-            transition: color 0.3s;
+            text-decoration: none; color: var(--text-dark); font-size: 0.85rem;
+            font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s;
         }
-
         .nav-menu li a:hover, 
-        .nav-menu li a.nav-active { 
-            color: var(--accent-green); 
-        }
+        .nav-menu li a.nav-active { color: var(--accent-green); }
 
         /* --- Main Container --- */
         .container {
@@ -103,7 +70,7 @@
             display: grid;
             grid-template-columns: 1fr 1.6fr;
             gap: 40px;
-            margin-bottom: 100px; /* เพิ่มระยะห่างจากส่วนล่าง */
+            margin-bottom: 100px;
         }
 
         .map-wrapper {
@@ -152,34 +119,34 @@
             gap: 15px;
         }
 
-        /* --- Production Excellence Section (ปรับใหม่ให้สวยขึ้น) --- */
+        /* --- Production Excellence Section --- */
         .excellence-section {
             padding-top: 20px;
-            border-top: 1px solid rgba(0,0,0,0.05); /* เพิ่มเส้นบางๆ แบ่งโซน */
+            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
         .excellence-title {
             text-align: center;
-            font-size: 3.8rem; /* ใหญ่ขึ้นเล็กน้อย */
+            font-size: 3.8rem;
             color: #1F3F23;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: -2px;
-            margin-bottom: 60px; /* เพิ่มระยะห่างจากหัวข้อไปยังกล่อง */
+            margin-bottom: 60px;
             line-height: 1.1;
         }
 
         .excellence-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 40px; /* เพิ่มช่องว่างระหว่างกล่องซ้ายขวาให้โปร่งขึ้น */
+            gap: 40px;
         }
 
         .ex-card {
             background: #ffffff;
-            border-radius: 16px; /* มนขึ้น */
+            border-radius: 16px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.07); /* เงาฟุ้งสวยขึ้น */
+            box-shadow: 0 10px 30px rgba(0,0,0,0.07);
             display: flex;
             flex-direction: column;
             border: 1px solid #EBEBEB;
@@ -187,11 +154,11 @@
         }
 
         .ex-card:hover {
-            transform: translateY(-5px); /* เลื่อนขึ้นเล็กน้อยเวลาเมาส์ชี้ */
+            transform: translateY(-5px);
         }
 
         .card-body { 
-            padding: 45px 30px; /* เพิ่ม Padding ด้านในให้ดูไม่แออัด */
+            padding: 45px 30px; 
             display: flex; 
             gap: 25px; 
             align-items: center; 
@@ -238,33 +205,20 @@
             .card-text ul li { justify-content: center; }
             .card-img { width: 100%; height: 200px; }
         }
+        
+        /* Mobile Header Responsive */
+        @media (max-width: 768px) {
+            .header-container { padding: 25px 20px 15px; flex-direction: column; text-align: center; gap: 15px;}
+            .brand-header { font-size: 1.4rem; }
+            .partners-text { font-size: 0.7rem; letter-spacing: 3px; margin-bottom: 5px; }
+            .nav-menu { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .nav-menu li a { font-size: 0.75rem; background: var(--white); padding: 5px 12px; border-radius: 20px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); }
+        }
     </style>
 </head>
 <body>
 
-    <header class="header-container">
-        <div class="brand">
-            <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
-            <p class="partners-text">PARTNERS IN PURITY.</p>
-            <div class="cert-icons">
-                <img src="images/fssc-22000.png" alt="FSSC 22000">
-                <img src="images/fssc-22001.png" alt="Halal">
-                <img src="images/fssc-22002.png" alt="USDA Organic">
-                <img src="images/fssc-22003.png" alt="Kosher">
-                <img src="images/fssc-22004.png" alt="Superior Taste Award">
-            </div>
-        </div>
-
-        <nav class="nav-section">
-            <ul class="nav-menu">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="overview.html">OVERVIEW</a></li>
-                <li><a href="production.html" class="nav-active">PRODUCTION</a></li>
-                <li><a href="certification.html">CERTIFICATION</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header id="header-placeholder" class="header-container"></header>
 
     <div class="container">
         
@@ -339,5 +293,17 @@
 
     </div>
 
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                
+                // รันสคริปต์ที่ติดมากับ header.html อีกครั้งเพื่อให้เมนูเปลี่ยนสี
+                const script = document.createElement('script');
+                script.innerHTML = document.querySelector('#header-placeholder script').innerHTML;
+                document.body.appendChild(script);
+            });
+    </script>
 </body>
 </html>
