@@ -16,7 +16,7 @@
             --dark-brown: #4B382A; 
             --bg-light: #F8FAF7; 
             --text-dark: #2C332A;
-            --pure-black: #000000;
+            --pure-white: #FFFFFF;
             --text-gray: #6B7265;
         }
 
@@ -38,21 +38,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 30px 60px;
+            padding: 20px 60px;
             background: #FFFFFF;
-            position: relative;
-            z-index: 100;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
             border-bottom: 1px solid #eeeeee;
-            height: 115px; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
-        .brand-header { color: var(--primary-green); font-size: 1.8rem; font-weight: 800; line-height: 1.1; }
-        .partners-text { color: var(--gold); font-size: 0.85rem; letter-spacing: 4px; margin-bottom: 15px; font-weight: 600; }
-        
-        .cert-icons { display: flex; gap: 15px; align-items: center; }
-        .cert-icons img { height: 40px; mix-blend-mode: multiply; }
+        .brand-header { color: var(--primary-green); font-size: 1.6rem; font-weight: 800; line-height: 1.1; }
+        .partners-text { color: var(--gold); font-size: 0.75rem; letter-spacing: 4px; margin-bottom: 8px; font-weight: 600; }
+        .cert-icons { display: flex; gap: 12px; align-items: center; }
+        .cert-icons img { height: 35px; mix-blend-mode: multiply; }
 
-        .nav-menu { display: flex; list-style: none; gap: 50px; }
+        .nav-menu { display: flex; list-style: none; gap: 40px; }
         .nav-menu li a {
             text-decoration: none; color: var(--text-dark); 
             font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; 
@@ -64,134 +64,123 @@
         /* --- Contact Container --- */
         .container {
             max-width: 1200px;
-            margin: 60px auto 80px;
-            padding: 20px 4%;
+            margin: 60px auto 100px;
+            padding: 0 4%;
             display: flex;
             justify-content: space-between;
-            align-items: center;
-            gap: 80px;
+            align-items: flex-start;
+            gap: 60px;
         }
 
         /* --- Left Side --- */
-        .contact-left { flex: 1; }
+        .contact-left { flex: 1.2; }
         .contact-left h2 {
-            font-size: 4rem;
+            font-size: 4.5rem;
             color: var(--primary-green);
             font-weight: 900;
-            margin-bottom: 45px;
-            line-height: 1.1;
-            letter-spacing: -1px;
+            margin-bottom: 40px;
+            line-height: 1;
+            letter-spacing: -2px;
             text-transform: uppercase;
         }
 
-        .contact-list { display: flex; flex-direction: column; gap: 40px; }
-        .contact-item { display: flex; align-items: center; gap: 25px; }
+        .contact-list { display: flex; flex-direction: column; gap: 35px; }
+        .contact-item { display: flex; align-items: flex-start; gap: 20px; }
 
         .contact-icon {
-            width: 65px;
-            height: 65px;
+            width: 55px;
+            height: 55px;
             background-color: var(--dark-brown);
             color: white;
-            border-radius: 50%;
+            border-radius: 15px;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             flex-shrink: 0;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 8px 20px rgba(75, 56, 42, 0.2);
         }
 
         .contact-text strong {
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 800;
             color: var(--primary-green);
             display: block;
-            margin-bottom: 2px;
+            margin-bottom: 5px;
         }
         
         .contact-text span {
-            font-size: 1.25rem;
-            font-weight: 700;
-            color: var(--pure-black);
+            font-size: 1.15rem;
+            font-weight: 500;
+            color: var(--text-dark);
+            opacity: 0.9;
         }
 
         /* --- Right Side: QR Card --- */
-        .contact-right { flex: 1; display: flex; justify-content: center; }
+        .contact-right { flex: 0.8; display: flex; justify-content: flex-end; }
         .qr-card {
             background-color: white;
-            border-radius: 25px;
-            box-shadow: 0 20px 45px rgba(31, 69, 41, 0.12);
+            border-radius: 30px;
+            box-shadow: 0 25px 60px rgba(31, 69, 41, 0.15);
             width: 100%;
-            max-width: 450px;
+            max-width: 420px;
             overflow: hidden;
             text-align: center;
-            border: 1px solid #EBEBEB;
+            border: 1px solid rgba(0,0,0,0.05);
         }
 
-        .qr-top { padding: 40px 30px; position: relative; }
-        
-        /* --- แก้ไขขนาดโลโก้ที่นี่ --- */
-        .logo-img {
-            max-height: 80px; /* จำกัดความสูงของโลโก้ */
-            width: auto;
-            margin-bottom: 15px;
-            object-fit: contain;
-        }
+        .qr-top { padding: 45px 30px; }
+        .logo-img { max-height: 70px; width: auto; margin-bottom: 15px; }
+        .qr-top h3 { font-size: 1.6rem; color: var(--primary-green); margin-bottom: 5px; font-weight: 800; }
+        .qr-top p { font-size: 0.95rem; color: var(--text-gray); margin-bottom: 30px; font-weight: 500; line-height: 1.4; }
+        .qr-image { width: 220px; height: 220px; margin: 0 auto; border: 1px solid #f0f0f0; border-radius: 20px; padding: 10px; }
 
-        .qr-top h3 { font-size: 1.5rem; color: var(--text-dark); margin-bottom: 5px; font-weight: 800; }
-        .qr-top p { font-size: 1rem; color: var(--text-gray); margin-bottom: 25px; font-weight: 500; }
-
-        .qr-image {
-            width: 240px;
-            height: 240px;
-            margin: 0 auto;
-            border: 8px solid #fff;
-            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
-            border-radius: 15px;
-        }
-
+        /* --- ปรับปรุงส่วนสีขาวที่ต้องการ --- */
         .qr-bottom {
             background-color: var(--dark-brown);
-            color: #FFFFFF;
-            padding: 30px 15px;
+            padding: 35px 20px;
             display: flex;
-            justify-content: space-around;
+            flex-direction: column;
+            gap: 20px;
         }
         .qr-bottom-item {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            text-align: center;
-            gap: 12px;
-            flex: 1;
+            text-align: left;
+            gap: 15px;
+            padding: 0 15px;
         }
         .qr-bottom-item i {
-            font-size: 1.5rem;
-            background-color: rgba(255,255,255,0.2);
-            width: 45px;
-            height: 45px;
+            font-size: 1.2rem;
+            background-color: rgba(255,255,255,0.15);
+            width: 40px;
+            height: 40px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: #FFFFFF;
+            color: var(--pure-white);
+            flex-shrink: 0;
         }
         .qr-bottom-item span { 
             font-size: 0.9rem; 
-            font-weight: 700; 
-            line-height: 1.4;
-            color: #000000;
-            background-color: rgba(255, 255, 255, 0.85);
-            padding: 5px;
-            border-radius: 5px;
-            display: block;
-            width: 100%;
+            font-weight: 400; 
+            line-height: 1.5;
+            color: var(--pure-white); /* ข้อความสีขาวตามสั่ง */
         }
 
-        @media (max-width: 900px) {
-            .container { flex-direction: column; text-align: center; gap: 50px; }
-            .contact-item { flex-direction: column; gap: 10px; }
-            .qr-bottom { flex-direction: column; gap: 30px; }
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .container { flex-direction: column; align-items: center; text-align: center; }
+            .contact-item { flex-direction: column; align-items: center; }
+            .contact-right { justify-content: center; width: 100%; }
+            .qr-bottom-item { justify-content: center; text-align: center; }
+        }
+
+        @media (max-width: 600px) {
+            .header-container { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .nav-menu { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .contact-left h2 { font-size: 3rem; }
         }
     </style>
 </head>
@@ -199,14 +188,13 @@
 
     <header class="header-container">
         <div class="brand">
-            <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
+            <h1 class="brand-header">EVER GOOD PARTNERS</h1>
             <p class="partners-text">PARTNERS IN PURITY.</p>
             <div class="cert-icons">
                 <img src="images/fssc-22000.png" alt="FSSC 22000">
                 <img src="images/fssc-22001.png" alt="Halal">
-                <img src="images/fssc-22002.png" alt="USDA Organic">
+                <img src="images/fssc-22002.png" alt="USDA">
                 <img src="images/fssc-22003.png" alt="Kosher">
-                <img src="images/fssc-22004.png" alt="Superior Taste Award">
             </div>
         </div>
 
@@ -224,13 +212,13 @@
     <div class="container">
         
         <div class="contact-left">
-            <h2>CONTACT</h2>
+            <h2>CONTACT<br>US</h2>
             
             <div class="contact-list">
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fa-solid fa-phone"></i></div>
                     <div class="contact-text">
-                        <strong>Phone/WhatsApp</strong>
+                        <strong>Phone / WhatsApp</strong>
                         <span>+6697-469-3646</span>
                     </div>
                 </div>
@@ -238,15 +226,15 @@
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
                     <div class="contact-text">
-                        <strong>Email</strong>
+                        <strong>Email Address</strong>
                         <span>info@evergoodpartners.co</span>
                     </div>
                 </div>
 
                 <div class="contact-item">
-                    <div class="contact-icon"><i class="fa-solid fa-globe"></i></div>
+                    <div class="contact-icon"><i class="fa-solid fa-share-nodes"></i></div>
                     <div class="contact-text">
-                        <strong>Socials</strong>
+                        <strong>Social Media</strong>
                         <span>Facebook: Eli-drink</span><br>
                         <span>Instagram: Eli.drink</span>
                     </div>
@@ -257,23 +245,23 @@
         <div class="contact-right">
             <div class="qr-card">
                 <div class="qr-top">
-                    <img src="images/fssc-22007.png" alt="Eli Logo" class="logo-img">
+                    <img src="images/fssc-22007.png" alt="Logo" class="logo-img">
                     <h3>Eli-drink</h3>
-                    <p>wa.me/66974693646<br>WhatsApp Business Account</p>
-                    <img src="images/fssc-22023.png" alt="QR Code" class="qr-image"> 
+                    <p>Scan to chat with us on<br>WhatsApp Business</p>
+                    <img src="images/fssc-22023.png" alt="WhatsApp QR Code" class="qr-image"> 
                 </div>
                 
                 <div class="qr-bottom">
                     <div class="qr-bottom-item">
-                        <i class="fa-solid fa-phone"></i>
+                        <i class="fa-solid fa-mobile-screen"></i>
                         <span>+6697-469-3646</span>
                     </div>
                     <div class="qr-bottom-item">
-                        <i class="fa-solid fa-envelope"></i>
+                        <i class="fa-solid fa-at"></i>
                         <span>info@evergoodpartners.co</span>
                     </div>
                     <div class="qr-bottom-item">
-                        <i class="fa-solid fa-globe"></i>
+                        <i class="fa-brands fa-facebook-f"></i>
                         <span>Facebook: Eli-drink<br>Instagram: Eli.drink</span>
                     </div>
                 </div>
