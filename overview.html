@@ -10,7 +10,6 @@
      
     <style>
         :root {
-            /* สีเขียวเข้มและสีทองจากหน้า Index */
             --primary-green: #1F3F23; 
             --accent-green: #59803C; 
             --gold: #A88F61; 
@@ -117,7 +116,7 @@
             align-items: start;
         }
 
-        /* --- คอลัมน์ 1: Features --- */
+        /* --- คอลัมน์ 1: Features (แก้ไขส่วนนี้) --- */
         .col-features {
             display: flex;
             flex-direction: column;
@@ -132,38 +131,40 @@
             mix-blend-mode: multiply;
         }
 
-        /* ปรับสี 100% ให้เหมือนหน้า Index */
         .col-features h3 {
             font-size: 1.8rem; 
             margin-bottom: 25px;
-            color: var(--primary-green); /* สีเขียวเข้มแบบ Index */
+            color: var(--primary-green); 
             font-weight: 900; 
             text-transform: uppercase;
             letter-spacing: -1px;
+            text-align: center;
         }
 
         .feature-list {
             list-style: none;
             width: 100%;
-            padding-left: 10px;
+            padding-left: 0;
         }
 
         .feature-list li {
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             display: flex;
-            align-items: center;
+            align-items: flex-start; /* เปลี่ยนเป็น start เพื่อให้ข้อความยาวๆ สวยงาม */
             font-size: 1.05rem; 
             color: var(--text-dark);
             font-weight: 500;
+            line-height: 1.4;
         }
 
         .feature-list li i {
             color: var(--accent-green); 
             margin-right: 12px;
             font-size: 1.25rem;
+            margin-top: 3px; /* ขยับไอคอนลงมาเล็กน้อยให้ตรงกับบรรทัดแรก */
         }
 
-        /* --- คอลัมน์ 2: ขยับขวดไปทางขวาให้อยู่กึ่งกลางพื้นที่ --- */
+        /* --- คอลัมน์ 2 --- */
         .col-product {
             display: flex;
             justify-content: flex-start;
@@ -174,7 +175,6 @@
             max-width: 600px;
             object-fit: contain;
             mix-blend-mode: multiply;
-            /* ปรับค่าให้ขยับไปทางขวา (Positive value) เพื่อเข้าหาพื้นที่ว่างกลางจอ */
             transform: translateX(-15%); 
         }
 
@@ -187,8 +187,7 @@
         }
 
         .top-box { padding: 30px 25px; }
-        .top-box ul { padding-left: 18px; color: var(--text-dark); font-weight: 500; }
-        .top-box ul li { margin-bottom: 8px; }
+        .top-box p { color: var(--text-dark); font-weight: 500; font-size: 1.05rem; }
 
         .info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
         .small-box { padding: 20px 15px; text-align: center; }
@@ -265,13 +264,11 @@
             
             <div class="col-features">
                 <img src="images/fssc-22024.png" alt="Eli Logo" class="eli-logo-big">
-                <h3>100% NATURAL</h3>
+                <h3>PREMIUM QUALITY</h3>
                 <ul class="feature-list">
-                    <li><i class="fa-regular fa-circle-check"></i> 100% Natural Coconut Water</li>
-                    <li><i class="fa-regular fa-circle-check"></i> No Sugar Added</li>
-                    <li><i class="fa-regular fa-circle-check"></i> No Artificial Flavor</li>
-                    <li><i class="fa-regular fa-circle-check"></i> No Coloring</li>
-                    <li><i class="fa-regular fa-circle-check"></i> No Preservatives</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Fresh, authentic taste just like drinking straight from the coconut</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Consistent flavor quality</li>
+                    <li><i class="fa-regular fa-circle-check"></i> Made from carefully selected coconut</li>
                 </ul>
             </div>
 
@@ -281,11 +278,9 @@
 
             <div class="col-info">
                 <div class="info-card top-box">
-                    <ul style="list-style: disc;">
-                        <li>Fresh, authentic taste just like drinking straight from the coconut</li>
-                        <li>Consistent flavor quality</li>
-                        <li>Made from carefully selected coconut</li>
-                    </ul>
+                    <p>
+                        Our coconut water captures the true essence of Thailand's finest groves, ensuring every sip is as pure as nature intended.
+                    </p>
                 </div>
                 
                 <div class="info-row">
