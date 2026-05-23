@@ -1,143 +1,41 @@
-<style>
-    /* =======================================================
-       HEADER AUTO-SCALING (บีบขนาดลงอัตโนมัติ ห้ามตกบรรทัด)
-       ======================================================= */
-
-    #header-placeholder { 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 1.5vw 3vw; /* ให้ขอบยืดหดตามจอ */
-        background: rgba(255, 255, 255, 0.98);
-        backdrop-filter: blur(5px);
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        border-bottom: 1px solid #eeeeee;
-        width: 100%;
-        box-sizing: border-box;
-        gap: 2vw; /* ระยะห่างระหว่างโลโก้กับเมนู */
-        overflow: hidden; /* ป้องกันการล้นจอ */
-    }
-
-    /* --- ฝั่งซ้าย (ชื่อบริษัทและไอคอน) --- */
-    .brand {
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-    }
-
-    .brand-header { 
-        color: #A88F61; 
-        font-size: clamp(0.6rem, 2vw, 1.6rem); /* หดฟอนต์ได้ถึง 0.6rem ในจอมือถือ */
-        font-weight: 700; 
-        line-height: 1.1; 
-        margin: 0;
-        white-space: nowrap; /* บังคับชื่อบริษัทห้ามตกบรรทัด */
-    }
-
-    .partners-text { 
-        color: #A88F61; 
-        font-size: clamp(0.4rem, 0.8vw, 0.75rem); 
-        letter-spacing: 0.1vw; 
-        margin-bottom: 0.3vw; 
-        font-weight: 600; 
-        white-space: nowrap; /* บังคับห้ามตกบรรทัด */
-    }
-    
-    .cert-icons { 
-        display: flex; 
-        gap: 0.8vw; 
-        align-items: center; 
-        margin-top: 3px;
-    }
-    .cert-icons img { 
-        height: clamp(12px, 2.5vw, 32px); /* ไอคอนหดตามสัดส่วน */
-        mix-blend-mode: multiply; 
-        opacity: 0.9; 
-    }
-
-    /* --- ฝั่งขวา (เมนู) --- */
-    .nav-section {
-        display: flex;
-        align-items: center;
-    }
-
-    .nav-menu { 
-        display: flex; 
-        list-style: none; 
-        gap: clamp(6px, 2vw, 40px); /* บีบช่องว่างระหว่างเมนูในมือถือให้แคบลง */
-        margin: 0; 
-        padding: 0; 
-        white-space: nowrap; /* บังคับเมนูห้ามตกบรรทัด */
-    }
-
-    .nav-menu li a {
-        text-decoration: none; 
-        color: #222222; 
-        font-size: clamp(0.45rem, 1vw, 0.85rem); /* บีบฟอนต์เมนูให้เล็กพอดีจอ */
-        font-weight: 600; 
-        letter-spacing: 0.5px; 
-        text-transform: uppercase; 
-        transition: color 0.3s;
-    }
-
-    .nav-menu li a:hover,
-    .nav-menu li a.nav-active { 
-        color: #59803C; 
-    }
-
-    .nav-menu li a.nav-active { 
-        border-bottom: 2px solid #59803C; 
-        padding-bottom: 3px; 
-    }
-
-    /* ปรับแต่งระยะขอบพิเศษสำหรับมือถือจอเล็ก */
-    @media (max-width: 600px) {
-        #header-placeholder {
-            padding: 10px 10px;
-        }
-    }
-</style>
-
 <div class="brand">
-    <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
-    <p class="partners-text">PARTNERS IN PURITY.</p>
-    <div class="cert-icons">
-        <img src="images/fssc-22000.png" alt="FSSC 22000">
-        <img src="images/fssc-22027.png" alt="USDA Organic">
-        <img src="images/fssc-22026.png" alt="Kosher">
-        <img src="images/fssc-22028.png" alt="Superior Taste Award">
-    </div>
+    <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
+    <p class="partners-text">PARTNERS IN PURITY.</p>
+    <div class="cert-icons">
+        <img src="images/fssc-22000.png" alt="FSSC 22000">
+        <img src="images/fssc-22027.png" alt="USDA Organic">
+        <img src="images/fssc-22026.png" alt="Kosher">
+        <img src="images/fssc-22028.png" alt="Superior Taste Award">
+    </div>
 </div>
 
 <nav class="nav-section">
-    <ul class="nav-menu">
-        <li><a href="index.html">HOME</a></li>
-        <li><a href="overview.html">OVERVIEW</a></li>
-        <li><a href="production.html">PRODUCTION</a></li>
-        <li><a href="certification.html">CERTIFICATION</a></li>
-        <li><a href="contact.html">CONTACT</a></li>
-    </ul>
+    <ul class="nav-menu">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="overview.html">OVERVIEW</a></li>
+        <li><a href="production.html">PRODUCTION</a></li>
+        <li><a href="certification.html">CERTIFICATION</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+    </ul>
 </nav>
 
 <script>
-    (function() {
-        // ดึงชื่อไฟล์ของหน้าที่กำลังเปิดอยู่ (เช่น contact.html)
-        let currentPath = window.location.pathname.split('/').pop();
-        if (currentPath === '') currentPath = 'index.html'; // ถ้าไม่มีชื่อไฟล์ให้ถือว่าเป็นหน้าแรก
+    (function() {
+        // ดึงชื่อไฟล์ของหน้าที่กำลังเปิดอยู่ (เช่น contact.html)
+        let currentPath = window.location.pathname.split('/').pop();
+        if (currentPath === '') currentPath = 'index.html'; // ถ้าไม่มีชื่อไฟล์ให้ถือว่าเป็นหน้าแรก
 
-        // ค้นหาลิงก์ในเมนูทั้งหมด
-        const navLinks = document.querySelectorAll('.nav-menu li a');
-        
-        // วนลูปเช็คว่าลิงก์ไหนตรงกับหน้าปัจจุบัน ให้เติมคลาส nav-active
-        navLinks.forEach(link => {
-            // เคลียร์คลาสเก่าออกก่อน (เผื่อมีตกค้าง)
-            link.classList.remove('nav-active');
-            
-            if (link.getAttribute('href') === currentPath) {
-                link.classList.add('nav-active');
-            }
-        });
-    })();
+        // ค้นหาลิงก์ในเมนูทั้งหมด
+        const navLinks = document.querySelectorAll('.nav-menu li a');
+        
+        // วนลูปเช็คว่าลิงก์ไหนตรงกับหน้าปัจจุบัน ให้เติมคลาส nav-active
+        navLinks.forEach(link => {
+            // เคลียร์คลาสเก่าออกก่อน (เผื่อมีตกค้าง)
+            link.classList.remove('nav-active');
+            
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('nav-active');
+            }
+        });
+    })();
 </script>
