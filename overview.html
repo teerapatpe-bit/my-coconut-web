@@ -24,7 +24,6 @@
             background-color: var(--bg-light);
             color: var(--text-dark);
             line-height: 1.6;
-            overflow-x: hidden;
         }
 
         body::before {
@@ -51,7 +50,6 @@
 
         .brand-header { color: var(--gold); font-size: 1.8rem; font-weight: 700; }
         .partners-text { color: var(--gold); font-size: 0.85rem; letter-spacing: 4px; font-weight: 600; }
-        .cert-icons img { height: 35px; mix-blend-mode: multiply; margin-right: 5px; }
 
         .nav-menu { display: flex; list-style: none; gap: 40px; }
         .nav-menu li a { text-decoration: none; color: var(--text-dark); font-size: 0.85rem; font-weight: 600; text-transform: uppercase; }
@@ -70,68 +68,96 @@
             color: var(--primary-green); 
             margin-bottom: 50px;
             font-weight: 900;
+            text-transform: uppercase;
         }
 
-        /* ปรับ Grid เป็น 3 คอลัมน์หลักหลังจากลบรายการคุณสมบัติออก */
+        /* ปรับ Grid เป็น 3 ส่วนที่สมดุล */
         .overview-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1.2fr 1.5fr;
-            gap: 40px;
+            grid-template-columns: 1.4fr 1.1fr 1.5fr;
+            gap: 50px;
             align-items: center;
         }
 
-        /* คอลัมน์ 1: Logo และรูปสินค้า */
-        .col-product-display {
-            text-align: center;
+        /* ส่วนที่ 1: แบรนด์และจุดเด่น (ตำแหน่งใหม่) */
+        .col-brand-features {
             display: flex;
             flex-direction: column;
-            align-items: center;
+            align-items: flex-start;
         }
 
         .eli-logo-big {
             width: 100%;
-            max-width: 200px;
-            margin-bottom: 30px;
+            max-width: 220px;
+            margin-bottom: 25px;
             mix-blend-mode: multiply;
+        }
+
+        .feature-title {
+            font-size: 1.6rem;
+            color: var(--primary-green);
+            font-weight: 900;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .feature-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .feature-list li {
+            margin-bottom: 15px;
+            font-weight: 500;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: flex-start;
+            color: var(--text-dark);
+        }
+
+        .feature-list li i {
+            color: var(--accent-green);
+            margin-right: 12px;
+            margin-top: 5px;
+            font-size: 1.1rem;
+        }
+
+        /* ส่วนที่ 2: รูปสินค้าและ Spec */
+        .col-product-center {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
         }
 
         .product-img {
             width: 100%;
-            max-width: 350px;
+            max-width: 320px;
             mix-blend-mode: multiply;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+            filter: drop-shadow(0 15px 30px rgba(0,0,0,0.1));
         }
 
-        /* คอลัมน์ 2: ข้อมูลสินค้าและจุดเด่น */
-        .col-details {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .spec-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            width: 100%;
         }
 
         .info-card {
             background: #ffffff;
             border-radius: 15px;
-            padding: 25px;
+            padding: 20px 10px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
             border: 1px solid #f0f0f0;
+            text-align: center;
         }
 
-        .taste-list { padding-left: 20px; list-style: disc; font-weight: 500; }
-        .taste-list li { margin-bottom: 12px; }
+        .info-card h4 { font-size: 0.8rem; color: var(--primary-green); font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
+        .info-card p { font-weight: 700; font-size: 1.1rem; color: var(--text-dark); }
+        .spec-sub { font-size: 0.7rem; color: var(--text-gray); display: block; margin-top: 2px; }
 
-        .spec-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .spec-box { text-align: center; padding: 20px 10px; }
-        .spec-box h4 { font-size: 0.85rem; color: var(--primary-green); font-weight: 800; text-transform: uppercase; margin-bottom: 5px; }
-        .spec-box p { font-weight: 700; font-size: 1.1rem; }
-        .spec-sub { font-size: 0.75rem; color: var(--text-gray); display: block; }
-
-        /* คอลัมน์ 3: การผลิตและวิดีโอ */
+        /* ส่วนที่ 3: การผลิต */
         .col-production {
             display: flex;
             flex-direction: column;
@@ -150,9 +176,10 @@
             background: #000;
         }
 
-        @media (max-width: 1024px) {
-            .overview-grid { grid-template-columns: 1fr; gap: 50px; }
-            .col-product-display { order: -1; }
+        @media (max-width: 1100px) {
+            .overview-grid { grid-template-columns: 1fr; gap: 60px; text-align: center; }
+            .col-brand-features { align-items: center; }
+            .feature-list { text-align: left; display: inline-block; }
         }
     </style>
 </head>
@@ -179,26 +206,25 @@
 
         <div class="overview-grid">
             
-            <div class="col-product-display">
+            <div class="col-brand-features">
                 <img src="images/fssc-22024.png" alt="Eli Logo" class="eli-logo-big">
-                <img src="images/fssc-22019.png" alt="Eli Coconut Water" class="product-img">
+                <h3 class="feature-title">100% NATURAL</h3>
+                <ul class="feature-list">
+                    <li><i class="fa-solid fa-check-circle"></i> Fresh, authentic taste just like drinking straight from the coconut</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Consistent flavor quality</li>
+                    <li><i class="fa-solid fa-check-circle"></i> Made from carefully selected coconut</li>
+                </ul>
             </div>
 
-            <div class="col-details">
-                <div class="info-card">
-                    <ul class="taste-list">
-                        <li>Fresh, authentic taste just like drinking straight from the coconut</li>
-                        <li>Consistent flavor quality</li>
-                        <li>Made from carefully selected coconut</li>
-                    </ul>
-                </div>
-
-                <div class="spec-grid">
-                    <div class="info-card spec-box">
+            <div class="col-product-center">
+                <img src="images/fssc-22019.png" alt="Eli Coconut Water" class="product-img">
+                
+                <div class="spec-container">
+                    <div class="info-card">
                         <h4>CURRENT PACKAGING</h4>
                         <p>330 ml</p>
                     </div>
-                    <div class="info-card spec-box">
+                    <div class="info-card">
                         <h4>SHELF LIFE</h4>
                         <p>18 Months</p>
                         <span class="spec-sub">@ ROOM TEMP</span>
