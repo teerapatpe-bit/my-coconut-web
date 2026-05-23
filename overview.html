@@ -80,12 +80,14 @@
             align-items: center; 
         }
 
-        /* --- แก้ไขคราบจางๆ โลโก้ และรูปอื่นๆ --- */
+        /* --- แก้ไขคราบจางๆ และบั๊ก iPad --- */
         .cert-icons img,
         .eli-logo-big,
+        .product-img,
         .quality-images img,
         .img-bg-fix { 
             mix-blend-mode: multiply; 
+            /* ดันแสงและความสว่างเพื่อลบคราบขอบเทา/เหลืองจางๆ */
             filter: brightness(1.05) contrast(1.15); 
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
@@ -192,15 +194,9 @@
             justify-content: center;
         }
 
-        /* --- รูปกล่องสินค้า: แยกออกมาเพื่อเร่งแสงให้แรงกว่าปกติ --- */
         .product-img {
             width: 100%;
-            max-width: 350px; /* ขนาดใหญ่ขึ้นตามที่ต้องการ */
-            mix-blend-mode: multiply;
-            /* ดันแสงให้สว่างขึ้น 15% และคอนทราสต์ 25% เพื่อลบพื้นหลังที่มืดกว่าโลโก้ */
-            filter: brightness(1.15) contrast(1.25); 
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+            max-width: 240px; 
         }
 
         .info-card {
