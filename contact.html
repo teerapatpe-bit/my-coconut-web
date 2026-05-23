@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html lang="th">
-<head> 
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
     <title>Contact - Ever Good Partners</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -33,46 +34,50 @@
             background-position: center;
         }
 
+        /* --- ป้องกันเบอร์โทรเปลี่ยนสีในคอม/iPad --- */
+        a[href^="tel"], .phone-link {
+            color: inherit !important;
+            text-decoration: none !important;
+        }
+
         /* --- HEADER --- */
         .header-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             padding: 20px 60px;
-            background: #FFFFFF;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             position: sticky;
             top: 0;
             z-index: 1000;
             border-bottom: 1px solid #eeeeee;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
         }
 
         .brand-header { color: var(--primary-green); font-size: 1.6rem; font-weight: 800; line-height: 1.1; }
         .partners-text { color: var(--gold); font-size: 0.75rem; letter-spacing: 4px; margin-bottom: 8px; font-weight: 600; }
         .cert-icons { display: flex; gap: 12px; align-items: center; }
-        .cert-icons img { height: 35px; mix-blend-mode: multiply; }
+        .cert-icons img { height: 32px; mix-blend-mode: multiply; }
 
         .nav-menu { display: flex; list-style: none; gap: 40px; }
         .nav-menu li a {
             text-decoration: none; color: var(--text-dark); 
             font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; 
-            text-transform: uppercase; transition: color 0.3s;
+            text-transform: uppercase; transition: 0.3s;
         }
         .nav-menu li a:hover, .nav-menu li a.nav-active { color: var(--accent-green); }
-        .nav-menu li a.nav-active { border-bottom: 2px solid var(--accent-green); padding-bottom: 5px; }
 
-        /* --- Contact Container --- */
+        /* --- Contact Layout --- */
         .container {
             max-width: 1200px;
             margin: 60px auto 100px;
             padding: 0 4%;
             display: flex;
             justify-content: space-between;
-            align-items: flex-start;
+            align-items: center;
             gap: 60px;
         }
 
-        /* --- Left Side --- */
         .contact-left { flex: 1.2; }
         .contact-left h2 {
             font-size: 4.5rem;
@@ -81,11 +86,15 @@
             margin-bottom: 40px;
             line-height: 1;
             letter-spacing: -2px;
-            text-transform: uppercase;
         }
 
         .contact-list { display: flex; flex-direction: column; gap: 35px; }
-        .contact-item { display: flex; align-items: flex-start; gap: 20px; }
+        .contact-item { 
+            display: flex; 
+            align-items: center; 
+            gap: 20px; 
+            transition: 0.3s;
+        }
 
         .contact-icon {
             width: 55px;
@@ -96,9 +105,9 @@
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             flex-shrink: 0;
-            box-shadow: 0 8px 20px rgba(75, 56, 42, 0.2);
+            box-shadow: 0 8px 15px rgba(75, 56, 42, 0.2);
         }
 
         .contact-text strong {
@@ -106,55 +115,58 @@
             font-weight: 800;
             color: var(--primary-green);
             display: block;
-            margin-bottom: 5px;
         }
         
         .contact-text span {
             font-size: 1.15rem;
             font-weight: 500;
             color: var(--text-dark);
-            opacity: 0.9;
         }
 
-        /* --- Right Side: QR Card --- */
+        /* --- QR Card Style --- */
         .contact-right { flex: 0.8; display: flex; justify-content: flex-end; }
         .qr-card {
             background-color: white;
             border-radius: 30px;
-            box-shadow: 0 25px 60px rgba(31, 69, 41, 0.15);
+            box-shadow: 0 30px 60px rgba(31, 69, 41, 0.18);
             width: 100%;
-            max-width: 420px;
+            max-width: 400px;
             overflow: hidden;
-            text-align: center;
             border: 1px solid rgba(0,0,0,0.05);
         }
 
-        .qr-top { padding: 45px 30px; }
-        .logo-img { max-height: 70px; width: auto; margin-bottom: 15px; }
-        .qr-top h3 { font-size: 1.6rem; color: var(--primary-green); margin-bottom: 5px; font-weight: 800; }
-        .qr-top p { font-size: 0.95rem; color: var(--text-gray); margin-bottom: 30px; font-weight: 500; line-height: 1.4; }
-        .qr-image { width: 220px; height: 220px; margin: 0 auto; border: 1px solid #f0f0f0; border-radius: 20px; padding: 10px; }
+        .qr-top { padding: 40px 30px; text-align: center; }
+        .logo-img { max-height: 65px; width: auto; margin-bottom: 15px; }
+        .qr-top h3 { font-size: 1.5rem; color: var(--primary-green); font-weight: 800; }
+        .qr-top p { font-size: 0.9rem; color: var(--text-gray); margin-bottom: 25px; }
+        .qr-image { 
+            width: 200px; 
+            height: 200px; 
+            margin: 0 auto; 
+            border: 1px solid #f0f0f0; 
+            border-radius: 20px; 
+            padding: 10px;
+            display: block;
+        }
 
-        /* --- ปรับปรุงส่วนสีขาวที่ต้องการ --- */
+        /* --- QR Bottom (White Text Section) --- */
         .qr-bottom {
             background-color: var(--dark-brown);
-            padding: 35px 20px;
+            padding: 35px 25px;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 18px;
         }
         .qr-bottom-item {
             display: flex;
             align-items: center;
-            text-align: left;
             gap: 15px;
-            padding: 0 15px;
         }
         .qr-bottom-item i {
-            font-size: 1.2rem;
-            background-color: rgba(255,255,255,0.15);
-            width: 40px;
-            height: 40px;
+            font-size: 1.1rem;
+            background-color: rgba(255,255,255,0.12);
+            width: 38px;
+            height: 38px;
             border-radius: 50%;
             display: flex;
             justify-content: center;
@@ -162,25 +174,24 @@
             color: var(--pure-white);
             flex-shrink: 0;
         }
-        .qr-bottom-item span { 
+        .qr-bottom-item span, .qr-bottom-item a { 
             font-size: 0.9rem; 
             font-weight: 400; 
-            line-height: 1.5;
-            color: var(--pure-white); /* ข้อความสีขาวตามสั่ง */
+            color: var(--pure-white) !important; /* บังคับสีขาว */
+            text-decoration: none;
         }
 
         /* --- Responsive --- */
         @media (max-width: 1024px) {
-            .container { flex-direction: column; align-items: center; text-align: center; }
-            .contact-item { flex-direction: column; align-items: center; }
+            .container { flex-direction: column; text-align: center; }
+            .contact-item { flex-direction: column; }
             .contact-right { justify-content: center; width: 100%; }
-            .qr-bottom-item { justify-content: center; text-align: center; }
         }
 
         @media (max-width: 600px) {
-            .header-container { padding: 15px 20px; flex-direction: column; gap: 15px; }
-            .nav-menu { gap: 15px; flex-wrap: wrap; justify-content: center; }
-            .contact-left h2 { font-size: 3rem; }
+            .header-container { padding: 15px 20px; flex-direction: column; }
+            .nav-menu { gap: 15px; margin-top: 15px; }
+            .contact-left h2 { font-size: 3.2rem; }
         }
     </style>
 </head>
@@ -235,8 +246,7 @@
                     <div class="contact-icon"><i class="fa-solid fa-share-nodes"></i></div>
                     <div class="contact-text">
                         <strong>Social Media</strong>
-                        <span>Facebook: Eli-drink</span><br>
-                        <span>Instagram: Eli.drink</span>
+                        <span>Facebook: Eli-drink / Instagram: Eli.drink</span>
                     </div>
                 </div>
             </div>
@@ -247,14 +257,14 @@
                 <div class="qr-top">
                     <img src="images/fssc-22007.png" alt="Logo" class="logo-img">
                     <h3>Eli-drink</h3>
-                    <p>Scan to chat with us on<br>WhatsApp Business</p>
-                    <img src="images/fssc-22023.png" alt="WhatsApp QR Code" class="qr-image"> 
+                    <p>Scan to chat on WhatsApp Business</p>
+                    <img src="images/fssc-22023.png" alt="QR" class="qr-image"> 
                 </div>
                 
                 <div class="qr-bottom">
                     <div class="qr-bottom-item">
                         <i class="fa-solid fa-mobile-screen"></i>
-                        <span>+6697-469-3646</span>
+                        <span><a href="tel:+66974693646" class="phone-link">+6697-469-3646</a></span>
                     </div>
                     <div class="qr-bottom-item">
                         <i class="fa-solid fa-at"></i>
@@ -262,7 +272,7 @@
                     </div>
                     <div class="qr-bottom-item">
                         <i class="fa-brands fa-facebook-f"></i>
-                        <span>Facebook: Eli-drink<br>Instagram: Eli.drink</span>
+                        <span>Facebook: Eli-drink / Instagram: Eli.drink</span>
                     </div>
                 </div>
             </div>
