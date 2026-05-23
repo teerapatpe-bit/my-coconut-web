@@ -27,7 +27,7 @@
             line-height: 1.6;
             overflow-x: hidden;
             position: relative; 
-            font-size: 1.05rem; /* ปรับขนาดฟอนต์พื้นฐานให้ใหญ่ขึ้นเล็กน้อย */
+            /* ลบ font-size ใหญ่พิเศษออกจาก body เพื่อไม่ให้กระทบส่วนบน */
         }
 
         body::before {
@@ -45,6 +45,7 @@
             z-index: -1; 
         }
 
+        /* --- HEADER (ปรับกลับเป็นขนาดเดิม ไม่ขยาย) --- */
         .header-container {
             display: flex;
             justify-content: space-between;
@@ -59,14 +60,14 @@
 
         .brand-header { 
             color: var(--gold); 
-            font-size: 2rem; /* ขยายจาก 1.8rem */
+            font-size: 1.8rem; /* กลับเป็นขนาดเดิม */
             font-weight: 700; 
             line-height: 1.1; 
         }
 
         .partners-text { 
             color: var(--gold); 
-            font-size: 0.95rem; /* ขยายจาก 0.85rem */
+            font-size: 0.85rem; /* กลับเป็นขนาดเดิม */
             letter-spacing: 4px; 
             margin-bottom: 15px; 
         }
@@ -78,10 +79,11 @@
         }
 
         .cert-icons img { 
-            height: 45px; /* ขยายจาก 40px */
-            mix-blend-mode: multiply; 
+            height: 40px; /* กลับเป็นขนาดเดิม */
+            mix-blend-mode: multiply; /* ยืนยันการลบพื้นหลัง */
         }
 
+        /* คลาสสำหรับลบพื้นหลังสีขาว */
         .img-bg-fix {
             mix-blend-mode: multiply; 
             filter: contrast(1.05); 
@@ -96,7 +98,7 @@
         .nav-menu li a {
             text-decoration: none; 
             color: var(--text-dark); 
-            font-size: 0.95rem; /* ขยายจาก 0.85rem */
+            font-size: 0.85rem; /* กลับเป็นขนาดเดิม */
             font-weight: 600; 
             letter-spacing: 1px; 
             text-transform: uppercase;
@@ -113,8 +115,9 @@
             padding-bottom: 5px;
         }
 
+        /* --- MAIN CONTENT (คงความใหญ่ไว้ตามเดิม) --- */
         .container {
-            max-width: 1400px; /* ขยายกล่องคอนเทนเนอร์หลัก */
+            max-width: 1400px; /* คงความกว้างไว้ */
             margin: 0 auto;
             padding: 40px 4% 80px;
             position: relative; 
@@ -123,7 +126,7 @@
         .section-title {
             text-align: center;
             font-family: 'Prompt', sans-serif;
-            font-size: 3.8rem; /* ขยายจาก 3.5rem */
+            font-size: 3.8rem; /* คงความใหญ่ไว้ */
             color: #1F3F23;
             margin-bottom: 45px;
             font-weight: 900;
@@ -134,7 +137,7 @@
         .overview-grid {
             display: grid;
             grid-template-columns: 1.2fr 1fr 1.2fr 1.5fr;
-            gap: 30px; /* เพิ่มช่องว่างระหว่างคอลัมน์เล็กน้อย */
+            gap: 30px;
             align-items: start;
         }
 
@@ -145,13 +148,13 @@
         }
 
         .eli-logo-big {
-            width: 180px; /* ขยายจาก 160px */
-            margin-top: -25px; /* ขยับโลโก้ขึ้นด้านบน */
+            width: 180px; /* คงความใหญ่ไว้ */
+            margin-top: -25px; /* คงระยะเลื่อนขึ้นไว้ */
             margin-bottom: 15px; 
         }
 
         .col-features h3 {
-            font-size: 1rem; /* ขยายจาก 0.85rem */
+            font-size: 1rem; 
             margin-bottom: 25px;
             color: #222;
         }
@@ -166,7 +169,7 @@
             margin-bottom: 18px;
             display: flex;
             align-items: center;
-            font-size: 1.05rem; /* ขยายจาก 0.9rem */
+            font-size: 1.05rem; 
         }
 
         .feature-list li i {
@@ -182,8 +185,8 @@
 
         .product-img {
             width: 100%;
-            max-width: 240px; /* ขยายรูปกระป๋องจาก 200px */
-            mix-blend-mode: multiply;
+            max-width: 240px; /* คงความใหญ่ไว้ */
+            mix-blend-mode: multiply; /* ยืนยันการลบพื้นหลัง */
             filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.15));
         }
 
@@ -196,7 +199,7 @@
         }
 
         .info-card h4 {
-            font-size: 1.15rem; /* ขยายจาก 1rem */
+            font-size: 1.15rem; 
             margin-bottom: 12px;
             color: #111;
         }
@@ -204,7 +207,7 @@
         .info-card ul {
             list-style: disc;
             padding-left: 20px;
-            font-size: 1rem; /* ขยายจาก 0.85rem */
+            font-size: 1rem; 
             line-height: 1.7;
         }
 
@@ -220,7 +223,7 @@
         }
 
         .quality-section h4 {
-            font-size: 1rem; /* ขยายจาก 0.85rem */
+            font-size: 1rem; 
             font-weight: 700;
             margin-bottom: 12px;
         }
@@ -236,11 +239,11 @@
             border-radius: 8px;
             aspect-ratio: 4/3;
             object-fit: cover;
-            mix-blend-mode: multiply;
+            mix-blend-mode: multiply; /* ยืนยันการลบพื้นหลัง */
         }
 
         .quality-desc {
-            font-size: 1rem; /* ขยายจาก 0.85rem */
+            font-size: 1rem; 
             margin-bottom: 18px;
         }
 
@@ -253,7 +256,7 @@
             justify-content: center;
             align-items: center;
             color: white;
-            font-size: 3.5rem; /* ขยายไอคอนวิดีโอ */
+            font-size: 3.5rem; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
 
@@ -268,7 +271,7 @@
             body::before { top: 0; height: 100%; } 
             .nav-menu { flex-wrap: wrap; justify-content: center; gap: 15px; }
             .section-title { font-size: 2.8rem; }
-            .eli-logo-big { margin-top: 0; } /* รีเซ็ต margin-top กลับสำหรับจอมือถือเพื่อไม่ให้ชิดขอบเกินไป */
+            .eli-logo-big { margin-top: 0; } 
         }
     </style>
 </head>
