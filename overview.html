@@ -10,6 +10,7 @@
      
     <style>
         :root {
+            /* สีเขียวเข้มและสีทองจากหน้า Index */
             --primary-green: #1F3F23; 
             --accent-green: #59803C; 
             --gold: #A88F61; 
@@ -35,7 +36,7 @@
             background-image: url('images/fssc-22022.png'); 
             background-size: cover; 
             background-position: center;
-            opacity: 0.15; 
+            opacity: 0.2; 
             z-index: -1; 
         }
 
@@ -44,200 +45,190 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 25px 60px;
+            padding: 30px 60px;
             background: #FFFFFF; 
             position: relative;
             z-index: 100; 
             border-bottom: 1px solid #eeeeee;
         }
 
-        .brand-header { color: var(--gold); font-size: 1.8rem; font-weight: 700; line-height: 1.1; }
-        .partners-text { color: var(--gold); font-size: 0.85rem; letter-spacing: 4px; margin-bottom: 15px; font-weight: 600; }
-        .cert-icons img { height: 40px; mix-blend-mode: multiply; }
-
-        .nav-menu { display: flex; list-style: none; gap: 40px; }
-        .nav-menu li a {
-            text-decoration: none; color: var(--text-dark); 
-            font-size: 0.85rem; font-weight: 600; letter-spacing: 1px; 
-            text-transform: uppercase; transition: color 0.3s;
+        .brand-header { 
+            color: var(--gold); 
+            font-size: 1.8rem; 
+            font-weight: 700;
+            line-height: 1.1; 
         }
-        .nav-menu li a:hover, .nav-menu li a.nav-active { color: var(--accent-green); }
+
+        .partners-text { 
+            color: var(--gold); 
+            font-size: 0.85rem; 
+            letter-spacing: 4px; 
+            margin-bottom: 15px; 
+            font-weight: 600;
+        }
+
+        .cert-icons img { 
+            height: 40px;
+            mix-blend-mode: multiply; 
+        }
+
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            gap: 50px; 
+        }
+
+        .nav-menu li a {
+            text-decoration: none; 
+            color: var(--text-dark); 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            letter-spacing: 1px; 
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .nav-menu li a:hover, 
+        .nav-menu li a.nav-active { 
+            color: var(--accent-green); 
+        }
 
         /* --- MAIN CONTENT --- */
         .container {
-            max-width: 1500px; 
+            max-width: 1400px; 
             margin: 0 auto;
             padding: 40px 4% 80px;
         }
 
         .section-title {
             text-align: center;
-            font-size: 3.5rem; 
+            font-size: 3.8rem; 
             color: var(--primary-green); 
-            margin-bottom: 50px;
+            margin-bottom: 60px;
             font-weight: 900;
             text-transform: uppercase;
+            letter-spacing: -2px;
         }
 
-        /* ปรับ Grid Layout ใหม่ให้สมดุลตามบรีฟภาพ */
         .overview-grid {
             display: grid;
-            grid-template-columns: 1.1fr 1.2fr 1.1fr 1.3fr;
-            gap: 25px;
+            grid-template-columns: 1fr 1fr 1.1fr 1.3fr;
+            gap: 30px;
             align-items: start;
         }
 
-        /* คอลัมน์ 1: Logo & Basic Specs */
-        .col-brand-info {
+        /* --- คอลัมน์ 1: Features --- */
+        .col-features {
             display: flex;
             flex-direction: column;
             align-items: center;
-            text-align: center;
         }
 
         .eli-logo-big {
             width: 100%;
-            max-width: 280px;
+            max-width: 500px;
+            margin-top: -100px;
             margin-bottom: 20px;
             mix-blend-mode: multiply;
         }
 
-        .col-brand-info h3 {
+        /* ปรับสี 100% ให้เหมือนหน้า Index */
+        .col-features h3 {
             font-size: 1.8rem; 
-            color: var(--primary-green);
+            margin-bottom: 25px;
+            color: var(--primary-green); /* สีเขียวเข้มแบบ Index */
             font-weight: 900; 
-            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
         }
 
-        .spec-list {
+        .feature-list {
             list-style: none;
-            text-align: left;
             width: 100%;
+            padding-left: 10px;
         }
 
-        .spec-list li {
-            margin-bottom: 12px;
+        .feature-list li {
+            margin-bottom: 15px;
             display: flex;
             align-items: center;
-            font-size: 0.95rem;
+            font-size: 1.05rem; 
+            color: var(--text-dark);
             font-weight: 500;
         }
 
-        .spec-list li i {
-            color: var(--accent-green);
-            margin-right: 10px;
+        .feature-list li i {
+            color: var(--accent-green); 
+            margin-right: 12px;
+            font-size: 1.25rem;
         }
 
-        /* คอลัมน์ 2: สินค้า (ตรงกลาง) */
-        .col-product-center {
+        /* --- คอลัมน์ 2: ขยับขวดไปทางขวาให้อยู่กึ่งกลางพื้นที่ --- */
+        .col-product {
             display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: flex-start;
         }
 
         .product-img {
-            width: 110%;
-            max-width: 450px;
+            width: 150%; 
+            max-width: 600px;
+            object-fit: contain;
             mix-blend-mode: multiply;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.1));
+            /* ปรับค่าให้ขยับไปทางขวา (Positive value) เพื่อเข้าหาพื้นที่ว่างกลางจอ */
+            transform: translateX(15%); 
         }
 
-        /* คอลัมน์ 3: กล่องข้อมูล Highlight */
-        .col-highlights {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
-
+        /* --- คอลัมน์ 3: Info Box --- */
         .info-card {
             background: #ffffff;
-            border-radius: 15px;
-            padding: 25px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.04);
-            border: 1px solid #f0f0f0;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05); 
+            border: 1px solid #EBEBEB;
         }
 
-        .highlight-list {
-            padding-left: 20px;
-            font-weight: 500;
-            color: var(--text-dark);
-        }
+        .top-box { padding: 30px 25px; }
+        .top-box ul { padding-left: 18px; color: var(--text-dark); font-weight: 500; }
+        .top-box ul li { margin-bottom: 8px; }
 
-        .highlight-list li { margin-bottom: 10px; }
+        .info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        .small-box { padding: 20px 15px; text-align: center; }
+        .small-box h4 { font-size: 0.95rem; margin-bottom: 8px; color: var(--primary-green); font-weight: 800; text-transform: uppercase;}
+        .small-box p { font-size: 1.1rem; color: var(--text-dark); font-weight: 700; }
 
-        .packaging-shelf-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-
-        .small-info-box {
-            text-align: center;
-            padding: 15px;
-        }
-
-        .small-info-box h4 {
-            font-size: 0.8rem;
-            color: var(--primary-green);
-            text-transform: uppercase;
-            margin-bottom: 5px;
-            font-weight: 800;
-        }
-
-        .small-info-box p {
-            font-weight: 700;
-            font-size: 1rem;
-        }
-
-        /* คอลัมน์ 4: Production & Video */
-        .col-production-video {
-            display: flex;
-            flex-direction: column;
-        }
-
+        /* --- คอลัมน์ 4: Quality & Video --- */
         .quality-title {
-            font-size: 1.1rem;
+            font-size: 1.1rem; 
             font-weight: 800;
-            color: var(--primary-green);
             margin-bottom: 15px;
+            color: var(--primary-green);
             text-transform: uppercase;
         }
 
-        .prod-img-group {
-            display: flex;
-            gap: 10px;
-            margin-bottom: 15px;
-        }
+        .quality-images { display: flex; gap: 10px; margin-bottom: 15px; }
+        .quality-images img { width: 50%; border-radius: 8px; aspect-ratio: 4/3; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-        .prod-img-group img {
-            width: 50%;
-            border-radius: 10px;
-            aspect-ratio: 4/3;
-            object-fit: cover;
-        }
+        .quality-desc { font-size: 0.95rem; margin-bottom: 15px; color: var(--text-gray); font-weight: 500; }
 
-        .prod-desc {
-            font-size: 0.9rem;
-            color: var(--text-gray);
-            margin-bottom: 20px;
-            font-weight: 500;
-        }
-
-        .video-player {
+        .local-video {
             width: 100%;
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
-            background: #000;
+            aspect-ratio: 16/9;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background-color: #000; 
         }
 
-        /* Responsive */
-        @media (max-width: 1200px) {
-            .overview-grid { grid-template-columns: 1fr 1fr; gap: 30px; }
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .overview-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .col-product { grid-column: 1 / -1; justify-content: center; order: -1; }
+            .product-img { max-width: 300px; width: 100%; transform: translateX(0); }
         }
+        
         @media (max-width: 768px) {
             .overview-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 2.5rem; }
+            .section-title { font-size: 2.8rem; }
+            .eli-logo-big { margin-top: 0; }
         }
     </style>
 </head>
@@ -248,14 +239,15 @@
             <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
             <p class="partners-text">PARTNERS IN PURITY.</p>
             <div class="cert-icons">
-                <img src="images/fssc-22000.png" alt="Cert 1">
-                <img src="images/fssc-22001.png" alt="Cert 2">
-                <img src="images/fssc-22002.png" alt="Cert 3">
-                <img src="images/fssc-22003.png" alt="Cert 4">
-                <img src="images/fssc-22004.png" alt="Cert 5">
+                <img src="images/fssc-22000.png" alt="FSSC 22000">
+                <img src="images/fssc-22001.png" alt="Halal">
+                <img src="images/fssc-22002.png" alt="USDA Organic">
+                <img src="images/fssc-22003.png" alt="Kosher">
+                <img src="images/fssc-22004.png" alt="Superior Taste Award">
             </div>
         </div>
-        <nav>
+
+        <nav class="nav-section">
             <ul class="nav-menu">
                 <li><a href="index.html">HOME</a></li>
                 <li><a href="overview.html" class="nav-active">OVERVIEW</a></li>
@@ -271,10 +263,10 @@
 
         <div class="overview-grid">
             
-            <div class="col-brand-info">
+            <div class="col-features">
                 <img src="images/fssc-22024.png" alt="Eli Logo" class="eli-logo-big">
                 <h3>100% NATURAL</h3>
-                <ul class="spec-list">
+                <ul class="feature-list">
                     <li><i class="fa-regular fa-circle-check"></i> 100% Natural Coconut Water</li>
                     <li><i class="fa-regular fa-circle-check"></i> No Sugar Added</li>
                     <li><i class="fa-regular fa-circle-check"></i> No Artificial Flavor</li>
@@ -283,46 +275,45 @@
                 </ul>
             </div>
 
-            <div class="col-product-center">
-                <img src="images/fssc-22019.png" alt="Eli Product" class="product-img">
+            <div class="col-product">
+                <img src="images/fssc-22019.png" alt="Eli Coconut Water" class="product-img">
             </div>
 
-            <div class="col-highlights">
-                <div class="info-card">
-                    <ul class="highlight-list" style="list-style: disc;">
+            <div class="col-info">
+                <div class="info-card top-box">
+                    <ul style="list-style: disc;">
                         <li>Fresh, authentic taste just like drinking straight from the coconut</li>
                         <li>Consistent flavor quality</li>
                         <li>Made from carefully selected coconut</li>
                     </ul>
                 </div>
-
-                <div class="packaging-shelf-row">
-                    <div class="info-card small-info-box">
+                
+                <div class="info-row">
+                    <div class="info-card small-box">
                         <h4>Current Packaging</h4>
                         <p>330 ml</p>
                     </div>
-                    <div class="info-card small-info-box">
+                    <div class="info-card small-box">
                         <h4>Shelf Life</h4>
-                        <p>@ ROOM TEMP</p>
+                        <p>18 Months</p>
                     </div>
                 </div>
             </div>
 
-            <div class="col-production-video">
+            <div class="col-quality">
                 <h4 class="quality-title">QUALITY PRODUCTION</h4>
-                <div class="prod-img-group">
+                <div class="quality-images">
                     <img src="images/fssc-22020.png" alt="Production 1">
                     <img src="images/fssc-22021.png" alt="Production 2">
                 </div>
-                <p class="prod-desc">
+                <p class="quality-desc">
                     Carefully selected coconuts to a fresh, authentic taste with consistent flavor quality.
                 </p>
-                <div class="video-player">
-                    <video width="100%" controls muted>
-                        <source src="images/1.mp4" type="video/mp4">
-                        Your browser does not support the video tag.
-                    </video>
-                </div>
+                
+                <video class="local-video" controls muted>
+                    <source src="images/1.mp4" type="video/mp4">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+                </video>
             </div>
 
         </div>
