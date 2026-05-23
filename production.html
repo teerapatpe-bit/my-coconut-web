@@ -62,67 +62,12 @@
         .container {
             max-width: 1100px;
             margin: 0 auto;
-            padding: 40px 20px 100px;
-        }
-
-        /* --- Top Section --- */
-        .top-section {
-            display: grid;
-            grid-template-columns: 1fr 1.6fr;
-            gap: 40px;
-            margin-bottom: 100px;
-        }
-
-        .map-wrapper {
-            background: #F1F8F4; 
-            border: 2px solid #E0EBE4;
-            border-radius: 8px;
-            padding: 20px;
-            display: flex;
-            flex-direction: column;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-
-        .map-image-placeholder {
-            flex-grow: 1;
-            background: #E8F1EC;
-            border-radius: 6px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 200px;
-            overflow: hidden;
-        }
-        .map-image-placeholder img { width: 100%; height: 100%; object-fit: cover; }
-
-        .legacy-title {
-            font-size: 3.5rem;
-            color: #1F3F23;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-            margin-bottom: 25px;
-            line-height: 1.1;
-        }
-
-        .legacy-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 15px;
-        }
-        .legacy-box {
-            background-color: var(--box-green);
-            padding: 15px 20px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            gap: 15px;
+            padding: 60px 20px 100px;
         }
 
         /* --- Production Excellence Section --- */
         .excellence-section {
             padding-top: 20px;
-            border-top: 1px solid rgba(0,0,0,0.05);
         }
 
         .excellence-title {
@@ -199,7 +144,7 @@
 
         /* Responsive */
         @media (max-width: 900px) {
-            .top-section, .excellence-grid { grid-template-columns: 1fr; }
+            .excellence-grid { grid-template-columns: 1fr; }
             .excellence-title { font-size: 2.8rem; margin-bottom: 40px; }
             .card-body { flex-direction: column; text-align: center; }
             .card-text ul li { justify-content: center; }
@@ -222,40 +167,6 @@
 
     <div class="container">
         
-        <div class="top-section">
-            <div class="map-wrapper"> 
-                <div class="map-header" style="display: flex; gap: 10px; margin-bottom: 15px; font-size: 0.9rem;">
-                    <i class="fa-solid fa-location-dot" style="color: var(--primary-green);"></i>
-                    Location: Nakhon Pathom, Thailand
-                </div>
-                <div class="map-image-placeholder">
-                    <img src="images/fssc-22025.png" alt="Map Location">
-                </div>
-            </div>
-
-            <div class="legacy-section">
-                <h2 class="legacy-title">A LEGACY OF PURITY</h2>
-                <div class="legacy-grid">
-                    <div class="legacy-box">
-                        <i class="fa-regular fa-calendar" style="font-size: 1.5rem;"></i>
-                        <div class="legacy-text"><strong>2003</strong><br><span>Established</span></div>
-                    </div>
-                    <div class="legacy-box">
-                        <i class="fa-solid fa-droplet" style="font-size: 1.5rem;"></i>
-                        <div class="legacy-text"><strong>300,000</strong><br><span>L/day Capacity</span></div>
-                    </div>
-                    <div class="legacy-box">
-                        <i class="fa-solid fa-map-pin" style="font-size: 1.5rem;"></i>
-                        <div class="legacy-text"><strong>Nakhon Pathom</strong><br><span>Prime Region</span></div>
-                    </div>
-                    <div class="legacy-box">
-                        <i class="fa-solid fa-industry" style="font-size: 1.5rem;"></i>
-                        <div class="legacy-text"><strong>300+</strong><br><span>Employees</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-
         <div class="excellence-section">
             <h2 class="excellence-title">PRODUCTION EXCELLENCE</h2>
             
