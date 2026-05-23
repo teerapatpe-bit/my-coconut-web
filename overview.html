@@ -163,14 +163,16 @@
             font-size: 1.25rem;
         }
 
-        /* --- คอลัมน์ 2: Bottle --- */
-        .product-img {
-            width: 150%;
-            max-width: 600px;
-            object-fit: contain;
-            filter: brightness(1) contrast(1.1); 
-            mix-blend-mode: multiply;
-        }
+/* ค้นหาคลาส .product-img แล้วแก้ตามนี้ */
+.product-img {
+    width: 150%; 
+    max-width: 600px;
+    object-fit: contain;
+    mix-blend-mode: multiply;
+
+    /* เพิ่มบรรทัดนี้ */
+    transform: translateX(15%); /* ปรับเลข 15% เพิ่ม-ลด เพื่อให้ตรงกลางตามใจชอบ */
+}
 
         /* --- คอลัมน์ 3: Info Box --- */
         .info-card {
