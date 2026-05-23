@@ -10,7 +10,7 @@
      
     <style>
         :root {
-            /* สีเขียวเข้มและสีทองจากหน้า Index */
+            /* สีเขียวเข้มหลักจากหน้า Index */
             --primary-green: #1F3F23; 
             --accent-green: #59803C; 
             --gold: #A88F61; 
@@ -132,12 +132,12 @@
             mix-blend-mode: multiply;
         }
 
-        /* ปรับสี 100% ให้เหมือนหน้า Index */
+        /* ปรับสีให้เข้มและหนาพิเศษเหมือนหน้า Index */
         .col-features h3 {
             font-size: 1.8rem; 
             margin-bottom: 25px;
-            color: var(--primary-green); /* สีเขียวเข้มแบบ Index */
-            font-weight: 900; 
+            color: var(--primary-green); /* ใช้สีเขียวเข้ม #1F3F23 */
+            font-weight: 900; /* หนาที่สุด */
             text-transform: uppercase;
             letter-spacing: -1px;
         }
@@ -163,7 +163,7 @@
             font-size: 1.25rem;
         }
 
-        /* --- คอลัมน์ 2: ขยับขวดไปทางขวาให้อยู่กึ่งกลางพื้นที่ --- */
+        /* --- คอลัมน์ 2: ขยับขวดไปทางขวา (เข้าหาพื้นที่ว่าง) --- */
         .col-product {
             display: flex;
             justify-content: flex-start;
@@ -174,8 +174,8 @@
             max-width: 600px;
             object-fit: contain;
             mix-blend-mode: multiply;
-            /* ปรับค่าให้ขยับไปทางขวา (Positive value) เพื่อเข้าหาพื้นที่ว่างกลางจอ */
-            transform: translateX(-15%); 
+            /* เปลี่ยนเป็นค่าบวก (Positive) เพื่อขยับไปทางขวา */
+            transform: translateX(15%); 
         }
 
         /* --- คอลัมน์ 3: Info Box --- */
