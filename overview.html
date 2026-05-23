@@ -10,24 +10,26 @@
     
     <style>
         :root {
-            --primary-green: #2B4E2B;
-            --accent-green: #59803C;
-            --gold: #A88F61;
-            --text-dark: #222222;
-            --text-gray: #666666;
-            --gold-title: #4A4A4A; 
-            --bg-light: #fcfdfc;
+            /* ปรับโทนสีใหม่ให้ดูพรีเมียมและเป็นธรรมชาติมากขึ้น */
+            --primary-green: #1F4529; 
+            --accent-green: #478A3E; 
+            --gold: #C0A062; 
+            --text-dark: #2C332A; 
+            --text-gray: #6B7265; 
+            --bg-light: #F8FAF7; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
         
+        html {
+            background-color: var(--bg-light); /* ย้ายสีพื้นหลังมาไว้ที่ html แก้บั๊กลายน้ำไม่ขึ้นในคอม */
+        }
+
         body { 
-            background-color: var(--bg-light); 
             color: var(--text-dark);
             line-height: 1.6;
             overflow-x: hidden;
             position: relative; 
-            /* ลบ font-size ใหญ่พิเศษออกจาก body เพื่อไม่ให้กระทบส่วนบน */
         }
 
         body::before {
@@ -45,7 +47,7 @@
             z-index: -1; 
         }
 
-        /* --- HEADER (ปรับกลับเป็นขนาดเดิม ไม่ขยาย) --- */
+        /* --- HEADER --- */
         .header-container {
             display: flex;
             justify-content: space-between;
@@ -59,17 +61,18 @@
         }
 
         .brand-header { 
-            color: var(--gold); 
-            font-size: 1.8rem; /* กลับเป็นขนาดเดิม */
-            font-weight: 700; 
+            color: var(--primary-green); /* ปรับชื่อบริษัทเป็นสีเขียวเข้มเพื่อความน่าเชื่อถือ */
+            font-size: 1.8rem; 
+            font-weight: 800; 
             line-height: 1.1; 
         }
 
         .partners-text { 
             color: var(--gold); 
-            font-size: 0.85rem; /* กลับเป็นขนาดเดิม */
+            font-size: 0.85rem; 
             letter-spacing: 4px; 
             margin-bottom: 15px; 
+            font-weight: 600;
         }
 
         .cert-icons { 
@@ -78,14 +81,25 @@
             align-items: center; 
         }
 
-        .cert-icons img { 
-            height: 40px; /* กลับเป็นขนาดเดิม */
-            mix-blend-mode: multiply; /* ยืนยันการลบพื้นหลัง */
+        /* รวมคลาสรูปลบพื้นหลัง + แก้บั๊ก Safari บน iPad */
+        .cert-icons img,
+        .eli-logo-big,
+        .product-img,
+        .quality-images img,
+        .img-bg-fix { 
+            mix-blend-mode: multiply; 
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            will-change: transform;
         }
 
-        /* คลาสสำหรับลบพื้นหลังสีขาว */
+        .cert-icons img {
+            height: 40px;
+        }
+
         .img-bg-fix {
-            mix-blend-mode: multiply; 
             filter: contrast(1.05); 
         }
 
@@ -98,7 +112,7 @@
         .nav-menu li a {
             text-decoration: none; 
             color: var(--text-dark); 
-            font-size: 0.85rem; /* กลับเป็นขนาดเดิม */
+            font-size: 0.85rem; 
             font-weight: 600; 
             letter-spacing: 1px; 
             text-transform: uppercase;
@@ -115,9 +129,9 @@
             padding-bottom: 5px;
         }
 
-        /* --- MAIN CONTENT (คงความใหญ่ไว้ตามเดิม) --- */
+        /* --- MAIN CONTENT --- */
         .container {
-            max-width: 1400px; /* คงความกว้างไว้ */
+            max-width: 1400px; 
             margin: 0 auto;
             padding: 40px 4% 80px;
             position: relative; 
@@ -125,9 +139,8 @@
 
         .section-title {
             text-align: center;
-            font-family: 'Prompt', sans-serif;
-            font-size: 3.8rem; /* คงความใหญ่ไว้ */
-            color: #1F3F23;
+            font-size: 3.8rem; 
+            color: var(--primary-green); /* ใช้สีเขียวหลัก */
             margin-bottom: 45px;
             font-weight: 900;
             text-transform: uppercase;
@@ -148,15 +161,16 @@
         }
 
         .eli-logo-big {
-            width: 180px; /* คงความใหญ่ไว้ */
-            margin-top: -25px; /* คงระยะเลื่อนขึ้นไว้ */
+            width: 180px; 
+            margin-top: -25px; 
             margin-bottom: 15px; 
         }
 
         .col-features h3 {
             font-size: 1rem; 
             margin-bottom: 25px;
-            color: #222;
+            color: var(--text-dark);
+            font-weight: 700;
         }
 
         .feature-list {
@@ -173,7 +187,7 @@
         }
 
         .feature-list li i {
-            color: #555;
+            color: var(--accent-green); /* เปลี่ยนสีไอคอนติ๊กถูกเป็นสีเขียวสด */
             margin-right: 12px;
             font-size: 1.2rem;
         }
@@ -185,23 +199,22 @@
 
         .product-img {
             width: 100%;
-            max-width: 240px; /* คงความใหญ่ไว้ */
-            mix-blend-mode: multiply; /* ยืนยันการลบพื้นหลัง */
-            filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.15));
+            max-width: 240px; 
+            filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.12));
         }
 
         .info-card {
             background: #ffffff;
             padding: 35px 30px;
             border-radius: 12px;
-            box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+            box-shadow: 0 8px 30px rgba(31, 69, 41, 0.06); /* เงาสีเขียวอ่อนๆ */
             border: 1px solid #EBEBEB;
         }
 
         .info-card h4 {
             font-size: 1.15rem; 
             margin-bottom: 12px;
-            color: #111;
+            color: var(--primary-green); /* หัวข้อในการ์ดเป็นสีเขียวหลัก */
         }
 
         .info-card ul {
@@ -209,6 +222,7 @@
             padding-left: 20px;
             font-size: 1rem; 
             line-height: 1.7;
+            color: var(--text-gray);
         }
 
         .info-card hr {
@@ -226,6 +240,7 @@
             font-size: 1rem; 
             font-weight: 700;
             margin-bottom: 12px;
+            color: var(--primary-green);
         }
 
         .quality-images {
@@ -239,18 +254,18 @@
             border-radius: 8px;
             aspect-ratio: 4/3;
             object-fit: cover;
-            mix-blend-mode: multiply; /* ยืนยันการลบพื้นหลัง */
         }
 
         .quality-desc {
             font-size: 1rem; 
             margin-bottom: 18px;
+            color: var(--text-gray);
         }
 
         .video-placeholder {
             width: 100%;
             aspect-ratio: 16/9;
-            background: linear-gradient(135deg, #a0a0a0, #777777);
+            background: linear-gradient(135deg, var(--accent-green), var(--primary-green)); /* เปลี่ยนสีวิดีโอเป็นไล่สีเขียว */
             border-radius: 10px;
             display: flex;
             justify-content: center;
@@ -258,6 +273,12 @@
             color: white;
             font-size: 3.5rem; 
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .video-placeholder:hover {
+            transform: scale(1.02);
         }
 
         @media (max-width: 1024px) {
@@ -310,11 +331,11 @@
                 <img src="images/fssc-22007.png" alt="Eli Logo" class="eli-logo-big img-bg-fix">
                 <h3>GOODNESS FROM NATURE</h3>
                 <ul class="feature-list">
-                    <li><i class="fa-regular fa-circle-check"></i> 100% Natural Coconut Water</li>
-                    <li><i class="fa-regular fa-circle-check"></i> No Sugar Added</li>
-                    <li><i class="fa-regular fa-circle-check"></i> No Artificial Flavor</li>
-                    <li><i class="fa-regular fa-circle-check"></i> No Coloring</li>
-                    <li><i class="fa-regular fa-circle-check"></i> No Preservatives</li>
+                    <li><i class="fa-solid fa-circle-check"></i> 100% Natural Coconut Water</li>
+                    <li><i class="fa-solid fa-circle-check"></i> No Sugar Added</li>
+                    <li><i class="fa-solid fa-circle-check"></i> No Artificial Flavor</li>
+                    <li><i class="fa-solid fa-circle-check"></i> No Coloring</li>
+                    <li><i class="fa-solid fa-circle-check"></i> No Preservatives</li>
                 </ul>
             </div>
 
