@@ -13,11 +13,12 @@
         :root {
             --primary-green: #1F4529;
             --accent-green: #478A3E;
-            --gold: #A88F61;
+            --gold: #A88F61; /* ปรับสีทองให้ตรงกับหน้า Index */
             --dark-brown: #4B382A; 
             --bg-light: #F8FAF7; 
             --text-dark: #2C332A;
             --pure-white: #FFFFFF;
+            --white: #FFFFFF; /* เพิ่มตัวแปรนี้ให้รองรับ Header ของ Index */
             --text-gray: #6B7265;
         }
 
@@ -39,6 +40,31 @@
             color: inherit !important;
             text-decoration: none !important;
         }
+
+        /* --- HEADER (เก็บ CSS ไว้เพื่อรองรับโค้ดที่ดึงมาจาก header.html) --- */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            background: var(--white);
+            position: relative;
+            z-index: 100;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .brand-header { color: var(--gold); font-size: 1.8rem; font-weight: 700; line-height: 1.1; }
+        .partners-text { color: var(--gold); font-size: 0.85rem; letter-spacing: 4px; margin-bottom: 15px; font-weight: 600; }
+        
+        .cert-icons { display: flex; gap: 15px; align-items: center; }
+        .cert-icons img { height: 40px; mix-blend-mode: multiply; }
+
+        .nav-menu { display: flex; list-style: none; gap: 50px; }
+        .nav-menu li a {
+            text-decoration: none; color: var(--text-dark); font-size: 0.85rem;
+            font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s;
+        }
+        .nav-menu li a:hover, .nav-menu li a.nav-active { color: var(--accent-green); }
 
         /* --- Contact Layout --- */
         .container {
@@ -162,13 +188,15 @@
         }
 
         @media (max-width: 600px) {
+            .header-container { padding: 15px 20px; flex-direction: column; text-align: center; }
+            .nav-menu { gap: 15px; margin-top: 15px; flex-wrap: wrap; justify-content: center; }
             .contact-left h2 { font-size: 3.2rem; }
         }
     </style>
 </head>
 <body>
 
-    <header id="header-placeholder"></header>
+    <header id="header-placeholder" class="header-container"></header>
 
     <div class="container">
         
@@ -236,12 +264,11 @@
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
                 
-                // รันสคริปต์ไฮไลท์เมนูที่ติดมากับ header.html
+                // รันสคริปต์ที่ติดมากับ header.html อีกครั้งเพื่อให้เมนูไฮไลท์สีถูกหน้า
                 const script = document.createElement('script');
                 script.innerHTML = document.querySelector('#header-placeholder script').innerHTML;
                 document.body.appendChild(script);
-            })
-            .catch(error => console.error('Error loading header:', error));
+            });
     </script>
 </body>
 </html>
