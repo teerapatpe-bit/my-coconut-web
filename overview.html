@@ -205,8 +205,15 @@
 
         .product-img {
             width: 100%;
-            max-width: 350px; 
-            filter: brightness(1.1) contrast(1.15); 
+            max-width: 450px; 
+            object-fit: contain;
+            
+            /* --- โค้ดส่วนที่ปรับให้ภาพเข้มขึ้น --- */
+            filter: brightness(0.9) contrast(1.2) saturate(1.4); 
+            /* brightness(0.9): ลดความสว่างลงเล็กน้อย (ให้ภาพเข้มขึ้น)
+               contrast(1.2): เพิ่มความต่างสี ให้ส่วนมืด มืดลง ส่วนสว่าง ชัดขึ้น
+               saturate(1.4): เพิ่มความอิ่มสี ให้สีเขียวและน้ำตาลดูสดอิ่มขึ้น
+            */
         }
 
         .info-card {
