@@ -87,7 +87,7 @@
             align-items: center; 
         }
 
-        /* --- แก้ไขคราบจางๆ โลโก้ และไอคอน (แก้บั๊ก Safari บน iPad/iPhone) --- */
+        /* --- แก้ไขคราบจางๆ โลโก้ และไอคอน --- */
         .cert-icons img,
         .eli-logo-big { 
             mix-blend-mode: multiply; 
@@ -153,7 +153,8 @@
 
         .overview-grid {
             display: grid;
-            grid-template-columns: 1.2fr 1fr 1.2fr 1.5fr;
+            /* ปรับ Column ที่ 2 ให้กว้างขึ้นอีกเพื่อรองรับขวดขนาดใหญ่ */
+            grid-template-columns: 1.1fr 1.8fr 1.1fr 1.5fr;
             gap: 30px;
             align-items: start;
         }
@@ -164,10 +165,11 @@
             align-items: center;
         }
 
+        /* ปรับขนาดโลโก้ Eli ให้เท่ากับหน้า Index (240px) */
         .eli-logo-big {
-            width: 180px; 
-            margin-top: -25px; 
-            margin-bottom: 15px; 
+            width: 240px; 
+            margin-top: -35px; 
+            margin-bottom: 20px; 
         }
 
         .col-features h3 {
@@ -204,16 +206,15 @@
 
         .product-img {
             width: 100%;
-            /* ขยายขนาด max-width ให้ใหญ่ขึ้น */
-            max-width: 550px; 
+            /* ขยายขนาดขวดสินค้าให้ใหญ่เต็มที่ */
+            max-width: 650px; 
             object-fit: contain;
             
-            /* --- โค้ดส่วนที่ปรับให้ภาพเข้มขึ้นและขยายสเกล --- */
             filter: brightness(0.9) contrast(1.2) saturate(1.4); 
             
-            /* คำสั่งขยายใหญ่ขึ้น 15% (1.15) */
-            -webkit-transform: translate3d(0, 0, 0) scale(1.15); 
-            transform: translate3d(0, 0, 0) scale(1.15); 
+            /* ปรับ Scale เป็น 1.3 เพื่อให้ขวดดูใหญ่และชัดเจน */
+            -webkit-transform: translate3d(0, 0, 0) scale(1.3); 
+            transform: translate3d(0, 0, 0) scale(1.3); 
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
             -webkit-perspective: 1000;
@@ -282,7 +283,6 @@
             color: var(--text-gray);
         }
 
-        /* --- เพิ่ม CSS สำหรับกล่องวิดีโอ --- */
         .local-video {
             width: 100%;
             aspect-ratio: 16/9;
@@ -295,6 +295,7 @@
         @media (max-width: 1024px) {
             .overview-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
             .col-product { order: -1; grid-column: 1 / -1; }
+            .product-img { transform: scale(1.1); -webkit-transform: scale(1.1); }
         }
         
         @media (max-width: 768px) {
@@ -302,7 +303,7 @@
             .header-container { flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 20px; height: auto; } 
             .nav-menu { flex-wrap: wrap; justify-content: center; gap: 15px; }
             .section-title { font-size: 2.8rem; }
-            .eli-logo-big { margin-top: 0; } 
+            .eli-logo-big { width: 180px; margin-top: 0; } 
         }
     </style>
 </head>
@@ -354,6 +355,13 @@
             </div>
 
             <div class="info-card">
+                <ul>
+                    <li>Fresh, authentic taste just like drinking straight from the coconut</li>
+                    <li>Consistent flavor quality</li>
+                    <li>Made from carefully selected coconut</li>
+                </ul>
+                <hr>
+
                 <h4>Packaging Formats</h4>
                 <ul>
                     <li>Available in Tetrapak</li>
