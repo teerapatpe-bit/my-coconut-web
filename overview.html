@@ -89,12 +89,10 @@
 
         /* --- แก้ไขคราบจางๆ โลโก้ และไอคอน (แก้บั๊ก Safari บน iPad/iPhone) --- */
         .cert-icons img,
-        .eli-logo-big,
-        .product-img { 
+        .eli-logo-big { 
             mix-blend-mode: multiply; 
             filter: contrast(1.2) brightness(1.05); 
             
-            /* ชุดคำสั่งกระตุ้น GPU บังคับ Safari ลบขอบจาง */
             -webkit-transform: translate3d(0, 0, 0);
             transform: translate3d(0, 0, 0);
             -webkit-backface-visibility: hidden;
@@ -201,19 +199,28 @@
         .col-product {
             display: flex;
             justify-content: center;
+            align-items: center;
         }
 
         .product-img {
             width: 100%;
-            max-width: 450px; 
+            /* ขยายขนาด max-width ให้ใหญ่ขึ้น */
+            max-width: 550px; 
             object-fit: contain;
             
-            /* --- โค้ดส่วนที่ปรับให้ภาพเข้มขึ้น --- */
+            /* --- โค้ดส่วนที่ปรับให้ภาพเข้มขึ้นและขยายสเกล --- */
             filter: brightness(0.9) contrast(1.2) saturate(1.4); 
-            /* brightness(0.9): ลดความสว่างลงเล็กน้อย (ให้ภาพเข้มขึ้น)
-               contrast(1.2): เพิ่มความต่างสี ให้ส่วนมืด มืดลง ส่วนสว่าง ชัดขึ้น
-               saturate(1.4): เพิ่มความอิ่มสี ให้สีเขียวและน้ำตาลดูสดอิ่มขึ้น
-            */
+            
+            /* คำสั่งขยายใหญ่ขึ้น 15% (1.15) */
+            -webkit-transform: translate3d(0, 0, 0) scale(1.15); 
+            transform: translate3d(0, 0, 0) scale(1.15); 
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            -webkit-perspective: 1000;
+            perspective: 1000;
+            will-change: mix-blend-mode, filter, transform;
+            background-color: transparent;
+            mix-blend-mode: multiply;
         }
 
         .info-card {
@@ -275,23 +282,14 @@
             color: var(--text-gray);
         }
 
-        .video-placeholder {
+        /* --- เพิ่ม CSS สำหรับกล่องวิดีโอ --- */
+        .local-video {
             width: 100%;
             aspect-ratio: 16/9;
-            background: linear-gradient(135deg, var(--accent-green), var(--primary-green)); 
             border-radius: 10px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            font-size: 3.5rem; 
+            object-fit: cover;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            cursor: pointer;
-            transition: transform 0.3s;
-        }
-        
-        .video-placeholder:hover {
-            transform: scale(1.02);
+            background-color: #000; 
         }
 
         @media (max-width: 1024px) {
@@ -380,9 +378,10 @@
                         Carefully selected coconuts to a fresh, authentic taste with consistent flavor quality.
                     </p>
                     
-                    <div class="video-placeholder">
-                        <i class="fa-regular fa-circle-play"></i>
-                    </div>
+                    <video class="local-video" controls muted>
+                        <source src="images/1.mp4" type="video/mp4">
+                        เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+                    </video>
                 </div>
             </div>
 
