@@ -16,7 +16,7 @@
             --dark-brown: #4B382A; 
             --bg-light: #F8FAF7; 
             --text-dark: #2C332A;
-            --pure-black: #000000; /* กำหนดสีดำเข้มพิเศษ */
+            --pure-black: #000000;
             --text-gray: #6B7265;
         }
 
@@ -109,11 +109,10 @@
             margin-bottom: 2px;
         }
         
-        /* ปรับส่วนรายละเอียดทางซ้ายเป็นสีดำเข้ม */
         .contact-text span {
             font-size: 1.25rem;
             font-weight: 700;
-            color: var(--pure-black); /* ดำเข้ม */
+            color: var(--pure-black);
         }
 
         /* --- Right Side: QR Card --- */
@@ -129,7 +128,16 @@
             border: 1px solid #EBEBEB;
         }
 
-        .qr-top { padding: 45px 30px 40px; position: relative; }
+        .qr-top { padding: 40px 30px; position: relative; }
+        
+        /* --- แก้ไขขนาดโลโก้ที่นี่ --- */
+        .logo-img {
+            max-height: 80px; /* จำกัดความสูงของโลโก้ */
+            width: auto;
+            margin-bottom: 15px;
+            object-fit: contain;
+        }
+
         .qr-top h3 { font-size: 1.5rem; color: var(--text-dark); margin-bottom: 5px; font-weight: 800; }
         .qr-top p { font-size: 1rem; color: var(--text-gray); margin-bottom: 25px; font-weight: 500; }
 
@@ -142,7 +150,6 @@
             border-radius: 15px;
         }
 
-        /* ปรับข้อความแถบล่าง QR เป็นสีดำเข้ม */
         .qr-bottom {
             background-color: var(--dark-brown);
             color: #FFFFFF;
@@ -173,8 +180,8 @@
             font-size: 0.9rem; 
             font-weight: 700; 
             line-height: 1.4;
-            color: #000000; /* ปรับเป็นสีดำเข้ม */
-            background-color: rgba(255, 255, 255, 0.85); /* เพิ่มพื้นหลังจางๆ เพื่อให้อ่านสีดำบนพื้นน้ำตาลได้ชัดขึ้น */
+            color: #000000;
+            background-color: rgba(255, 255, 255, 0.85);
             padding: 5px;
             border-radius: 5px;
             display: block;
@@ -250,7 +257,7 @@
         <div class="contact-right">
             <div class="qr-card">
                 <div class="qr-top">
-                    <img src="images/fssc-22007.png" alt="Eli Logo" class="logo">
+                    <img src="images/fssc-22007.png" alt="Eli Logo" class="logo-img">
                     <h3>Eli-drink</h3>
                     <p>wa.me/66974693646<br>WhatsApp Business Account</p>
                     <img src="images/fssc-22023.png" alt="QR Code" class="qr-image"> 
@@ -263,7 +270,7 @@
                     </div>
                     <div class="qr-bottom-item">
                         <i class="fa-solid fa-envelope"></i>
-                        <span>info@evergood partners.co</span>
+                        <span>info@evergoodpartners.co</span>
                     </div>
                     <div class="qr-bottom-item">
                         <i class="fa-solid fa-globe"></i>
