@@ -1,1 +1,41 @@
+<div class="brand">
+    <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
+    <p class="partners-text">PARTNERS IN PURITY.</p>
+    <div class="cert-icons">
+        <img src="images/fssc-22000.png" alt="FSSC 22000">
+        <img src="images/fssc-22027.png" alt="USDA Organic">
+        <img src="images/fssc-22026.png" alt="Kosher">
+        <img src="images/fssc-22028.png" alt="Superior Taste Award">
+    </div>
+</div>
 
+<nav class="nav-section">
+    <ul class="nav-menu">
+        <li><a href="index.html">HOME</a></li>
+        <li><a href="overview.html">OVERVIEW</a></li>
+        <li><a href="production.html">PRODUCTION</a></li>
+        <li><a href="certification.html">CERTIFICATION</a></li>
+        <li><a href="contact.html">CONTACT</a></li>
+    </ul>
+</nav>
+
+<script>
+    (function() {
+        // ดึงชื่อไฟล์ของหน้าที่กำลังเปิดอยู่ (เช่น contact.html)
+        let currentPath = window.location.pathname.split('/').pop();
+        if (currentPath === '') currentPath = 'index.html'; // ถ้าไม่มีชื่อไฟล์ให้ถือว่าเป็นหน้าแรก
+
+        // ค้นหาลิงก์ในเมนูทั้งหมด
+        const navLinks = document.querySelectorAll('.nav-menu li a');
+        
+        // วนลูปเช็คว่าลิงก์ไหนตรงกับหน้าปัจจุบัน ให้เติมคลาส nav-active
+        navLinks.forEach(link => {
+            // เคลียร์คลาสเก่าออกก่อน (เผื่อมีตกค้าง)
+            link.classList.remove('nav-active');
+            
+            if (link.getAttribute('href') === currentPath) {
+                link.classList.add('nav-active');
+            }
+        });
+    })();
+</script>
