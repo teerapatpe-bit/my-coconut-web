@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product Overview - Ever Good Partners</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
     <style>
@@ -81,10 +81,9 @@
             mix-blend-mode: multiply; 
         }
 
-        /* คลาสลบพื้นหลังสีขาวสำหรับรูปภาพ */
         .img-bg-fix {
-            mix-blend-mode: multiply; /* ทำให้สีขาวโปร่งใส */
-            filter: contrast(1.05); /* ปรับสีให้คมชัดขึ้นนิดหน่อยชดเชยกัน */
+            mix-blend-mode: multiply; 
+            filter: contrast(1.05); 
         }
 
         .nav-menu { 
@@ -120,13 +119,16 @@
             position: relative; 
         }
 
+        /* --- ปรับแต่งหัวข้อ Product Overview ตามสไตล์ COCONUT --- */
         .section-title {
             text-align: center;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Prompt', sans-serif;
             font-size: 3.5rem;
-            color: var(--gold-title);
+            color: #1F3F23;
             margin-bottom: 40px;
-            font-weight: 500;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
         }
 
         .overview-grid {
@@ -145,7 +147,6 @@
         .eli-logo-big {
             width: 160px;
             margin-bottom: 10px;
-            /* ย้าย mix-blend-mode ไปรวมในคลาส .img-bg-fix แล้วเพื่อให้จัดการง่าย */
         }
 
         .col-features h3 {
@@ -181,7 +182,6 @@
         .product-img {
             width: 100%;
             max-width: 200px;
-            /* เพิ่มคำสั่งลบพื้นหลังให้รูปสินค้าด้วยในกรณีที่มีพื้นหลังสีขาวติดมา */
             mix-blend-mode: multiply;
             filter: drop-shadow(5px 15px 20px rgba(0,0,0,0.15));
         }
@@ -296,7 +296,7 @@
     </header>
 
     <div class="container">
-        <h2 class="section-title">Product Overview</h2>
+        <h2 class="section-title">PRODUCT OVERVIEW</h2>
 
         <div class="overview-grid">
             
