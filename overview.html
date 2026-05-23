@@ -76,24 +76,33 @@
             font-weight: 600;
         }
 
+        /* เพิ่ม isolation เพื่อจัดระเบียบเลเยอร์ให้ Safari ไม่งง */
+        .cert-icons, .col-features, .col-product {
+            isolation: isolate; 
+        }
+
         .cert-icons { 
             display: flex; 
             gap: 15px; 
             align-items: center; 
         }
 
-        /* --- แก้ไขคราบจางๆ โลโก้ และไอคอน (ตัดพื้นหลังขาวออกให้หมดจด) --- */
+        /* --- แก้ไขคราบจางๆ โลโก้ และไอคอน (แก้บั๊ก Safari บน iPad/iPhone) --- */
         .cert-icons img,
         .eli-logo-big,
         .product-img { 
             mix-blend-mode: multiply; 
-            /* ดันแสงและคอนทราสต์ให้ขอบขาวสว่างและหายไปเนียนๆ */
             filter: contrast(1.2) brightness(1.05); 
-            -webkit-transform: translateZ(0);
-            transform: translateZ(0);
+            
+            /* ชุดคำสั่งกระตุ้น GPU บังคับ Safari ลบขอบจาง */
+            -webkit-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
             -webkit-backface-visibility: hidden;
             backface-visibility: hidden;
-            will-change: transform;
+            -webkit-perspective: 1000;
+            perspective: 1000;
+            will-change: mix-blend-mode, filter;
+            background-color: transparent;
         }
 
         .cert-icons img {
@@ -197,7 +206,6 @@
         .product-img {
             width: 100%;
             max-width: 350px; 
-            /* เร่งแสงขวดให้สว่างขึ้นนิดหน่อย */
             filter: brightness(1.1) contrast(1.15); 
         }
 
@@ -247,7 +255,6 @@
             margin-bottom: 15px;
         }
 
-        /* รูปภาพถ่ายปกติ ไม่ควรใส่ mix-blend-mode นะครับ สีจะเพี้ยนได้ */
         .quality-images img {
             width: 50%;
             border-radius: 8px;
