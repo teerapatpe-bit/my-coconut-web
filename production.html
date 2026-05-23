@@ -14,7 +14,6 @@
             --accent-green: #59803C;
             --gold: #A88F61;
             --box-green: #A3CBB1; 
-            --tab-green: #C2DFCE; 
             --text-dark: #222222;
             --text-gray: #555555;
             --gold-title: #4A4A4A; 
@@ -197,7 +196,6 @@
         .legacy-text span { font-size: 0.95rem; font-weight: 500; display: block; }
 
         /* --- Bottom Section: Production Excellence --- */
-        /* ปรับแต่งหัวข้อตามสไตล์ COCONUT เช่นเดียวกัน */
         .excellence-title {
             text-align: center;
             font-family: 'Prompt', sans-serif;
@@ -226,29 +224,10 @@
             border: 1px solid #EBEBEB;
         }
         
-        .tabs { display: flex; background: var(--tab-green); }
-        .tab {
-            flex: 1;
-            text-align: center;
-            padding: 12px 5px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            color: #4A4A4A;
-            border-right: 1px solid rgba(255,255,255,0.3);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            line-height: 1.2;
-        }
-        .tab.active {
-            background: #ffffff;
-            border-top-left-radius: 12px;
-            border-top-right-radius: 12px;
-            margin-top: -5px;
-            padding-top: 17px;
-        }
+        /* นำคลาสเกี่ยวกับ .tabs ออกไปแล้ว */
 
-        .card-body { padding: 25px; display: flex; gap: 15px; align-items: center; flex-grow: 1; }
+        .card-body { padding: 35px 25px; display: flex; gap: 15px; align-items: center; flex-grow: 1; }
+        .card-text { flex: 1; }
         .card-text h3 {
             font-size: 1.05rem; font-weight: 700; color: #333;
             margin-bottom: 15px; text-transform: uppercase;
@@ -352,11 +331,6 @@
             <div class="excellence-grid">
                 
                 <div class="ex-card">
-                    <div class="tabs">
-                        <div class="tab">STEP 1</div>
-                        <div class="tab active">STEP 2<br>SUPPLIER SELECTION</div>
-                        <div class="tab">STEP 3<br>RAW MATERIAL CHECK</div>
-                    </div>
                     <div class="card-body">
                         <div class="card-text">
                             <h3>100% TRACEABLE SUPPLY CHAIN</h3>
@@ -370,11 +344,6 @@
                 </div>
 
                 <div class="ex-card">
-                    <div class="tabs">
-                        <div class="tab">STEP 1</div>
-                        <div class="tab">STEP 2<br>QUALITY CONTROL</div>
-                        <div class="tab active">STEP 3<br>BOTTLING & PACKAGING</div>
-                    </div>
                     <div class="card-body">
                         <div class="card-text">
                             <h3>SAFE & PURE PROCESS</h3>
