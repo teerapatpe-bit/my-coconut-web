@@ -1,323 +1,323 @@
 <!DOCTYPE html>
-<html lang="th"> 
+<html lang="th"> 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Product Overview - Ever Good Partners</title>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-     
-    <style>
-        :root {
-            /* สีเขียวเข้มหลักจากหน้า Index */
-            --primary-green: #1F3F23; 
-            --accent-green: #59803C; 
-            --gold: #A88F61; 
-            --text-dark: #222222;
-            --text-gray: #555555;
-            --bg-light: #fcfdfc; 
-        }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Overview - Ever Good Partners</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+     
+    <style>
+        :root {
+            /* สีเขียวเข้มและสีทองจากหน้า Index */
+            --primary-green: #1F3F23; 
+            --accent-green: #59803C; 
+            --gold: #A88F61; 
+            --text-dark: #222222;
+            --text-gray: #555555;
+            --bg-light: #fcfdfc; 
+        }
 
-        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
-        
-        body { 
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
+        
+        body { 
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-        body::before {
-            content: "";
-            position: fixed; 
-            top: 0; left: 0;
-            width: 100vw; height: 100vh; 
-            background-image: url('images/fssc-22022.png'); 
-            background-size: cover; 
-            background-position: center;
-            opacity: 0.2; 
-            z-index: -1; 
-        }
+        body::before {
+            content: "";
+            position: fixed; 
+            top: 0; left: 0;
+            width: 100vw; height: 100vh; 
+            background-image: url('images/fssc-22022.png'); 
+            background-size: cover; 
+            background-position: center;
+            opacity: 0.2; 
+            z-index: -1; 
+        }
 
-        /* --- HEADER --- */
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 60px;
-            background: #FFFFFF; 
-            position: relative;
-            z-index: 100; 
-            border-bottom: 1px solid #eeeeee;
-        }
+        /* --- HEADER --- */
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 30px 60px;
+            background: #FFFFFF; 
+            position: relative;
+            z-index: 100; 
+            border-bottom: 1px solid #eeeeee;
+        }
 
-        .brand-header { 
-            color: var(--gold); 
-            font-size: 1.8rem; 
-            font-weight: 700;
-            line-height: 1.1; 
-        }
+        .brand-header { 
+            color: var(--gold); 
+            font-size: 1.8rem; 
+            font-weight: 700;
+            line-height: 1.1; 
+        }
 
-        .partners-text { 
-            color: var(--gold); 
-            font-size: 0.85rem; 
-            letter-spacing: 4px; 
-            margin-bottom: 15px; 
-            font-weight: 600;
-        }
+        .partners-text { 
+            color: var(--gold); 
+            font-size: 0.85rem; 
+            letter-spacing: 4px; 
+            margin-bottom: 15px; 
+            font-weight: 600;
+        }
 
-        .cert-icons img { 
-            height: 40px;
-            mix-blend-mode: multiply; 
-        }
+        .cert-icons img { 
+            height: 40px;
+            mix-blend-mode: multiply; 
+        }
 
-        .nav-menu { 
-            display: flex; 
-            list-style: none; 
-            gap: 50px; 
-        }
+        .nav-menu { 
+            display: flex; 
+            list-style: none; 
+            gap: 50px; 
+        }
 
-        .nav-menu li a {
-            text-decoration: none; 
-            color: var(--text-dark); 
-            font-size: 0.85rem; 
-            font-weight: 600; 
-            letter-spacing: 1px; 
-            text-transform: uppercase;
-            transition: color 0.3s;
-        }
+        .nav-menu li a {
+            text-decoration: none; 
+            color: var(--text-dark); 
+            font-size: 0.85rem; 
+            font-weight: 600; 
+            letter-spacing: 1px; 
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
 
-        .nav-menu li a:hover, 
-        .nav-menu li a.nav-active { 
-            color: var(--accent-green); 
-        }
+        .nav-menu li a:hover, 
+        .nav-menu li a.nav-active { 
+            color: var(--accent-green); 
+        }
 
-        /* --- MAIN CONTENT --- */
-        .container {
-            max-width: 1400px; 
-            margin: 0 auto;
-            padding: 40px 4% 80px;
-        }
+        /* --- MAIN CONTENT --- */
+        .container {
+            max-width: 1400px; 
+            margin: 0 auto;
+            padding: 40px 4% 80px;
+        }
 
-        .section-title {
-            text-align: center;
-            font-size: 3.8rem; 
-            color: var(--primary-green); 
-            margin-bottom: 60px;
-            font-weight: 900;
-            text-transform: uppercase;
-            letter-spacing: -2px;
-        }
+        .section-title {
+            text-align: center;
+            font-size: 3.8rem; 
+            color: var(--primary-green); 
+            margin-bottom: 60px;
+            font-weight: 900;
+            text-transform: uppercase;
+            letter-spacing: -2px;
+        }
 
-        .overview-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr 1.1fr 1.3fr;
-            gap: 30px;
-            align-items: start;
-        }
+        .overview-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1.1fr 1.3fr;
+            gap: 30px;
+            align-items: start;
+        }
 
-        /* --- คอลัมน์ 1: Features --- */
-        .col-features {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+        /* --- คอลัมน์ 1: Features --- */
+        .col-features {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
 
-        .eli-logo-big {
-            width: 100%;
-            max-width: 500px;
-            margin-top: -100px;
-            margin-bottom: 20px;
-            mix-blend-mode: multiply;
-        }
+        .eli-logo-big {
+            width: 100%;
+            max-width: 500px;
+            margin-top: -100px;
+            margin-bottom: 20px;
+            mix-blend-mode: multiply;
+        }
 
-        /* ปรับสีให้เข้มและหนาพิเศษเหมือนหน้า Index */
-        .col-features h3 {
-            font-size: 1.8rem; 
-            margin-bottom: 25px;
-            color: var(--primary-green); /* ใช้สีเขียวเข้ม #1F3F23 */
-            font-weight: 900; /* หนาที่สุด */
-            text-transform: uppercase;
-            letter-spacing: -1px;
-        }
+        /* ปรับสี 100% ให้เหมือนหน้า Index */
+        .col-features h3 {
+            font-size: 1.8rem; 
+            margin-bottom: 25px;
+            color: var(--primary-green); /* สีเขียวเข้มแบบ Index */
+            font-weight: 900; 
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
 
-        .feature-list {
-            list-style: none;
-            width: 100%;
-            padding-left: 10px;
-        }
+        .feature-list {
+            list-style: none;
+            width: 100%;
+            padding-left: 10px;
+        }
 
-        .feature-list li {
-            margin-bottom: 15px;
-            display: flex;
-            align-items: center;
-            font-size: 1.05rem; 
-            color: var(--text-dark);
-            font-weight: 500;
-        }
+        .feature-list li {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            font-size: 1.05rem; 
+            color: var(--text-dark);
+            font-weight: 500;
+        }
 
-        .feature-list li i {
-            color: var(--accent-green); 
-            margin-right: 12px;
-            font-size: 1.25rem;
-        }
+        .feature-list li i {
+            color: var(--accent-green); 
+            margin-right: 12px;
+            font-size: 1.25rem;
+        }
 
-        /* --- คอลัมน์ 2: ขยับขวดไปทางขวา (เข้าหาพื้นที่ว่าง) --- */
-        .col-product {
-            display: flex;
-            justify-content: flex-start;
-        }
+        /* --- คอลัมน์ 2: ขยับขวดไปทางขวาให้อยู่กึ่งกลางพื้นที่ --- */
+        .col-product {
+            display: flex;
+            justify-content: flex-start;
+        }
 
-        .product-img {
-            width: 150%; 
-            max-width: 600px;
-            object-fit: contain;
-            mix-blend-mode: multiply;
-            /* เปลี่ยนเป็นค่าบวก (Positive) เพื่อขยับไปทางขวา */
-            transform: translateX(15%); 
-        }
+        .product-img {
+            width: 150%; 
+            max-width: 600px;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            /* ปรับค่าให้ขยับไปทางขวา (Positive value) เพื่อเข้าหาพื้นที่ว่างกลางจอ */
+            transform: translateX(-15%); 
+        }
 
-        /* --- คอลัมน์ 3: Info Box --- */
-        .info-card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.05); 
-            border: 1px solid #EBEBEB;
-        }
+        /* --- คอลัมน์ 3: Info Box --- */
+        .info-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.05); 
+            border: 1px solid #EBEBEB;
+        }
 
-        .top-box { padding: 30px 25px; }
-        .top-box ul { padding-left: 18px; color: var(--text-dark); font-weight: 500; }
-        .top-box ul li { margin-bottom: 8px; }
+        .top-box { padding: 30px 25px; }
+        .top-box ul { padding-left: 18px; color: var(--text-dark); font-weight: 500; }
+        .top-box ul li { margin-bottom: 8px; }
 
-        .info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
-        .small-box { padding: 20px 15px; text-align: center; }
-        .small-box h4 { font-size: 0.95rem; margin-bottom: 8px; color: var(--primary-green); font-weight: 800; text-transform: uppercase;}
-        .small-box p { font-size: 1.1rem; color: var(--text-dark); font-weight: 700; }
+        .info-row { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-top: 15px; }
+        .small-box { padding: 20px 15px; text-align: center; }
+        .small-box h4 { font-size: 0.95rem; margin-bottom: 8px; color: var(--primary-green); font-weight: 800; text-transform: uppercase;}
+        .small-box p { font-size: 1.1rem; color: var(--text-dark); font-weight: 700; }
 
-        /* --- คอลัมน์ 4: Quality & Video --- */
-        .quality-title {
-            font-size: 1.1rem; 
-            font-weight: 800;
-            margin-bottom: 15px;
-            color: var(--primary-green);
-            text-transform: uppercase;
-        }
+        /* --- คอลัมน์ 4: Quality & Video --- */
+        .quality-title {
+            font-size: 1.1rem; 
+            font-weight: 800;
+            margin-bottom: 15px;
+            color: var(--primary-green);
+            text-transform: uppercase;
+        }
 
-        .quality-images { display: flex; gap: 10px; margin-bottom: 15px; }
-        .quality-images img { width: 50%; border-radius: 8px; aspect-ratio: 4/3; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+        .quality-images { display: flex; gap: 10px; margin-bottom: 15px; }
+        .quality-images img { width: 50%; border-radius: 8px; aspect-ratio: 4/3; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
 
-        .quality-desc { font-size: 0.95rem; margin-bottom: 15px; color: var(--text-gray); font-weight: 500; }
+        .quality-desc { font-size: 0.95rem; margin-bottom: 15px; color: var(--text-gray); font-weight: 500; }
 
-        .local-video {
-            width: 100%;
-            aspect-ratio: 16/9;
-            border-radius: 12px;
-            object-fit: cover;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-            background-color: #000; 
-        }
+        .local-video {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border-radius: 12px;
+            object-fit: cover;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            background-color: #000; 
+        }
 
-        /* --- Responsive --- */
-        @media (max-width: 1024px) {
-            .overview-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-            .col-product { grid-column: 1 / -1; justify-content: center; order: -1; }
-            .product-img { max-width: 300px; width: 100%; transform: translateX(0); }
-        }
-        
-        @media (max-width: 768px) {
-            .overview-grid { grid-template-columns: 1fr; }
-            .section-title { font-size: 2.8rem; }
-            .eli-logo-big { margin-top: 0; }
-        }
-    </style>
+        /* --- Responsive --- */
+        @media (max-width: 1024px) {
+            .overview-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+            .col-product { grid-column: 1 / -1; justify-content: center; order: -1; }
+            .product-img { max-width: 300px; width: 100%; transform: translateX(0); }
+        }
+        
+        @media (max-width: 768px) {
+            .overview-grid { grid-template-columns: 1fr; }
+            .section-title { font-size: 2.8rem; }
+            .eli-logo-big { margin-top: 0; }
+        }
+    </style>
 </head>
 <body>
 
-    <header class="header-container">
-        <div class="brand">
-            <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
-            <p class="partners-text">PARTNERS IN PURITY.</p>
-            <div class="cert-icons">
-                <img src="images/fssc-22000.png" alt="FSSC 22000">
-                <img src="images/fssc-22001.png" alt="Halal">
-                <img src="images/fssc-22002.png" alt="USDA Organic">
-                <img src="images/fssc-22003.png" alt="Kosher">
-                <img src="images/fssc-22004.png" alt="Superior Taste Award">
-            </div>
-        </div>
+    <header class="header-container">
+        <div class="brand">
+            <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
+            <p class="partners-text">PARTNERS IN PURITY.</p>
+            <div class="cert-icons">
+                <img src="images/fssc-22000.png" alt="FSSC 22000">
+                <img src="images/fssc-22001.png" alt="Halal">
+                <img src="images/fssc-22002.png" alt="USDA Organic">
+                <img src="images/fssc-22003.png" alt="Kosher">
+                <img src="images/fssc-22004.png" alt="Superior Taste Award">
+            </div>
+        </div>
 
-        <nav class="nav-section">
-            <ul class="nav-menu">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="overview.html" class="nav-active">OVERVIEW</a></li>
-                <li><a href="production.html">PRODUCTION</a></li>
-                <li><a href="certification.html">CERTIFICATION</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
+        <nav class="nav-section">
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="overview.html" class="nav-active">OVERVIEW</a></li>
+                <li><a href="production.html">PRODUCTION</a></li>
+                <li><a href="certification.html">CERTIFICATION</a></li>
+                <li><a href="contact.html">CONTACT</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <div class="container">
-        <h2 class="section-title">PRODUCT OVERVIEW</h2>
+    <div class="container">
+        <h2 class="section-title">PRODUCT OVERVIEW</h2>
 
-        <div class="overview-grid">
-            
-            <div class="col-features">
-                <img src="images/fssc-22024.png" alt="Eli Logo" class="eli-logo-big">
-                <h3>100% NATURAL</h3>
-                <ul class="feature-list">
-                    <li><i class="fa-regular fa-circle-check"></i> 100% Natural Coconut Water</li>
-                    <li><i class="fa-regular fa-circle-check"></i> No Sugar Added</li>
-                    <li><i class="fa-regular fa-circle-check"></i> No Artificial Flavor</li>
-                    <li><i class="fa-regular fa-circle-check"></i> No Coloring</li>
-                    <li><i class="fa-regular fa-circle-check"></i> No Preservatives</li>
-                </ul>
-            </div>
+        <div class="overview-grid">
+            
+            <div class="col-features">
+                <img src="images/fssc-22024.png" alt="Eli Logo" class="eli-logo-big">
+                <h3>100% NATURAL</h3>
+                <ul class="feature-list">
+                    <li><i class="fa-regular fa-circle-check"></i> 100% Natural Coconut Water</li>
+                    <li><i class="fa-regular fa-circle-check"></i> No Sugar Added</li>
+                    <li><i class="fa-regular fa-circle-check"></i> No Artificial Flavor</li>
+                    <li><i class="fa-regular fa-circle-check"></i> No Coloring</li>
+                    <li><i class="fa-regular fa-circle-check"></i> No Preservatives</li>
+                </ul>
+            </div>
 
-            <div class="col-product">
-                <img src="images/fssc-22019.png" alt="Eli Coconut Water" class="product-img">
-            </div>
+            <div class="col-product">
+                <img src="images/fssc-22019.png" alt="Eli Coconut Water" class="product-img">
+            </div>
 
-            <div class="col-info">
-                <div class="info-card top-box">
-                    <ul style="list-style: disc;">
-                        <li>Fresh, authentic taste just like drinking straight from the coconut</li>
-                        <li>Consistent flavor quality</li>
-                        <li>Made from carefully selected coconut</li>
-                    </ul>
-                </div>
-                
-                <div class="info-row">
-                    <div class="info-card small-box">
-                        <h4>Current Packaging</h4>
-                        <p>330 ml</p>
-                    </div>
-                    <div class="info-card small-box">
-                        <h4>Shelf Life</h4>
-                        <p>@ ROOM TEMP</p>
-                    </div>
-                </div>
-            </div>
+            <div class="col-info">
+                <div class="info-card top-box">
+                    <ul style="list-style: disc;">
+                        <li>Fresh, authentic taste just like drinking straight from the coconut</li>
+                        <li>Consistent flavor quality</li>
+                        <li>Made from carefully selected coconut</li>
+                    </ul>
+                </div>
+                
+                <div class="info-row">
+                    <div class="info-card small-box">
+                        <h4>Current Packaging</h4>
+                        <p>330 ml</p>
+                    </div>
+                    <div class="info-card small-box">
+                        <h4>Shelf Life</h4>
+                        <p>@ ROOM TEMP</p>
+                    </div>
+                </div>
+            </div>
 
-            <div class="col-quality">
-                <h4 class="quality-title">QUALITY PRODUCTION</h4>
-                <div class="quality-images">
-                    <img src="images/fssc-22020.png" alt="Production 1">
-                    <img src="images/fssc-22021.png" alt="Production 2">
-                </div>
-                <p class="quality-desc">
-                    Carefully selected coconuts to a fresh, authentic taste with consistent flavor quality.
-                </p>
-                
-                <video class="local-video" controls muted>
-                    <source src="images/1.mp4" type="video/mp4">
-                    เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
-                </video>
-            </div>
+            <div class="col-quality">
+                <h4 class="quality-title">QUALITY PRODUCTION</h4>
+                <div class="quality-images">
+                    <img src="images/fssc-22020.png" alt="Production 1">
+                    <img src="images/fssc-22021.png" alt="Production 2">
+                </div>
+                <p class="quality-desc">
+                    Carefully selected coconuts to a fresh, authentic taste with consistent flavor quality.
+                </p>
+                
+                <video class="local-video" controls muted>
+                    <source src="images/1.mp4" type="video/mp4">
+                    เบราว์เซอร์ของคุณไม่รองรับการเล่นวิดีโอ
+                </video>
+            </div>
 
-        </div>
-    </div>
+        </div>
+    </div>
 
 </body>
 </html>
