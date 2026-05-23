@@ -31,19 +31,21 @@
             position: relative; 
         }
 
+        /* --- ล็อกภาพพื้นหลังให้อยู่กับที่ (Fixed Background) --- */
         body::before {
             content: "";
             position: fixed; 
-            top: 115px; 
+            top: 0; 
             left: 0;
-            width: 100%;
-            height: calc(100% - 115px); 
+            width: 100vw; /* กว้างเต็มหน้าจอเสมอ */
+            height: 100vh; /* สูงเต็มหน้าจอเสมอ */
             background-image: url('images/fssc-22022.png'); 
             background-size: cover; 
             background-position: center;
             background-repeat: no-repeat;
             opacity: 0.3; 
             z-index: -1; 
+            pointer-events: none; /* ป้องกันการคลิกโดนภาพพื้นหลัง */
         }
 
         /* --- HEADER --- */
@@ -80,14 +82,12 @@
             align-items: center; 
         }
 
-        /* --- แก้ไขคราบจางๆ และบั๊ก iPad --- */
+        /* --- แก้ไขคราบจางๆ โลโก้ และรูปอื่นๆ --- */
         .cert-icons img,
         .eli-logo-big,
-        .product-img,
         .quality-images img,
         .img-bg-fix { 
             mix-blend-mode: multiply; 
-            /* ดันแสงและความสว่างเพื่อลบคราบขอบเทา/เหลืองจางๆ */
             filter: brightness(1.05) contrast(1.15); 
             -webkit-transform: translateZ(0);
             transform: translateZ(0);
@@ -194,9 +194,14 @@
             justify-content: center;
         }
 
+        /* --- รูปกล่องสินค้า: แยกออกมาเพื่อเร่งแสงให้แรงกว่าปกติ --- */
         .product-img {
             width: 100%;
-            max-width: 240px; 
+            max-width: 350px; 
+            mix-blend-mode: multiply;
+            filter: brightness(1.15) contrast(1.25); 
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
         }
 
         .info-card {
@@ -285,7 +290,6 @@
         @media (max-width: 768px) {
             .overview-grid { grid-template-columns: 1fr; }
             .header-container { flex-direction: column; align-items: center; text-align: center; gap: 20px; padding: 20px; height: auto; } 
-            body::before { top: 0; height: 100%; } 
             .nav-menu { flex-wrap: wrap; justify-content: center; gap: 15px; }
             .section-title { font-size: 2.8rem; }
             .eli-logo-big { margin-top: 0; } 
