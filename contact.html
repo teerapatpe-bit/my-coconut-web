@@ -41,7 +41,7 @@
             text-decoration: none !important;
         }
 
-        /* --- HEADER (ปรับให้เหมือน Index) --- */
+        /* --- HEADER (เก็บ CSS ไว้เพื่อรองรับโค้ดที่ดึงมาจาก header.html) --- */
         .header-container {
             display: flex;
             justify-content: space-between;
@@ -188,7 +188,7 @@
         }
 
         @media (max-width: 600px) {
-            .header-container { padding: 15px 20px; flex-direction: column; }
+            .header-container { padding: 15px 20px; flex-direction: column; text-align: center; }
             .nav-menu { gap: 15px; margin-top: 15px; flex-wrap: wrap; justify-content: center; }
             .contact-left h2 { font-size: 3.2rem; }
         }
@@ -196,28 +196,7 @@
 </head>
 <body>
 
-    <header class="header-container">
-        <div class="brand">
-            <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
-            <p class="partners-text">PARTNERS IN PURITY.</p>
-            <div class="cert-icons">
-                <img src="images/fssc-22000.png" alt="FSSC 22000">
-                <img src="images/fssc-22027.png" alt="USDA Organic">
-                <img src="images/fssc-22026.png" alt="Kosher">
-                <img src="images/fssc-22028.png" alt="Superior Taste Award">
-            </div>
-        </div>
-
-        <nav class="nav-section">
-            <ul class="nav-menu">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="overview.html">OVERVIEW</a></li>
-                <li><a href="production.html">PRODUCTION</a></li>
-                <li><a href="certification.html">CERTIFICATION</a></li>
-                <li><a href="contact.html" class="nav-active">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header id="header-placeholder" class="header-container"></header>
 
     <div class="container">
         
@@ -279,5 +258,17 @@
 
     </div>
 
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                
+                // รันสคริปต์ที่ติดมากับ header.html อีกครั้งเพื่อให้เมนูไฮไลท์สีถูกหน้า
+                const script = document.createElement('script');
+                script.innerHTML = document.querySelector('#header-placeholder script').innerHTML;
+                document.body.appendChild(script);
+            });
+    </script>
 </body>
 </html>
