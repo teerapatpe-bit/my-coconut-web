@@ -21,31 +21,20 @@
 
         html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
-        body { background-color: var(--bg-light); overflow-x: hidden; }
-
-        /* --- HEADER --- */
-        .header-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 30px 60px;
-            background: var(--white);
-            position: relative;
-            z-index: 100;
-        }
-
-        .brand-header { color: var(--gold); font-size: 1.8rem; font-weight: 700; line-height: 1.1; }
-        .partners-text { color: var(--gold); font-size: 0.85rem; letter-spacing: 4px; margin-bottom: 15px; }
         
-        .cert-icons { display: flex; gap: 15px; align-items: center; }
-        .cert-icons img { height: 40px; mix-blend-mode: multiply; }
-
-        .nav-menu { display: flex; list-style: none; gap: 50px; }
-        .nav-menu li a {
-            text-decoration: none; color: var(--text-dark); font-size: 0.85rem;
-            font-weight: 600; letter-spacing: 1px; text-transform: uppercase; transition: color 0.3s;
+        /* แก้ไขปัญหาขอบขาวรอบตัวเว็บ */
+        body { 
+            background-color: var(--bg-light); 
+            overflow-x: hidden; 
+            margin: 0; 
+            padding: 0;
         }
-        .nav-menu li a:hover { color: var(--accent-green); }
+
+        /* จองพื้นที่ให้ Header เพื่อไม่ให้หน้ากระตุกเวลาโหลด */
+        #header-placeholder {
+            min-height: 120px; 
+            background: #fff;
+        }
 
         /* --- HERO SECTION --- */
         .hero {
@@ -79,7 +68,6 @@
             margin-bottom: 5px;
         }
 
-        /* หัวข้อหลักเน้นใหญ่ */
         .hero-content h1 { 
             color: var(--primary-green); 
             font-size: 7rem;
@@ -90,14 +78,13 @@
             text-transform: uppercase;
         }
 
-        /* ปรับให้เล็กลงมากตามต้องการ เพื่อให้ COCONUT เด่นขึ้น */
         .product-origin {
             color: var(--primary-green);
             font-size: 1.2rem; 
             font-weight: 500;
             margin-top: 10px; 
             margin-bottom: 45px; 
-            letter-spacing: 5px; /* เพิ่มระยะห่างให้อารมณ์หรูหรา */
+            letter-spacing: 5px; 
             text-transform: uppercase;
             opacity: 0.8;
         }
@@ -146,28 +133,7 @@
 </head>
 <body>
 
-    <header class="header-container">
-        <div class="brand">
-            <h1 class="brand-header">EVER GOOD PARTNERS CO.,LTD.</h1>
-            <p class="partners-text">PARTNERS IN PURITY.</p>
-            <div class="cert-icons">
-                <img src="images/fssc-22000.png" alt="FSSC 22000">
-                <img src="images/fssc-22027.png" alt="USDA Organic">
-                <img src="images/fssc-22026.png" alt="Kosher">
-                <img src="images/fssc-22028.png" alt="Superior Taste Award">
-            </div>
-        </div>
-
-        <nav class="nav-section">
-            <ul class="nav-menu">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="overview.html">OVERVIEW</a></li>
-                <li><a href="production.html">PRODUCTION</a></li>
-                <li><a href="certification.html">CERTIFICATION</a></li>
-                <li><a href="contact.html">CONTACT</a></li>
-            </ul>
-        </nav>
-    </header>
+    <header id="header-placeholder"></header>
 
     <section class="hero">
         <img src="images/fssc-22007.png" alt="Eli Logo" class="hero-top-icon">
@@ -204,6 +170,24 @@
             <div class="f-text"><b>No</b><span>Preservatives</span></div>
         </div>
     </div>
+
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('header-placeholder').innerHTML = data;
+                
+                // รันสคริปต์ที่อยู่ใน header.html เพื่อไฮไลท์เมนู HOME
+                const tempDiv = document.createElement('div');
+                tempDiv.innerHTML = data;
+                const scripts = tempDiv.querySelectorAll('script');
+                scripts.forEach(oldScript => {
+                    const newScript = document.createElement('script');
+                    newScript.innerHTML = oldScript.innerHTML;
+                    document.body.appendChild(newScript);
+                });
+            });
+    </script>
 
 </body>
 </html>
