@@ -10,11 +10,10 @@
      
     <style>
         :root {
-            /* ปรับสีให้ตรงตาม Index */
-            --primary-green: #1F3F23; /* สีเขียวเข้มจากหัวข้อ Index */
+            /* สีเขียวเข้มและสีทองจากหน้า Index */
+            --primary-green: #1F3F23; 
             --accent-green: #59803C; 
-            --gold: #A88F61; /* สีทองเดียวกับโลโก้และ Nav */
-            --box-green: #A3CBB1; 
+            --gold: #A88F61; 
             --text-dark: #222222;
             --text-gray: #555555;
             --bg-light: #fcfdfc; 
@@ -56,7 +55,7 @@
         .brand-header { 
             color: var(--gold); 
             font-size: 1.8rem; 
-            font-weight: 700; /* ตาม Index */
+            font-weight: 700;
             line-height: 1.1; 
         }
 
@@ -105,7 +104,7 @@
             text-align: center;
             font-size: 3.8rem; 
             color: var(--primary-green); 
-            margin-bottom: 60px; /* เพิ่มระยะเหมือน Production */
+            margin-bottom: 60px;
             font-weight: 900;
             text-transform: uppercase;
             letter-spacing: -2px;
@@ -118,7 +117,7 @@
             align-items: start;
         }
 
-        /* --- คอลัมน์ 1: Logo & Features --- */
+        /* --- คอลัมน์ 1: Features --- */
         .col-features {
             display: flex;
             flex-direction: column;
@@ -133,11 +132,12 @@
             mix-blend-mode: multiply;
         }
 
+        /* ปรับสี 100% ให้เหมือนหน้า Index */
         .col-features h3 {
-            font-size: 1.8rem; /* ขยายขนาดหัวข้อตามสไตล์ Index */
+            font-size: 1.8rem; 
             margin-bottom: 25px;
-            color: var(--primary-green);
-            font-weight: 900; /* หนาพิเศษเหมือน Index */
+            color: var(--primary-green); /* สีเขียวเข้มแบบ Index */
+            font-weight: 900; 
             text-transform: uppercase;
             letter-spacing: -1px;
         }
@@ -163,16 +163,20 @@
             font-size: 1.25rem;
         }
 
-/* ค้นหาคลาส .product-img แล้วแก้ตามนี้ */
-.product-img {
-    width: 150%; 
-    max-width: 600px;
-    object-fit: contain;
-    mix-blend-mode: multiply;
+        /* --- คอลัมน์ 2: ขยับขวดไปทางขวาให้อยู่กึ่งกลางพื้นที่ --- */
+        .col-product {
+            display: flex;
+            justify-content: flex-start;
+        }
 
-    /* เพิ่มบรรทัดนี้ */
-    transform: translateX(15%); /* ปรับเลข 15% เพิ่ม-ลด เพื่อให้ตรงกลางตามใจชอบ */
-}
+        .product-img {
+            width: 150%; 
+            max-width: 600px;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            /* ปรับค่าให้ขยับไปทางขวา (Positive value) เพื่อเข้าหาพื้นที่ว่างกลางจอ */
+            transform: translateX(15%); 
+        }
 
         /* --- คอลัมน์ 3: Info Box --- */
         .info-card {
@@ -217,8 +221,8 @@
         /* --- Responsive --- */
         @media (max-width: 1024px) {
             .overview-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-            .col-product { grid-column: 1 / -1; display: flex; justify-content: center; order: -1; }
-            .product-img { max-width: 300px; width: 100%; }
+            .col-product { grid-column: 1 / -1; justify-content: center; order: -1; }
+            .product-img { max-width: 300px; width: 100%; transform: translateX(0); }
         }
         
         @media (max-width: 768px) {
