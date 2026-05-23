@@ -19,10 +19,10 @@
             --divider-color: #eeeeee;
         }
 
+        /* --- Global Reset --- */
         html { scroll-behavior: smooth; }
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Prompt', sans-serif; }
         
-        /* แก้ไขปัญหาขอบขาวรอบตัวเว็บ */
         body { 
             background-color: var(--bg-light); 
             overflow-x: hidden; 
@@ -30,13 +30,14 @@
             padding: 0;
         }
 
-        /* จองพื้นที่ให้ Header เพื่อไม่ให้หน้ากระตุกเวลาโหลด */
+        /* จองพื้นที่ให้ Header (ปรับให้ตรงกับความสูงจริงของ header.html) */
         #header-placeholder {
-            min-height: 120px; 
+            width: 100%;
             background: #fff;
+            min-height: 120px; 
         }
 
-        /* --- HERO SECTION --- */
+        /* --- HERO SECTION (เฉพาะหน้านี้) --- */
         .hero {
             position: relative;
             min-height: 800px;
@@ -105,7 +106,7 @@
         }
         .btn-more:hover { transform: scale(1.05); background: var(--primary-green); }
 
-        /* --- FEATURES BAR --- */
+        /* --- FEATURES BAR (เฉพาะหน้านี้) --- */
         .features-bar {
             background: var(--white);
             margin: -60px 80px 40px;
@@ -177,7 +178,7 @@
             .then(data => {
                 document.getElementById('header-placeholder').innerHTML = data;
                 
-                // รันสคริปต์ที่อยู่ใน header.html เพื่อไฮไลท์เมนู HOME
+                // กระตุ้นให้สคริปต์ใน header.html ทำงาน (เช่น การไฮไลท์เมนู)
                 const tempDiv = document.createElement('div');
                 tempDiv.innerHTML = data;
                 const scripts = tempDiv.querySelectorAll('script');
